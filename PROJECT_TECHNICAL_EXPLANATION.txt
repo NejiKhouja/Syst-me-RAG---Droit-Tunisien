@@ -1,0 +1,1365 @@
+================================================================================
+       RAG_PDF — COMPLETE TECHNICAL EXPLANATION
+       Multilingual Legal RAG System for Tunisian Law
+================================================================================
+
+Author of this document: Claude Sonnet 4.6 (AI analysis)
+Project by: Neji Khouja
+Date of analysis: 2026-05-21
+
+================================================================================
+TABLE OF CONTENTS
+================================================================================
+
+  1. WHAT THIS PROJECT IS
+  2. HIGH-LEVEL ARCHITECTURE OVERVIEW
+  3. DATA & CORPUS
+  4. PIPELINE — STEP BY STEP (ALL 5 STEPS)
+     Step 0 — Ingestion & Indexing (offline, one-time)
+     Step 1 — Query Rewriting
+     Step 2 — Sub-Query Generation
+     Step 3 — Hybrid Retrieval
+     Step 4 — Cross-Encoder Reranking
+     Step 5 — Answer Generation
+  5. ALL TECHNIQUES EXPLAINED IN DETAIL
+     5.1  Retrieval-Augmented Generation (RAG)
+     5.2  PDF Ingestion with PyMuPDF
+     5.3  Article-Level Chunking
+     5.4  Text Preprocessing (Header/Whitespace Cleaning)
+     5.5  Sentence Embeddings (Dense Vectors)
+     5.6  Domain-Specific French Legal Embeddings (Solon)
+     5.7  Vector Store & HNSW Indexing (ChromaDB)
+     5.8  BM25 Keyword Retrieval (Sparse Retrieval)
+     5.9  Semantic (Dense) Retrieval
+     5.10 Hybrid Retrieval (Dense + Sparse Fusion)
+     5.11 Multilingual Fallback Search
+     5.12 Query Synonym Expansion
+     5.13 LLM-Based Query Rewriting
+     5.14 Sub-Query Generation (Query Decomposition)
+     5.15 Cross-Encoder Reranking
+     5.16 Deduplication by (source, article)
+     5.17 In-Process LLM Caching
+     5.18 Structured Grounded Answer Generation
+     5.19 Direct Article Lookup (Fast Path)
+     5.20 Multilingual Detection & Language Routing
+  6. ALL MODELS USED
+     6.1  OrdalieTech/Solon-embeddings-large-0.1
+     6.2  Llama 3.3 70B Versatile (via Groq)
+     6.3  cross-encoder/mmarco-mMiniLM-L12-H384-v1
+  7. ALL LIBRARIES & TECHNOLOGIES
+  8. CONFIGURATION PARAMETERS & WHY THEY MATTER
+  9. EVALUATION METHODOLOGY
+ 10. EVOLUTION: v1 → v2 → v3 (What Changed & Why)
+ 11. KEY ARCHITECTURAL DECISIONS
+ 12. DATA FLOW DIAGRAM (ASCII)
+
+================================================================================
+1. WHAT THIS PROJECT IS
+================================================================================
+
+This project is a Retrieval-Augmented Generation (RAG) system designed to answer
+legal questions about Tunisian law in Arabic, French, or English.
+
+The system ingests 14+ Tunisian legal code PDFs (over ~1400 pages), breaks them
+into individual articles, stores them in a vector database, and — at query time —
+retrieves the most relevant articles and uses an LLM to compose a grounded,
+structured answer.
+
+The central design goals are:
+  - Multilingual: accepts Arabic, French, and English questions
+  - Grounded: answers cite specific articles, never hallucinate
+  - Precise: retrieves the correct article even from a large corpus
+  - Fast: Groq's fast inference API keeps latency low
+  - Zero infrastructure: all components run locally or via free-tier cloud APIs
+
+================================================================================
+2. HIGH-LEVEL ARCHITECTURE OVERVIEW
+================================================================================
+
+The system consists of two phases:
+
+  PHASE 1 — OFFLINE INDEXING (run once)
+  ─────────────────────────────────────
+  PDF files ──► PyMuPDF loader ──► Preprocessing ──► Article splitter
+       ──► Solon embeddings ──► ChromaDB (HNSW) on disk
+
+  PHASE 2 — ONLINE QUERY (every user question)
+  ─────────────────────────────────────────────
+  User Question
+       │
+       ▼
+  [Step 1] LLM Query Rewriting (Llama 3.3 70B) → French legal query
+       │
+       ▼
+  [Step 2] Sub-Query Generation (Llama 3.3 70B) → 2 focused sub-queries
+       │
+       ▼
+  [Step 3] Hybrid Retrieval
+             ├─ Semantic search (ChromaDB / Solon) — top 20 per query
+             ├─ BM25 keyword search (rank_bm25) — top 15
+             └─ Multilingual fallback — top 10 (original language)
+       │
+       ▼
+  [Step 4] Cross-Encoder Reranking (mMiniLM) → top 6
+       │
+       ▼
+  [Step 5] Grounded Generation (Llama 3.3 70B) → structured answer
+       │
+       ▼
+  Final Answer (in user's original language)
+
+================================================================================
+3. DATA & CORPUS
+================================================================================
+
+The corpus is composed of 14 Tunisian legal codes in French (some bilingual),
+stored as PDF files in the /data/ folder:
+
+  FILE                  LAW TYPE                CONTENT
+  ─────────────────────────────────────────────────────────────────────
+  ArbitrageFr.pdf       arbitrage               Arbitration law
+  COC.pdf               obligations_contrats    Code of Obligations & Contracts
+  CommerceFr.pdf        commerce                Commercial code
+  DIPFR.pdf             droit_international_prive  International private law
+  dtreelFr.pdf          droits_reels            Real property rights
+  EnfantFr.pdf          protection_enfant       Child protection code
+  NationaliteFr.pdf     nationalite             Nationality law
+  PenalFr.pdf           penal                   Penal code
+  Procedurecivilecom.pdf procedure_civile       Civil procedure
+  ProcedurepenaleFr.pdf  procedure_penale       Criminal procedure
+  societeFr.pdf         societes                Company/corporate law
+  Statutpersonnel.pdf   statut_personnel        Personal status law (family law)
+  travailFr.pdf         travail                 Labor code
+  tun_RecAcFreeLi.pdf   constitution            Constitution + human rights
+
+Total: ~1400 pages, all primarily in French.
+
+Each PDF is tagged with a "law_type" metadata field so retrieval can be filtered
+to only relevant legal domains when the user specifies one.
+
+================================================================================
+4. PIPELINE — STEP BY STEP
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+STEP 0 — INGESTION & INDEXING (Offline, runs once via "Rebuild Database" button)
+────────────────────────────────────────────────────────────────────────────────
+
+This step builds the vector database. It only needs to run once (or after any
+change to the source PDFs or chunking logic).
+
+SUB-STEP 0a: PDF Loading (loaders.py)
+  - Library: PyMuPDF (fitz), via LangChain's PyMuPDFLoader
+  - For each PDF file in /data/:
+      * PyMuPDF opens the PDF at binary level, reads each page as text
+      * IMPORTANT FIX in v3: All pages of a single PDF are concatenated into
+        ONE string before splitting. This is critical because articles that
+        span two pages would be truncated into two incomplete fragments if
+        split page by page. Concatenation preserves cross-page articles intact.
+  - Output: One large text string per PDF file
+
+SUB-STEP 0b: Text Preprocessing (preprocessing.py)
+  - Removes headers (repeated page headers like "Journal Officiel", page numbers,
+    boilerplate lines that appear at the top/bottom of every page)
+  - Normalizes whitespace (collapses multiple blank lines, trims leading/trailing)
+  - These are noise sources that would pollute embeddings and BM25 indexing
+  - Output: Clean text strings, one per PDF
+
+SUB-STEP 0c: Article-Level Splitting (splitter.py)
+  - Strategy: Split on legal article boundaries, not on fixed character count
+  - Detection: Regex pattern matching for "Article X" / "Art. X" / "المادة X"
+    markers (French and Arabic article headers)
+  - Each "chunk" = one complete legal article (e.g., "Article 258 — Quiconque...")
+  - Why articles, not fixed-size chunks?
+      * Legal meaning is article-scoped — an article is the atomic unit of law
+      * Fixed-size chunking would cut articles mid-sentence or merge two articles
+      * Article-level chunks align perfectly with how lawyers cite law
+  - Each chunk is stored with metadata:
+      * source: PDF filename (e.g., "PenalFr")
+      * law_type: mapped law category (e.g., "penal")
+      * article: article number as a string (e.g., "258")
+  - Output: List of LangChain Document objects with text + metadata
+
+SUB-STEP 0d: Embedding & Indexing (retriever.py, config.py)
+  - Each Document's text is passed through the Solon embedding model
+    (see Section 5.5 and 6.1 for details)
+  - The resulting dense vector is stored in ChromaDB alongside metadata
+  - ChromaDB builds an HNSW index (see Section 5.7) for fast nearest-neighbor
+    lookup at query time
+  - Persistence: stored to disk at /db/ — survives restarts without re-indexing
+
+────────────────────────────────────────────────────────────────────────────────
+STEP 1 — QUERY REWRITING (translate.py → rewrite_query)
+────────────────────────────────────────────────────────────────────────────────
+
+WHAT IT DOES:
+  Takes the raw user question (in any language) and produces an optimized French
+  legal search query.
+
+WHY IT IS NEEDED:
+  - Users often phrase questions in conversational language ("What happens if
+    someone steals?") not legal language ("sanction vol simple article 258")
+  - The embedding model is trained on legal French text, so legal terminology
+    yields far better similarity matches than everyday phrasing
+  - Arabic and English questions cannot be compared semantically against French
+    legal text without first bridging the language gap
+  - A single rewrite handles both language translation AND terminology enrichment
+
+HOW IT WORKS:
+  - Model: Llama 3.3 70B Versatile via Groq API (temperature=0.0 for determinism)
+  - System prompt: instructs the LLM to act as a French legal expert, translate
+    to French if needed, replace vague terms with precise legal terminology,
+    reference relevant code names when appropriate
+  - Input: raw question string
+  - Output: one optimized French query string
+
+  EXAMPLE:
+    Input:  "ما هي عقوبة السرقة؟"  (Arabic: "What is the punishment for theft?")
+    Output: "Quelles sont les sanctions pénales pour le vol simple selon le Code Pénal tunisien?"
+            ("What are the penal sanctions for simple theft under the Tunisian Penal Code?")
+
+CACHING:
+  - Results are stored in an in-process dictionary (rewrite_cache)
+  - Identical questions reuse the cached rewrite, avoiding a Groq API call
+  - Cache is per-session (not persisted across restarts)
+
+────────────────────────────────────────────────────────────────────────────────
+STEP 2 — SUB-QUERY GENERATION (translate.py → generate_subqueries)
+────────────────────────────────────────────────────────────────────────────────
+
+WHAT IT DOES:
+  Generates 2 focused sub-questions from the rewritten query, each targeting
+  a different angle of the legal question.
+
+WHY IT IS NEEDED:
+  A single query vector cannot always capture all semantically relevant articles.
+  For example, "penalty for theft" might match Article 258 well, but miss
+  Article 260 about "aggravated theft" if its wording is slightly different.
+  Two diverse sub-queries cast a wider semantic net.
+
+  Specifically addresses: questions where multiple articles from different
+  sections apply (e.g., a question on dismissal touches both Article X on
+  grounds for dismissal and Article Y on compensation).
+
+HOW IT WORKS:
+  - Triggered only for "complex" queries: defined as queries with ≥4 words
+    AND that do NOT contain an article number (simple article lookups don't
+    need sub-queries)
+  - Model: Llama 3.3 70B Versatile via Groq API (temperature=0.3 — slightly
+    random to encourage diversity between sub-queries)
+  - Prompt: instructs the LLM to generate exactly 2 sub-questions, each
+    targeting a distinct aspect (e.g., definition vs. penalty, conditions vs.
+    procedure)
+  - Output: a list of 2 French sub-query strings
+
+  EXAMPLE:
+    Primary query: "Quelles sont les sanctions pénales pour le vol simple?"
+    Sub-query 1:   "Quelles sont les peines prévues pour le vol par le Code Pénal?"
+    Sub-query 2:   "Comment le vol est-il défini dans la législation tunisienne?"
+
+CACHING:
+  - Same in-process cache mechanism as query rewriting
+  - Cached by the rewritten query string (not the original question)
+
+────────────────────────────────────────────────────────────────────────────────
+STEP 3 — HYBRID RETRIEVAL (retriever.py → hybrid_retrieve)
+────────────────────────────────────────────────────────────────────────────────
+
+WHAT IT DOES:
+  Searches the vector database using multiple complementary retrieval methods
+  and merges their results into a single deduplicated candidate pool.
+
+Input to this step:
+  - The rewritten primary query (French)
+  - The 2 sub-queries (French)
+  - The original user question (may be Arabic or English)
+  - Optional: law_type filter (e.g., "penal") to restrict search scope
+
+Three retrieval modes are combined:
+
+  ── 3A. SEMANTIC SEARCH (Dense Retrieval) ──────────────────────────────────
+
+  WHAT: Finds articles whose meaning is similar to the query, even if no
+        exact words overlap.
+
+  HOW:
+    1. The query is optionally expanded with legal synonyms (see Section 5.12)
+    2. The expanded query is embedded by the Solon model into a dense vector
+    3. ChromaDB computes cosine similarity between query vector and all stored
+       article vectors using its HNSW index
+    4. Top-K results returned (K = MMR_K = 20 per query)
+    5. ChromaDB supports metadata filtering: if a law_type is provided, only
+       articles from that legal code are searched (e.g., only penal code)
+    6. This search is run for EACH of the queries: primary + 2 sub-queries
+       → up to 60 candidates from semantic search alone
+
+  STRENGTH: Captures paraphrases, conceptual similarity, synonyms across
+            different legal phrasings
+  WEAKNESS: May miss exact legal terms (article numbers, code names, proper
+            nouns) if the embedding doesn't align perfectly
+
+  ── 3B. BM25 KEYWORD SEARCH (Sparse Retrieval) ──────────────────────────────
+
+  WHAT: Finds articles that contain the exact words from the query, weighted
+        by rarity (rare words score higher).
+
+  HOW:
+    1. At first use, all article texts in ChromaDB are fetched and wrapped in
+       a BM25Retriever (from LangChain Community, backed by rank_bm25 library)
+    2. The BM25 index tokenizes every article, counting word frequencies
+    3. For the primary rewritten query, BM25 scores every article
+    4. Top-K results returned (K = BM25_K = 15)
+    5. NOTE: BM25 runs only on the primary query (not sub-queries) — this is
+       intentional; sub-queries already cover diverse angles via semantic search
+
+  WHY BM25 IN ADDITION TO SEMANTIC:
+    - Legal text often requires exact matches: "Article 258", "Code de Commerce",
+      specific legal terms that may not embed well
+    - BM25 excels where exact keyword presence matters
+    - Semantic search excels where meaning matters
+    - Together they cover both surfaces
+
+  STRENGTH: Exact term matching, article numbers, proper legal names
+  WEAKNESS: No semantic understanding; "theft" and "vol" score zero for each other
+
+  ── 3C. MULTILINGUAL FALLBACK SEARCH ─────────────────────────────────────────
+
+  WHAT: Runs semantic search with the ORIGINAL (untranslated) user question
+        as an additional query.
+
+  HOW:
+    1. If the original question is Arabic or English, it is embedded as-is
+    2. A semantic search is run on this embedding (top 10)
+    3. These results are added to the candidate pool
+
+  WHY:
+    Some Tunisian legal documents contain Arabic text (bilingual documents like
+    the Constitution). The French-rewritten query's embedding may not cover
+    Arabic passages well. The original Arabic question embedded directly gives
+    a better match to Arabic document sections.
+
+    This is the "multilingual fallback" — it acts as a safety net so that
+    passages in the original language of the question are not missed.
+
+  ── 3D. MERGE & DEDUPLICATE ──────────────────────────────────────────────────
+
+  After all retrieval modes complete:
+    - All candidate Documents are combined into one list
+    - Duplicates are removed by (source, article) tuple
+      e.g., if semantic AND BM25 both return "PenalFr / Article 258",
+      only one copy is kept
+    - Typical merged pool size: 60–80 unique candidate articles
+
+────────────────────────────────────────────────────────────────────────────────
+STEP 4 — CROSS-ENCODER RERANKING (reranker.py → rerank)
+────────────────────────────────────────────────────────────────────────────────
+
+WHAT IT DOES:
+  Re-scores every candidate from Step 3 using a more powerful but slower model,
+  and returns only the top-6 most relevant articles.
+
+WHY IT IS NEEDED:
+  - Retrieval models (embedding cosine similarity, BM25) optimize for speed
+    and scale. They must rank thousands of documents, so they use lightweight
+    bi-encoder comparisons (query embedded separately from document).
+  - A bi-encoder can't see the query and document together, so it misses
+    subtle interaction effects.
+  - A cross-encoder DOES see both texts together — it can model how a specific
+    word in the query matches a specific phrase in the document.
+  - Reranking is a classic "retrieval → reranking" two-stage architecture:
+    retrieve many candidates cheaply, then precisely score the shortlist.
+
+HOW IT WORKS:
+  - Model: cross-encoder/mmarco-mMiniLM-L12-H384-v1
+    (multilingual MiniLM trained on the MS Marco dataset)
+  - Input: the rewritten French query + each candidate document text
+  - The cross-encoder reads (query, document) as a single concatenated input
+    and outputs a relevance score (real number, higher = more relevant)
+  - The 60–80 candidates are all scored, then sorted by score
+  - The top RERANK_TOP_K=6 are returned
+
+  LAZY LOADING:
+    The cross-encoder model (~400 MB) is loaded from HuggingFace on the FIRST
+    call and then cached in memory for the remainder of the session. This avoids
+    paying the load cost on startup.
+
+  LANGUAGE ALIGNMENT:
+    The reranker compares the French-rewritten query against French document text.
+    Because both query and document are in French (the retrieval lingua franca),
+    the cross-encoder scores are highly accurate.
+
+  OUTPUT: A list of 6 LangChain Documents, ordered from most to least relevant.
+
+────────────────────────────────────────────────────────────────────────────────
+STEP 5 — ANSWER GENERATION (pipeline.py → step_generate)
+────────────────────────────────────────────────────────────────────────────────
+
+WHAT IT DOES:
+  Given the original user question and the top-6 ranked articles, the LLM
+  generates a structured, grounded answer in the user's original language.
+
+HOW IT WORKS:
+  - Model: Llama 3.3 70B Versatile via Groq API (temperature=0.1 — very low
+    for accuracy, slight randomness to avoid robotic phrasing)
+  - Context: the 6 article texts are concatenated and provided as context
+  - System prompt enforces STRICT GROUNDING RULES:
+      * Answer ONLY from the provided article texts
+      * NEVER add external knowledge or fill gaps with general law knowledge
+      * If the context does not answer the question, say so explicitly
+      * Respond in the SAME LANGUAGE as the original user question
+  - Output format (structured):
+      1. Direct Answer — a one-paragraph direct response
+      2. Relevant Articles — list of cited article numbers and codes
+      3. Sources — list of source PDF files
+      4. Explanation — detailed explanation with legal nuance
+
+  WHY LOW TEMPERATURE (0.1)?
+    Generation is a factual task, not a creative one. Low temperature makes
+    the model stick closely to the context text rather than "inventing" connections.
+
+  WHY RESPOND IN ORIGINAL LANGUAGE?
+    The user wrote in Arabic, French, or English. Responding in that same language
+    avoids forcing the user to read French if they're more comfortable in Arabic.
+    Query rewriting is INTERNAL — the user never sees the French rewritten query.
+
+────────────────────────────────────────────────────────────────────────────────
+SPECIAL PATH — DIRECT ARTICLE LOOKUP (Optimization)
+────────────────────────────────────────────────────────────────────────────────
+
+If the user's question contains an explicit article number (e.g., "What does
+Article 258 say?"), the pipeline short-circuits:
+  - Step 1 and 2 are skipped (no need for rewriting or sub-queries)
+  - ChromaDB is queried directly with a metadata filter: article == "258"
+  - The exact article is returned immediately
+  - Answer generation proceeds normally
+
+This optimization avoids unnecessary LLM API calls and retrieval complexity
+when the user already knows the article they want.
+
+================================================================================
+5. ALL TECHNIQUES EXPLAINED IN DETAIL
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+5.1 RETRIEVAL-AUGMENTED GENERATION (RAG)
+────────────────────────────────────────────────────────────────────────────────
+
+DEFINITION:
+  RAG is an AI architecture pattern that combines a retrieval system with a
+  generative language model. Instead of asking the LLM to answer entirely from
+  its parametric memory (which can hallucinate or be outdated), RAG first
+  retrieves relevant documents from an external knowledge base, then passes
+  those documents as context to the LLM.
+
+HOW IT WORKS (General):
+  1. Index: Encode all documents as vectors, store in a database
+  2. Retrieve: For each query, fetch the top-K most relevant documents
+  3. Generate: Feed [question + retrieved documents] to the LLM for an answer
+
+WHY BETTER THAN PURE LLM:
+  - Grounded: the LLM cites specific text, reducing hallucination
+  - Updatable: change the document store without retraining the model
+  - Precise: retrieval narrows the LLM's attention to the right source
+  - Auditable: you can trace every claim back to the source document
+
+IN THIS PROJECT:
+  RAG is used because Tunisian legal codes are specialized, not well represented
+  in any LLM's training data, and because exact article numbers/text must be cited.
+
+────────────────────────────────────────────────────────────────────────────────
+5.2 PDF INGESTION WITH PyMuPDF
+────────────────────────────────────────────────────────────────────────────────
+
+DEFINITION:
+  PyMuPDF (imported as `fitz`) is a Python library for reading PDF files. It
+  extracts raw text from each page of a PDF at the character level.
+
+HOW IT WORKS:
+  - Opens the PDF binary
+  - Iterates over pages, calling page.get_text() for each
+  - Returns plain text strings with layout approximated by whitespace
+
+KEY DESIGN CHOICE — PAGE CONCATENATION:
+  Before splitting into articles, all page texts are concatenated into one string.
+  This is critical because legal articles often span two consecutive pages.
+  Without concatenation, Article 258 starting on page 30 and finishing on page 31
+  would become two broken fragments, neither of which is a complete legal article.
+
+────────────────────────────────────────────────────────────────────────────────
+5.3 ARTICLE-LEVEL CHUNKING
+────────────────────────────────────────────────────────────────────────────────
+
+DEFINITION:
+  Chunking is the process of dividing a long text into smaller pieces (chunks)
+  suitable for embedding and retrieval. Article-level chunking uses legal article
+  boundaries as the split points.
+
+HOW IT WORKS:
+  - A regex pattern detects the start of each article: "Article N", "Art. N",
+    or the Arabic equivalent "المادة N"
+  - The text between two article markers becomes one chunk
+  - Each chunk is wrapped in a LangChain Document with metadata:
+      source, law_type, article (number)
+
+WHY NOT FIXED-SIZE CHUNKING?
+  Fixed-size chunking (e.g., 500 characters) is the generic default:
+    PROBLEM 1: An article of 800 characters would be split into two chunks,
+               each semantically incomplete and lacking the article number
+    PROBLEM 2: Two short articles might be merged, confusing the retriever
+    PROBLEM 3: The chunk boundaries are random relative to legal meaning
+
+  Article-level chunking is semantically principled for legal text:
+    - One article = one legal rule = one retrievable unit
+    - The article number is preserved in metadata for citation
+    - Retrieval of "Article 258" returns exactly Article 258, not a fragment
+
+────────────────────────────────────────────────────────────────────────────────
+5.4 TEXT PREPROCESSING
+────────────────────────────────────────────────────────────────────────────────
+
+DEFINITION:
+  Text preprocessing cleans raw extracted text before embedding or indexing.
+
+WHAT IS CLEANED:
+  - Page headers: "Journal Officiel de la République Tunisienne", page numbers
+    These appear identically on every page and add noise without meaning
+  - Repeated boilerplate lines that appear in every PDF's header/footer
+  - Excessive whitespace: multiple blank lines collapsed to one
+
+WHY IT MATTERS:
+  - Noise in the text degrades embedding quality (the header "Journal Officiel"
+    appearing in every chunk gives false similarity between unrelated articles)
+  - BM25 scoring is polluted by high-frequency non-content tokens
+  - Cleaner text = better retrieval precision
+
+────────────────────────────────────────────────────────────────────────────────
+5.5 SENTENCE EMBEDDINGS (DENSE VECTORS)
+────────────────────────────────────────────────────────────────────────────────
+
+DEFINITION:
+  Sentence embeddings are numerical representations of text as vectors in a
+  high-dimensional space (e.g., 768 dimensions). Texts with similar meanings
+  are encoded as vectors that are close together (small cosine distance).
+
+HOW THEY ARE CREATED:
+  - A transformer neural network reads the text token by token
+  - An attention mechanism builds contextual representations for each token
+  - The token representations are pooled (often mean-pooled) into one vector
+  - This vector is the "embedding" of that text
+
+HOW SIMILARITY IS MEASURED:
+  - Cosine similarity: measures the angle between two vectors
+  - Values range from -1 (opposite) to 1 (identical meaning)
+  - In practice, legal documents score in the 0.6–0.9 range for relevant pairs
+
+WHY EMBEDDINGS ENABLE SEMANTIC SEARCH:
+  "Sanction pour vol" and "peine pour larcin" (both meaning "penalty for theft")
+  will have very similar embedding vectors even though they share no words,
+  because the model learned that "sanction" and "peine" are synonyms in legal
+  context.
+
+────────────────────────────────────────────────────────────────────────────────
+5.6 DOMAIN-SPECIFIC FRENCH LEGAL EMBEDDINGS (Solon)
+────────────────────────────────────────────────────────────────────────────────
+
+DEFINITION:
+  The Solon model (OrdalieTech/Solon-embeddings-large-0.1) is a sentence
+  embedding model specifically trained and fine-tuned on French legal text,
+  making it superior to general-purpose multilingual models for this use case.
+
+WHAT MAKES IT SPECIAL:
+  - Pre-trained on French legal corpora (court decisions, legal codes, contracts)
+  - Fine-tuned for retrieval tasks (trained to embed questions and their matching
+    legal passages close together in vector space)
+  - "Large" variant: more parameters = richer representations
+
+COMPARISON WITH ALTERNATIVES:
+  - General multilingual models (LaBSE, multilingual-e5):
+    * Handle many languages but are not specialized for legal French
+    * The project explicitly tested LaBSE in v1 and found Solon to be superior
+    * LaBSE gave weaker Arabic retrieval: 66.7% accuracy vs. 100% with Solon + routing
+  - English legal models: not suitable (this corpus is French)
+  - The domain-specific advantage: Solon knows that "vol" and "larcin" are legal
+    synonyms, that "Article 258 CP" refers to the Penal Code, etc.
+
+IN THIS PROJECT:
+  - Used for BOTH encoding the corpus (offline) and encoding queries (online)
+  - Critical that the same model encodes both — query and document vectors must
+    live in the same embedding space
+
+────────────────────────────────────────────────────────────────────────────────
+5.7 VECTOR STORE & HNSW INDEXING (ChromaDB)
+────────────────────────────────────────────────────────────────────────────────
+
+DEFINITION:
+  A vector store is a database optimized for storing and querying dense vectors.
+  ChromaDB is an open-source, file-based vector store.
+
+HOW CHROMA STORES DATA:
+  - chroma.sqlite3: metadata (article numbers, law_types, source filenames)
+    stored in SQLite for fast filtering
+  - HNSW files (data_level0.bin, etc.): the actual vector index
+
+HNSW — HIERARCHICAL NAVIGABLE SMALL WORLD:
+  HNSW is the indexing algorithm that makes similarity search fast.
+
+  PROBLEM: Brute-force nearest-neighbor search (compare query to every vector)
+           is O(N) — too slow for thousands of articles.
+
+  HNSW SOLUTION:
+    - Builds a multi-layer graph where each node is a document vector
+    - Higher layers: sparse long-range connections (for fast global navigation)
+    - Lower layers: dense short-range connections (for precise local search)
+    - At query time: start at a top-layer entry point, greedily navigate toward
+      the query vector, descend layers, refine at the bottom layer
+    - Approximate nearest-neighbor (ANN): not guaranteed to find the exact
+      top-K, but finds a very close approximation in O(log N) time
+
+  WHY FILE-BASED (NOT A SERVER):
+    ChromaDB's file-based mode writes everything to /db/ directory.
+    - No Docker, no network infrastructure, no server process needed
+    - The database persists across restarts
+    - Appropriate for a single-user research/demo system
+
+METADATA FILTERING:
+  ChromaDB supports WHERE filters on metadata fields:
+    {"law_type": {"$eq": "penal"}}
+  This restricts the HNSW search to only articles from the penal code, which:
+    - Dramatically speeds up search (fewer candidates)
+    - Eliminates irrelevant legal domains (no labor law articles in a penal query)
+
+────────────────────────────────────────────────────────────────────────────────
+5.8 BM25 KEYWORD RETRIEVAL (SPARSE RETRIEVAL)
+────────────────────────────────────────────────────────────────────────────────
+
+DEFINITION:
+  BM25 (Best Match 25) is a classic information retrieval algorithm that scores
+  documents based on the frequency of query terms, adjusted for document length
+  and term rarity across the corpus.
+
+HOW BM25 WORKS:
+  For a query Q with terms q1, q2, ..., qn, and a document D:
+
+  Score(D, Q) = Σ IDF(qi) × TF(qi, D) × (k1+1) / (TF(qi, D) + k1 × (1-b + b×|D|/avgdl))
+
+  Where:
+    - IDF(qi): Inverse Document Frequency — rare terms score higher
+               IDF = log((N - n(qi) + 0.5) / (n(qi) + 0.5) + 1)
+               N = total documents, n(qi) = documents containing qi
+    - TF(qi, D): term frequency in document D
+    - k1, b: tuning parameters (typically k1=1.5, b=0.75)
+    - |D|: document length, avgdl: average document length
+    - Length normalization: long documents are penalized for inflated TF
+
+PRACTICAL MEANING:
+  - "vol" appearing in 50 articles → low IDF (common, less informative)
+  - "larcin" appearing in 3 articles → high IDF (rare, very informative)
+  - Article 258 about theft with both words scores high for "vol larcin"
+  - Article 400 about contracts mentioning "vol" once scores very low
+
+IN THIS PROJECT:
+  - Library: rank_bm25 via LangChain's BM25Retriever wrapper
+  - Built dynamically from ChromaDB documents on first retrieval
+  - Applied ONLY to the primary rewritten query (not sub-queries)
+  - Returns BM25_K=15 candidates
+
+WHY BM25 IS COMPLEMENTARY TO SEMANTIC SEARCH:
+  Semantic search: "vol" and "soustraction frauduleuse de la chose d'autrui" →
+                   may match (they mean the same thing conceptually)
+  BM25:           "Article 258" → will find it exactly (exact string match)
+
+  The two approaches catch different failure modes.
+
+────────────────────────────────────────────────────────────────────────────────
+5.9 SEMANTIC (DENSE) RETRIEVAL
+────────────────────────────────────────────────────────────────────────────────
+
+DEFINITION:
+  Dense retrieval encodes both queries and documents as dense vectors and finds
+  the nearest document vectors to the query vector using cosine similarity.
+
+THE RETRIEVAL PROCESS (per query):
+  1. Query text → Solon embedding model → query vector (e.g., 768 dimensions)
+  2. ChromaDB's HNSW index finds the k nearest document vectors
+  3. The k documents with highest cosine similarity are returned
+
+KEY PARAMETERS:
+  - MMR_K = 20: return top-20 semantic matches per query
+  - 3 queries (primary + 2 sub-queries) = up to 60 semantic candidates
+
+ADVANTAGE OVER BM25:
+  - Handles paraphrases, synonyms, and cross-lingual semantics
+  - "Obligation de restitution" matches "obligation de rendre la chose" even
+    without shared vocabulary
+
+────────────────────────────────────────────────────────────────────────────────
+5.10 HYBRID RETRIEVAL (DENSE + SPARSE FUSION)
+────────────────────────────────────────────────────────────────────────────────
+
+DEFINITION:
+  Hybrid retrieval combines results from multiple retrieval methods to exploit
+  their complementary strengths.
+
+THIS PROJECT'S FUSION APPROACH:
+  - No score normalization or weighted fusion: all retrieved documents are simply
+    pooled together (set union)
+  - Deduplication by (source, article) eliminates exact duplicates
+  - The reranker (Step 4) re-scores the entire pool — it's the reranker's job
+    to determine relative importance, not the retriever's
+
+WHY SET UNION (NOT SCORE FUSION)?
+  BM25 scores and cosine similarity are in incompatible scales. Rather than
+  attempting complex score normalization (which requires calibration), the
+  approach uses the cross-encoder as the single authoritative scorer for the
+  merged pool. This is architecturally cleaner and avoids score normalization
+  errors.
+
+RESEARCH BACKING:
+  Multiple RAG papers (including those by Pinecone, Weaviate, and academic
+  groups) show that hybrid retrieval consistently outperforms either method
+  alone on specialized corpora. Legal text especially benefits from BM25 due
+  to the importance of exact article number references.
+
+────────────────────────────────────────────────────────────────────────────────
+5.11 MULTILINGUAL FALLBACK SEARCH
+────────────────────────────────────────────────────────────────────────────────
+
+DEFINITION:
+  An additional semantic search pass run with the original untranslated question
+  to catch documents that are better matched by the original language.
+
+MOTIVATION:
+  The Solon embedding model is optimized for French. Some Tunisian documents
+  (especially the Constitution, tun_RecAcFreeLi.pdf) contain Arabic text.
+  The French-rewritten query's embedding may not be optimal for matching
+  Arabic passages.
+
+  By also embedding the original Arabic question and running a semantic search,
+  Arabic passages are matched directly against an Arabic query vector.
+
+IMPLEMENTATION:
+  - Language detection: check if original query contains Arabic Unicode characters
+    (U+0600 to U+06FF range) or known English words
+  - If non-French: embed original query → search ChromaDB → add top-10 to pool
+  - The multilingual MiniLM reranker then scores these Arabic-matched documents
+    alongside the French-matched ones
+
+────────────────────────────────────────────────────────────────────────────────
+5.12 QUERY SYNONYM EXPANSION
+────────────────────────────────────────────────────────────────────────────────
+
+DEFINITION:
+  Synonym expansion adds known alternative phrasings of key legal terms to the
+  query before embedding, increasing the chance of matching diverse document
+  phrasings.
+
+HOW IT WORKS IN THIS PROJECT:
+  - A dictionary (_FR_SYNONYMS) maps legal concepts to lists of French synonyms
+  - Before semantic search, the query is scanned for matching terms
+  - Matching synonyms are appended to the query string
+  - Example:
+      "vol" → query becomes "vol larcin soustraction frauduleuse"
+  - This expands the query's embedding to cover more of the synonym space
+
+LIMITATION:
+  - The synonym list is hand-crafted and finite
+  - The LLM-based query rewriting (Step 1) already handles many synonym cases
+    by using proper legal terminology in its output
+  - Synonym expansion is therefore a lightweight complement to query rewriting
+
+────────────────────────────────────────────────────────────────────────────────
+5.13 LLM-BASED QUERY REWRITING
+────────────────────────────────────────────────────────────────────────────────
+
+DEFINITION:
+  Using a large language model to transform the raw user question into an
+  optimized retrieval query.
+
+WHAT THE LLM DOES:
+  1. Detects the language of the question
+  2. Translates to French if necessary
+  3. Replaces colloquial phrasing with legal terminology
+  4. Adds relevant code name references (e.g., "Code Pénal tunisien")
+  5. Expands vague concepts to their legal definitions
+
+WHY LLM REWRITING BEATS RULE-BASED TRANSLATION:
+  - Rule-based: "theft" → "vol" (simple word replacement)
+  - LLM rewriting: "theft" → "vol simple ou vol avec violence selon le Code Pénal,
+    articles relatifs aux infractions contre la propriété" (rich legal context)
+
+  The richer query better matches the embedding space of formal legal text.
+
+TEMPERATURE = 0.0:
+  Deterministic output — the same question always produces the same rewritten query.
+  This is correct for a retrieval task where consistency is more valuable than creativity.
+
+────────────────────────────────────────────────────────────────────────────────
+5.14 SUB-QUERY GENERATION (QUERY DECOMPOSITION)
+────────────────────────────────────────────────────────────────────────────────
+
+DEFINITION:
+  Breaking one complex query into multiple simpler focused sub-queries, each
+  targeting a different aspect of the original question.
+
+MOTIVATION:
+  Consider "What are the rights of a detained person during a criminal investigation?"
+  This question involves:
+    - Rights during garde à vue (detention rights)
+    - Rights regarding lawyer access
+    - Rights regarding notification of family
+    - Procedural timelines
+  No single query vector perfectly captures all these angles simultaneously.
+
+  Sub-query decomposition generates:
+    Sub-Q 1: "Droits de la personne en garde à vue"
+    Sub-Q 2: "Accès à un avocat durant la détention provisoire"
+
+  Each sub-query retrieves different relevant articles.
+
+TEMPERATURE = 0.3:
+  Slightly higher than query rewriting — enough randomness to ensure the two
+  sub-queries are meaningfully different from each other and from the primary.
+
+COMPLEXITY GATE:
+  Only triggered for queries with ≥4 words AND no article number.
+  Short queries or direct article lookups don't benefit from decomposition.
+
+────────────────────────────────────────────────────────────────────────────────
+5.15 CROSS-ENCODER RERANKING
+────────────────────────────────────────────────────────────────────────────────
+
+DEFINITION:
+  A cross-encoder is a transformer model that takes two texts as a SINGLE
+  concatenated input and outputs a relevance score for that pair.
+
+BI-ENCODER vs. CROSS-ENCODER:
+
+  BI-ENCODER (used in retrieval):
+    Encode(query) → q_vec
+    Encode(document) → d_vec
+    Score = cosine_similarity(q_vec, d_vec)
+
+    Advantage: document vectors pre-computed offline; query vector computed once;
+               similarity = fast dot product
+    Disadvantage: no direct interaction between query and document tokens;
+                  misses fine-grained matching
+
+  CROSS-ENCODER (used in reranking):
+    Input: [CLS] query [SEP] document [SEP]
+    All attention layers see both texts simultaneously
+    Output: a single relevance score (real number)
+
+    Advantage: deep token-level interaction between query and document;
+               much more accurate relevance scores
+    Disadvantage: O(N) forward passes needed for N candidates;
+                  cannot pre-compute document representations
+
+WHY TWO STAGES (RETRIEVAL + RERANKING)?
+  Cross-encoders are too slow to rank all 1400+ articles for every query.
+  The bi-encoder retrieval quickly narrows to ~70 candidates.
+  The cross-encoder precisely scores those 70 candidates.
+  Result: the precision of cross-encoding at acceptable latency.
+
+THE RERANKER MODEL:
+  cross-encoder/mmarco-mMiniLM-L12-H384-v1
+  - Trained on the multilingual MS Marco passage ranking dataset
+  - 12 transformer layers, hidden size 384 (small but effective)
+  - Supports French, Arabic, English, and 100+ other languages
+  - Optimized for (question, passage) relevance scoring
+
+RERANKING IN PRACTICE:
+  - For each of the ~70 candidates: run one forward pass with (French query, article text)
+  - All scores collected → sort descending → return top 6
+  - Top-6 is a deliberate choice: 6 articles provide sufficient context without
+    overwhelming the LLM's context window or answer quality
+
+────────────────────────────────────────────────────────────────────────────────
+5.16 DEDUPLICATION BY (source, article)
+────────────────────────────────────────────────────────────────────────────────
+
+DEFINITION:
+  Removing duplicate documents from the merged retrieval pool before reranking.
+
+WHY NECESSARY:
+  The same article may be returned by multiple retrieval methods:
+  - Semantic search (primary query) → Article 258
+  - Semantic search (sub-query 1) → Article 258
+  - BM25 → Article 258
+
+  Without deduplication, Article 258 would appear 3 times in the pool.
+  The reranker would score it 3 times (wasteful) and it might appear 3 times
+  in the final top-6 (leaving only 3 slots for other relevant articles).
+
+HOW IT WORKS:
+  - A seen set of (source, article) tuples is maintained
+  - Each candidate checked: if already seen, discard; else add to output
+  - O(N) time with O(N) space (a Python set)
+
+────────────────────────────────────────────────────────────────────────────────
+5.17 IN-PROCESS LLM CACHING
+────────────────────────────────────────────────────────────────────────────────
+
+DEFINITION:
+  Storing the result of LLM API calls (query rewrite, sub-query generation) in
+  a Python dictionary so identical inputs return instantly without a network call.
+
+IMPLEMENTATION:
+  rewrite_cache: dict = {}   # question → rewritten query
+  subquery_cache: dict = {}  # rewritten query → [sub-queries]
+
+  if question in rewrite_cache:
+      return rewrite_cache[question]
+  result = call_llm(question)
+  rewrite_cache[question] = result
+  return result
+
+WHY IMPORTANT:
+  - Groq API has rate limits; reducing calls avoids hitting them
+  - In a multi-turn chat, the user may rephrase or ask follow-up questions
+    with the same core query — the cache avoids redundant LLM calls
+  - Latency: a Groq API call takes ~0.5–2 seconds; cache hit is instant
+
+SCOPE: Per-session (in-process dict). Not persisted across restarts.
+  This is appropriate because stale caches could be a problem if the system
+  prompt changes between sessions.
+
+────────────────────────────────────────────────────────────────────────────────
+5.18 STRUCTURED GROUNDED ANSWER GENERATION
+────────────────────────────────────────────────────────────────────────────────
+
+DEFINITION:
+  Answer generation with a system prompt that enforces strict grounding (only
+  answer from provided context) and a structured output format.
+
+ANTI-HALLUCINATION RULES IN SYSTEM PROMPT:
+  1. "Answer ONLY from the provided articles. Do not add information not present."
+  2. "If the context does not contain enough information, say 'The provided articles
+     do not fully answer this question.'"
+  3. "Never combine your training knowledge with the provided context."
+
+WHY THESE RULES MATTER FOR LEGAL QA:
+  Legal information is high-stakes. An LLM "filling in" gaps with its training
+  knowledge could provide outdated law, incorrect penalties, or wrong procedures.
+  The anti-hallucination prompt forces the model to treat the retrieved articles
+  as the only source of truth.
+
+STRUCTURED OUTPUT FORMAT:
+  1. Direct Answer — one clear paragraph answering the question
+  2. Relevant Articles — "Article 258 (Code Pénal), Article 260 (Code Pénal)"
+  3. Sources — "PenalFr.pdf"
+  4. Explanation — additional legal context and nuance
+
+  This format is beneficial because:
+  - Legal professionals expect to see citations
+  - Users can verify the answer by looking up the cited articles
+  - The structure separates "the answer" from "the evidence"
+
+────────────────────────────────────────────────────────────────────────────────
+5.19 DIRECT ARTICLE LOOKUP (FAST PATH)
+────────────────────────────────────────────────────────────────────────────────
+
+DEFINITION:
+  An optimization that bypasses the full RAG pipeline when the user's question
+  contains an explicit article number.
+
+HOW IT WORKS:
+  - Question is scanned for numeric article references (e.g., "Article 258", "Art. 50")
+  - If found: ChromaDB is queried with a metadata filter: {article: "258"}
+  - The exact article is returned directly
+  - Answer generation proceeds with this pre-retrieved article
+
+WHY IT MATTERS:
+  - Avoids 2 LLM API calls (query rewriting + sub-queries) for trivial lookups
+  - Faster latency for a common user pattern ("what exactly does Article 258 say?")
+  - 100% precision: metadata filter guarantees exact match
+
+────────────────────────────────────────────────────────────────────────────────
+5.20 MULTILINGUAL DETECTION & LANGUAGE ROUTING
+────────────────────────────────────────────────────────────────────────────────
+
+DEFINITION:
+  Detecting the language of the user's question and routing retrieval/generation
+  accordingly.
+
+HOW LANGUAGE DETECTION WORKS:
+  - Arabic detection: check for Unicode characters in Arabic script range (U+0600–U+06FF)
+  - English detection: heuristic function detect_english() — check for common
+    English function words ("what", "how", "is", "the", "for", etc.) in the question
+  - French: default if neither Arabic nor English detected
+
+WHAT LANGUAGE AFFECTS:
+  1. RETRIEVAL: if Arabic or English, the multilingual fallback search is added
+  2. QUERY REWRITING: the LLM is instructed to translate to French for search,
+     but remembers the original language
+  3. ANSWER GENERATION: system prompt instructs LLM to respond in original language
+     e.g., Arabic question → Arabic answer, even though retrieval was in French
+
+KEY DESIGN PRINCIPLE:
+  French is the retrieval lingua franca (internal language for search).
+  The user's language is the response lingua franca (external language for answers).
+  These are decoupled — the user never sees the French internal queries.
+
+================================================================================
+6. ALL MODELS USED
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+6.1 OrdalieTech/Solon-embeddings-large-0.1
+────────────────────────────────────────────────────────────────────────────────
+
+  TYPE:          Sentence embedding model (bi-encoder)
+  ARCHITECTURE:  Transformer (BERT-family), likely based on CamemBERT or RoBERTa
+  TRAINING:      Pre-trained on French legal corpora; fine-tuned for retrieval
+  LANGUAGE:      French (primary), some multilingual ability
+  HOSTED AT:     HuggingFace Hub (downloaded via sentence-transformers)
+  LOCAL STORAGE: ~/.cache/huggingface/
+  USE IN PIPELINE:
+    - Offline: encode all article chunks → store in ChromaDB
+    - Online:  encode queries → find nearest chunks in ChromaDB
+  WHY THIS MODEL:
+    - Domain-specific to French legal text → better semantic matching
+    - Tested to outperform LaBSE (multilingual general-purpose) on this corpus
+    - "large" variant for richer representations vs. speed tradeoff
+
+────────────────────────────────────────────────────────────────────────────────
+6.2 Llama 3.3 70B Versatile (via Groq API)
+────────────────────────────────────────────────────────────────────────────────
+
+  TYPE:          Large Language Model (decoder-only transformer)
+  SIZE:          70 billion parameters
+  ARCHITECTURE:  Llama 3.3 (Meta AI), grouped-query attention, RoPE positional
+                 encoding, 128K context window
+  INFERENCE:     Served via Groq API (uses Groq's custom LPU hardware for speed)
+  LANGUAGES:     Excellent French, Arabic, English, and 30+ other languages
+  USE IN PIPELINE:
+    - Step 1: Query rewriting (temperature=0.0)
+    - Step 2: Sub-query generation (temperature=0.3)
+    - Step 5: Answer generation (temperature=0.1)
+  WHY GROQ:
+    - Free tier available
+    - LPU hardware provides very fast inference (lower latency than GPU APIs)
+    - Llama 3.3 70B is state-of-the-art for multilingual instruction-following
+  WHY 70B (NOT SMALLER):
+    - Query rewriting requires legal knowledge and linguistic precision
+    - Smaller models (7B, 13B) struggle with accurate French legal terminology
+    - 70B reliably translates and rewrites in the correct legal register
+
+────────────────────────────────────────────────────────────────────────────────
+6.3 cross-encoder/mmarco-mMiniLM-L12-H384-v1
+────────────────────────────────────────────────────────────────────────────────
+
+  TYPE:          Cross-encoder reranking model
+  ARCHITECTURE:  MiniLM (distilled BERT), 12 layers, hidden dim 384
+  TRAINING:      Fine-tuned on multilingual MS Marco dataset for passage ranking
+  LANGUAGES:     100+ languages including French, Arabic, English (multilingual)
+  HOSTED AT:     HuggingFace Hub; loaded locally via sentence-transformers
+  USE IN PIPELINE:
+    - Step 4: Rerank the 60–80 candidate pool → return top 6
+    - Input: (rewritten French query, article text) pairs
+    - Output: real-valued relevance score per pair
+  WHY THIS MODEL:
+    - Multilingual: can score French queries against French (and some Arabic) text
+    - MS Marco training: optimized specifically for passage retrieval relevance
+    - MiniLM L12: good balance of accuracy and inference speed
+    - mmarco (multilingual Marco): outperforms English-only cross-encoders on
+      French text
+  PERFORMANCE NOTE:
+    The 12-layer MiniLM is fast enough to rerank ~70 candidates in 1–3 seconds
+    on CPU, making it practical without a GPU.
+
+================================================================================
+7. ALL LIBRARIES & TECHNOLOGIES
+================================================================================
+
+  LIBRARY/TOOL                  PURPOSE
+  ─────────────────────────────────────────────────────────────────────────────
+  langchain-chroma              ChromaDB integration for LangChain documents
+  langchain-core                Document, PromptTemplate, StrOutputParser
+  langchain-groq                LangChain wrapper for Groq API
+  langchain-huggingface         HuggingFaceEmbeddings wrapper for Solon
+  langchain-community           PyMuPDFLoader, BM25Retriever
+  sentence-transformers         CrossEncoder class for reranker loading
+  rank_bm25                     BM25 algorithm implementation
+  chromadb                      Vector store (file-based, HNSW indexing)
+  pymupdf (fitz)                PDF text extraction
+  streamlit                     Chat web UI, sidebar controls
+  python-dotenv                 Load GROQ_API_KEY from .env file
+  pathlib                       Path handling across OS (Windows-safe)
+  re                            Regex for article detection, language detection
+  ─────────────────────────────────────────────────────────────────────────────
+  INFRASTRUCTURE
+  ─────────────────────────────────────────────────────────────────────────────
+  Groq API                      LLM inference (Llama 3.3 70B)
+  HuggingFace Hub               Model hosting (Solon, cross-encoder)
+  ChromaDB on disk (/db/)       Vector database persistence
+  Python 3.11                   Runtime environment
+  Conda                         Environment management (rag-app env)
+
+================================================================================
+8. CONFIGURATION PARAMETERS & WHY THEY MATTER
+================================================================================
+
+  PARAMETER        VALUE   MEANING & RATIONALE
+  ─────────────────────────────────────────────────────────────────────────────
+  MMR_K            20      Top-20 semantic hits per query.
+                           Higher → more candidates, slower; 20 balances
+                           recall vs. reranker load.
+
+  BM25_K           15      Top-15 BM25 keyword hits.
+                           Slightly fewer than semantic because BM25 has
+                           lower diversity; 15 ensures good exact-match
+                           coverage without overwhelming the pool.
+
+  RERANK_TOP_K     6       Final top-6 after reranking.
+                           6 articles fit comfortably in the LLM context
+                           while providing enough evidence for complex
+                           questions. More than 6 dilutes answer quality.
+
+  SUBQUERY_N       2       Generate 2 sub-queries.
+                           2 is empirically chosen: covers diverse angles
+                           without generating too many redundant candidates.
+                           (3+ sub-queries added little value in testing.)
+
+  LLM temperature  0.0     Query rewriting: fully deterministic.
+  (rewrite)                The same question must always rewrite the same
+                           way for cache consistency.
+
+  LLM temperature  0.3     Sub-query generation: slight randomness.
+  (sub-queries)            Ensures the 2 sub-queries are meaningfully
+                           different from each other and the primary query.
+
+  LLM temperature  0.1     Answer generation: near-deterministic.
+  (generation)             Stable answers; slight variation avoids
+                           robotic-sounding repetition.
+
+================================================================================
+9. EVALUATION METHODOLOGY
+================================================================================
+
+The evaluation script (evaluate.py) tests the full end-to-end pipeline.
+
+TEST DESIGN:
+  - 24 test cases across 3 languages (13 French, 6 Arabic, 5 English)
+  - Each test case specifies:
+      * A question (in FR/AR/EN)
+      * The law type (e.g., "penal", "travail")
+      * A set of expected article numbers that should appear in the top-6
+
+WHAT "PASS" MEANS:
+  A test passes if at least ONE of the expected article numbers appears in the
+  6 documents returned by the full pipeline (rewrite → subqueries → hybrid
+  retrieve → rerank). The test fails if none of the expected articles are in
+  the top-6.
+
+WHY THIS METRIC:
+  The goal is retrieval recall@6: does the relevant article appear in the top-6?
+  If yes, the LLM can generate a correct answer. If no, the answer will
+  necessarily be incorrect (grounded hallucination from wrong articles).
+
+EXAMPLE TEST CASES:
+  ("Quelle est la peine pour le vol ?", "penal", {"258","260","261","262"}, "FR")
+  ("ما هي عقوبة السرقة؟", "penal", {"258","260","261","262"}, "AR")
+  ("What is the penalty for theft?", "penal", {"258","260","261","262"}, "EN")
+  ("Quelle est la procédure de licenciement ?", "travail", {"23","24","25"}, "FR")
+  ("Quelles sont les conditions du mariage ?", "statut_personnel", {"3","5","6"}, "FR")
+
+RESULTS (v3, from README):
+  Language    Tests   Pass Rate
+  French       13     100%
+  Arabic        6     100%
+  English       5     100%
+  TOTAL        24     100%
+
+OUTPUT ON FAILURE:
+  When a test fails, the evaluator prints:
+  - The rewritten French query (Step 1 output)
+  - The generated sub-queries (Step 2 output)
+  - The articles that WERE retrieved (to diagnose what went wrong)
+
+================================================================================
+10. EVOLUTION: v1 → v2 → v3 (WHAT CHANGED & WHY)
+================================================================================
+
+─────────────────────────────────────────────────────────────────────────────
+VERSION 1 (BASELINE)
+─────────────────────────────────────────────────────────────────────────────
+TECHNIQUES:
+  - Article-level chunking ✓
+  - LaBSE embeddings (multilingual general-purpose)
+  - ChromaDB vector store
+  - Cross-encoder reranking
+  - Basic query synonym expansion (manual synonym dict)
+
+RESULTS:
+  French: 92.3%   Arabic: 66.7%   English: N/A   Overall: 84.2%
+
+PROBLEMS:
+  1. Arabic retrieval weak: LaBSE not optimized for French legal text
+     → Arabic queries didn't map well to French document embeddings
+  2. Hardcoded article numbers in query expansion: a form of "cheating"
+     where the expansion dict directly injected article numbers
+     → Would fail on unseen queries or changed law text
+  3. No English support
+
+─────────────────────────────────────────────────────────────────────────────
+VERSION 2 (HONEST RETRIEVAL + ENGLISH)
+─────────────────────────────────────────────────────────────────────────────
+CHANGES:
+  - Replaced LaBSE with Solon embeddings (French legal domain-specific)
+  - LLM-based query translation: replaced the keyword synonym expansion dict
+    with actual LLM translation (no hardcoded article number injection)
+  - Added English detection and routing (detect_english() function)
+  - Cleaned up _FR_SYNONYMS: removed any hardcoded article number mappings
+
+RESULTS:
+  Arabic: 100% on retrieval benchmark
+
+REMAINING PROBLEMS:
+  1. Single query still misses semantically distant but relevant articles
+     (one query vector ≠ all possible relevant article embeddings)
+  2. Pure semantic search misses exact legal term matches
+  3. Cross-page articles still truncated (page-by-page loading)
+  4. Evaluation only tested retrieval, not full pipeline including generation
+
+─────────────────────────────────────────────────────────────────────────────
+VERSION 3 (CURRENT — HIGH-PERFORMANCE RAG)
+─────────────────────────────────────────────────────────────────────────────
+CHANGES:
+  1. LLM Query Rewriting (rewrite_query): added Step 1 — not just translation
+     but full legal terminology enrichment
+  2. Sub-Query Generation (generate_subqueries): added Step 2 — 2 focused
+     queries for different angles of complex questions
+  3. Hybrid Retrieval: added BM25 alongside semantic search
+  4. Multilingual Fallback: original language query also searched
+  5. Cross-page article fix: concatenate all pages before splitting (Step 0)
+  6. Modular pipeline: 5 named functions (step_rewrite, step_subqueries,
+     step_retrieve, step_rerank, step_generate) — individually testable
+  7. Strict grounding system prompt: anti-hallucination rules
+  8. End-to-end evaluation: tests full 5-step pipeline
+
+RESULTS:
+  French: 100%   Arabic: 100%   English: 100%   Overall: 100% (24/24)
+
+LESSONS LEARNED:
+  - Domain-specific embeddings >> general multilingual for specialized corpora
+  - Query rewriting (not just translation) dramatically improves retrieval
+  - Hybrid retrieval reliably beats either method alone on legal text
+  - Cross-encoder reranking essential for precision from large candidate pools
+  - Structured evaluation benchmarks are essential for validating improvements
+    and preventing regression
+
+================================================================================
+11. KEY ARCHITECTURAL DECISIONS
+================================================================================
+
+  1. FRENCH AS RETRIEVAL LINGUA FRANCA
+     All queries are translated to French before embedding and searching.
+     Rationale: the corpus is French, the embedding model is trained on French.
+     Multilingual embeddings would lower precision; cross-lingual retrieval
+     works best when query and document share the same language.
+
+  2. FILE-BASED VECTOR STORE (NO SERVER)
+     ChromaDB's embedded mode writes to /db/. No Docker, no database server.
+     Rationale: this is a single-user research/demo system. The simplicity of
+     zero infrastructure setup outweighs the scalability limitations.
+
+  3. ARTICLE-LEVEL (NOT TOKEN-LEVEL) CHUNKING
+     One chunk = one legal article. No overlap, no sliding windows.
+     Rationale: legal meaning is article-scoped. Chunking by tokens would
+     break legal integrity. Article boundaries are semantically principled.
+
+  4. LAZY-LOADED RERANKER
+     The 400MB cross-encoder model is only loaded on the first reranking call.
+     Rationale: startup latency is reduced; if the user only uses the "Rebuild
+     Database" feature without asking questions, the reranker is never loaded.
+
+  5. IN-PROCESS CACHING
+     LLM results cached in Python dicts for the session duration.
+     Rationale: reduces API calls and latency for repeated or similar queries.
+
+  6. STRICT GROUNDING SYSTEM PROMPT
+     Answer generation is constrained to the retrieved context only.
+     Rationale: legal information is high-stakes; hallucinated law is dangerous.
+     The anti-hallucination prompt is the last line of defense.
+
+  7. MODULAR 5-STEP PIPELINE
+     Each step is an independent importable function (step_*).
+     Rationale: testability, debuggability, and iterability. The evaluation
+     script can call each step individually to diagnose failures.
+
+  8. MULTILINGUAL INPUT, FRENCH INTERNAL, ORIGINAL LANGUAGE OUTPUT
+     User's language ≠ retrieval language ≠ response language (all can differ).
+     Rationale: maximizes retrieval precision (French) while maintaining
+     user experience (respond in user's language).
+
+================================================================================
+12. DATA FLOW DIAGRAM (ASCII)
+================================================================================
+
+  USER QUESTION (Arabic / French / English)
+            │
+            │ detect language
+            ▼
+  ┌─────────────────────────────────────────────────────────┐
+  │ STEP 1 — QUERY REWRITING                                │
+  │  Llama 3.3 70B (temp=0.0)                               │
+  │  Translate + enrich → French legal query                │
+  │  Cache: rewrite_cache[question] = fr_query              │
+  └──────────────────────┬──────────────────────────────────┘
+                         │ fr_query
+                         ▼
+  ┌─────────────────────────────────────────────────────────┐
+  │ STEP 2 — SUB-QUERY GENERATION                           │
+  │  Llama 3.3 70B (temp=0.3)                               │
+  │  Generate 2 focused sub-queries                         │
+  │  Only if: len(words) ≥ 4 AND no article number         │
+  │  Cache: subquery_cache[fr_query] = [sq1, sq2]           │
+  └──────────────────────┬──────────────────────────────────┘
+                         │ [fr_query, sq1, sq2]
+                         ▼
+  ┌─────────────────────────────────────────────────────────┐
+  │ STEP 3 — HYBRID RETRIEVAL                               │
+  │                                                         │
+  │  3A SEMANTIC SEARCH (×3 queries)                        │
+  │    expand synonyms → Solon embed → ChromaDB HNSW        │
+  │    top-20 per query → up to 60 candidates               │
+  │    optional: filter by law_type metadata                │
+  │                                                         │
+  │  3B BM25 KEYWORD SEARCH (primary query only)            │
+  │    rank_bm25 on all ChromaDB docs → top-15              │
+  │                                                         │
+  │  3C MULTILINGUAL FALLBACK (if non-French input)         │
+  │    embed original question → ChromaDB → top-10          │
+  │                                                         │
+  │  MERGE + DEDUPLICATE by (source, article)               │
+  │  → pool of ~60–80 unique candidate articles             │
+  └──────────────────────┬──────────────────────────────────┘
+                         │ ~70 candidates
+                         ▼
+  ┌─────────────────────────────────────────────────────────┐
+  │ STEP 4 — CROSS-ENCODER RERANKING                        │
+  │  mmarco-mMiniLM-L12-H384-v1 (lazy-loaded)               │
+  │  For each candidate: score(fr_query, article_text)      │
+  │  Sort by score descending                               │
+  │  Return top-6                                           │
+  └──────────────────────┬──────────────────────────────────┘
+                         │ top-6 articles
+                         ▼
+  ┌─────────────────────────────────────────────────────────┐
+  │ STEP 5 — GROUNDED ANSWER GENERATION                     │
+  │  Llama 3.3 70B (temp=0.1)                               │
+  │  Input: original question + 6 article texts             │
+  │  System prompt: strict grounding rules                  │
+  │  Output: structured answer in user's original language  │
+  │    1. Direct Answer                                     │
+  │    2. Relevant Articles                                 │
+  │    3. Sources                                           │
+  │    4. Explanation                                       │
+  └──────────────────────┬──────────────────────────────────┘
+                         │
+                         ▼
+  FINAL ANSWER (in user's original language: AR / FR / EN)
+
+================================================================================
+END OF TECHNICAL EXPLANATION
+================================================================================
