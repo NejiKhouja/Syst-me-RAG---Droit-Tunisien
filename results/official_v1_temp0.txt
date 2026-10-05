@@ -1,0 +1,67 @@
+
+================================================================================
+              Tunisian Legal RAG — End-to-End Retrieval Evaluation              
+                            split=all  n=87  top_k=6                            
+================================================================================
+  LLM        : openai/gpt-oss-120b  temps=[0.0]
+  Reranker   : cross-encoder/mmarco-mMiniLMv2-L12-H384-v1  ran on 82/87 cases
+  Code       : v1-baseline-runnable-3-g709d9f4
+  Degraded   : 5 events
+
+  Overall (dev + test)         87    47.1%    23.0%    33.8%   0.306
+  Breakdowns below: DEV split only (test is shown only with --split test)
+
+  Overall (dev)                19    42.1%    31.6%    35.1%   0.355
+
+  By filtered vs unfiltered
+                             n    Hit@6    Hit@1   Recall     MRR
+  filtered (law given)      19    42.1%    31.6%    35.1%   0.355
+
+  By language
+                             n    Hit@6    Hit@1   Recall     MRR
+  ar                         5    40.0%    20.0%    26.7%   0.300
+  en                         3    33.3%    33.3%    11.1%   0.333
+  fr                        11    45.5%    36.4%    45.5%   0.386
+
+  By category
+                             n    Hit@6    Hit@1   Recall     MRR
+  article_lookup             3   100.0%   100.0%   100.0%   1.000
+  colloquial                 2    50.0%     0.0%    16.7%   0.250
+  concept                   14    28.6%    21.4%    23.8%   0.232
+
+  By domain
+                             n    Hit@6    Hit@1   Recall     MRR
+  constitution               2   100.0%   100.0%   100.0%   1.000
+  obligations_contrats       2    50.0%     0.0%    50.0%   0.125
+  penal                      6    33.3%    33.3%    33.3%   0.333
+  procedure_penale           4    25.0%    25.0%    25.0%   0.250
+  statut_personnel           1     0.0%     0.0%     0.0%   0.000
+  travail                    4    50.0%    25.0%    16.7%   0.375
+
+  Misses (11):
+    - [fr] Quelle est la peine pour la corruption ?
+        gold: 84, 85, 86   got: 92@PenalF, 264@PenalF, 234@PenalF, 186@PenalF, 218@PenalF, 128@PenalF
+    - [fr] Quelle est la durée maximale de la garde à vue ?
+        gold: 13   got: 321@Proced, 85@Proced, 35@Proced, 311@Proced, 10@Proced, 326@Proced
+    - [fr] Quelles sont les conditions de licenciement ?
+        gold: 14, 16, 23   got: 258@travai, 4@travai, 7@travai, 263@travai, 2@travai, 166@travai
+    - [fr] Quelles sont les règles de la pension alimentaire ?
+        gold: 37, 38, 46, 47   got: 53@Statut, 49@Statut, 51@Statut, 50@Statut, 5@Statut, 10@Statut
+    - [fr] Qu'est-ce que la responsabilité civile ?
+        gold: 82, 83, 84   got: 103@COC.pd, 104@COC.pd, 102@COC.pd, 173@COC.pd, 107@COC.pd, 1531@COC.pd
+    - [fr] Mon patron peut-il me virer sans préavis ?
+        gold: 14, 16, 23   got: 166@travai, 378@travai, 370@travai, 376@travai, 21@travai, 398@travai
+    - [ar] ما هي عقوبة الرشوة؟
+        gold: 84, 85, 86   got: 264@PenalF, 234@PenalF, 129@PenalF, 92@PenalF, 188@PenalF, 155@PenalF
+    - [ar] ما هي عقوبة الاغتصاب؟
+        gold: 227   got: 129@PenalF, 264@PenalF, 223@PenalF, 164@PenalF, 319@PenalF, 226@PenalF
+    - [ar] ما هي مدة الاحتفاظ؟
+        gold: 13   got: 74@Proced, 70@Proced, 83@Proced, 346@Proced, 202@Proced, 10@Proced
+    - [en] What is the penalty for bribery?
+        gold: 84, 85, 86   got: 234@PenalF, 264@PenalF, 92@PenalF, 188@PenalF, 247@PenalF, 233@PenalF
+    - [en] How long can police custody last?
+        gold: 13   got: 85@Proced, 321@Proced, 7@Proced, 10@Proced, 136@Proced, 311@Proced
+================================================================================
+
+  Saved results/official_v1_temp0.json
+
