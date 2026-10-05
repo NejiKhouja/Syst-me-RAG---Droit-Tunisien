@@ -1,7 +1,7 @@
 import logging
 import streamlit as st
 
-from config import DB_DIR, LAW_DISPLAY_NAMES
+from config import DB_DIR, LAW_DISPLAY_NAMES, LLM_MODEL
 from pipeline import build_vectorstore, load_vectorstore, ask_question
 
 logging.basicConfig(
@@ -119,7 +119,7 @@ with st.sidebar:
 st.title("Tunisian Legal AI Assistant")
 st.caption(
     f"Domain: **{LAW_DISPLAY_NAMES[selected_law]}**  |  "
-    "LaBSE + Cross-Encoder + Llama 3.3 70B"
+    f"Solon embeddings + Cross-Encoder + {LLM_MODEL}"
 )
 
 if not db_exists:

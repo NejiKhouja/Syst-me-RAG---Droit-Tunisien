@@ -1,3 +1,7 @@
+NOTE (2026-10): this document was written for the v1 code. Where it says "Llama 3.3 70B" the model actually configured and run is now
+openai/gpt-oss-120b (config.LLM_MODEL); Llama 3.3 70B is no longer available on the Groq key. It also says the reranker takes 1-3 s for ~70
+candidates; measured on this CPU it is ~13 s per query. Check config.py and results/*.json for what actually ran.
+
 ================================================================================
        RAG_PDF — COMPLETE TECHNICAL EXPLANATION
        Multilingual Legal RAG System for Tunisian Law
@@ -45,7 +49,7 @@ TABLE OF CONTENTS
   6. ALL MODELS USED
      6.1  OrdalieTech/Solon-embeddings-large-0.1
      6.2  Llama 3.3 70B Versatile (via Groq)
-     6.3  cross-encoder/mmarco-mMiniLM-L12-H384-v1
+     6.3  cross-encoder/mmarco-mMiniLMv2-L12-H384-v1
   7. ALL LIBRARIES & TECHNOLOGIES
   8. CONFIGURATION PARAMETERS & WHY THEY MATTER
   9. EVALUATION METHODOLOGY
@@ -370,7 +374,7 @@ WHY IT IS NEEDED:
     retrieve many candidates cheaply, then precisely score the shortlist.
 
 HOW IT WORKS:
-  - Model: cross-encoder/mmarco-mMiniLM-L12-H384-v1
+  - Model: cross-encoder/mmarco-mMiniLMv2-L12-H384-v1
     (multilingual MiniLM trained on the MS Marco dataset)
   - Input: the rewritten French query + each candidate document text
   - The cross-encoder reads (query, document) as a single concatenated input
@@ -861,7 +865,7 @@ WHY TWO STAGES (RETRIEVAL + RERANKING)?
   Result: the precision of cross-encoding at acceptable latency.
 
 THE RERANKER MODEL:
-  cross-encoder/mmarco-mMiniLM-L12-H384-v1
+  cross-encoder/mmarco-mMiniLMv2-L12-H384-v1
   - Trained on the multilingual MS Marco passage ranking dataset
   - 12 transformer layers, hidden size 384 (small but effective)
   - Supports French, Arabic, English, and 100+ other languages
@@ -1045,7 +1049,7 @@ KEY DESIGN PRINCIPLE:
     - 70B reliably translates and rewrites in the correct legal register
 
 ────────────────────────────────────────────────────────────────────────────────
-6.3 cross-encoder/mmarco-mMiniLM-L12-H384-v1
+6.3 cross-encoder/mmarco-mMiniLMv2-L12-H384-v1
 ────────────────────────────────────────────────────────────────────────────────
 
   TYPE:          Cross-encoder reranking model
@@ -1338,7 +1342,7 @@ LESSONS LEARNED:
                          ▼
   ┌─────────────────────────────────────────────────────────┐
   │ STEP 4 — CROSS-ENCODER RERANKING                        │
-  │  mmarco-mMiniLM-L12-H384-v1 (lazy-loaded)               │
+  │  mmarco-mMiniLMv2-L12-H384-v1 (lazy-loaded)               │
   │  For each candidate: score(fr_query, article_text)      │
   │  Sort by score descending                               │
   │  Return top-6                                           │

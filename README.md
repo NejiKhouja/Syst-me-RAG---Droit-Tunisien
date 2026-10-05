@@ -69,11 +69,11 @@ Grounded structured answer + cited articles + source documents
 | Embeddings | `OrdalieTech/Solon-embeddings-large-0.1` | Trained on French legal corpora — far better domain alignment than general-purpose models |
 | Vector store | ChromaDB | File-based, no server required, supports metadata filtering by `law_type` and `article` |
 | BM25 | `rank_bm25` via LangChain | Exact keyword matching; complements semantic search for legal proper nouns and code names |
-| Reranker | `cross-encoder/mmarco-mMiniLM-L12-H384-v1` | Multilingual cross-encoder; evaluates (query, passage) pairs jointly for much higher precision than cosine similarity |
-| LLM | Llama 3.3 70B via Groq | Free API, fast inference, strong multilingual instruction-following |
+| Reranker | `cross-encoder/mmarco-mMiniLMv2-L12-H384-v1` | Multilingual cross-encoder; evaluates (query, passage) pairs jointly for much higher precision than cosine similarity |
+| LLM | `openai/gpt-oss-120b` via Groq (set by `LLM_MODEL`) | Free API, fast inference, multilingual instruction-following. Earlier versions used `llama-3.3-70b-versatile`, which this Groq key can no longer access |
 | PDF parsing | PyMuPDF | Best text extraction quality for French/Arabic legal PDFs |
 | UI | Streamlit | Chat interface with domain filter sidebar, source cards, and database rebuild button |
-| Query rewriting | Llama 3.3 70B (temp=0.0) | Translates and rewrites questions into optimised French legal search queries |
+| Query rewriting | `LLM_MODEL` (temp=0.0) | Translates and rewrites questions into optimised French legal search queries |
 
 ---
 
@@ -90,12 +90,14 @@ reranker.py        Cross-encoder reranking (lazy-loaded, cached)
 pipeline.py        Modular pipeline: step_rewrite → step_subqueries → step_retrieve
                                    → step_rerank → step_generate
 app.py             Streamlit UI — chat, domain filter, source cards
-evaluate.py        End-to-end benchmark (24 test cases, FR + AR + EN)
+evaluate.py        End-to-end retrieval benchmark (eval/questions.json, FR + AR + EN, dev/test split)
 ```
 
 ---
 
 ## Improvements Made
+
+> **Note on the version history below.** The accuracy figures in "Improvements Made" were measured on earlier, smaller question sets and with whatever models were configured at the time (including Llama 3.3 70B and, before the model-id fix, a reranker id that did not resolve, so reranking was silently skipped). They are not comparable with current numbers. Current results are recorded in `results/` (each run file lists the exact LLM, reranker and temperature that ran).
 
 The system was iteratively improved through systematic evaluation. Below is the full progression.
 
@@ -194,7 +196,7 @@ On failures, the evaluator now prints the rewritten query and sub-queries, makin
 
 ## Evaluation
 
-Run the full end-to-end benchmark (24 test cases across French, Arabic, and English):
+Run the end-to-end retrieval benchmark (87 questions across French, Arabic, and English; gold labels are `(source, article)` pairs; `--split dev` by default, see `eval/`):
 
 ```bash
 python evaluate.py
@@ -256,8 +258,8 @@ All tunable parameters are in `config.py`:
 | Parameter | Default | Description |
 |-----------|---------|-------------|
 | `EMBEDDING_MODEL` | `OrdalieTech/Solon-embeddings-large-0.1` | French legal embedding model |
-| `LLM_MODEL` | `llama-3.3-70b-versatile` | Groq model for generation and rewriting |
-| `RERANKER_MODEL` | `cross-encoder/mmarco-mMiniLM-L12-H384-v1` | Cross-encoder for reranking |
+| `LLM_MODEL` | `openai/gpt-oss-120b` | Groq model for generation and rewriting |
+| `RERANKER_MODEL` | `cross-encoder/mmarco-mMiniLMv2-L12-H384-v1` | Cross-encoder for reranking |
 | `MMR_K` | `20` | Semantic candidates fetched per query |
 | `BM25_K` | `15` | BM25 candidates (primary query only) |
 | `RERANK_TOP_K` | `6` | Final documents returned after reranking |
