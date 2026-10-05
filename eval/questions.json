@@ -1,0 +1,1893 @@
+[
+ {
+  "id": "q001",
+  "concept_id": "penal_theft",
+  "question": "Quelle est la peine pour le vol ?",
+  "language": "fr",
+  "law_type": "penal",
+  "category": "concept",
+  "description": "Theft penalty",
+  "gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "258"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "260"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "261"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "262"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q002",
+  "concept_id": "penal_homicide",
+  "question": "Qu'est-ce que le meurtre ?",
+  "language": "fr",
+  "law_type": "penal",
+  "category": "concept",
+  "description": "Homicide definition",
+  "gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "201"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "202"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "203"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q003",
+  "concept_id": "penal_corruption",
+  "question": "Quelle est la peine pour la corruption ?",
+  "language": "fr",
+  "law_type": "penal",
+  "category": "concept",
+  "description": "Corruption penalty",
+  "gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "84"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "85"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "86"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q004",
+  "concept_id": "penal_fraud",
+  "question": "Quelle est la peine pour l'escroquerie ?",
+  "language": "fr",
+  "law_type": "penal",
+  "category": "concept",
+  "description": "Fraud penalty",
+  "gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "291"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q005",
+  "concept_id": "penal_breach_of_trust",
+  "question": "Qu'est-ce que l'abus de confiance ?",
+  "language": "fr",
+  "law_type": "penal",
+  "category": "concept",
+  "description": "Breach of trust",
+  "gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "297"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q006",
+  "concept_id": "penal_defamation",
+  "question": "Que dit la loi sur la diffamation ?",
+  "language": "fr",
+  "law_type": "penal",
+  "category": "concept",
+  "description": "Defamation",
+  "gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "245"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "246"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q007",
+  "concept_id": "penal_rape",
+  "question": "Comment est puni le viol ?",
+  "language": "fr",
+  "law_type": "penal",
+  "category": "concept",
+  "description": "Rape penalty",
+  "gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "227"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q008",
+  "concept_id": "penal_harassment",
+  "question": "Quelle est la sanction du harcèlement sexuel ?",
+  "language": "fr",
+  "law_type": "penal",
+  "category": "concept",
+  "description": "Sexual harassment",
+  "gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "226"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q009",
+  "concept_id": "penal_self_defence",
+  "question": "Qu'est-ce que la légitime défense ?",
+  "language": "fr",
+  "law_type": "penal",
+  "category": "concept",
+  "description": "Self-defence",
+  "gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "39"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q010",
+  "concept_id": "penal_arson",
+  "question": "Comment est puni l'incendie volontaire ?",
+  "language": "fr",
+  "law_type": "penal",
+  "category": "concept",
+  "description": "Arson",
+  "gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "307"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "308"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "309"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q011",
+  "concept_id": "penal_attempt",
+  "question": "Que dit la loi sur la tentative de crime ?",
+  "language": "fr",
+  "law_type": "penal",
+  "category": "concept",
+  "description": "Attempt",
+  "gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "59"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q012",
+  "concept_id": "penal_assault",
+  "question": "Quelle est la peine pour les coups et blessures volontaires ?",
+  "language": "fr",
+  "law_type": "penal",
+  "category": "concept",
+  "description": "Assault",
+  "gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "217"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "218"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "219"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q013",
+  "concept_id": "penal_theft",
+  "question": "Que dit l'article 258 du code pénal ?",
+  "language": "fr",
+  "law_type": "penal",
+  "category": "article_lookup",
+  "description": "Art 258 lookup",
+  "gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "258"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q014",
+  "concept_id": "penal_homicide",
+  "question": "Que dit l'article 201 ?",
+  "language": "fr",
+  "law_type": "penal",
+  "category": "article_lookup",
+  "description": "Art 201 lookup",
+  "gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "201"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q015",
+  "concept_id": "const_right_to_life",
+  "question": "Que dit l'article 24 sur le droit à la vie ?",
+  "language": "fr",
+  "law_type": "constitution",
+  "category": "article_lookup",
+  "description": "Right to life",
+  "gold": [
+   {
+    "source": "tun_RecAcFreeLi.pdf",
+    "article": "24"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q016",
+  "concept_id": "const_fundamental_rights",
+  "question": "Quels sont les droits fondamentaux ?",
+  "language": "fr",
+  "law_type": "constitution",
+  "category": "concept",
+  "description": "Fundamental rights",
+  "gold": [
+   {
+    "source": "tun_RecAcFreeLi.pdf",
+    "article": "24"
+   },
+   {
+    "source": "tun_RecAcFreeLi.pdf",
+    "article": "25"
+   },
+   {
+    "source": "tun_RecAcFreeLi.pdf",
+    "article": "26"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q017",
+  "concept_id": "cpp_custody_duration",
+  "question": "Que dit l'article 13 sur la garde à vue ?",
+  "language": "fr",
+  "law_type": "procedure_penale",
+  "category": "article_lookup",
+  "description": "Custody article",
+  "gold": [
+   {
+    "source": "ProcedurepenaleFr.pdf",
+    "article": "13"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q018",
+  "concept_id": "cpp_custody_duration",
+  "question": "Quelle est la durée maximale de la garde à vue ?",
+  "language": "fr",
+  "law_type": "procedure_penale",
+  "category": "concept",
+  "description": "Custody duration",
+  "gold": [
+   {
+    "source": "ProcedurepenaleFr.pdf",
+    "article": "13"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q019",
+  "concept_id": "cpp_detainee_rights",
+  "question": "Quels sont les droits de la personne gardée à vue ?",
+  "language": "fr",
+  "law_type": "procedure_penale",
+  "category": "concept",
+  "description": "Custody rights",
+  "gold": [
+   {
+    "source": "ProcedurepenaleFr.pdf",
+    "article": "13"
+   },
+   {
+    "source": "ProcedurepenaleFr.pdf",
+    "article": "70"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q020",
+  "concept_id": "cpp_public_action_limitation",
+  "question": "Comment se prescrit l'action publique ?",
+  "language": "fr",
+  "law_type": "procedure_penale",
+  "category": "concept",
+  "description": "Public action limitation",
+  "gold": [
+   {
+    "source": "ProcedurepenaleFr.pdf",
+    "article": "5"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q021",
+  "concept_id": "travail_hours",
+  "question": "Quelle est la durée légale du travail ?",
+  "language": "fr",
+  "law_type": "travail",
+  "category": "concept",
+  "description": "Working hours",
+  "gold": [
+   {
+    "source": "travailFr.pdf",
+    "article": "79"
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "85"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q022",
+  "concept_id": "travail_dismissal",
+  "question": "Quelles sont les conditions de licenciement ?",
+  "language": "fr",
+  "law_type": "travail",
+  "category": "concept",
+  "description": "Dismissal conditions",
+  "gold": [
+   {
+    "source": "travailFr.pdf",
+    "article": "14"
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "16"
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "23"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q023",
+  "concept_id": "travail_paid_leave",
+  "question": "Quelle est la durée du congé annuel payé ?",
+  "language": "fr",
+  "law_type": "travail",
+  "category": "concept",
+  "description": "Paid leave",
+  "gold": [
+   {
+    "source": "travailFr.pdf",
+    "article": "112"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q024",
+  "concept_id": "travail_fixed_term",
+  "question": "Qu'est-ce que le contrat de travail à durée déterminée ?",
+  "language": "fr",
+  "law_type": "travail",
+  "category": "concept",
+  "description": "Fixed-term contract",
+  "gold": [
+   {
+    "source": "travailFr.pdf",
+    "article": "6"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q025",
+  "concept_id": "travail_maternity",
+  "question": "Quels sont les droits de la femme enceinte au travail ?",
+  "language": "fr",
+  "law_type": "travail",
+  "category": "concept",
+  "description": "Maternity leave",
+  "gold": [
+   {
+    "source": "travailFr.pdf",
+    "article": "64"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q026",
+  "concept_id": "csp_marriage_conditions",
+  "question": "Quelles sont les conditions du mariage ?",
+  "language": "fr",
+  "law_type": "statut_personnel",
+  "category": "concept",
+  "description": "Marriage conditions",
+  "gold": [
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "5"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "8"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "14"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q027",
+  "concept_id": "csp_divorce",
+  "question": "Comment se déroule le divorce ?",
+  "language": "fr",
+  "law_type": "statut_personnel",
+  "category": "concept",
+  "description": "Divorce",
+  "gold": [
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "29"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "30"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "31"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q028",
+  "concept_id": "csp_polygamy",
+  "question": "La polygamie est-elle autorisée ?",
+  "language": "fr",
+  "law_type": "statut_personnel",
+  "category": "concept",
+  "description": "Polygamy ban",
+  "gold": [
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "18"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q029",
+  "concept_id": "csp_child_custody",
+  "question": "Comment est attribuée la garde des enfants ?",
+  "language": "fr",
+  "law_type": "statut_personnel",
+  "category": "concept",
+  "description": "Child custody",
+  "gold": [
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "54"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "55"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "56"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "57"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q030",
+  "concept_id": "csp_alimony",
+  "question": "Quelles sont les règles de la pension alimentaire ?",
+  "language": "fr",
+  "law_type": "statut_personnel",
+  "category": "concept",
+  "description": "Alimony",
+  "gold": [
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "37"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "38"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "46"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "47"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q031",
+  "concept_id": "coc_contract_validity",
+  "question": "Quelles sont les conditions de validité d'un contrat ?",
+  "language": "fr",
+  "law_type": "obligations_contrats",
+  "category": "concept",
+  "description": "Contract validity",
+  "gold": [
+   {
+    "source": "COC.pdf",
+    "article": "2"
+   },
+   {
+    "source": "COC.pdf",
+    "article": "3"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q032",
+  "concept_id": "coc_civil_liability",
+  "question": "Qu'est-ce que la responsabilité civile ?",
+  "language": "fr",
+  "law_type": "obligations_contrats",
+  "category": "concept",
+  "description": "Civil liability",
+  "gold": [
+   {
+    "source": "COC.pdf",
+    "article": "82"
+   },
+   {
+    "source": "COC.pdf",
+    "article": "83"
+   },
+   {
+    "source": "COC.pdf",
+    "article": "84"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q033",
+  "concept_id": "coc_force_majeure",
+  "question": "Qu'est-ce que la force majeure ?",
+  "language": "fr",
+  "law_type": "obligations_contrats",
+  "category": "concept",
+  "description": "Force majeure",
+  "gold": [
+   {
+    "source": "COC.pdf",
+    "article": "283"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q034",
+  "concept_id": "coc_binding_force",
+  "question": "Quelle est la force obligatoire du contrat ?",
+  "language": "fr",
+  "law_type": "obligations_contrats",
+  "category": "concept",
+  "description": "Binding force",
+  "gold": [
+   {
+    "source": "COC.pdf",
+    "article": "242"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q035",
+  "concept_id": "coc_seller_duties",
+  "question": "Quelles sont les obligations du vendeur ?",
+  "language": "fr",
+  "law_type": "obligations_contrats",
+  "category": "concept",
+  "description": "Seller duties",
+  "gold": [
+   {
+    "source": "COC.pdf",
+    "article": "564"
+   },
+   {
+    "source": "COC.pdf",
+    "article": "611"
+   },
+   {
+    "source": "COC.pdf",
+    "article": "612"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q036",
+  "concept_id": "coc_lease",
+  "question": "Quelles sont les règles du contrat de louage ?",
+  "language": "fr",
+  "law_type": "obligations_contrats",
+  "category": "concept",
+  "description": "Lease",
+  "gold": [
+   {
+    "source": "COC.pdf",
+    "article": "728"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q037",
+  "concept_id": "nat_acquisition",
+  "question": "Comment acquérir la nationalité tunisienne ?",
+  "language": "fr",
+  "law_type": "nationalite",
+  "category": "concept",
+  "description": "Nationality acquisition",
+  "gold": [
+   {
+    "source": "NationaliteFr.pdf",
+    "article": "6"
+   },
+   {
+    "source": "NationaliteFr.pdf",
+    "article": "7"
+   },
+   {
+    "source": "NationaliteFr.pdf",
+    "article": "8"
+   },
+   {
+    "source": "NationaliteFr.pdf",
+    "article": "9"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q038",
+  "concept_id": "enfant_at_risk",
+  "question": "Quels sont les droits de l'enfant en danger ?",
+  "language": "fr",
+  "law_type": "protection_enfant",
+  "category": "concept",
+  "description": "Child at risk",
+  "gold": [
+   {
+    "source": "EnfantFr.pdf",
+    "article": "20"
+   },
+   {
+    "source": "EnfantFr.pdf",
+    "article": "21"
+   },
+   {
+    "source": "EnfantFr.pdf",
+    "article": "22"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q039",
+  "concept_id": "arb_agreement",
+  "question": "Qu'est-ce qu'une convention d'arbitrage ?",
+  "language": "fr",
+  "law_type": "arbitrage",
+  "category": "concept",
+  "description": "Arbitration agreement",
+  "gold": [
+   {
+    "source": "ArbitrageFr.pdf",
+    "article": "2"
+   },
+   {
+    "source": "ArbitrageFr.pdf",
+    "article": "3"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q040",
+  "concept_id": "any_art13",
+  "question": "Que dit l'article 13 ?",
+  "language": "fr",
+  "law_type": null,
+  "category": "cross_domain",
+  "description": "Art 13 any domain",
+  "gold": [
+   {
+    "source": "*",
+    "article": "13"
+   }
+  ],
+  "source_ambiguous": true,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q041",
+  "concept_id": "penal_theft",
+  "question": "Quelle est la peine pour le vol ?",
+  "language": "fr",
+  "law_type": null,
+  "category": "cross_domain",
+  "description": "Theft, no filter",
+  "gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "258"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "260"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "261"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "262"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q042",
+  "concept_id": "csp_divorce",
+  "question": "Quelles sont les causes de divorce ?",
+  "language": "fr",
+  "law_type": null,
+  "category": "cross_domain",
+  "description": "Divorce, no filter",
+  "gold": [
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "29"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "30"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "31"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q043",
+  "concept_id": "travail_hours",
+  "question": "Combien d'heures par semaine peut-on travailler ?",
+  "language": "fr",
+  "law_type": null,
+  "category": "cross_domain",
+  "description": "Hours, no filter",
+  "gold": [
+   {
+    "source": "travailFr.pdf",
+    "article": "79"
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "85"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q044",
+  "concept_id": "travail_dismissal",
+  "question": "Mon patron peut-il me virer sans préavis ?",
+  "language": "fr",
+  "law_type": "travail",
+  "category": "colloquial",
+  "description": "Fired without notice",
+  "gold": [
+   {
+    "source": "travailFr.pdf",
+    "article": "14"
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "16"
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "23"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q045",
+  "concept_id": "csp_polygamy",
+  "question": "Mon mari peut-il se remarier ?",
+  "language": "fr",
+  "law_type": "statut_personnel",
+  "category": "colloquial",
+  "description": "Husband remarriage",
+  "gold": [
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "18"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q046",
+  "concept_id": "penal_assault",
+  "question": "Que risque-t-on si on frappe quelqu'un ?",
+  "language": "fr",
+  "law_type": "penal",
+  "category": "colloquial",
+  "description": "Hitting someone",
+  "gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "217"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "218"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "219"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q047",
+  "concept_id": "penal_theft",
+  "question": "ما هي عقوبة السرقة؟",
+  "language": "ar",
+  "law_type": "penal",
+  "category": "concept",
+  "description": "Theft penalty",
+  "gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "258"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "260"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "261"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "262"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q048",
+  "concept_id": "penal_corruption",
+  "question": "ما هي عقوبة الرشوة؟",
+  "language": "ar",
+  "law_type": "penal",
+  "category": "concept",
+  "description": "Corruption penalty",
+  "gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "84"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "85"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "86"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q049",
+  "concept_id": "penal_homicide",
+  "question": "ما هي عقوبة القتل العمد؟",
+  "language": "ar",
+  "law_type": "penal",
+  "category": "concept",
+  "description": "Homicide penalty",
+  "gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "201"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "202"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "203"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q050",
+  "concept_id": "penal_fraud",
+  "question": "ما هي عقوبة الاحتيال؟",
+  "language": "ar",
+  "law_type": "penal",
+  "category": "concept",
+  "description": "Fraud penalty",
+  "gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "291"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q051",
+  "concept_id": "penal_rape",
+  "question": "ما هي عقوبة الاغتصاب؟",
+  "language": "ar",
+  "law_type": "penal",
+  "category": "concept",
+  "description": "Rape penalty",
+  "gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "227"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q052",
+  "concept_id": "penal_self_defence",
+  "question": "ما هو الدفاع الشرعي؟",
+  "language": "ar",
+  "law_type": "penal",
+  "category": "concept",
+  "description": "Self-defence",
+  "gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "39"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q053",
+  "concept_id": "const_right_to_life",
+  "question": "ماذا ينص الفصل 24 من الدستور؟",
+  "language": "ar",
+  "law_type": "constitution",
+  "category": "article_lookup",
+  "description": "Right to life",
+  "gold": [
+   {
+    "source": "tun_RecAcFreeLi.pdf",
+    "article": "24"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q054",
+  "concept_id": "cpp_detainee_rights",
+  "question": "ما هي حقوق الموقوف؟",
+  "language": "ar",
+  "law_type": "procedure_penale",
+  "category": "concept",
+  "description": "Detainee rights",
+  "gold": [
+   {
+    "source": "ProcedurepenaleFr.pdf",
+    "article": "13"
+   },
+   {
+    "source": "ProcedurepenaleFr.pdf",
+    "article": "70"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q055",
+  "concept_id": "cpp_custody_duration",
+  "question": "ما هي مدة الاحتفاظ؟",
+  "language": "ar",
+  "law_type": "procedure_penale",
+  "category": "concept",
+  "description": "Custody duration",
+  "gold": [
+   {
+    "source": "ProcedurepenaleFr.pdf",
+    "article": "13"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q056",
+  "concept_id": "travail_hours",
+  "question": "ما هي مدة العمل القانونية؟",
+  "language": "ar",
+  "law_type": "travail",
+  "category": "concept",
+  "description": "Working hours",
+  "gold": [
+   {
+    "source": "travailFr.pdf",
+    "article": "79"
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "85"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q057",
+  "concept_id": "travail_paid_leave",
+  "question": "ما هي مدة الإجازة السنوية المدفوعة؟",
+  "language": "ar",
+  "law_type": "travail",
+  "category": "concept",
+  "description": "Paid leave",
+  "gold": [
+   {
+    "source": "travailFr.pdf",
+    "article": "112"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q058",
+  "concept_id": "travail_dismissal",
+  "question": "متى يمكن للمؤجر طرد العامل؟",
+  "language": "ar",
+  "law_type": "travail",
+  "category": "colloquial",
+  "description": "Dismissal",
+  "gold": [
+   {
+    "source": "travailFr.pdf",
+    "article": "14"
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "16"
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "23"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q059",
+  "concept_id": "csp_marriage_conditions",
+  "question": "ما هي شروط الزواج؟",
+  "language": "ar",
+  "law_type": "statut_personnel",
+  "category": "concept",
+  "description": "Marriage conditions",
+  "gold": [
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "5"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "8"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "14"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q060",
+  "concept_id": "csp_polygamy",
+  "question": "هل يجوز تعدد الزوجات؟",
+  "language": "ar",
+  "law_type": "statut_personnel",
+  "category": "concept",
+  "description": "Polygamy ban",
+  "gold": [
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "18"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q061",
+  "concept_id": "csp_divorce",
+  "question": "كيف يتم الطلاق؟",
+  "language": "ar",
+  "law_type": "statut_personnel",
+  "category": "concept",
+  "description": "Divorce",
+  "gold": [
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "29"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "30"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "31"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q062",
+  "concept_id": "csp_child_custody",
+  "question": "من يحق له حضانة الأطفال؟",
+  "language": "ar",
+  "law_type": "statut_personnel",
+  "category": "concept",
+  "description": "Child custody",
+  "gold": [
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "54"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "55"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "56"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "57"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q063",
+  "concept_id": "coc_contract_validity",
+  "question": "ما هي شروط صحة العقد؟",
+  "language": "ar",
+  "law_type": "obligations_contrats",
+  "category": "concept",
+  "description": "Contract validity",
+  "gold": [
+   {
+    "source": "COC.pdf",
+    "article": "2"
+   },
+   {
+    "source": "COC.pdf",
+    "article": "3"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q064",
+  "concept_id": "coc_force_majeure",
+  "question": "ما هي القوة القاهرة؟",
+  "language": "ar",
+  "law_type": "obligations_contrats",
+  "category": "concept",
+  "description": "Force majeure",
+  "gold": [
+   {
+    "source": "COC.pdf",
+    "article": "283"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q065",
+  "concept_id": "nat_acquisition",
+  "question": "كيف تكتسب الجنسية التونسية؟",
+  "language": "ar",
+  "law_type": "nationalite",
+  "category": "concept",
+  "description": "Nationality acquisition",
+  "gold": [
+   {
+    "source": "NationaliteFr.pdf",
+    "article": "6"
+   },
+   {
+    "source": "NationaliteFr.pdf",
+    "article": "7"
+   },
+   {
+    "source": "NationaliteFr.pdf",
+    "article": "8"
+   },
+   {
+    "source": "NationaliteFr.pdf",
+    "article": "9"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q066",
+  "concept_id": "penal_theft",
+  "question": "ما هي عقوبة السرقة؟",
+  "language": "ar",
+  "law_type": null,
+  "category": "cross_domain",
+  "description": "Theft, no filter",
+  "gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "258"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "260"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "261"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "262"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q067",
+  "concept_id": "csp_marriage_conditions",
+  "question": "ما هي شروط الزواج؟",
+  "language": "ar",
+  "law_type": null,
+  "category": "cross_domain",
+  "description": "Marriage, no filter",
+  "gold": [
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "5"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "8"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "14"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q068",
+  "concept_id": "penal_theft",
+  "question": "What is the penalty for theft?",
+  "language": "en",
+  "law_type": "penal",
+  "category": "concept",
+  "description": "Theft penalty",
+  "gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "258"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "260"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "261"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "262"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q069",
+  "concept_id": "penal_homicide",
+  "question": "What is the penalty for murder?",
+  "language": "en",
+  "law_type": "penal",
+  "category": "concept",
+  "description": "Homicide penalty",
+  "gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "201"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "202"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "203"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q070",
+  "concept_id": "penal_fraud",
+  "question": "How is fraud punished?",
+  "language": "en",
+  "law_type": "penal",
+  "category": "concept",
+  "description": "Fraud penalty",
+  "gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "291"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q071",
+  "concept_id": "penal_corruption",
+  "question": "What is the penalty for bribery?",
+  "language": "en",
+  "law_type": "penal",
+  "category": "concept",
+  "description": "Corruption penalty",
+  "gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "84"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "85"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "86"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q072",
+  "concept_id": "penal_self_defence",
+  "question": "What counts as self-defence?",
+  "language": "en",
+  "law_type": "penal",
+  "category": "concept",
+  "description": "Self-defence",
+  "gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "39"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q073",
+  "concept_id": "csp_marriage_conditions",
+  "question": "What are the conditions for marriage?",
+  "language": "en",
+  "law_type": "statut_personnel",
+  "category": "concept",
+  "description": "Marriage conditions",
+  "gold": [
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "5"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "8"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "14"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q074",
+  "concept_id": "csp_polygamy",
+  "question": "Is polygamy allowed?",
+  "language": "en",
+  "law_type": "statut_personnel",
+  "category": "concept",
+  "description": "Polygamy ban",
+  "gold": [
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "18"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q075",
+  "concept_id": "csp_child_custody",
+  "question": "Who gets custody of the children after divorce?",
+  "language": "en",
+  "law_type": "statut_personnel",
+  "category": "concept",
+  "description": "Child custody",
+  "gold": [
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "54"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "55"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "56"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "57"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q076",
+  "concept_id": "const_fundamental_rights",
+  "question": "What are the fundamental rights?",
+  "language": "en",
+  "law_type": "constitution",
+  "category": "concept",
+  "description": "Fundamental rights",
+  "gold": [
+   {
+    "source": "tun_RecAcFreeLi.pdf",
+    "article": "24"
+   },
+   {
+    "source": "tun_RecAcFreeLi.pdf",
+    "article": "25"
+   },
+   {
+    "source": "tun_RecAcFreeLi.pdf",
+    "article": "26"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q077",
+  "concept_id": "cpp_detainee_rights",
+  "question": "What are the rights of a detainee?",
+  "language": "en",
+  "law_type": "procedure_penale",
+  "category": "concept",
+  "description": "Detainee rights",
+  "gold": [
+   {
+    "source": "ProcedurepenaleFr.pdf",
+    "article": "13"
+   },
+   {
+    "source": "ProcedurepenaleFr.pdf",
+    "article": "70"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q078",
+  "concept_id": "cpp_custody_duration",
+  "question": "How long can police custody last?",
+  "language": "en",
+  "law_type": "procedure_penale",
+  "category": "concept",
+  "description": "Custody duration",
+  "gold": [
+   {
+    "source": "ProcedurepenaleFr.pdf",
+    "article": "13"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q079",
+  "concept_id": "travail_hours",
+  "question": "What is the legal working hours limit?",
+  "language": "en",
+  "law_type": "travail",
+  "category": "concept",
+  "description": "Working hours",
+  "gold": [
+   {
+    "source": "travailFr.pdf",
+    "article": "79"
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "85"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q080",
+  "concept_id": "travail_paid_leave",
+  "question": "How many days of paid annual leave is a worker entitled to?",
+  "language": "en",
+  "law_type": "travail",
+  "category": "concept",
+  "description": "Paid leave",
+  "gold": [
+   {
+    "source": "travailFr.pdf",
+    "article": "112"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q081",
+  "concept_id": "travail_dismissal",
+  "question": "When can an employer lawfully dismiss an employee?",
+  "language": "en",
+  "law_type": "travail",
+  "category": "concept",
+  "description": "Dismissal",
+  "gold": [
+   {
+    "source": "travailFr.pdf",
+    "article": "14"
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "16"
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "23"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q082",
+  "concept_id": "coc_contract_validity",
+  "question": "What makes a contract valid?",
+  "language": "en",
+  "law_type": "obligations_contrats",
+  "category": "concept",
+  "description": "Contract validity",
+  "gold": [
+   {
+    "source": "COC.pdf",
+    "article": "2"
+   },
+   {
+    "source": "COC.pdf",
+    "article": "3"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q083",
+  "concept_id": "coc_force_majeure",
+  "question": "What is force majeure?",
+  "language": "en",
+  "law_type": "obligations_contrats",
+  "category": "concept",
+  "description": "Force majeure",
+  "gold": [
+   {
+    "source": "COC.pdf",
+    "article": "283"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q084",
+  "concept_id": "nat_acquisition",
+  "question": "How can someone acquire Tunisian nationality?",
+  "language": "en",
+  "law_type": "nationalite",
+  "category": "concept",
+  "description": "Nationality acquisition",
+  "gold": [
+   {
+    "source": "NationaliteFr.pdf",
+    "article": "6"
+   },
+   {
+    "source": "NationaliteFr.pdf",
+    "article": "7"
+   },
+   {
+    "source": "NationaliteFr.pdf",
+    "article": "8"
+   },
+   {
+    "source": "NationaliteFr.pdf",
+    "article": "9"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q085",
+  "concept_id": "penal_theft",
+  "question": "What is the penalty for theft?",
+  "language": "en",
+  "law_type": null,
+  "category": "cross_domain",
+  "description": "Theft, no filter",
+  "gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "258"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "260"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "261"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "262"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q086",
+  "concept_id": "any_art13",
+  "question": "What does article 13 say?",
+  "language": "en",
+  "law_type": null,
+  "category": "cross_domain",
+  "description": "Art 13 any domain",
+  "gold": [
+   {
+    "source": "*",
+    "article": "13"
+   }
+  ],
+  "source_ambiguous": true,
+  "label_status": "unverified"
+ },
+ {
+  "id": "q087",
+  "concept_id": "csp_divorce",
+  "question": "What are the grounds for divorce?",
+  "language": "en",
+  "law_type": null,
+  "category": "cross_domain",
+  "description": "Divorce, no filter",
+  "gold": [
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "29"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "30"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "31"
+   }
+  ],
+  "source_ambiguous": false,
+  "label_status": "unverified"
+ }
+]
