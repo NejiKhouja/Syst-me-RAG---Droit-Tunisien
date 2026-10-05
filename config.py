@@ -11,8 +11,8 @@ DB_DIR   = Path("db")
 GROQ_API_KEY: str = os.getenv("GROQ_API_KEY", "")
 
 EMBEDDING_MODEL = "OrdalieTech/Solon-embeddings-large-0.1"
-LLM_MODEL       = "llama-3.3-70b-versatile"
-RERANKER_MODEL  = "cross-encoder/mmarco-mMiniLM-L12-H384-v1"
+LLM_MODEL       = "openai/gpt-oss-120b"
+RERANKER_MODEL  = "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1"
 
 # Retrieval knobs
 MMR_K        = 20   # semantic candidates per query
