@@ -1,0 +1,709 @@
+{
+ "penal_theft": {
+  "rationale": "Add 263 (theft committed during fire/explosion etc., 10 years) and 264 (\"tous autres vols\", 5 years): both are theft penalties in the corpus, and 264 is the single most frequent 'wrong' result in the v1 baseline.",
+  "proposed_gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "258",
+    "anchor": "Article 258"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "260",
+    "anchor": "Article 260 (Modifié par la loi n° 89-23"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "261",
+    "anchor": "Article 261"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "262",
+    "anchor": "Article 262"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "263",
+    "anchor": "Article 263"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "264",
+    "anchor": "Article 264"
+   }
+  ]
+ },
+ "penal_homicide": {
+  "rationale": "Add 204 (homicide preceded/accompanied by another offence: death) and 205 (meurtre in all cases not provided above: life imprisonment): they define/penalise murder directly. 201-203 unchanged.",
+  "proposed_gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "201",
+    "anchor": "Article 201"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "202",
+    "anchor": "Article 202"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "203",
+    "anchor": "Article 203"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "204",
+    "anchor": "Article 204"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "205",
+    "anchor": "Article 205"
+   }
+  ]
+ },
+ "penal_corruption": {
+  "rationale": "Remove 86: its heading says 'Abrogé par la loi n° 1998-33' (empty article). Add 83 (fonctionnaire who agrees to offers/promises, i.e. passive corruption) and 91 (person who corrupted or attempted to corrupt, 5 years). 84-85 unchanged.",
+  "proposed_gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "83",
+    "anchor": "Article 83"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "84",
+    "anchor": "Article 84"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "85",
+    "anchor": "Article 85"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "91",
+    "anchor": "Article 91"
+   }
+  ]
+ },
+ "penal_fraud": {
+  "rationale": "Add 292: 'assimilé à l'escroquerie et puni des peines prévues à l'article précédent'. 291 is anchored to the main article (two fragment chunks also carry number 291).",
+  "proposed_gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "291",
+    "anchor": "Article 291 (Modifié par le décret du 8 octobre 1935)"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "292",
+    "anchor": "Article 292"
+   }
+  ]
+ },
+ "penal_breach_of_trust": {
+  "rationale": "No change; only anchored to the real heading (297 is the abus de confiance article).",
+  "proposed_gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "297",
+    "anchor": "Article 297"
+   }
+  ]
+ },
+ "penal_defamation": {
+  "rationale": "Add 247: it is the penalty article ('Est puni de six mois d'emprisonnement ... diffamation'); 245 defines diffamation, 246 defines calomnie. 247 is a frequent 'wrong' result in v1 because it is in fact relevant.",
+  "proposed_gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "245",
+    "anchor": "Article 245"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "246",
+    "anchor": "Article 246"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "247",
+    "anchor": "Article 247"
+   }
+  ]
+ },
+ "penal_rape": {
+  "rationale": "No change in articles; anchors separate 227 and 227 bis (same law, both about rape / sexual acts without violence).",
+  "proposed_gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "227",
+    "anchor": "Article 227 (Modifié par la loi n° 85-9"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "227",
+    "anchor": "Article 227 bis"
+   }
+  ]
+ },
+ "penal_harassment": {
+  "rationale": "Narrow: the harassment article is 226 ter ('commet le harcèlement sexuel', 1 year + 3000 dinars). 226 (outrage public à la pudeur) and 226 bis (atteinte aux bonnes moeurs) are different offences. Keep 226 quater (rules attached to the two preceding articles).",
+  "proposed_gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "226",
+    "anchor": "Article 226 ter"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "226",
+    "anchor": "Article 226 quater"
+   }
+  ]
+ },
+ "penal_self_defence": {
+  "rationale": "Replace 39 by 40. Art 40 covers 'se défendant contre les auteurs de vols ou de pillages' and repelling a nocturnal break-in = légitime défense. Art 39 is contrainte/état de nécessité ('danger imminent'). JUDGMENT CALL: you may prefer to keep 39 as a related article.",
+  "proposed_gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "40",
+    "anchor": "Article 40"
+   }
+  ]
+ },
+ "penal_arson": {
+  "rationale": "Remove 309: it punishes fires caused by 'maladresse, imprudence, négligence' (involuntary), while the question asks about incendie volontaire. 307 and 308 unchanged.",
+  "proposed_gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "307",
+    "anchor": "Article 307"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "308",
+    "anchor": "Article 308"
+   }
+  ]
+ },
+ "penal_attempt": {
+  "rationale": "No change (Art 59 = tentative punissable).",
+  "proposed_gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "59",
+    "anchor": "Article 59"
+   }
+  ]
+ },
+ "penal_assault": {
+  "rationale": "Remove 217: it is homicide involontaire (maladresse, imprudence). Add 208 (coups portés ou blessures faites volontairement sans intention de donner la mort: 20 years). 218-219 unchanged; 218 anchored to the main article (a fragment chunk also carries 218).",
+  "proposed_gold": [
+   {
+    "source": "PenalFr.pdf",
+    "article": "208",
+    "anchor": "Article 208"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "218",
+    "anchor": "Article 218 (Modifié par la loi n° 93-72"
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "219",
+    "anchor": "Article 219"
+   }
+  ]
+ },
+ "const_right_to_life": {
+  "rationale": "No change; anchored.",
+  "proposed_gold": [
+   {
+    "source": "tun_RecAcFreeLi.pdf",
+    "article": "24",
+    "anchor": "Art. 24"
+   }
+  ]
+ },
+ "const_fundamental_rights": {
+  "rationale": "Add 22 ('L'Etat garantit aux citoyens ... les libertés et les droits individuels et collectifs'). The question is inherently broad; consider whether it should stay in the scored set. NOTE: the chunk labelled 26 also contains Art. 27 ('Art . 27' with a space escapes the splitter).",
+  "proposed_gold": [
+   {
+    "source": "tun_RecAcFreeLi.pdf",
+    "article": "22",
+    "anchor": "Art. 22"
+   },
+   {
+    "source": "tun_RecAcFreeLi.pdf",
+    "article": "24",
+    "anchor": "Art. 24"
+   },
+   {
+    "source": "tun_RecAcFreeLi.pdf",
+    "article": "25",
+    "anchor": "Art. 25"
+   },
+   {
+    "source": "tun_RecAcFreeLi.pdf",
+    "article": "26",
+    "anchor": "Art. 26"
+   }
+  ]
+ },
+ "cpp_custody_duration": {
+  "rationale": "Disambiguate: ProcedurepenaleFr.pdf bundles several laws and has 4 chunks numbered 13 (OPJ powers, garde à vue = Art 13 bis, an indemnisation law, a terrorism law). Only Art 13 (OPJ) and Art 13 bis count.",
+  "proposed_gold": [
+   {
+    "source": "ProcedurepenaleFr.pdf",
+    "article": "13",
+    "anchor": "Article 13.- Les officiers de police judiciaire visés aux 3°"
+   },
+   {
+    "source": "ProcedurepenaleFr.pdf",
+    "article": "13",
+    "anchor": "Article 13 bis"
+   }
+  ]
+ },
+ "cpp_detainee_rights": {
+  "rationale": "Same disambiguation for 13/13 bis; 70 anchored to 'L'inculpé détenu est autorisé à communiquer ... avec son conseil' (another chunk numbered 70 is about personnes morales).",
+  "proposed_gold": [
+   {
+    "source": "ProcedurepenaleFr.pdf",
+    "article": "13",
+    "anchor": "Article 13.- Les officiers de police judiciaire visés aux 3°"
+   },
+   {
+    "source": "ProcedurepenaleFr.pdf",
+    "article": "13",
+    "anchor": "Article 13 bis"
+   },
+   {
+    "source": "ProcedurepenaleFr.pdf",
+    "article": "70",
+    "anchor": "Article 70.- L'inculpé détenu"
+   }
+  ]
+ },
+ "cpp_public_action_limitation": {
+  "rationale": "Anchor 5 to the prescription article (another 'Article 5' concerns the cour d'appel de Tunis and one is abrogated). Add 6 (interruption of the prescription).",
+  "proposed_gold": [
+   {
+    "source": "ProcedurepenaleFr.pdf",
+    "article": "5",
+    "anchor": "Article 5.- Sauf dispositions spéciales de la loi, l'action publique"
+   },
+   {
+    "source": "ProcedurepenaleFr.pdf",
+    "article": "6",
+    "anchor": "Article 6.- S'il a été fait, au cours des délais"
+   }
+  ]
+ },
+ "travail_hours": {
+  "rationale": "Add 88 (legal duration in agricultural enterprises: 2700 h/year) and 83 (exceptional extensions of the working day). 79 and 85 kept (85 = work schedule, borderline).",
+  "proposed_gold": [
+   {
+    "source": "travailFr.pdf",
+    "article": "79",
+    "anchor": "Article 79"
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "83",
+    "anchor": "Article 83"
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "85",
+    "anchor": "Article 85"
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "88",
+    "anchor": "Article 88"
+   }
+  ]
+ },
+ "travail_dismissal": {
+  "rationale": "Remove 16 (employer bankruptcy 'n'est pas une cause de résiliation': not a dismissal condition). Add 21 (the 21-x series on economic dismissal and the control commission). 14 (14 bis..quinquies: notice, grounds, serious fault, judge control) and 23 kept.",
+  "proposed_gold": [
+   {
+    "source": "travailFr.pdf",
+    "article": "14",
+    "anchor": "Article 14",
+    "multi": true
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "21",
+    "anchor": "Article 21",
+    "multi": true
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "23",
+    "anchor": "Article 23",
+    "multi": true
+   }
+  ]
+ },
+ "travail_paid_leave": {
+  "rationale": "Add 113 (right acquired per month of work, i.e. the duration) and 115 (extra day per 5 years of service). 112 only states the right.",
+  "proposed_gold": [
+   {
+    "source": "travailFr.pdf",
+    "article": "112",
+    "anchor": "Article 112"
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "113",
+    "anchor": "Article 113"
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "115",
+    "anchor": "Article 115"
+   }
+  ]
+ },
+ "travail_fixed_term": {
+  "rationale": "Narrow to the CDD articles 6-2 (CDI or CDD, limitation of duration) and 6-4 (cases where a CDD may be concluded); plain 'Article 6' is the general contract definition.",
+  "proposed_gold": [
+   {
+    "source": "travailFr.pdf",
+    "article": "6",
+    "anchor": "Article 6- 2"
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "6",
+    "anchor": "Article 6- 4"
+   }
+  ]
+ },
+ "travail_maternity": {
+  "rationale": "No change; anchored (two fragment chunks also carry number 64).",
+  "proposed_gold": [
+   {
+    "source": "travailFr.pdf",
+    "article": "64",
+    "anchor": "Article 64.- Dans les entreprises"
+   }
+  ]
+ },
+ "csp_marriage_conditions": {
+  "rationale": "Statutpersonnel.pdf bundles the CSP with état-civil, adoption, tutelle... laws, so 'Article 5/8/14' have 13/9/6 chunks. Anchors select the CSP articles. Add 3 (consentement des deux époux) and 6 (consentement du tuteur pour le mineur). Optional candidates not added: 7 (prodigue), 15-17 (empêchements).",
+  "proposed_gold": [
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "3",
+    "anchor": "Article 3 .- Le mariage n'est formé"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "5",
+    "anchor": "Article 5 (Modifié par le décret-loi n°64-1"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "6",
+    "anchor": "Article 6 (Modifié par la loi n°93-74 du 12 juillet 1993).- Le mariage du mineur"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "8",
+    "anchor": "Article 8 .- Consent au mariage du mineur"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "14",
+    "anchor": "Article 14 .- Les empêchements au mariage"
+   }
+  ]
+ },
+ "csp_divorce": {
+  "rationale": "Anchor 29/30/31 to the CSP divorce articles (other chunks numbered 29/30/31 are ship registers and civil-status acts). Add 32 (procedure before the tribunal).",
+  "proposed_gold": [
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "29",
+    "anchor": "Article 29 .- Le divorce est la dissolution"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "30",
+    "anchor": "Article 30 .- Le divorce ne peut avoir lieu"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "31",
+    "anchor": "Article 31. (Modifié par la loi n°81-7"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "32",
+    "anchor": "Article 32 (Modifié par la loi n°2010-50"
+   }
+  ]
+ },
+ "csp_polygamy": {
+  "rationale": "No change; anchored to the CSP Art 18 (4 other chunks are numbered 18).",
+  "proposed_gold": [
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "18",
+    "anchor": "Article 18 (Modifié par la loi n°58-70"
+   }
+  ]
+ },
+ "csp_child_custody": {
+  "rationale": "Anchor 54-57 to the CSP garde articles (54/55/56/57 each also exist as 'disparu / procès-verbal' civil-status articles). Add 58 (conditions to hold the garde) and 67 (garde when the marriage is dissolved by divorce).",
+  "proposed_gold": [
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "54",
+    "anchor": "Article 54 .- La garde consiste"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "55",
+    "anchor": "Article 55 .- La femme qui refuse"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "56",
+    "anchor": "Article 56 (Paragraphes 2, 3, 4"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "57",
+    "anchor": "Article 57 (Modifié par la loi n°66-49"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "58",
+    "anchor": "Article 58 (Modifié par la loi n°81-7"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "67",
+    "anchor": "Article 67. (Modifié par la loi n°93-74"
+   }
+  ]
+ },
+ "csp_alimony": {
+  "rationale": "Anchor 37/38/46/47 to the CSP alimony articles (other chunks with these numbers concern marriage abroad and death certificates). Add 43 (who is entitled), 50 (what the pension comprises), 51 (extinction), 52 (proportionality).",
+  "proposed_gold": [
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "37",
+    "anchor": "Article 37 .- L'obligation alimentaire"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "38",
+    "anchor": "Article 38 .- Le mari doit des aliments"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "43",
+    "anchor": "Article 43 (Modifié par la loi n°93-74"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "46",
+    "anchor": "Article 46 (Modifié par la loi n°93-74"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "47",
+    "anchor": "Article 47 .- En cas d'indigence"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "50",
+    "anchor": "Article 50 .- La pension alimentaire comprend"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "51",
+    "anchor": "Article 51 .- La pension alimentaire s'éteint"
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "52",
+    "anchor": "Article 52.- Les aliments ne sont accordés"
+   }
+  ]
+ },
+ "coc_contract_validity": {
+  "rationale": "Anchor: COC.pdf has three chunks numbered 2 and two numbered 3; the right ones are Art 2 'Les éléments nécessaires pour la validité des obligations ...' and Art 3 'Toute personne est capable'. Not added (lexical search did not surface them): the articles on consent, object and cause, so the label may be incomplete.",
+  "proposed_gold": [
+   {
+    "source": "COC.pdf",
+    "article": "2",
+    "anchor": "Article 2.- Les éléments nécessaires pour la validité"
+   },
+   {
+    "source": "COC.pdf",
+    "article": "3",
+    "anchor": "Article 3.- Toute personne est capable"
+   }
+  ]
+ },
+ "coc_civil_liability": {
+  "rationale": "No change; anchored.",
+  "proposed_gold": [
+   {
+    "source": "COC.pdf",
+    "article": "82",
+    "anchor": "Article 82"
+   },
+   {
+    "source": "COC.pdf",
+    "article": "83",
+    "anchor": "Article 83"
+   },
+   {
+    "source": "COC.pdf",
+    "article": "84",
+    "anchor": "Article 84"
+   }
+  ]
+ },
+ "coc_force_majeure": {
+  "rationale": "Add 280 ('Le débiteur en demeure répond du cas fortuit et de la force majeure').",
+  "proposed_gold": [
+   {
+    "source": "COC.pdf",
+    "article": "280",
+    "anchor": "Article 280"
+   },
+   {
+    "source": "COC.pdf",
+    "article": "283",
+    "anchor": "Article 283"
+   }
+  ]
+ },
+ "coc_binding_force": {
+  "rationale": "No change; anchored.",
+  "proposed_gold": [
+   {
+    "source": "COC.pdf",
+    "article": "242",
+    "anchor": "Article 242"
+   }
+  ]
+ },
+ "coc_seller_duties": {
+  "rationale": "Replace: 564 is the definition of sale, 611/612 say what the sale of land/building includes. Art 591: 'Le vendeur a deux obligations principales : 1) délivrer la chose 2) la garantir' is the duties article. Its sub-articles (délivrance, garantie) were not reviewed, so recall is likely understated.",
+  "proposed_gold": [
+   {
+    "source": "COC.pdf",
+    "article": "591",
+    "anchor": "Article 591"
+   }
+  ]
+ },
+ "coc_lease": {
+  "rationale": "No change; anchored.",
+  "proposed_gold": [
+   {
+    "source": "COC.pdf",
+    "article": "728",
+    "anchor": "Article 728"
+   }
+  ]
+ },
+ "nat_acquisition": {
+  "rationale": "No change; anchored. The question says 'acquérir': the corpus also has acquisition by marriage (13-14) and naturalisation, which lexical search did not surface, so the label may be incomplete.",
+  "proposed_gold": [
+   {
+    "source": "NationaliteFr.pdf",
+    "article": "6",
+    "anchor": "Article 6"
+   },
+   {
+    "source": "NationaliteFr.pdf",
+    "article": "7",
+    "anchor": "Article 7"
+   },
+   {
+    "source": "NationaliteFr.pdf",
+    "article": "8",
+    "anchor": "Article 8"
+   },
+   {
+    "source": "NationaliteFr.pdf",
+    "article": "9",
+    "anchor": "Article 9"
+   }
+  ]
+ },
+ "enfant_at_risk": {
+  "rationale": "Anchor 20/21/22 to the child-protection code (other chunks numbered 20-22 are CRC treaty articles and prison rules). Add 30 (délégué à la protection de l'enfance, preventive intervention) and 46 (danger imminent: removal of the child).",
+  "proposed_gold": [
+   {
+    "source": "EnfantFr.pdf",
+    "article": "20",
+    "anchor": "Article 20.- Sont considérés, en particulier, comme des situations difficiles"
+   },
+   {
+    "source": "EnfantFr.pdf",
+    "article": "21",
+    "anchor": "Article 21.- La négligence signifie"
+   },
+   {
+    "source": "EnfantFr.pdf",
+    "article": "22",
+    "anchor": "Article 22.- Est considéré comme étant une des situations"
+   },
+   {
+    "source": "EnfantFr.pdf",
+    "article": "30",
+    "anchor": "Article 30.- Le délégué à la protection de l'enfance est chargé"
+   },
+   {
+    "source": "EnfantFr.pdf",
+    "article": "46",
+    "anchor": "Article 46.- Dans les cas de danger imminent"
+   }
+  ]
+ },
+ "arb_agreement": {
+  "rationale": "Anchor 2 and 3 to the arbitration-agreement/clause articles (6 chunks each carry numbers 2 and 3). Add 6 (form: la convention d'arbitrage ne peut être établie que par écrit).",
+  "proposed_gold": [
+   {
+    "source": "ArbitrageFr.pdf",
+    "article": "2",
+    "anchor": "Article 2 La convention d'arbitrage est l'engagement"
+   },
+   {
+    "source": "ArbitrageFr.pdf",
+    "article": "3",
+    "anchor": "Article 3 La clause compromissoire"
+   },
+   {
+    "source": "ArbitrageFr.pdf",
+    "article": "6",
+    "anchor": "Article 6 La convention d'arbitrage ne peut"
+   }
+  ]
+ },
+ "any_art13": {
+  "rationale": "No change. Source wildcard kept: the question names no code, so an article 13 from any code is an acceptable answer.",
+  "proposed_gold": [
+   {
+    "source": "*",
+    "article": "13"
+   }
+  ]
+ }
+}
