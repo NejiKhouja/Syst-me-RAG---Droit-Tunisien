@@ -1,0 +1,64 @@
+
+================================================================================
+              Tunisian Legal RAG — End-to-End Retrieval Evaluation              
+                            split=dev  n=35  top_k=6                            
+================================================================================
+  LLM        : openai/gpt-oss-120b  temps=[0.0]
+  Reranker   : cross-encoder/mmarco-mMiniLMv2-L12-H384-v1  ran on 35/35 cases
+  Code       : v1-baseline-runnable-13-gd3ed577-dirty
+  Degraded   : 0 events
+
+  Overall (dev)                35    74.3%    57.1%    47.7%   0.639
+
+  By filtered vs unfiltered
+                             n    Hit@6    Hit@1   Recall     MRR
+  filtered (law given)      31    71.0%    51.6%    46.7%   0.592
+  unfiltered (no law)        4   100.0%   100.0%    55.8%   1.000
+
+  By language
+                             n    Hit@6    Hit@1   Recall     MRR
+  ar                         8    62.5%    50.0%    35.4%   0.562
+  en                         8    75.0%    62.5%    40.8%   0.688
+  fr                        19    78.9%    57.9%    55.8%   0.651
+
+  By category
+                             n    Hit@6    Hit@1   Recall     MRR
+  article_lookup             2   100.0%    50.0%    58.3%   0.667
+  colloquial                 1     0.0%     0.0%     0.0%   0.000
+  concept                   28    71.4%    53.6%    47.5%   0.608
+  cross_domain               4   100.0%   100.0%    55.8%   1.000
+
+  By domain
+                             n    Hit@6    Hit@1   Recall     MRR
+  all                        4   100.0%   100.0%    55.8%   1.000
+  arbitrage                  1   100.0%   100.0%    66.7%   1.000
+  constitution               2     0.0%     0.0%     0.0%   0.000
+  obligations_contrats       4    25.0%     0.0%     8.3%   0.050
+  penal                      9    88.9%    88.9%    66.7%   0.889
+  procedure_penale           5    80.0%    20.0%    60.0%   0.467
+  statut_personnel           6   100.0%    83.3%    46.7%   0.917
+  travail                    4    50.0%    25.0%    41.7%   0.333
+
+  Misses (9):
+    - [fr] Quels sont les droits fondamentaux ?
+        gold: 24, 25, 26   got: 37@tun_Re, 23@tun_Re, 39@tun_Re, 55@tun_Re, 75@tun_Re, 22@tun_Re
+    - [fr] Quelle est la durée du congé annuel payé ?
+        gold: 112, 113, 115   got: 128@travai, 118@travai, 127@travai, 94@travai, 125@travai, 130@travai
+    - [fr] Quelles sont les conditions de validité d'un contrat ?
+        gold: 2, 3   got: 23@COC.pd, 328@COC.pd, 123@COC.pd, 1477@COC.pd, 126@COC.pd, 737@COC.pd
+    - [fr] Que risque-t-on si on frappe quelqu'un ?
+        gold: 208, 218, 219   got: 215@PenalF, 20@PenalF, 228@PenalF, 292@PenalF, 125@PenalF, 220@PenalF
+    - [ar] ما هي مدة الاحتفاظ؟
+        gold: 13, 13   got: 186@Proced, 354@Proced, 202@Proced, 214@Proced, 357@Proced, 75@Proced
+    - [ar] ما هي مدة الإجازة السنوية المدفوعة؟
+        gold: 112, 113, 115   got: 128@travai, 118@travai, 127@travai, 94@travai, 125@travai, 130@travai
+    - [ar] ما هي شروط صحة العقد؟
+        gold: 2, 3   got: 832@COC.pd, 1477@COC.pd, 23@COC.pd, 328@COC.pd, 24@COC.pd, 861@COC.pd
+    - [en] What are the fundamental rights?
+        gold: 24, 25, 26   got: 37@tun_Re, 23@tun_Re, 39@tun_Re, 22@tun_Re, 55@tun_Re, 75@tun_Re
+    - [en] What makes a contract valid?
+        gold: 2, 3   got: 242@COC.pd, 1301@COC.pd, 1198@COC.pd, 968@COC.pd, 23@COC.pd, 28@COC.pd
+================================================================================
+
+  Saved results/item4_off_dev.json
+

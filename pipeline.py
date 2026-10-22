@@ -9,7 +9,7 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_groq import ChatGroq
 from langchain_huggingface import HuggingFaceEmbeddings
-from config import DB_DIR, DATA_DIR, EMBEDDING_MODEL, LLM_MODEL, GROQ_API_KEY, SUBQUERY_N, RAW_FIRST, USE_SUBQUERIES
+from config import DB_DIR, DATA_DIR, EMBEDDING_MODEL, LLM_MODEL, GROQ_API_KEY, SUBQUERY_N, RAW_FIRST, USE_SUBQUERIES, RERANK_ENABLED, RERANK_TOP_K
 from loaders import load_all_documents
 from splitter import split_by_article
 from retriever import hybrid_retrieve, detect_arabic, detect_english
@@ -139,6 +139,8 @@ def step_retrieve(
 
 
 def step_rerank(french_query: str, candidates: list[Document]) -> list[Document]:
+    if not RERANK_ENABLED:
+        return candidates[:RERANK_TOP_K]
     return rerank(french_query, candidates)
 
 

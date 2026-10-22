@@ -115,3 +115,35 @@ of Hit@6 and 6 points of MRR in the previous step came from the leak. Both numbe
 |---|---|---|---|---|
 | + raw-first, synonym table still in | 88.6 | 54.3 | 53.5 | 0.657 |
 | − synonym table (leak removed) | 85.7 | 45.7 | 51.3 | 0.593 |
+
+## Phase 3.4 — Reranker: fix the crash, rerank fewer candidates, make it 4x faster
+
+**What was wrong.** (1) The reranker's debug log line indexed `ranked[top_k-1]` even when logging was off, so with
+fewer than 6 candidates it crashed; the surrounding `try/except` swallowed the error and returned the unranked
+list. 5% of v1 questions silently skipped reranking, and any other failure (model not found, as happened with the
+wrong model id) was equally silent. (2) It scored every retrieved candidate with 512-token inputs: ~9.6 s per query
+on this CPU.
+**What I changed.** The reranker now fails loudly (no catch-all). New knobs in `config.py`: `RERANK_ENABLED`,
+`RERANK_POOL` (candidates sent to the reranker; retrieval lists are merged round-robin so truncation keeps the
+best of semantic, BM25 and original-language search), `RERANK_MAX_LENGTH`, `RERANK_QUANTIZE` (int8). Defaults:
+pool 20, max length 256, int8.
+**Why it helps.** Fewer, better candidates give the cross-encoder less noise to be fooled by, and shorter int8
+inputs cut the CPU time. Reranking is still worth it: switching it off loses 11 points of Hit@6.
+**Numbers (dev, 35 questions, temperature 0, 0 tokens). Seconds = median rerank time per query, first query excluded
+(model load); CPU only (8 threads).**
+
+| Variant | Hit@6 | Hit@1 | Recall | MRR | rerank s/q |
+|---|---|---|---|---|---|
+| crash fixed, all candidates, fp32, len 512 | 85.7 | 48.6 | 51.3 | 0.612 | 9.6 |
+| reranker OFF (retrieval order) | 74.3 | 57.1 | 47.7 | 0.639 | 0 |
+| pool 20 | 88.6 | 57.1 | 54.5 | 0.663 | 7.1 |
+| pool 30 | 85.7 | 48.6 | 51.3 | 0.612 | 8.9 |
+| pool 60 (+ deeper retrieval k=40/30) | 82.9 | 48.6 | 50.4 | 0.599 | 11.7 |
+| smaller multilingual reranker (mMiniLM L6) | 88.6 | 40.0 | 50.4 | 0.562 | 3.8 |
+| int8 + length 256 (same L12 model) | 88.6 | 51.4 | 51.9 | 0.620 | 2.9 |
+| **pool 20 + int8 + length 256 (chosen)** | 85.7 | 57.1 | 52.7 | 0.651 | **2.1** |
+
+Notes: dev has 35 questions, so one question is 2.9 points of Hit@6; pool 20 fp32 vs the chosen row differ by one
+question. The chosen row is kept for speed (4.5x faster, MRR within 0.012). Interesting: with the reranker off,
+the top-1 is *better* than with it, which says the cross-encoder's ordering is weak; fusing it with the retrieval
+rank is the next thing to try.

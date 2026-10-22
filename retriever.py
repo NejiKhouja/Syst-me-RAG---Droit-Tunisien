@@ -3,7 +3,7 @@ import logging
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
 
-from config import MMR_K, BM25_K
+from config import MMR_K, BM25_K, RERANK_POOL
 
 logger = logging.getLogger(__name__)
 
@@ -133,29 +133,38 @@ def hybrid_retrieve(
     original_query: str,
     law_type: str | None = None,
 ) -> list[Document]:
-    all_docs: list[Document] = []
+    # One ranked list per evidence source, then a round-robin merge (rank 1 of every list, rank 2 ...)
+    # so that truncating to RERANK_POOL keeps the best of each source instead of only the first source.
+    ranked_lists: list[list[Document]] = []
 
     for query in queries:
         docs = _semantic_search(vectorstore, query, law_type, k=MMR_K)
-        all_docs.extend(docs)
+        ranked_lists.append(docs)
         logger.debug("semantic(%r): %d docs", query[:60], len(docs))
 
     bm25 = _get_bm25(vectorstore)
     if bm25:
         bm25_docs = _bm25_search(bm25, queries[0], law_type, k=BM25_K)
-        all_docs.extend(bm25_docs)
+        ranked_lists.append(bm25_docs)
         logger.debug("BM25(%r): %d docs", queries[0][:60], len(bm25_docs))
-
 
     if detect_arabic(original_query) or detect_english(original_query):
         orig_docs = _semantic_search(vectorstore, original_query, law_type, k=10)
-        all_docs.extend(orig_docs)
+        ranked_lists.append(orig_docs)
         logger.debug("multilingual fallback: %d docs", len(orig_docs))
 
-    deduped = _deduplicate(all_docs)
+    merged: list[Document] = []
+    for rank in range(max((len(l) for l in ranked_lists), default=0)):
+        for l in ranked_lists:
+            if rank < len(l):
+                merged.append(l[rank])
+
+    deduped = _deduplicate(merged)
+    if RERANK_POOL:
+        deduped = deduped[:RERANK_POOL]
     logger.debug(
-        "hybrid_retrieve: %d raw → %d unique | %d queries",
-        len(all_docs), len(deduped), len(queries),
+        "hybrid_retrieve: %d raw -> %d unique | %d queries",
+        len(merged), len(deduped), len(queries),
     )
     return deduped
 

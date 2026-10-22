@@ -18,6 +18,11 @@ RERANKER_MODEL  = "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1"
 MMR_K        = 20   # semantic candidates per query
 BM25_K       = 15   # BM25 candidates (primary query only)
 RERANK_TOP_K = 6    # docs returned to the user after reranking
+RERANK_ENABLED    = True   # False: keep the retrieval order (ablation)
+RERANK_POOL       = 20     # max candidates sent to the reranker (None = all retrieved)
+RERANK_MAX_LENGTH = 256    # tokens per (query, passage) pair
+RERANK_QUANTIZE   = True   # int8 dynamic quantization of the cross-encoder (CPU speed-up)
+RERANK_BATCH      = 16
 SUBQUERY_N   = 2    # sub-queries generated for complex (non-article) questions
 
 # Query preparation. RAW_FIRST: French questions are searched as written (no LLM call); Arabic/English are

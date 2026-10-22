@@ -1,0 +1,58 @@
+
+================================================================================
+              Tunisian Legal RAG — End-to-End Retrieval Evaluation              
+                            split=dev  n=35  top_k=6                            
+================================================================================
+  LLM        : openai/gpt-oss-120b  temps=[0.0]
+  Reranker   : cross-encoder/mmarco-mMiniLMv2-L12-H384-v1  ran on 35/35 cases
+  Code       : v1-baseline-runnable-13-gd3ed577-dirty
+  Degraded   : 0 events
+
+  Overall (dev)                35    82.9%    48.6%    50.4%   0.599
+
+  By filtered vs unfiltered
+                             n    Hit@6    Hit@1   Recall     MRR
+  filtered (law given)      31    80.6%    45.2%    48.2%   0.573
+  unfiltered (no law)        4   100.0%    75.0%    67.5%   0.800
+
+  By language
+                             n    Hit@6    Hit@1   Recall     MRR
+  ar                         8    87.5%    25.0%    42.5%   0.425
+  en                         8    75.0%    50.0%    40.0%   0.604
+  fr                        19    84.2%    57.9%    58.1%   0.670
+
+  By category
+                             n    Hit@6    Hit@1   Recall     MRR
+  article_lookup             2   100.0%   100.0%    58.3%   1.000
+  colloquial                 1   100.0%     0.0%    33.3%   0.500
+  concept                   28    78.6%    42.9%    48.0%   0.545
+  cross_domain               4   100.0%    75.0%    67.5%   0.800
+
+  By domain
+                             n    Hit@6    Hit@1   Recall     MRR
+  all                        4   100.0%    75.0%    67.5%   0.800
+  arbitrage                  1   100.0%   100.0%    66.7%   1.000
+  constitution               2     0.0%     0.0%     0.0%   0.000
+  obligations_contrats       4     0.0%     0.0%     0.0%   0.000
+  penal                      9   100.0%    77.8%    74.1%   0.889
+  procedure_penale           5   100.0%    60.0%    70.0%   0.707
+  statut_personnel           6   100.0%    33.3%    35.0%   0.556
+  travail                    4   100.0%    25.0%    50.0%   0.475
+
+  Misses (6):
+    - [fr] Quels sont les droits fondamentaux ?
+        gold: 24, 25, 26   got: 91@tun_Re, 37@tun_Re, 27@tun_Re, 30@tun_Re, 46@tun_Re, 43@tun_Re
+    - [fr] Quelles sont les conditions de validité d'un contrat ?
+        gold: 2, 3   got: 1477@COC.pd, 24@COC.pd, 29@COC.pd, 242@COC.pd, 680@COC.pd, 274@COC.pd
+    - [fr] Quelles sont les obligations du vendeur ?
+        gold: 564, 611, 612   got: 591@COC.pd, 631@COC.pd, 675@COC.pd, 632@COC.pd, 630@COC.pd, 590@COC.pd
+    - [ar] ما هي شروط صحة العقد؟
+        gold: 2, 3   got: 1477@COC.pd, 24@COC.pd, 242@COC.pd, 29@COC.pd, 274@COC.pd, 127@COC.pd
+    - [en] What are the fundamental rights?
+        gold: 24, 25, 26   got: 91@tun_Re, 37@tun_Re, 27@tun_Re, 30@tun_Re, 46@tun_Re, 43@tun_Re
+    - [en] What makes a contract valid?
+        gold: 2, 3   got: 29@COC.pd, 242@COC.pd, 24@COC.pd, 1477@COC.pd, 1198@COC.pd, 28@COC.pd
+================================================================================
+
+  Saved results/item4_pool60_dev.json
+
