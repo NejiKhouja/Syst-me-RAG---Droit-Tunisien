@@ -1,0 +1,25 @@
+C:\Users\deadx\anaconda3\envs\rag-app\Lib\site-packages\requests\__init__.py:86: RequestsDependencyWarning: Unable to find acceptable character detection dependency (chardet or charset_normalizer).
+  warnings.warn(
+INFO:loaders:Loaded arbitrage                 | ArbitrageFr.pdf
+INFO:loaders:Loaded obligations_contrats      | COC.pdf
+INFO:loaders:Loaded commerce                  | CommerceFr.pdf
+INFO:loaders:Loaded droit_international_prive | DIPFR.pdf
+INFO:loaders:Loaded droits_reels              | dtreelFr.pdf
+INFO:loaders:Loaded protection_enfant         | EnfantFr.pdf
+INFO:loaders:Loaded nationalite               | NationaliteFr.pdf
+INFO:loaders:Loaded penal                     | PenalFr.pdf
+INFO:loaders:Loaded procedure_civile          | Procedurecivilecom.pdf
+INFO:loaders:Loaded procedure_penale          | ProcedurepenaleFr.pdf
+INFO:loaders:Loaded societes                  | societeFr.pdf
+INFO:loaders:Loaded statut_personnel          | Statutpersonnel.pdf
+INFO:loaders:Loaded travail                   | travailFr.pdf
+INFO:loaders:Loaded constitution              | tun_RecAcFreeLi.pdf
+INFO:loaders:Total documents loaded: 14
+INFO:splitter:Article splitter: 6031 chunks from 14 documents
+INFO:pipeline:Embedding 6031 chunks → ChromaDB at 'db_v1_1'
+INFO:pipeline:Loading embedding model: OrdalieTech/Solon-embeddings-large-0.1
+INFO:sentence_transformers.base.model:No device provided, using cpu
+INFO:sentence_transformers.base.model:Loading SentenceTransformer model from OrdalieTech/Solon-embeddings-large-0.1.
+C:\Users\deadx\anaconda3\envs\rag-app\Lib\site-packages\huggingface_hub\file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+BUILT 6031 chunks in 3479 s

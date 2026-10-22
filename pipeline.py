@@ -86,6 +86,7 @@ def build_vectorstore(folder: Path = DATA_DIR) -> Chroma:
         documents=chunks,
         embedding=get_embeddings(),
         persist_directory=str(DB_DIR),
+        ids=[c.metadata["chunk_id"] for c in chunks],
     )
 
 

@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 DATA_DIR = Path("data")
-DB_DIR   = Path("db")
+DB_DIR   = Path("db_v1_1")   # v1 index stays untouched in ./db (rebuilt chunks go here)
 
 GROQ_API_KEY: str = os.getenv("GROQ_API_KEY", "")
 

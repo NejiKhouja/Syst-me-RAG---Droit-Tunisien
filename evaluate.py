@@ -33,7 +33,8 @@ logging.basicConfig(level=logging.WARNING)
 # ── Scoring ────────────────────────────────────────────────────────────────────
 
 def _norm(text: str) -> str:
-    return " ".join(text.split())
+    """Whitespace-free form, so anchors survive differences like 'Article 6- 2' vs 'Article 6-2'."""
+    return "".join(text.split())
 
 
 def _match(g: dict, r: dict) -> bool:
@@ -41,6 +42,8 @@ def _match(g: dict, r: dict) -> bool:
     `anchor`, the chunk text must also start with it (whitespace-normalised).
     Anchors pick the intended chunk where a PDF bundles several laws or where
     in-text references created fragment chunks carrying the same number."""
+    if g.get("chunk_ids"):  # reviewed labels: exact chunk ids (any_of)
+        return r.get("chunk_id") in g["chunk_ids"]
     if g["article"] != r["article"] or g["source"] not in ("*", r["source"]):
         return False
     anchor = g.get("anchor")
@@ -50,10 +53,10 @@ def _match(g: dict, r: dict) -> bool:
 def score_case(gold: list[dict], retrieved: list[dict]) -> dict:
     """retrieved: ordered [{source, article, snippet}]. Without anchors, duplicates by
     (source, article) are collapsed; with anchors, distinct chunks are distinct ranks."""
-    chunk_level = any(g.get("anchor") for g in gold)
+    chunk_level = any(g.get("anchor") or g.get("chunk_ids") for g in gold)
     seen, ordered = set(), []
     for r in retrieved:
-        key = (r["source"], r["article"]) + ((_norm(r.get("snippet", ""))[:80],) if chunk_level else ())
+        key = r.get("chunk_id") or ((r["source"], r["article"]) + ((_norm(r.get("snippet", ""))[:80],) if chunk_level else ()))
         if r["article"] is not None and key not in seen:
             seen.add(key); ordered.append(r)
     first = next((i for i, r in enumerate(ordered, 1) if any(_match(g, r) for g in gold)), None)
@@ -199,6 +202,7 @@ def run(args) -> tuple[list[dict], dict]:
             rerank_ran += 1
 
         retrieved = [{"source": d.metadata.get("source"), "article": d.metadata.get("article"),
+                      "chunk_id": d.metadata.get("chunk_id"), "article_label": d.metadata.get("article_label"),
                       "snippet": d.page_content[:300]} for d in docs]
         rows.append({
             "id": q["id"], "concept_id": q["concept_id"], "split": q["split"],

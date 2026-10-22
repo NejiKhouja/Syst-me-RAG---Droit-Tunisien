@@ -47,3 +47,31 @@ of giving up.
 **What it found at once.** v1 has a real bug: with fewer than 6 candidates the reranker's debug
 log line indexes past the end of a list, the error is swallowed, and the original order is
 returned, i.e. no reranking for those questions. It is fixed in Phase 3.
+
+## Phase 3.1 — Chunk fix with stable IDs
+
+**What was wrong.** The old splitter cut the text at *every* "article N" it found, including sentences like
+"…prévues à l'article 62 du présent code…". 16% of all cuts were these references, each producing a
+fragment labelled with the referenced number (penal article 62 had 6 chunks, 5 of them fragments). It also
+missed "Article premier", glued the preamble of the next decree onto the last article of the previous text,
+left control characters and page numbers inside articles, and gave no way to tell the code's "Article 13"
+from a decree's "Article 13" in the same PDF.
+**What I changed.** A chunk now starts only at a real heading at the start of a line. Bundled texts are
+separated into sections (numbering restarts), each chunk gets a stable id such as `PenalFr/s02/226-ter`
+(scheme in `docs/CHUNK_IDS.md`), and retrieval de-duplicates by id instead of by article number. The new
+index lives in `db_v1_1/`; the v1 index in `db/` is untouched.
+**Why it helps.** Fragments no longer compete with real articles, `13` and `13 bis` are different chunks,
+and a citation can point at exactly one chunk.
+**Numbers (dev, 35 questions, same cached LLM output, 0 new tokens).** With today's unverified labels,
+Hit@6 40.0% → 51.4%, MRR 0.182 → 0.253. Fragment chunks in the top-6: 18 → 0. With the proposed (not yet
+approved) labels: Hit@6 60.0% → 74.3%, MRR 0.418 → 0.417.
+
+| Dev, labels = current (unverified) | Hit@6 | Hit@1 | Recall | MRR |
+|---|---|---|---|---|
+| v1 chunks (`db/`) | 40.0 | 8.6 | 26.9 | 0.182 |
+| + chunk fix (`db_v1_1/`) | 51.4 | 17.1 | 32.9 | 0.253 |
+
+| Dev, labels = proposed (hypothetical) | Hit@6 | Hit@1 | Recall | MRR |
+|---|---|---|---|---|
+| v1 chunks | 60.0 | 34.3 | 27.8 | 0.418 |
+| + chunk fix | 74.3 | 25.7 | 34.4 | 0.417 |

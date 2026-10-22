@@ -1,0 +1,80 @@
+
+================================================================================
+              Tunisian Legal RAG — End-to-End Retrieval Evaluation              
+                            split=dev  n=35  top_k=6                            
+================================================================================
+  LLM        : openai/gpt-oss-120b  temps=[0.0]
+  Reranker   : cross-encoder/mmarco-mMiniLMv2-L12-H384-v1  ran on 33/35 cases
+  Code       : v1-baseline-runnable-6-ga0c9c15-dirty
+  Degraded   : 2 events
+
+  Overall (dev)                35    51.4%    17.1%    32.9%   0.253
+
+  By filtered vs unfiltered
+                             n    Hit@6    Hit@1   Recall     MRR
+  filtered (law given)      31    54.8%    19.4%    36.3%   0.277
+  unfiltered (no law)        4    25.0%     0.0%     6.2%   0.062
+
+  By language
+                             n    Hit@6    Hit@1   Recall     MRR
+  ar                         8    37.5%     0.0%    21.9%   0.077
+  en                         8    75.0%    12.5%    33.3%   0.269
+  fr                        19    47.4%    26.3%    37.3%   0.320
+
+  By category
+                             n    Hit@6    Hit@1   Recall     MRR
+  article_lookup             2   100.0%   100.0%   100.0%   1.000
+  colloquial                 1     0.0%     0.0%     0.0%   0.000
+  concept                   28    53.6%    14.3%    33.0%   0.236
+  cross_domain               4    25.0%     0.0%     6.2%   0.062
+
+  By domain
+                             n    Hit@6    Hit@1   Recall     MRR
+  all                        4    25.0%     0.0%     6.2%   0.062
+  arbitrage                  1   100.0%   100.0%   100.0%   1.000
+  constitution               2   100.0%     0.0%    33.3%   0.183
+  obligations_contrats       4    75.0%    50.0%    37.5%   0.562
+  penal                      9    22.2%    11.1%    13.9%   0.133
+  procedure_penale           5   100.0%    20.0%   100.0%   0.423
+  statut_personnel           6    50.0%     0.0%    13.9%   0.111
+  travail                    4    25.0%    25.0%    25.0%   0.250
+
+  Misses (17):
+    - [fr] Quelle est la peine pour le vol ?
+        gold: 258, 260, 261, 262   got: 264@PenalF, 61@PenalF, 129@PenalF, 274@PenalF, 263@PenalF, 186@PenalF
+    - [fr] Que dit la loi sur la diffamation ?
+        gold: 245, 246   got: 1@PenalF, 295@PenalF, 129@PenalF, 61@PenalF, 188@PenalF, 185@PenalF
+    - [fr] Comment est puni l'incendie volontaire ?
+        gold: 307, 308, 309   got: 295@PenalF, 264@PenalF, 61@PenalF, 129@PenalF, 247@PenalF, 60@PenalF
+    - [fr] Que dit la loi sur la tentative de crime ?
+        gold: 59   got: 61@PenalF, 1@PenalF, 295@PenalF, 129@PenalF, 72@PenalF, 61@PenalF
+    - [fr] Quelle est la peine pour les coups et blessures volontaires ?
+        gold: 217, 218, 219   got: 295@PenalF, 61@PenalF, 1@PenalF, 61@PenalF, 129@PenalF, 233@PenalF
+    - [fr] Quelle est la durée du congé annuel payé ?
+        gold: 112   got: 125@travai, 114@travai, 113@travai, 118@travai, 117@travai, 123@travai
+    - [fr] Quelles sont les conditions du mariage ?
+        gold: 5, 8, 14   got: 31@Statut, 37@Statut, 38@Statut, 10@Statut, 7@Statut, 3@Statut
+    - [fr] Quelles sont les obligations du vendeur ?
+        gold: 564, 611, 612   got: 631@COC.pd, 591@COC.pd, 1@COC.pd, 242@COC.pd, 630@COC.pd, 748@COC.pd
+    - [fr] Quelle est la peine pour le vol ?
+        gold: 258, 260, 261, 262   got: 264@PenalF, 61@PenalF, 129@PenalF, 274@PenalF, 186@PenalF, 190@PenalF
+    - [fr] Que risque-t-on si on frappe quelqu'un ?
+        gold: 217, 218, 219   got: 116@PenalF, 264@PenalF, 295@PenalF, 127@PenalF, 129@PenalF, 61@PenalF
+    - [ar] ما هي عقوبة السرقة؟
+        gold: 258, 260, 261, 262   got: 61@PenalF, 264@PenalF, 295@PenalF, 274@PenalF, 129@PenalF, 61@PenalF
+    - [ar] ما هي مدة الإجازة السنوية المدفوعة؟
+        gold: 112   got: 125@travai, 114@travai, 410@travai, 118@travai, 113@travai, 117@travai
+    - [ar] ما هي شروط الزواج؟
+        gold: 5, 8, 14   got: 31@Statut, 37@Statut, 38@Statut, 10@Statut, 2@Statut, 7@Statut
+    - [ar] ما هي عقوبة السرقة؟
+        gold: 258, 260, 261, 262   got: 61@PenalF, 264@PenalF, 295@PenalF, 411@Commer, 274@PenalF, 129@PenalF
+    - [ar] ما هي شروط الزواج؟
+        gold: 5, 8, 14   got: 31@Statut, 4@tun_Re, 37@Statut, 38@Statut, 13@Nation, 59@tun_Re
+    - [en] Who gets custody of the children after divorce?
+        gold: 54, 55, 56, 57   got: 11@Statut, 69@Statut, 59@Statut, 60@Statut, 63@Statut, 5@Statut
+    - [en] How many days of paid annual leave is a worker entitled to?
+        gold: 112   got: 123@travai, 113@travai, 118@travai, 114@travai, 125@travai, 128@travai
+================================================================================
+
+  Saved results/chunkfix_dev.json
+

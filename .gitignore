@@ -6,3 +6,5 @@ __pycache__
 db
 .env
 eval/cache/
+
+db_v1_1/

@@ -108,11 +108,11 @@ def _build_filter(law_type: str | None, article_num: str | None = None) -> dict 
 
 
 def _deduplicate(docs: list[Document]) -> list[Document]:
-    """Remove duplicate chunks by (source, article). Preserves first-seen order."""
-    seen: set[tuple] = set()
+    """Remove duplicate chunks by chunk_id (fallback: source + article). Preserves first-seen order."""
+    seen: set = set()
     out:  list[Document] = []
     for doc in docs:
-        key = (doc.metadata.get("source"), doc.metadata.get("article"))
+        key = doc.metadata.get("chunk_id") or (doc.metadata.get("source"), doc.metadata.get("article"))
         if key not in seen:
             seen.add(key)
             out.append(doc)
