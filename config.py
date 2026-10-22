@@ -23,6 +23,8 @@ RERANK_POOL       = 20     # max candidates sent to the reranker (None = all ret
 RERANK_MAX_LENGTH = 256    # tokens per (query, passage) pair
 RERANK_QUANTIZE   = True   # int8 dynamic quantization of the cross-encoder (CPU speed-up)
 RERANK_BATCH      = 16
+FUSION            = "rrf"  # how semantic / BM25 / original-language lists are merged before the pool cut: "rrf" | "roundrobin"
+RRF_K             = 60     # reciprocal rank fusion constant: score = sum 1 / (RRF_K + rank)
 SUBQUERY_N   = 2    # sub-queries generated for complex (non-article) questions
 
 # Query preparation. RAW_FIRST: French questions are searched as written (no LLM call); Arabic/English are

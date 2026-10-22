@@ -3,7 +3,7 @@ import logging
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
 
-from config import MMR_K, BM25_K, RERANK_POOL
+from config import MMR_K, BM25_K, RERANK_POOL, FUSION, RRF_K
 
 logger = logging.getLogger(__name__)
 
@@ -127,6 +127,31 @@ def _direct_lookup(
     return docs
 
 
+def _doc_key(doc: Document):
+    return doc.metadata.get("chunk_id") or (doc.metadata.get("source"), doc.metadata.get("article"))
+
+
+def _fuse(ranked_lists: list[list[Document]]) -> list[Document]:
+    """Merge ranked lists into one candidate order.
+    rrf: reciprocal rank fusion, score(d) = sum over lists of 1 / (RRF_K + rank), so a chunk that several
+    sources rank highly beats one that a single source ranks first. roundrobin: rank 1 of every list, then rank 2, ..."""
+    if FUSION == "roundrobin":
+        merged: list[Document] = []
+        for rank in range(max((len(l) for l in ranked_lists), default=0)):
+            for l in ranked_lists:
+                if rank < len(l):
+                    merged.append(l[rank])
+        return merged
+    scores: dict = {}
+    first: dict = {}
+    for l in ranked_lists:
+        for rank, doc in enumerate(l, 1):
+            key = _doc_key(doc)
+            scores[key] = scores.get(key, 0.0) + 1.0 / (RRF_K + rank)
+            first.setdefault(key, doc)
+    return [first[k] for k in sorted(scores, key=lambda k: -scores[k])]
+
+
 def hybrid_retrieve(
     vectorstore: Chroma,
     queries: list[str],
@@ -153,11 +178,7 @@ def hybrid_retrieve(
         ranked_lists.append(orig_docs)
         logger.debug("multilingual fallback: %d docs", len(orig_docs))
 
-    merged: list[Document] = []
-    for rank in range(max((len(l) for l in ranked_lists), default=0)):
-        for l in ranked_lists:
-            if rank < len(l):
-                merged.append(l[rank])
+    merged = _fuse(ranked_lists)
 
     deduped = _deduplicate(merged)
     if RERANK_POOL:

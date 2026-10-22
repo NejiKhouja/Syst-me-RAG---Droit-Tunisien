@@ -147,3 +147,24 @@ Notes: dev has 35 questions, so one question is 2.9 points of Hit@6; pool 20 fp3
 question. The chosen row is kept for speed (4.5x faster, MRR within 0.012). Interesting: with the reranker off,
 the top-1 is *better* than with it, which says the cross-encoder's ordering is weak; fusing it with the retrieval
 rank is the next thing to try.
+
+## Phase 3.5 — Reciprocal rank fusion before the reranker
+
+**What was wrong.** The semantic, BM25 and original-language result lists were merged round-robin ("first of each,
+then second of each..."), which ignores the fact that a chunk found by several sources is more likely to be
+right than a chunk one source ranks first.
+**What I changed.** Reciprocal rank fusion: each chunk scores the sum of 1/(60+rank) over the lists it appears
+in, and the best 20 go to the reranker (`FUSION="rrf"`; `"roundrobin"` still available).
+**Why it helps.** Agreement between independent retrievers is good evidence; fusion also needs no score
+calibration between BM25 and cosine similarity.
+**Numbers (dev, 35 questions).** Hit@6 85.7% → 88.6% (one question), MRR 0.651 → 0.659. Kept: no regression, and
+it is the standard, tuning-free choice.
+**Tried and rejected.** Also fusing the cross-encoder order with the retrieval order for the final top-6
+(`FINAL_FUSE`, since the reranker-off run had better top-1): Hit@1 57.1 → 60.0 and MRR → 0.667, but Hit@6
+88.6 → 80.0. A clear regression in coverage, so removed.
+
+| Dev | Hit@6 | Hit@1 | Recall | MRR |
+|---|---|---|---|---|
+| round-robin merge (previous step) | 85.7 | 57.1 | 52.7 | 0.651 |
+| **RRF merge** | 88.6 | 57.1 | 54.1 | 0.659 |
+| RRF + final fusion with rerank order (rejected) | 80.0 | 60.0 | 50.3 | 0.667 |

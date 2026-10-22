@@ -1,0 +1,60 @@
+
+================================================================================
+              Tunisian Legal RAG — End-to-End Retrieval Evaluation              
+                            split=dev  n=35  top_k=6                            
+================================================================================
+  LLM        : openai/gpt-oss-120b  temps=[0.0]
+  Reranker   : cross-encoder/mmarco-mMiniLMv2-L12-H384-v1  ran on 35/35 cases
+  Code       : v1-baseline-runnable-14-g19975b6-dirty
+  Degraded   : 0 events
+
+  Overall (dev)                35    80.0%    60.0%    50.3%   0.667
+
+  By filtered vs unfiltered
+                             n    Hit@6    Hit@1   Recall     MRR
+  filtered (law given)      31    77.4%    58.1%    48.0%   0.648
+  unfiltered (no law)        4   100.0%    75.0%    68.3%   0.812
+
+  By language
+                             n    Hit@6    Hit@1   Recall     MRR
+  ar                         8    62.5%    37.5%    35.0%   0.469
+  en                         8    87.5%    75.0%    44.6%   0.781
+  fr                        19    84.2%    63.2%    59.1%   0.702
+
+  By category
+                             n    Hit@6    Hit@1   Recall     MRR
+  article_lookup             2   100.0%    50.0%    58.3%   0.750
+  colloquial                 1     0.0%     0.0%     0.0%   0.000
+  concept                   28    78.6%    60.7%    48.9%   0.664
+  cross_domain               4   100.0%    75.0%    68.3%   0.812
+
+  By domain
+                             n    Hit@6    Hit@1   Recall     MRR
+  all                        4   100.0%    75.0%    68.3%   0.812
+  arbitrage                  1   100.0%   100.0%    66.7%   1.000
+  constitution               2     0.0%     0.0%     0.0%   0.000
+  obligations_contrats       4    75.0%     0.0%    33.3%   0.188
+  penal                      9    88.9%    88.9%    70.4%   0.889
+  procedure_penale           5    80.0%    60.0%    60.0%   0.700
+  statut_personnel           6   100.0%    66.7%    36.7%   0.806
+  travail                    4    50.0%    50.0%    33.3%   0.500
+
+  Misses (7):
+    - [fr] Quels sont les droits fondamentaux ?
+        gold: 24, 25, 26   got: 37@tun_Re, 22@tun_Re, 49@tun_Re, 52@tun_Re, 23@tun_Re, 30@tun_Re
+    - [fr] Quelle est la durée du congé annuel payé ?
+        gold: 112, 113, 115   got: 125@travai, 118@travai, 117@travai, 127@travai, 94@travai, 128@travai
+    - [fr] Que risque-t-on si on frappe quelqu'un ?
+        gold: 208, 218, 219   got: 220@PenalF, 215@PenalF, 225@PenalF, 125@PenalF, 116@PenalF, 228@PenalF
+    - [ar] ما هي مدة الاحتفاظ؟
+        gold: 13, 13   got: 75@Proced, 202@Proced, 214@Proced, 336@Proced, 354@Proced, 83@Proced
+    - [ar] ما هي مدة الإجازة السنوية المدفوعة؟
+        gold: 112, 113, 115   got: 125@travai, 118@travai, 117@travai, 127@travai, 114@travai, 123@travai
+    - [ar] ما هي شروط صحة العقد؟
+        gold: 2, 3   got: 24@COC.pd, 1198@COC.pd, 1477@COC.pd, 242@COC.pd, 328@COC.pd, 123@COC.pd
+    - [en] What are the fundamental rights?
+        gold: 24, 25, 26   got: 37@tun_Re, 22@tun_Re, 49@tun_Re, 23@tun_Re, 30@tun_Re, 43@tun_Re
+================================================================================
+
+  Saved results/item5_rrf_finalfuse_dev.json
+
