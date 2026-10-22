@@ -97,3 +97,21 @@ addition, as before.) Switches in `config.py`: `RAW_FIRST`, `USE_SUBQUERIES`.
 | v1 (old chunks, rewrite + sub-queries) | 57.1 | 34.3 | 25.4 | 0.403 |
 | + chunk fix | 71.4 | 25.7 | 32.0 | 0.403 |
 | + raw-first (no sub-queries) | 88.6 | 54.3 | 53.5 | 0.657 |
+
+## Phase 3.3 — Remove the hand-written synonym table (`_expand_synonyms`)
+
+**What was wrong.** Every query had " article loi code tunisien" appended, plus extra words from a table whose
+keys (`vol`, `meurtre`, `viol`, `corruption`, `licenciement`, `mariage`, `divorce`, `garde à vue`,
+`droits fondamentaux`, ...) are exactly the topics of the evaluation questions. That is tuning to the test
+questions: it inflates scores and would not help on a question about any other topic.
+**What I changed.** Deleted the table, the function and the appended phrase; queries are searched as they are.
+**Why it helps.** It does not help the score, and that is the point: it makes the score honest. It must be
+removed whatever the numbers say.
+**Numbers (dev, 35 questions).** Hit@6 88.6% → 85.7%, Hit@1 54.3% → 45.7%, MRR 0.657 → 0.593. So roughly 3 points
+of Hit@6 and 6 points of MRR in the previous step came from the leak. Both numbers are logged below; the
+85.7% / 0.593 line is the real baseline for the next steps.
+
+| Dev, final labels | Hit@6 | Hit@1 | Recall | MRR |
+|---|---|---|---|---|
+| + raw-first, synonym table still in | 88.6 | 54.3 | 53.5 | 0.657 |
+| − synonym table (leak removed) | 85.7 | 45.7 | 51.3 | 0.593 |

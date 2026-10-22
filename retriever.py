@@ -66,36 +66,6 @@ def _get_bm25(vectorstore: Chroma):
         return None
 
 
-# Adds related legal vocabulary to the query to improve embedding recall.
-_FR_SYNONYMS: dict[str, str] = {
-    "vol":             "soustraction frauduleuse voleur",
-    "meurtre":         "homicide assassinat préméditation",
-    "viol":            "agression sexuelle attentat pudeur",
-    "corruption":      "soudoiement fonctionnaire pot-de-vin",
-    "licenciement":    "rupture contrat travail abusif renvoi congédiement",
-    "mariage":         "consentement capacité empêchement matrimonial époux",
-    "divorce":         "dissolution séparation répudiation",
-    "contrat":         "obligation validité consentement engagement",
-    "responsabilite":  "dommage faute indemnisation réparation préjudice",
-    "responsabilité":  "dommage faute indemnisation réparation préjudice",
-    "garde a vue":     "détention provisoire arrestation privation liberté",
-    "garde à vue":     "détention provisoire arrestation privation liberté",
-    "détenu":          "arrêté gardé à vue prisonnier",
-    "detenu":          "arrêté gardé à vue prisonnier",
-    "travail":         "durée hebdomadaire emploi salarié horaire",
-    "droits fondamentaux": "libertés publiques droits constitutionnels dignité",
-    "fondamentaux":    "droits constitutionnels libertés publiques",
-}
-
-
-def _expand_synonyms(query: str) -> str:
-    extras = [exp for kw, exp in _FR_SYNONYMS.items() if kw in query.lower()]
-    expanded = query + " article loi code tunisien"
-    if extras:
-        expanded += " " + " ".join(extras)
-    return expanded
-
-
 def _build_filter(law_type: str | None, article_num: str | None = None) -> dict | None:
     parts: list[dict] = []
     if law_type:
@@ -166,8 +136,7 @@ def hybrid_retrieve(
     all_docs: list[Document] = []
 
     for query in queries:
-        expanded = _expand_synonyms(query)
-        docs = _semantic_search(vectorstore, expanded, law_type, k=MMR_K)
+        docs = _semantic_search(vectorstore, query, law_type, k=MMR_K)
         all_docs.extend(docs)
         logger.debug("semantic(%r): %d docs", query[:60], len(docs))
 
