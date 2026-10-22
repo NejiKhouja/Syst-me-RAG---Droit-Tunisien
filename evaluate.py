@@ -42,7 +42,7 @@ def _match(g: dict, r: dict) -> bool:
     `anchor`, the chunk text must also start with it (whitespace-normalised).
     Anchors pick the intended chunk where a PDF bundles several laws or where
     in-text references created fragment chunks carrying the same number."""
-    if g.get("chunk_ids"):  # reviewed labels: exact chunk ids (any_of)
+    if g.get("chunk_ids") and r.get("chunk_id"):  # reviewed labels: exact chunk ids (any_of); v1 results have none
         return r.get("chunk_id") in g["chunk_ids"]
     if g["article"] != r["article"] or g["source"] not in ("*", r["source"]):
         return False
@@ -264,7 +264,7 @@ def main() -> None:
         split = args.split
     report(rows, meta, split, args.top_k)
 
-    if args.out and not args.rescore:
+    if args.out:
         Path(args.out).parent.mkdir(parents=True, exist_ok=True)
         payload = {"meta": meta, "cases": rows}
         Path(args.out).write_text(json.dumps(payload, ensure_ascii=False, indent=1), encoding="utf-8")

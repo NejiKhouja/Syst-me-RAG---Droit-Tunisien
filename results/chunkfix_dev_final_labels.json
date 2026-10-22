@@ -1,0 +1,3465 @@
+{
+ "meta": {
+  "git_describe": "v1-baseline-runnable-6-ga0c9c15-dirty",
+  "split": "dev",
+  "n_cases": 35,
+  "top_k": 6,
+  "llm_model": "openai/gpt-oss-120b",
+  "reranker_model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+  "embedding_model": "OrdalieTech/Solon-embeddings-large-0.1",
+  "llm_temperatures": [
+   0.0
+  ],
+  "temperature_override": 0.0,
+  "llm_calls": 0,
+  "llm_cache_hits": 60,
+  "cache_salt": "",
+  "bm25_built": true,
+  "rerank_ran": 33,
+  "degraded_events": [
+   "reranker: Reranking failed (list index out of range) — returning original order",
+   "reranker: Reranking failed (list index out of range) — returning original order"
+  ],
+  "avg_seconds": {
+   "t_llm": 0.29,
+   "t_retrieve": 8.04,
+   "t_rerank": 25.38
+  }
+ },
+ "cases": [
+  {
+   "id": "q001",
+   "concept_id": "penal_theft",
+   "split": "dev",
+   "question": "Quelle est la peine pour le vol ?",
+   "language": "fr",
+   "law_type": "penal",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "258",
+     "anchor": "Article 258",
+     "chunk_ids": [
+      "PenalFr/s02/258"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "260",
+     "anchor": "Article 260 (Modifié par la loi n° 89-23",
+     "chunk_ids": [
+      "PenalFr/s02/260"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "261",
+     "anchor": "Article 261",
+     "chunk_ids": [
+      "PenalFr/s02/261"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "262",
+     "anchor": "Article 262",
+     "chunk_ids": [
+      "PenalFr/s02/262"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "263",
+     "anchor": "Article 263",
+     "chunk_ids": [
+      "PenalFr/s02/263"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "264",
+     "anchor": "Article 264",
+     "chunk_ids": [
+      "PenalFr/s02/264"
+     ]
+    }
+   ],
+   "rewrite": "Quelle est la peine d'emprisonnement et la sanction prévue par le Code pénal tunisien pour le vol (disposition, article et alinéa concernés) ?",
+   "sub_queries": [
+    "vol article Code pénal tunisien peine d'emprisonnement alinéa concerné",
+    "circonstances aggravantes vol Code pénal tunisien sanctions prévues et modalités d'application"
+   ],
+   "retrieved": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "264",
+     "chunk_id": "PenalFr/s02/264",
+     "article_label": "264",
+     "snippet": "Article 264.- La peine est de cinq ans d’emprisonnement et de \ncent vingt dinars d’amende, pour tous autres vols et soustractions \ncommis hors les cas prévus aux articles 260 à 263 du présent code. \nLa tentative est punissable."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "61",
+     "chunk_id": "PenalFr/s02/61-quater",
+     "article_label": "61-quater",
+     "snippet": "Article 61 quater. (Ajouté par le décret du 10 janvier 1957).- Est \ncoupable d'atteinte à la sûreté extérieure de l'État et puni des peines \nprévues à l'article 62 du présent code, sans préjudice, le cas échéant, \ndes peines encourues pour la tentative des crimes prévus aux articles \n60 et 60 bis du"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "129",
+     "chunk_id": "PenalFr/s02/129",
+     "article_label": "129",
+     "snippet": "Article 129.- Est puni d’un an d'emprisonnement, quiconque par \nparoles, écrits, gestes ou tous autres moyens, porte atteinte \npubliquement, au drapeau tunisien ou à un drapeau étranger."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "274",
+     "chunk_id": "PenalFr/s02/274",
+     "article_label": "274",
+     "snippet": "Article 274.- Est puni de deux ans d’emprisonnement et de trente six \ndinars d’amende quiconque, aura contrefait ou altéré des clefs ou aura \nconfectionné, sciemment, un instrument destiné à commettre un vol. \nLa peine est de cinq ans d’emprisonnement et de cent vingt dinars \nd'amende, si l’auteur d"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "263",
+     "chunk_id": "PenalFr/s02/263",
+     "article_label": "263",
+     "snippet": "Article 263.- Est puni de dix ans d’emprisonnement l’auteur du \nvol commis : \n1°- au cours d'un incendie ou après une explosion, inondation, \nnaufrage, accident de chemin de fer, révolte, émeute ou tout autre \ntrouble, \n2°- par des hôteliers et autres tenanciers d’établissements exerçant \nune telle "
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "186",
+     "chunk_id": "PenalFr/s02/186",
+     "article_label": "186",
+     "snippet": "Article 186 (Modifié par la loi n° 89-23 du 27 février 1989).- Est \npuni de quinze ans d'emprisonnement, celui qui contrefait ou altère \ndes monnaies en métal ayant cours légal dans la République \nTunisienne ou reçues par les caisses publiques, celui qui participe à \nl'émission ou exposition desdite"
+    }
+   ],
+   "n_candidates": 36,
+   "score": {
+    "hit": true,
+    "hit_at_1": true,
+    "first_rank": 1,
+    "recall": 0.3333333333333333,
+    "rr": 1.0
+   },
+   "t_llm": 1.6,
+   "t_retrieve": 4.02,
+   "t_rerank": 64.73
+  },
+  {
+   "id": "q006",
+   "concept_id": "penal_defamation",
+   "split": "dev",
+   "question": "Que dit la loi sur la diffamation ?",
+   "language": "fr",
+   "law_type": "penal",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "245",
+     "anchor": "Article 245",
+     "chunk_ids": [
+      "PenalFr/s02/245"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "246",
+     "anchor": "Article 246",
+     "chunk_ids": [
+      "PenalFr/s02/246"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "247",
+     "anchor": "Article 247",
+     "chunk_ids": [
+      "PenalFr/s02/247"
+     ]
+    }
+   ],
+   "rewrite": "Dispositions du Code pénal tunisien relatives à la diffamation : articles, alinéas, définition de la diffamation, peine d’emprisonnement, amende, sanctions pénales et civiles, conditions de capacité et de consentement, jurisprudence applicable.",
+   "sub_queries": [
+    "diffamation Code pénal tunisien : définition, éléments constitutifs, capacité du sujet, consentement, articles et alinéas applicables",
+    "diffamation Code pénal tunisien : sanctions pénales et civiles, peines d’emprisonnement, amendes, jurisprudence pertinente."
+   ],
+   "retrieved": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "1",
+     "chunk_id": "PenalFr/s00/1",
+     "article_label": "1",
+     "snippet": "Article premier.- Les textes promulgués ci-après, sous le titre de \n« code pénal tunisien », seront en vigueur, devant les tribunaux \ntunisiens, le 1er janvier 1914. A partir de cette date, seront et \ndemeureront abrogés les lois, décrets et règlements contraires à ses \ndispositions. \nToutefois, \nse"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "295",
+     "chunk_id": "PenalFr/s02/295",
+     "article_label": "295",
+     "snippet": "Article 295.- Est puni des peines prévues à l'article 291du présent \ncode, quiconque, amène, frauduleusement, autrui à quitter le territoire \ntunisien en alléguant de faits inexistants ou en usant de fausses \nnouvelles."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "129",
+     "chunk_id": "PenalFr/s02/129",
+     "article_label": "129",
+     "snippet": "Article 129.- Est puni d’un an d'emprisonnement, quiconque par \nparoles, écrits, gestes ou tous autres moyens, porte atteinte \npubliquement, au drapeau tunisien ou à un drapeau étranger."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "61",
+     "chunk_id": "PenalFr/s02/61",
+     "article_label": "61",
+     "snippet": "Article 61 (Modifié par le décret du 10 janvier 1957).- Est \ncoupable d'atteinte à la sûreté extérieure de l'État et puni des peines \nprévues à l'article 62 du présent code, tout Tunisien ou étranger : \n1°- Qui aura, par des actes hostiles, non approuvés par le \ngouvernement, exposé la Tunisie à une"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "188",
+     "chunk_id": "PenalFr/s02/188",
+     "article_label": "188",
+     "snippet": "Article 188 (Modifié par la loi n° 89-23 du 27 février 1989).- Sont \npunis d'emprisonnement à vie ceux qui ont contrefait ou falsifié les \nbillets de banque ayant cours dans la République Tunisienne, ou qui \nont fait usage de ces billets contrefaits ou falsifiés ou qui les ont \nintroduits sur le ter"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "185",
+     "chunk_id": "PenalFr/s02/185",
+     "article_label": "185",
+     "snippet": "Article 185 (Modifié par la loi n° 89-23 du 27 février 1989).- Est \npuni de l'emprisonnement à vie, celui qui contrefait ou altère la \nmonnaie fiduciaire ayant cours légal dans la République Tunisienne, \nou participe à l'émission ou exposition desdites monnaies contrefaites \nou altérées, ou à leur i"
+    }
+   ],
+   "n_candidates": 32,
+   "score": {
+    "hit": false,
+    "hit_at_1": false,
+    "first_rank": null,
+    "recall": 0.0,
+    "rr": 0.0
+   },
+   "t_llm": 0.24,
+   "t_retrieve": 3.43,
+   "t_rerank": 32.06
+  },
+  {
+   "id": "q010",
+   "concept_id": "penal_arson",
+   "split": "dev",
+   "question": "Comment est puni l'incendie volontaire ?",
+   "language": "fr",
+   "law_type": "penal",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "307",
+     "anchor": "Article 307",
+     "chunk_ids": [
+      "PenalFr/s02/307"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "308",
+     "anchor": "Article 308",
+     "chunk_ids": [
+      "PenalFr/s02/308"
+     ]
+    }
+   ],
+   "rewrite": "Sanctions prévues par le Code pénal tunisien pour l’infraction d’incendie volontaire (art. 236 du Code pénal) : peine d’emprisonnement, amende, circonstances aggravantes, alinéa, modalités d’exécution de la peine.",
+   "sub_queries": [
+    "art 236 du Code pénal tunisien : définition de l’incendie volontaire, éléments constitutifs et conditions d’incrimination",
+    "art 236 du Code pénal tunisien : peines d’emprisonnement, amende, circonstances aggravantes, alinéas et modalités d’exécution de la peine"
+   ],
+   "retrieved": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "295",
+     "chunk_id": "PenalFr/s02/295",
+     "article_label": "295",
+     "snippet": "Article 295.- Est puni des peines prévues à l'article 291du présent \ncode, quiconque, amène, frauduleusement, autrui à quitter le territoire \ntunisien en alléguant de faits inexistants ou en usant de fausses \nnouvelles."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "264",
+     "chunk_id": "PenalFr/s02/264",
+     "article_label": "264",
+     "snippet": "Article 264.- La peine est de cinq ans d’emprisonnement et de \ncent vingt dinars d’amende, pour tous autres vols et soustractions \ncommis hors les cas prévus aux articles 260 à 263 du présent code. \nLa tentative est punissable."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "61",
+     "chunk_id": "PenalFr/s02/61-quater",
+     "article_label": "61-quater",
+     "snippet": "Article 61 quater. (Ajouté par le décret du 10 janvier 1957).- Est \ncoupable d'atteinte à la sûreté extérieure de l'État et puni des peines \nprévues à l'article 62 du présent code, sans préjudice, le cas échéant, \ndes peines encourues pour la tentative des crimes prévus aux articles \n60 et 60 bis du"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "129",
+     "chunk_id": "PenalFr/s02/129",
+     "article_label": "129",
+     "snippet": "Article 129.- Est puni d’un an d'emprisonnement, quiconque par \nparoles, écrits, gestes ou tous autres moyens, porte atteinte \npubliquement, au drapeau tunisien ou à un drapeau étranger."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "247",
+     "chunk_id": "PenalFr/s02/247",
+     "article_label": "247",
+     "snippet": "Article 247.- Est puni de six mois d’emprisonnement et de deux cent \nquarante dinars d’amende, quiconque, se sera rendu coupable de \ndiffamation. \nEst puni d'un an d’emprisonnement et de deux cent quarante dinars \nd’amende, quiconque, se sera rendu coupable de calomnie."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "60",
+     "chunk_id": "PenalFr/s02/60-bis",
+     "article_label": "60-bis",
+     "snippet": "Article 60 bis (Ajouté par le décret du 10 janvier 1957).- Est \ncoupable de trahison et puni de mort : \n1°- tout Tunisien qui aura livré à une puissance étrangère ou à ses \nagents, de quelque manière et quel qu’en soit le moyen, un secret \ndéfense nationale ou qui se serait accaparé, par quelque moy"
+    }
+   ],
+   "n_candidates": 52,
+   "score": {
+    "hit": false,
+    "hit_at_1": false,
+    "first_rank": null,
+    "recall": 0.0,
+    "rr": 0.0
+   },
+   "t_llm": 1.11,
+   "t_retrieve": 10.38,
+   "t_rerank": 27.63
+  },
+  {
+   "id": "q011",
+   "concept_id": "penal_attempt",
+   "split": "dev",
+   "question": "Que dit la loi sur la tentative de crime ?",
+   "language": "fr",
+   "law_type": "penal",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "59",
+     "anchor": "Article 59",
+     "chunk_ids": [
+      "PenalFr/s02/59"
+     ]
+    }
+   ],
+   "rewrite": "Code pénal tunisien – dispositions relatives à la tentative de crime : définition, conditions de la tentative, capacité de l’auteur, consentement, peine d’emprisonnement et autres sanctions, articles et alinéas applicables.",
+   "sub_queries": [
+    "Code pénal tunisien tentative de crime définition, conditions de la tentative, capacité de l’auteur, consentement, articles applicables",
+    "Code pénal tunisien tentative de crime peine d’emprisonnement, sanctions complémentaires, procédure, articles et alinéas pertinents"
+   ],
+   "retrieved": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "61",
+     "chunk_id": "PenalFr/s02/61-quater",
+     "article_label": "61-quater",
+     "snippet": "Article 61 quater. (Ajouté par le décret du 10 janvier 1957).- Est \ncoupable d'atteinte à la sûreté extérieure de l'État et puni des peines \nprévues à l'article 62 du présent code, sans préjudice, le cas échéant, \ndes peines encourues pour la tentative des crimes prévus aux articles \n60 et 60 bis du"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "1",
+     "chunk_id": "PenalFr/s00/1",
+     "article_label": "1",
+     "snippet": "Article premier.- Les textes promulgués ci-après, sous le titre de \n« code pénal tunisien », seront en vigueur, devant les tribunaux \ntunisiens, le 1er janvier 1914. A partir de cette date, seront et \ndemeureront abrogés les lois, décrets et règlements contraires à ses \ndispositions. \nToutefois, \nse"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "295",
+     "chunk_id": "PenalFr/s02/295",
+     "article_label": "295",
+     "snippet": "Article 295.- Est puni des peines prévues à l'article 291du présent \ncode, quiconque, amène, frauduleusement, autrui à quitter le territoire \ntunisien en alléguant de faits inexistants ou en usant de fausses \nnouvelles."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "129",
+     "chunk_id": "PenalFr/s02/129",
+     "article_label": "129",
+     "snippet": "Article 129.- Est puni d’un an d'emprisonnement, quiconque par \nparoles, écrits, gestes ou tous autres moyens, porte atteinte \npubliquement, au drapeau tunisien ou à un drapeau étranger."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "72",
+     "chunk_id": "PenalFr/s02/72",
+     "article_label": "72",
+     "snippet": "Article 72.- Est puni de mort, l’auteur de l'attentat ayant pour but \nde changer la forme du gouvernement, d'inciter les gens à s'armer les \nuns contre les autres ou à provoquer le désordre, le meurtre ou le \npillage sur le territoire tunisien."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "61",
+     "chunk_id": "PenalFr/s02/61",
+     "article_label": "61",
+     "snippet": "Article 61 (Modifié par le décret du 10 janvier 1957).- Est \ncoupable d'atteinte à la sûreté extérieure de l'État et puni des peines \nprévues à l'article 62 du présent code, tout Tunisien ou étranger : \n1°- Qui aura, par des actes hostiles, non approuvés par le \ngouvernement, exposé la Tunisie à une"
+    }
+   ],
+   "n_candidates": 36,
+   "score": {
+    "hit": false,
+    "hit_at_1": false,
+    "first_rank": null,
+    "recall": 0.0,
+    "rr": 0.0
+   },
+   "t_llm": 0.48,
+   "t_retrieve": 24.95,
+   "t_rerank": 24.68
+  },
+  {
+   "id": "q012",
+   "concept_id": "penal_assault",
+   "split": "dev",
+   "question": "Quelle est la peine pour les coups et blessures volontaires ?",
+   "language": "fr",
+   "law_type": "penal",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "208",
+     "anchor": "Article 208",
+     "chunk_ids": [
+      "PenalFr/s02/208"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "218",
+     "anchor": "Article 218 (Modifié par la loi n° 93-72",
+     "chunk_ids": [
+      "PenalFr/s02/218"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "219",
+     "anchor": "Article 219",
+     "chunk_ids": [
+      "PenalFr/s02/219"
+     ]
+    }
+   ],
+   "rewrite": "Code pénal tunisien – article 231 (ou article correspondant) – peine d’emprisonnement et/ou amende prévue pour les coups et blessures volontaires, disposition, alinéa.",
+   "sub_queries": [
+    "article 231 du code pénal tunisien définition des coups et blessures volontaires et conditions d’application",
+    "article 231 du code pénal tunisien peines d’emprisonnement et amende prévues, modalités de détermination et alinéas applicables"
+   ],
+   "retrieved": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "295",
+     "chunk_id": "PenalFr/s02/295",
+     "article_label": "295",
+     "snippet": "Article 295.- Est puni des peines prévues à l'article 291du présent \ncode, quiconque, amène, frauduleusement, autrui à quitter le territoire \ntunisien en alléguant de faits inexistants ou en usant de fausses \nnouvelles."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "61",
+     "chunk_id": "PenalFr/s02/61-quater",
+     "article_label": "61-quater",
+     "snippet": "Article 61 quater. (Ajouté par le décret du 10 janvier 1957).- Est \ncoupable d'atteinte à la sûreté extérieure de l'État et puni des peines \nprévues à l'article 62 du présent code, sans préjudice, le cas échéant, \ndes peines encourues pour la tentative des crimes prévus aux articles \n60 et 60 bis du"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "1",
+     "chunk_id": "PenalFr/s00/1",
+     "article_label": "1",
+     "snippet": "Article premier.- Les textes promulgués ci-après, sous le titre de \n« code pénal tunisien », seront en vigueur, devant les tribunaux \ntunisiens, le 1er janvier 1914. A partir de cette date, seront et \ndemeureront abrogés les lois, décrets et règlements contraires à ses \ndispositions. \nToutefois, \nse"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "61",
+     "chunk_id": "PenalFr/s02/61",
+     "article_label": "61",
+     "snippet": "Article 61 (Modifié par le décret du 10 janvier 1957).- Est \ncoupable d'atteinte à la sûreté extérieure de l'État et puni des peines \nprévues à l'article 62 du présent code, tout Tunisien ou étranger : \n1°- Qui aura, par des actes hostiles, non approuvés par le \ngouvernement, exposé la Tunisie à une"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "129",
+     "chunk_id": "PenalFr/s02/129",
+     "article_label": "129",
+     "snippet": "Article 129.- Est puni d’un an d'emprisonnement, quiconque par \nparoles, écrits, gestes ou tous autres moyens, porte atteinte \npubliquement, au drapeau tunisien ou à un drapeau étranger."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "233",
+     "chunk_id": "PenalFr/s02/233",
+     "article_label": "233",
+     "snippet": "Article 233 (Abrogé par le décret du 26 mai 1949 et ajouté par \nla loi 64-34 du 2 juillet 1964).- La peine sera d'un emprisonnement de \ntrois à cinq ans et d'une amende de cinq cents à mille dinars dans les \ncas où : \n1) le délit a été commis à l'égard d'un mineur, \n2) le délit a été accompagné de c"
+    }
+   ],
+   "n_candidates": 48,
+   "score": {
+    "hit": false,
+    "hit_at_1": false,
+    "first_rank": null,
+    "recall": 0.0,
+    "rr": 0.0
+   },
+   "t_llm": 0.44,
+   "t_retrieve": 13.39,
+   "t_rerank": 25.11
+  },
+  {
+   "id": "q013",
+   "concept_id": "penal_theft",
+   "split": "dev",
+   "question": "Que dit l'article 258 du code pénal ?",
+   "language": "fr",
+   "law_type": "penal",
+   "category": "article_lookup",
+   "gold": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "258",
+     "anchor": "Article 258",
+     "chunk_ids": [
+      "PenalFr/s02/258"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "260",
+     "anchor": "Article 260 (Modifié par la loi n° 89-23",
+     "chunk_ids": [
+      "PenalFr/s02/260"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "261",
+     "anchor": "Article 261",
+     "chunk_ids": [
+      "PenalFr/s02/261"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "262",
+     "anchor": "Article 262",
+     "chunk_ids": [
+      "PenalFr/s02/262"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "263",
+     "anchor": "Article 263",
+     "chunk_ids": [
+      "PenalFr/s02/263"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "264",
+     "anchor": "Article 264",
+     "chunk_ids": [
+      "PenalFr/s02/264"
+     ]
+    }
+   ],
+   "rewrite": "« Article 258 du Code pénal tunisien : texte intégral, disposition, alinéa, peine et sanction prévues »",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "258",
+     "chunk_id": "PenalFr/s02/258",
+     "article_label": "258",
+     "snippet": "Article 258.- Quiconque soustrait frauduleusement une chose qui \nne lui appartient pas est coupable de vol. \nEst assimilée au vol, l'utilisation frauduleuse d'eau, de gaz, \nd'électricité au détriment des concessionnaires."
+    }
+   ],
+   "n_candidates": 1,
+   "score": {
+    "hit": true,
+    "hit_at_1": true,
+    "first_rank": 1,
+    "recall": 0.16666666666666666,
+    "rr": 1.0
+   },
+   "t_llm": 1.18,
+   "t_retrieve": 7.33,
+   "t_rerank": 0.13
+  },
+  {
+   "id": "q016",
+   "concept_id": "const_fundamental_rights",
+   "split": "dev",
+   "question": "Quels sont les droits fondamentaux ?",
+   "language": "fr",
+   "law_type": "constitution",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "24"
+    },
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "25"
+    },
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "26"
+    }
+   ],
+   "rewrite": "Quels sont les droits fondamentaux garantis par la Constitution tunisienne (articles 1 à 13) et leur portée juridique ?",
+   "sub_queries": [
+    "Définition et énumération des droits fondamentaux prévus aux articles 1 à 13 de la Constitution tunisienne",
+    "Portée juridique, effets contraignants et limites des droits fondamentaux énoncés aux articles 1 à 13 de la Constitution tunisienne, y compris la jurisprudence associée"
+   ],
+   "retrieved": [
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "37",
+     "chunk_id": "tun_RecAcFreeLi/s00/37",
+     "article_label": "37",
+     "snippet": "Art. 37 – Les libertés d’opinion, de pensée, d’expression, d’information et de publication sont garanties. \nAucun contrôle préalable ne peut être exercé sur ces libertés."
+    },
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "9",
+     "chunk_id": "tun_RecAcFreeLi/s00/9",
+     "article_label": "9",
+     "snippet": "Art. 9 – La devise de la République tunisienne est Liberté, Ordre, Justice."
+    },
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "39",
+     "chunk_id": "tun_RecAcFreeLi/s00/39",
+     "article_label": "39",
+     "snippet": "Art. 39 – Les droits d’élire, de voter et de se porter candidat sont garantis dans les conditions fixées par la \nloi."
+    },
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "31",
+     "chunk_id": "tun_RecAcFreeLi/s00/31",
+     "article_label": "31",
+     "snippet": "Art. 31 – Aucun citoyen ne peut être déchu de la nationalité tunisienne, ni être banni, extradé, ni empêché \nde revenir à son pays."
+    },
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "30",
+     "chunk_id": "tun_RecAcFreeLi/s00/30",
+     "article_label": "30",
+     "snippet": "Art. 30 – L’Etat protège la vie privée, l’inviolabilité du domicile et le secret des correspondances, des \ncommunications et des données personnelles. \nTout citoyen dispose de la liberté de choisir son lieu de résidence et de la liberté de circulation à l’intérieur \ndu territoire ainsi que du droit "
+    },
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "26",
+     "chunk_id": "tun_RecAcFreeLi/s00/26",
+     "article_label": "26",
+     "snippet": "Art. 26 – La liberté de l’individu est garantie."
+    }
+   ],
+   "n_candidates": 31,
+   "score": {
+    "hit": true,
+    "hit_at_1": false,
+    "first_rank": 6,
+    "recall": 0.3333333333333333,
+    "rr": 0.16666666666666666
+   },
+   "t_llm": 0.18,
+   "t_retrieve": 8.95,
+   "t_rerank": 9.12
+  },
+  {
+   "id": "q017",
+   "concept_id": "cpp_custody_duration",
+   "split": "dev",
+   "question": "Que dit l'article 13 sur la garde à vue ?",
+   "language": "fr",
+   "law_type": "procedure_penale",
+   "category": "article_lookup",
+   "gold": [
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "13",
+     "anchor": "Article 13.- Les officiers de police judiciaire visés aux 3°",
+     "chunk_ids": [
+      "ProcedurepenaleFr/s01/13"
+     ]
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "13",
+     "anchor": "Article 13 bis",
+     "chunk_ids": [
+      "ProcedurepenaleFr/s01/13-bis"
+     ]
+    }
+   ],
+   "rewrite": "Disposition de l'article 13 du Code de procédure pénale tunisien relative à la garde à vue.",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "13",
+     "chunk_id": "ProcedurepenaleFr/s04/13",
+     "article_label": "13",
+     "snippet": "Article 13.- Est puni de cinq à douze ans d’emprisonnement et \nd'une amende de cinq mille à cinquante mille dinars : \n- Quiconque adhère sur le territoire de la République, à quelque \ntitre que ce soit, à une organisation ou entente, quelque soit la forme \nou le nombre de ses membres, qui a fait, mê"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "13",
+     "chunk_id": "ProcedurepenaleFr/s03/13",
+     "article_label": "13",
+     "snippet": "Article 13.- Une indemnisation globale du préjudice causé au \ndemandeur lui sera allouée s'il prouve que le préjudice est réel, grave, \nactuel, et résultant directement de la détention provisoire ou de \nl'exécution de la peine de prison. \nPour l'évaluation du montant de la réparation, doivent être p"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "13",
+     "chunk_id": "ProcedurepenaleFr/s01/13",
+     "article_label": "13",
+     "snippet": "Article 13.- Les officiers de police judiciaire visés aux 3° et 4° de \nl'article 10 doivent : \n1) donner avis au Procureur de la République de toute infraction \ndont ils acquièrent la connaissance dans l'exercice de leurs fonctions et \nlui transmettre tous renseignements et procès-verbaux qui s'y \nr"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "13",
+     "chunk_id": "ProcedurepenaleFr/s01/13-bis",
+     "article_label": "13-bis",
+     "snippet": "Article 13 bis (Ajouté par la loi n° 87-70 du 26 novembre 1987 \net modifié par la loi n° 99-90 du 2 août 1999).- Dans les cas où les \nnécessités de l'enquête l'exigent, les officiers de police judiciaire visés \naux numéros 3° et 4° de l'article 10, même en cas de crimes ou délits \nflagrants, et les "
+    }
+   ],
+   "n_candidates": 4,
+   "score": {
+    "hit": true,
+    "hit_at_1": false,
+    "first_rank": 3,
+    "recall": 1.0,
+    "rr": 0.3333333333333333
+   },
+   "t_llm": 0.17,
+   "t_retrieve": 2.4,
+   "t_rerank": 2.96
+  },
+  {
+   "id": "q018",
+   "concept_id": "cpp_custody_duration",
+   "split": "dev",
+   "question": "Quelle est la durée maximale de la garde à vue ?",
+   "language": "fr",
+   "law_type": "procedure_penale",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "13",
+     "anchor": "Article 13.- Les officiers de police judiciaire visés aux 3°",
+     "chunk_ids": [
+      "ProcedurepenaleFr/s01/13"
+     ]
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "13",
+     "anchor": "Article 13 bis",
+     "chunk_ids": [
+      "ProcedurepenaleFr/s01/13-bis"
+     ]
+    }
+   ],
+   "rewrite": "Durée maximale de la garde à vue prévue par le Code de procédure pénale tunisien, article et alinéa correspondants.",
+   "sub_queries": [
+    "garde à vue durée maximale Code de procédure pénale tunisien article alinéa",
+    "exceptions et prolongations durée garde à vue procédure pénale tunisienne article alinéa"
+   ],
+   "retrieved": [
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "321",
+     "chunk_id": "ProcedurepenaleFr/s02/321",
+     "article_label": "321",
+     "snippet": "Article 321.- L'examen des demandes d'extradition est de la \ncompétence de la chambre d'accusation de la cour d'appel de Tunis. \nL'étranger comparaît devant elle dans un délai maximum de 15 jours, \nà compter de la notification du titre d'arrestation. Il est alors procédé à un \ninterrogatoire dont il"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "85",
+     "chunk_id": "ProcedurepenaleFr/s02/85",
+     "article_label": "85",
+     "snippet": "Article 85 (Modifié par la loi n° 93-114 du 22 novembre 1993).- \nL'inculpé peut être soumis à la détention préventive dans les cas de \ncrimes ou délits flagrants et toutes les fois que, en raison de l'existence \nde présomptions graves, la détention semble nécessaire comme une \nmesure de sécurité pou"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "35",
+     "chunk_id": "ProcedurepenaleFr/s04/35",
+     "article_label": "35",
+     "snippet": "Article 35.- Les procureurs de la République près les tribunaux de \npremière instance autres que Tunis sont habilités à procéder aux actes \nurgents de l’enquête préliminaire en vue de constater l'infraction, d’en \nrassembler les preuves et d’en rechercher les auteurs. Ils reçoivent, en \noutre, les d"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "103",
+     "chunk_id": "ProcedurepenaleFr/s04/103",
+     "article_label": "103",
+     "snippet": "Article 103.- Sont abrogées, les dispositions de l'article 52 bis du \ncode pénal, le troisième alinéa de l'article 305, le deuxième alinéa de \npremièrement de l'article 313 du code de procédure pénale et l'article \n30 de la loi n° 92-52 du 18 mai 1992 relative aux stupéfiants. \nLa présente loi sera "
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "311",
+     "chunk_id": "ProcedurepenaleFr/s02/311",
+     "article_label": "311",
+     "snippet": "Article 311.- L'extradition est accordée : \n1) lorsque l'infraction motivant la demande est punie par la loi \ntunisienne d'une peine criminelle ou correctionnelle. \n2) lorsque la peine encourue, aux termes de la loi de l'Etat \nrequérant, est une peine privative de liberté d'une durée égale ou \nsupér"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "13",
+     "chunk_id": "ProcedurepenaleFr/s01/13-bis",
+     "article_label": "13-bis",
+     "snippet": "Article 13 bis (Ajouté par la loi n° 87-70 du 26 novembre 1987 \net modifié par la loi n° 99-90 du 2 août 1999).- Dans les cas où les \nnécessités de l'enquête l'exigent, les officiers de police judiciaire visés \naux numéros 3° et 4° de l'article 10, même en cas de crimes ou délits \nflagrants, et les "
+    }
+   ],
+   "n_candidates": 33,
+   "score": {
+    "hit": true,
+    "hit_at_1": false,
+    "first_rank": 6,
+    "recall": 0.5,
+    "rr": 0.16666666666666666
+   },
+   "t_llm": 0.15,
+   "t_retrieve": 2.08,
+   "t_rerank": 24.06
+  },
+  {
+   "id": "q020",
+   "concept_id": "cpp_public_action_limitation",
+   "split": "dev",
+   "question": "Comment se prescrit l'action publique ?",
+   "language": "fr",
+   "law_type": "procedure_penale",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "5",
+     "anchor": "Article 5.- Sauf dispositions spéciales de la loi, l'action publique",
+     "chunk_ids": [
+      "ProcedurepenaleFr/s01/5"
+     ]
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "6",
+     "anchor": "Article 6.- S'il a été fait, au cours des délais",
+     "chunk_ids": [
+      "ProcedurepenaleFr/s01/6"
+     ]
+    }
+   ],
+   "rewrite": "Prescription de l'action publique : délai, conditions et effets selon le Code pénal tunisien (articles 73 et suivants, alinéas relatifs à la prescription de l'action publique).",
+   "sub_queries": [
+    "définition et portée de la prescription de l'action publique dans le Code pénal tunisien, articles 73 et suivants",
+    "conditions, délais, interruption, suspension et effets de la prescription de l'action publique ainsi que les exceptions prévues par le Code pénal tunisien"
+   ],
+   "retrieved": [
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "6",
+     "chunk_id": "ProcedurepenaleFr/s01/6",
+     "article_label": "6",
+     "snippet": "Article 6.- S'il a été fait, au cours des délais de prescription énumérés \nà l'article précédent, des actes d'instruction ou de poursuite non suivis de \njugement, l'action publique interrompue ne se prescrit qu'à compter du \ndernier acte, même à l'égard des personnes qui ne seraient pas impliquées \n"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "5",
+     "chunk_id": "ProcedurepenaleFr/s01/5",
+     "article_label": "5",
+     "snippet": "Article 5.- Sauf dispositions spéciales de la loi, l'action publique \nqui résulte d'un crime se prescrit par dix années révolues, celle qui \nrésulte d'un délit par trois années révolues et celle qui résulte d'une \ncontravention par une année révolue, et ce, à compter du jour où \nl'infraction a été c"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "350",
+     "chunk_id": "ProcedurepenaleFr/s02/350",
+     "article_label": "350",
+     "snippet": "Article 350.- La prescription est suspendue par tout obstacle de \ndroit ou de fait empêchant l'exécution de la peine hors celui qui résulte \nde la volonté du condamné. \nElle est interrompue par l'arrestation du condamné en cas de \ncondamnation à une peine privative de liberté, ou par tout acte de \nl"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "103",
+     "chunk_id": "ProcedurepenaleFr/s04/103",
+     "article_label": "103",
+     "snippet": "Article 103.- Sont abrogées, les dispositions de l'article 52 bis du \ncode pénal, le troisième alinéa de l'article 305, le deuxième alinéa de \npremièrement de l'article 313 du code de procédure pénale et l'article \n30 de la loi n° 92-52 du 18 mai 1992 relative aux stupéfiants. \nLa présente loi sera "
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "335",
+     "chunk_id": "ProcedurepenaleFr/s02/335-septies",
+     "article_label": "335-septies",
+     "snippet": "Article 335 Septies.- S'il a été impossible de conclure une transaction \nou si celle ci n'a pas été intégralement exécutée dans les délais impartis, \nle procureur de la République apprécie la suite à donner à la plainte. \nL'exécution totale de la transaction dans le délai imparti ou \nl'inexécution d"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "37",
+     "chunk_id": "ProcedurepenaleFr/s04/37",
+     "article_label": "37",
+     "snippet": "Article 37.- L'action publique relative à une infraction terroriste se \nprescrit par vingt ans révolus si elle résulte d’un crime, celle qui \nrésulte d'un délit se prescrit par dix ans révolus, et ce, à compter du \njour où l'infraction a été commise si dans cet intervalle il n'a été \nprocédé à aucun"
+    }
+   ],
+   "n_candidates": 38,
+   "score": {
+    "hit": true,
+    "hit_at_1": true,
+    "first_rank": 1,
+    "recall": 1.0,
+    "rr": 1.0
+   },
+   "t_llm": 0.26,
+   "t_retrieve": 6.7,
+   "t_rerank": 20.69
+  },
+  {
+   "id": "q023",
+   "concept_id": "travail_paid_leave",
+   "split": "dev",
+   "question": "Quelle est la durée du congé annuel payé ?",
+   "language": "fr",
+   "law_type": "travail",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "travailFr.pdf",
+     "article": "112",
+     "anchor": "Article 112",
+     "chunk_ids": [
+      "travailFr/s01/112"
+     ]
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "113",
+     "anchor": "Article 113",
+     "chunk_ids": [
+      "travailFr/s01/113"
+     ]
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "115",
+     "anchor": "Article 115",
+     "chunk_ids": [
+      "travailFr/s01/115"
+     ]
+    }
+   ],
+   "rewrite": "Durée légale du congé annuel payé prévue par le Code du Travail, article et alinéa relatifs au congé annuel rémunéré.",
+   "sub_queries": [
+    "durée légale du congé annuel payé prévue par le Code du travail tunisien, article et alinéa, définition du congé annuel rémunéré",
+    "conditions d’acquisition, modalités de prise et exceptions du congé annuel rémunéré selon le Code du travail tunisien, article et alinéa"
+   ],
+   "retrieved": [
+    {
+     "source": "travailFr.pdf",
+     "article": "125",
+     "chunk_id": "travailFr/s01/125",
+     "article_label": "125",
+     "snippet": "Article 125.- Le congé annuel payé peut être fractionné en \npériodes d’un ou plusieurs jours jusqu’à concurrence de la moitié de \nsa durée totale. \nSont réputés jours ouvrables pour la jouissance d’un congé annuel \npayé, les jours normalement consacrés au travail dans l’établissement, \nmême s’ils so"
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "114",
+     "chunk_id": "travailFr/s01/114",
+     "article_label": "114",
+     "snippet": "Article 114 (Modifié par la loi n° 96-62 du 15 juillet 1996).- \nSont considérées comme un mois de travail effectif, pour la \ndétermination de la durée du congé annuel, les périodes équivalentes à \nvingt-six jours ouvrables. Sont assimilées à une période de travail \neffectif les périodes de congés pa"
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "113",
+     "chunk_id": "travailFr/s01/113",
+     "article_label": "113",
+     "snippet": "Article 113 (Modifié par la loi n° 96-62 du 15 juillet 1996).- \nTout travailleur qui, au cours de l'année de référence, justifie avoir été\n\noccupé chez le même employeur pendant une période de temps \néquivalente à un minimum d'un mois de travail effectif a droit à un \ncongé dont la durée est détermi"
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "118",
+     "chunk_id": "travailFr/s01/118",
+     "article_label": "118",
+     "snippet": "Article 118.- Le congé payé ne dépassant pas six jours ouvrables \ndoit être continu. \nLe congé d'une durée supérieure à six jours ouvrables peut être \nfractionné par l'employeur, avec l'agrément du salarié. Dans le cas où\n\nle congé s'accompagne de la fermeture de l'établissement, le \nfractionnement "
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "117",
+     "chunk_id": "travailFr/s01/117",
+     "article_label": "117",
+     "snippet": "Article 117 (Modifié par la loi n° 96-62 du 15 juillet 1996).- Le \ncongé annuel est octroyé au cours de la période du 1er juin au 31 \noctobre de chaque année. Il peut être octroyé au cours d'une autre \npériode de l'année en vertu d'accords collectifs ou individuels ou par \nl'employeur lorsque la néc"
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "123",
+     "chunk_id": "travailFr/s01/123",
+     "article_label": "123",
+     "snippet": "Article 123 (Modifié par la loi n° 96-62 du 15 juillet 1996).- Les \ntravailleurs ont droit, à condition de compter au moins six mois de \nservices continus chez le même employeur, à un jour ouvrable de congé \npar mois écoulé depuis leur entrée en service, sans que la durée totale de \nce congé, puisse"
+    }
+   ],
+   "n_candidates": 33,
+   "score": {
+    "hit": true,
+    "hit_at_1": false,
+    "first_rank": 3,
+    "recall": 0.3333333333333333,
+    "rr": 0.3333333333333333
+   },
+   "t_llm": 0.74,
+   "t_retrieve": 14.37,
+   "t_rerank": 17.97
+  },
+  {
+   "id": "q025",
+   "concept_id": "travail_maternity",
+   "split": "dev",
+   "question": "Quels sont les droits de la femme enceinte au travail ?",
+   "language": "fr",
+   "law_type": "travail",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "travailFr.pdf",
+     "article": "64",
+     "anchor": "Article 64.- Dans les entreprises",
+     "chunk_ids": [
+      "travailFr/s01/64"
+     ]
+    }
+   ],
+   "rewrite": "« Protection juridique de la femme enceinte au sein de l’entreprise : dispositions du Code du Travail tunisien relatives au congé de maternité, à l’interdiction de licenciement pendant la grossesse, à l’aménagement du poste, à la capacité de travail et au consentement de l’employeur, articles et alinéas correspondants ».",
+   "sub_queries": [
+    "Code du travail tunisien – dispositions relatives au congé de maternité : définition, durée, conditions d’éligibilité, aménagement du poste et capacité de travail de la femme enceinte, articles et alinéas correspondants",
+    "Code du travail tunisien – interdiction de licenciement pendant la grossesse, sanctions, procédure de contestation et exceptions au consentement de l’employeur, articles et alinéas applicables"
+   ],
+   "retrieved": [
+    {
+     "source": "travailFr.pdf",
+     "article": "64",
+     "chunk_id": "travailFr/s01/64",
+     "article_label": "64",
+     "snippet": "Article 64.- Dans les entreprises de toute nature, à l’exception des \nétablissements où sont exclusivement employés les membres d’une \nmême famille, la femme : \na) aura droit à l’occasion de son accouchement, sur production \nd’un certificat médical, à un congé de repos de 30 jours. \nCe congé peut êt"
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "68",
+     "chunk_id": "travailFr/s01/68-2",
+     "article_label": "68-2",
+     "snippet": "Article 68-2 (Ajouté par la loi n° 96-62 du 15 juillet 1996).- \nL’intervalle de nuit pendant lequel les femmes ne peuvent être \nemployées prévu par l’article 66 du présent code peut être modifié et \nl’interdiction du travail de nuit des femmes prévue par le même article \npeut être levée et ce, dans "
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "68",
+     "chunk_id": "travailFr/s01/68-3",
+     "article_label": "68-3",
+     "snippet": "Article 68-3 (Ajouté par la loi n° 96-62 du 15 juillet 1996).- Il \nest interdit d’appliquer les dispositions de l’article 68-2 à la femme \ntravailleuse pendant une période de seize semaines au minimum avant \net après l’accouchement, dont au moins huit avant la date probable de \nl’accouchement. \nCett"
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "18",
+     "chunk_id": "travailFr/s01/18",
+     "article_label": "18",
+     "snippet": "Article 18.- Dans tout contrat de travail, la durée de la période \nd’essai résulte des conventions collectives ou particulières, de l’usage \nou de la loi.\n\nLe temps de l’instruction prémilitaire obligatoire ou du service \nsous les drapeaux ne compte pas dans les délais impartis pour la \ndénonciation"
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "20",
+     "chunk_id": "travailFr/s01/20",
+     "article_label": "20",
+     "snippet": "Article 20.- La maladie suspend le contrat de travail. Elle ne \nconstitue un motif de rupture que si elle est suffisamment grave ou \nprolongée et si les nécessités de l’entreprise obligent l’employeur à \nremplacer le salarié malade. \nLa suspension du travail par la femme pendant la période qui \npréc"
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "166",
+     "chunk_id": "travailFr/s01/166",
+     "article_label": "166",
+     "snippet": "Article 166 (Modifié par la loi n° 94-29 du 21 février 1994 et \npar la loi n° 2007-19 du 2 avril 2007).- Tout licenciement d’un \nmembre titulaire ou suppléant représentant le personnel au sein de la \ncommission consultative d’entreprise envisagé par l’employeur, doit \nêtre soumis par celui-ci à la c"
+    }
+   ],
+   "n_candidates": 38,
+   "score": {
+    "hit": true,
+    "hit_at_1": true,
+    "first_rank": 1,
+    "recall": 1.0,
+    "rr": 1.0
+   },
+   "t_llm": 0.34,
+   "t_retrieve": 49.77,
+   "t_rerank": 18.93
+  },
+  {
+   "id": "q026",
+   "concept_id": "csp_marriage_conditions",
+   "split": "dev",
+   "question": "Quelles sont les conditions du mariage ?",
+   "language": "fr",
+   "law_type": "statut_personnel",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "3",
+     "anchor": "Article 3 .- Le mariage n'est formé",
+     "chunk_ids": [
+      "Statutpersonnel/s01/3"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "5",
+     "anchor": "Article 5 (Modifié par le décret-loi n°64-1",
+     "chunk_ids": [
+      "Statutpersonnel/s01/5"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "6",
+     "anchor": "Article 6 (Modifié par la loi n°93-74 du 12 juillet 1993).- Le mariage du mineur",
+     "chunk_ids": [
+      "Statutpersonnel/s01/6"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "8",
+     "anchor": "Article 8 .- Consent au mariage du mineur",
+     "chunk_ids": [
+      "Statutpersonnel/s01/8"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "14",
+     "anchor": "Article 14 .- Les empêchements au mariage",
+     "chunk_ids": [
+      "Statutpersonnel/s01/14"
+     ]
+    }
+   ],
+   "rewrite": "Conditions légales du mariage en Tunisie : capacité juridique, consentement libre et éclairé, âge minimum requis, absence de lien de parenté prohibé, conformité aux dispositions du Code du Statut Personnel (articles relatifs au mariage).",
+   "sub_queries": [
+    "conditions de capacité juridique, consentement libre et éclairé, âge minimum et absence de lien de parenté prohibé pour le mariage selon le Code du statut personnel tunisien",
+    "procédures, exceptions, nullité et sanctions applicables aux mariages irréguliers ou prohibés (parenté, dispenses, formalités) en droit tunisien"
+   ],
+   "retrieved": [
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "31",
+     "chunk_id": "Statutpersonnel/s02/31",
+     "article_label": "31",
+     "snippet": "Article 31 .- L'acte de mariage est conclu en Tunisie devant deux \nnotaires ou devant l'Officier de l'état civil en présence de deux témoins \nhonorables. \nLe mariage des Tunisiens à l'étranger est célébré devant les agents \ndiplomatiques ou consulaires de Tunisie, ou selon la loi locale."
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "37",
+     "chunk_id": "Statutpersonnel/s02/37",
+     "article_label": "37",
+     "snippet": "Article 37 .- Tout acte de mariage des Tunisiens, conclu à \nl'étranger selon les formes locales, devra être transcrit, dans les trois \nmois de sa rédaction et à la diligence des époux, dans le registre des \nmariages du Consulat de Tunisie le plus proche. \nToute infraction à cette obligation sera pun"
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "38",
+     "chunk_id": "Statutpersonnel/s02/38",
+     "article_label": "38",
+     "snippet": "Article 38 .- L'acte de mariage des Etrangers en Tunisie sera \nrédigé conformément aux lois tunisiennes, sur le vu d'un certificat de \nleur consul attestant qu'ils peuvent contracter mariage. \nLe mariage contracté en Tunisie entre deux Etrangers de même \nnationalité pourra être célébré par les agent"
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "10",
+     "chunk_id": "Statutpersonnel/s11/10",
+     "article_label": "10",
+     "snippet": "Article 10 .- La différence d'âge entre l'adoptant et l'adopté doit \nêtre au minimum de 15 ans, sauf dans les cas ou l'adopté est l'enfant \ndu conjoint de l'adoptant. \nUn tunisien peut adopter un étranger."
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "7",
+     "chunk_id": "Statutpersonnel/s08/7",
+     "article_label": "7",
+     "snippet": "Article 7 .- L'officier de l'état civil et les notaires qui ne se \nconformeront pas aux prescriptions de l'article premier de la présente \nloi seront poursuivis devant le tribunal de première instance \nterritorialement compétent et punis d'une amende de 100 dinars. \nLa présente loi sera publiée au J"
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "3",
+     "chunk_id": "Statutpersonnel/s03/3",
+     "article_label": "3",
+     "snippet": "Article 3 .- La demande d'acquisition de l'attestation de conformité \nest déposée auprès du greffe du tribunal cantonal compétent sur papier \nlibre accompagnée des pièces justificatives. \nLes Tunisiens résidants à l'étranger peuvent adresser les demandes \ntendant à l'acquisition de ladite attestatio"
+    }
+   ],
+   "n_candidates": 34,
+   "score": {
+    "hit": false,
+    "hit_at_1": false,
+    "first_rank": null,
+    "recall": 0.0,
+    "rr": 0.0
+   },
+   "t_llm": 0.13,
+   "t_retrieve": 1.99,
+   "t_rerank": 20.15
+  },
+  {
+   "id": "q029",
+   "concept_id": "csp_child_custody",
+   "split": "dev",
+   "question": "Comment est attribuée la garde des enfants ?",
+   "language": "fr",
+   "law_type": "statut_personnel",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "54",
+     "anchor": "Article 54 .- La garde consiste",
+     "chunk_ids": [
+      "Statutpersonnel/s01/54"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "55",
+     "anchor": "Article 55 .- La femme qui refuse",
+     "chunk_ids": [
+      "Statutpersonnel/s01/55"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "56",
+     "anchor": "Article 56 (Paragraphes 2, 3, 4",
+     "chunk_ids": [
+      "Statutpersonnel/s01/56"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "57",
+     "anchor": "Article 57 (Modifié par la loi n°66-49",
+     "chunk_ids": [
+      "Statutpersonnel/s01/57"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "58",
+     "anchor": "Article 58 (Modifié par la loi n°81-7",
+     "chunk_ids": [
+      "Statutpersonnel/s01/58"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "67",
+     "anchor": "Article 67. (Modifié par la loi n°93-74",
+     "chunk_ids": [
+      "Statutpersonnel/s01/67"
+     ]
+    }
+   ],
+   "rewrite": "Attribution de la garde des enfants : dispositions du Code du Statut Personnel (articles relatifs à l’autorité parentale, à la capacité, au consentement et à l’intérêt supérieur de l’enfant, alinéas et critères d’attribution).",
+   "sub_queries": [
+    "Code du Statut Personnel attribution de la garde des enfants : critères d’intérêt supérieur, alinéas et conditions d’autorité parentale",
+    "Procédure d’attribution de la garde : capacité, consentement des parents et modalités légales selon le Code du Statut Personnel"
+   ],
+   "retrieved": [
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "67",
+     "chunk_id": "Statutpersonnel/s01/67",
+     "article_label": "67",
+     "snippet": "Article 67. (Modifié par la loi n°93-74 du 12 juillet 1993).- En\ncas de dissolution du mariage par décès, la garde est confiée au \nsurvivant des père et mère. \nSi le mariage est dissous du vivant des époux, la garde est confiée \nsoit à l’un d’eux, soit à une tierce personne. \nLe juge en décide en pr"
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "1",
+     "chunk_id": "Statutpersonnel/s13/1",
+     "article_label": "1",
+     "snippet": "Article premier (Modifié par la loi n°2003-51 du 7 juillet \n2003).- La mère qui a la garde de son enfant mineur et dont la filiation \nest inconnue doit lui attribuer un prénom et son nom patronymique ou \nd'en demander l'autorisation, conformément aux dispositions de la loi \nréglementant l'état civil"
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "61",
+     "chunk_id": "Statutpersonnel/s01/61",
+     "article_label": "61",
+     "snippet": "Article 61 .- Si celui qui a la garde de l'enfant change de résidence \net s'installe à une distance qui empêche le tuteur d'accomplir ses \ndevoirs envers son pupille, il est déchu de son droit."
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "57",
+     "chunk_id": "Statutpersonnel/s01/57",
+     "article_label": "57",
+     "snippet": "Article 57 (Modifié par la loi n°66-49 du 3 juin 1966).- La garde \nappartient durant le mariage aux père et mère."
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "59",
+     "chunk_id": "Statutpersonnel/s01/59",
+     "article_label": "59",
+     "snippet": "Article 59 .- La titulaire du droit de garde d'une confession autre \nque celle du père de l'enfant ne pourra exercer ce droit qu'autant que\n\nl'enfant n'aura pas cinq ans révolus et qu'il n'y aura aucun sujet de \ncraindre qu'il ne soit élevé dans une autre religion que celle de son \npère. \nLes dispos"
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "58",
+     "chunk_id": "Statutpersonnel/s01/58",
+     "article_label": "58",
+     "snippet": "Article 58 (Modifié par la loi n°81-7 du 18 février 1981).- Le \ntitulaire du droit de garde doit être majeur, sain d'esprit, honnête, \ncapable de pourvoir aux besoins de l'enfant, indemne de toute maladie \ncontagieuse. Le titulaire du droit de garde de sexe masculin doit avoir, \nen outre, à sa dispo"
+    }
+   ],
+   "n_candidates": 38,
+   "score": {
+    "hit": true,
+    "hit_at_1": true,
+    "first_rank": 1,
+    "recall": 0.5,
+    "rr": 1.0
+   },
+   "t_llm": 0.09,
+   "t_retrieve": 2.44,
+   "t_rerank": 31.97
+  },
+  {
+   "id": "q031",
+   "concept_id": "coc_contract_validity",
+   "split": "dev",
+   "question": "Quelles sont les conditions de validité d'un contrat ?",
+   "language": "fr",
+   "law_type": "obligations_contrats",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "COC.pdf",
+     "article": "2",
+     "anchor": "Article 2.- Les éléments nécessaires pour la validité",
+     "chunk_ids": [
+      "COC/s02/2"
+     ]
+    },
+    {
+     "source": "COC.pdf",
+     "article": "3",
+     "anchor": "Article 3.- Toute personne est capable",
+     "chunk_ids": [
+      "COC/s02/3"
+     ]
+    }
+   ],
+   "rewrite": "Conditions de validité d’un contrat : capacité juridique, consentement éclairé, objet licite, cause licite, forme prescrite – dispositions du Code des Obligations et des Contrats.",
+   "sub_queries": [
+    "conditions de validité d’un contrat définition capacité juridique consentement éclairé objet licite cause licite forme prescrite Code des obligations et des contrats",
+    "nullité et sanctions des contrats en cas d’absence de capacité, de consentement, d’objet licite, de cause licite ou de forme prescrite Code des obligations et des contrats"
+   ],
+   "retrieved": [
+    {
+     "source": "COC.pdf",
+     "article": "2",
+     "chunk_id": "COC/s02/2",
+     "article_label": "2",
+     "snippet": "Article 2.- Les éléments nécessaires pour la validité des \nobligations qui dérivent d'une déclaration de volonté sont : \n1) la capacité de s'obliger ; \n2) une déclaration valable de volonté portant sur les éléments \nessentiels de l'obligation ; \n3) un objet certain pouvant former objet d'obligation "
+    },
+    {
+     "source": "COC.pdf",
+     "article": "119",
+     "chunk_id": "COC/s02/119",
+     "article_label": "119",
+     "snippet": "Article 119.- La condition incompatible avec la nature de l'acte \nauquel elle est ajoutée est nulle et rend nulle l'obligation qui en dépend. \nCette obligation peut être validée, toutefois, si la partie en faveur \nde laquelle la condition a été apposée renonce expressément à s'en \nprévaloir."
+    },
+    {
+     "source": "COC.pdf",
+     "article": "29",
+     "chunk_id": "COC/s02/29",
+     "article_label": "29",
+     "snippet": "Article 29.- Lorsqu'une réponse d'acceptation n'est pas exigée par \nle proposant ou par l'usage du commerce, le contrat est parfait dès que \nl'autre partie en a entrepris l'exécution ; l'absence de réponse vaut \naussi consentement, lorsque la proposition se rapporte à des relations \nd'affaires déjà "
+    },
+    {
+     "source": "COC.pdf",
+     "article": "1477",
+     "chunk_id": "COC/s02/1477",
+     "article_label": "1477",
+     "snippet": "Article 1477.- Lorsque, malgré les termes employés, la convention \ndénommée transaction constitue, en réalité, une donation, une vente \nou autre rapport de droit, la validité et les effets du contrat doivent être \nappréciés d'après les dispositions qui régissent l'acte fait sous le \ncouvert de la tr"
+    },
+    {
+     "source": "COC.pdf",
+     "article": "133",
+     "chunk_id": "COC/s02/133",
+     "article_label": "133",
+     "snippet": "Article 133.- La condition accomplie a un effet rétroactif au jour \nauquel l'obligation a été contractée, lorsqu'il résulte de la volonté des \nparties ou de la nature de l'obligation à laquelle qu'on a entendu lui \ndonner cet effet."
+    },
+    {
+     "source": "COC.pdf",
+     "article": "242",
+     "chunk_id": "COC/s02/242",
+     "article_label": "242",
+     "snippet": "Article 242.- Les obligations contractuelles valablement formées \ntiennent lieu de loi à ceux qui les ont faites, et ne peuvent être \nrévoquées que de leur consentement mutuel ou dans les cas prévus par \nla loi."
+    }
+   ],
+   "n_candidates": 46,
+   "score": {
+    "hit": true,
+    "hit_at_1": true,
+    "first_rank": 1,
+    "recall": 0.5,
+    "rr": 1.0
+   },
+   "t_llm": 0.13,
+   "t_retrieve": 4.61,
+   "t_rerank": 19.21
+  },
+  {
+   "id": "q035",
+   "concept_id": "coc_seller_duties",
+   "split": "dev",
+   "question": "Quelles sont les obligations du vendeur ?",
+   "language": "fr",
+   "law_type": "obligations_contrats",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "COC.pdf",
+     "article": "564"
+    },
+    {
+     "source": "COC.pdf",
+     "article": "611"
+    },
+    {
+     "source": "COC.pdf",
+     "article": "612"
+    }
+   ],
+   "rewrite": "Obligations du vendeur prévues par le Code des Obligations et des Contrats tunisien : articles relatifs à la délivrance conforme (alinéa 1), à la garantie des vices cachés (alinéa 2), au transfert de propriété et des risques (alinéa 3), ainsi qu’à la responsabilité contractuelle du vendeur.",
+   "sub_queries": [
+    "Code des Obligations et des Contrats tunisien délivrance conforme du vendeur conditions et obligations",
+    "Code des Obligations et des Contrats tunisien garantie des vices cachés, transfert de propriété, risques et responsabilité contractuelle du vendeur"
+   ],
+   "retrieved": [
+    {
+     "source": "COC.pdf",
+     "article": "631",
+     "chunk_id": "COC/s02/631",
+     "article_label": "631",
+     "snippet": "Article 631.- L’obligation de garantir emporte pour le vendeur \ncelle de s’abstenir de tout acte ou réclamation qui tendrait à inquiéter \nl’acheteur ou à le priver des avantages sur lesquels il avait droit de \ncompter, d’après la destination de la chose vendue, et l’état dans \nlequel elle se trouvai"
+    },
+    {
+     "source": "COC.pdf",
+     "article": "591",
+     "chunk_id": "COC/s02/591",
+     "article_label": "591",
+     "snippet": "Article 591.- Le vendeur a deux obligations principales : \n1) celle de délivrer la chose vendue ; \n2) celle de la garantir. \nParag. I. - De la délivrance"
+    },
+    {
+     "source": "COC.pdf",
+     "article": "1",
+     "chunk_id": "COC/s00/1",
+     "article_label": "1",
+     "snippet": "Article premier.- Les textes publiés ci-après et relatifs aux \nobligations et aux contrats sont réunis en un seul corps sous le titre du \ncode tunisien des obligations et des contrats."
+    },
+    {
+     "source": "COC.pdf",
+     "article": "242",
+     "chunk_id": "COC/s02/242",
+     "article_label": "242",
+     "snippet": "Article 242.- Les obligations contractuelles valablement formées \ntiennent lieu de loi à ceux qui les ont faites, et ne peuvent être \nrévoquées que de leur consentement mutuel ou dans les cas prévus par \nla loi."
+    },
+    {
+     "source": "COC.pdf",
+     "article": "630",
+     "chunk_id": "COC/s02/630",
+     "article_label": "630",
+     "snippet": "Article 630.- La garantie que le vendeur doit à l’acquéreur à deux \nobjets : \na) le premier est la jouissance et la possession paisible de la chose \nvendue (garantie pour cause d’éviction) ; \nb) le second, les défauts de cette chose (garantie pour les vices \nrédhibitoires). \nLa garantie est due de p"
+    },
+    {
+     "source": "COC.pdf",
+     "article": "748",
+     "chunk_id": "COC/s02/748",
+     "article_label": "748",
+     "snippet": "Article 748.- L’obligation de garantie emporte pour le bailleur \ncelle de s’abstenir de tout ce qui tendrait à troubler la possession du \npreneur ou à le priver des avantages sur lesquels il avait droit de \ncompter d’après la destination de la chose louée et l’état dans lequel \nelle se trouvait au m"
+    }
+   ],
+   "n_candidates": 44,
+   "score": {
+    "hit": false,
+    "hit_at_1": false,
+    "first_rank": null,
+    "recall": 0.0,
+    "rr": 0.0
+   },
+   "t_llm": 0.16,
+   "t_retrieve": 3.05,
+   "t_rerank": 29.33
+  },
+  {
+   "id": "q039",
+   "concept_id": "arb_agreement",
+   "split": "dev",
+   "question": "Qu'est-ce qu'une convention d'arbitrage ?",
+   "language": "fr",
+   "law_type": "arbitrage",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "ArbitrageFr.pdf",
+     "article": "2",
+     "anchor": "Article 2 La convention d'arbitrage est l'engagement",
+     "chunk_ids": [
+      "ArbitrageFr/s01/2"
+     ]
+    },
+    {
+     "source": "ArbitrageFr.pdf",
+     "article": "3",
+     "anchor": "Article 3 La clause compromissoire",
+     "chunk_ids": [
+      "ArbitrageFr/s01/3"
+     ]
+    },
+    {
+     "source": "ArbitrageFr.pdf",
+     "article": "6",
+     "anchor": "Article 6 La convention d'arbitrage ne peut",
+     "chunk_ids": [
+      "ArbitrageFr/s01/6"
+     ]
+    }
+   ],
+   "rewrite": "Définition et conditions de validité de la convention d’arbitrage selon le Code de procédure civile (articles 1442‑1 et suivants) et le Code du commerce, incluant la capacité des parties, le consentement éclairé, les exigences de forme, les effets juridiques de la clause compromissoire et les sanctions en cas de violation.",
+   "sub_queries": [
+    "Convention d’arbitrage définition, capacité des parties, consentement éclairé et exigences de forme selon le CPC art. 1442‑1 et suivants et le Code du commerce",
+    "Effets juridiques de la clause compromissoire, sanctions en cas de violation et nullité de la convention d’arbitrage en droit tunisien"
+   ],
+   "retrieved": [
+    {
+     "source": "ArbitrageFr.pdf",
+     "article": "3",
+     "chunk_id": "ArbitrageFr/s00/3",
+     "article_label": "3",
+     "snippet": "Article 3 \nSont abrogées les dispositions des articles 258 à 284 du \nCode de Procédure Civile et Commerciale promulgué par la loi \nn° 59-130 datée du 5 octobre 1959. \nToutefois les instances arbitrales en cours devant les arbitres \nou devant les juridictions, restent soumises aux procédures en \n \n(1"
+    },
+    {
+     "source": "ArbitrageFr.pdf",
+     "article": "6",
+     "chunk_id": "ArbitrageFr/s01/6",
+     "article_label": "6",
+     "snippet": "Article 6 \nLa convention d'arbitrage ne peut être établie que par écrit, \nsoit par acte authentique ou sous seing privé, soit par procès-\nverbal d'audience ou procès-verbal dressé auprès du tribunal \narbitral choisi. \nLa convention d'arbitrage est réputée établie par écrit, \nlorsqu'elle est consigné"
+    },
+    {
+     "source": "ArbitrageFr.pdf",
+     "article": "2",
+     "chunk_id": "ArbitrageFr/s01/2",
+     "article_label": "2",
+     "snippet": "Article 2 \n \nLa convention d'arbitrage est l'engagement des parties de \nrégler par l'arbitrage toutes ou certaines contestations nées ou \npouvant naître entre elles concernant un rapport de droit \ndéterminé, contractuel ou non contractuel. La convention \nd'arbitrage revêt la forme d'une clause compr"
+    },
+    {
+     "source": "ArbitrageFr.pdf",
+     "article": "56",
+     "chunk_id": "ArbitrageFr/s01/56",
+     "article_label": "56",
+     "snippet": "Article 56 \n1- Nul ne peut, en raison de sa nationalité être empêché \nd'exercer des fonctions d'arbitre, sauf convention contraire des \nparties. \n2- Les parties sont libres de convenir de la procédure de \nnomination de l'arbitre ou des arbitres, sans préjudice des \ndispositions des paragraphes 4 et "
+    },
+    {
+     "source": "ArbitrageFr.pdf",
+     "article": "61",
+     "chunk_id": "ArbitrageFr/s01/61",
+     "article_label": "61",
+     "snippet": "Article 61 \n1- Le tribunal arbitral statue sur sa propre compétence et sur \ntoute opposition relative à l'existence ou à la validité de la \nconvention d'arbitrage. A cette fin, la clause compromissoire, \ninsérée dans le contrat, est considérée comme une convention\n\n \ndistincte de ses autres clauses."
+    },
+    {
+     "source": "ArbitrageFr.pdf",
+     "article": "8",
+     "chunk_id": "ArbitrageFr/s01/8",
+     "article_label": "8",
+     "snippet": "Article 8 \n \nLes parties à une convention d'arbitrage doivent avoir la \ncapacité de disposer de leurs droits."
+    }
+   ],
+   "n_candidates": 32,
+   "score": {
+    "hit": true,
+    "hit_at_1": false,
+    "first_rank": 2,
+    "recall": 0.6666666666666666,
+    "rr": 0.5
+   },
+   "t_llm": 0.29,
+   "t_retrieve": 37.17,
+   "t_rerank": 22.4
+  },
+  {
+   "id": "q041",
+   "concept_id": "penal_theft",
+   "split": "dev",
+   "question": "Quelle est la peine pour le vol ?",
+   "language": "fr",
+   "law_type": null,
+   "category": "cross_domain",
+   "gold": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "258",
+     "anchor": "Article 258",
+     "chunk_ids": [
+      "PenalFr/s02/258"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "260",
+     "anchor": "Article 260 (Modifié par la loi n° 89-23",
+     "chunk_ids": [
+      "PenalFr/s02/260"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "261",
+     "anchor": "Article 261",
+     "chunk_ids": [
+      "PenalFr/s02/261"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "262",
+     "anchor": "Article 262",
+     "chunk_ids": [
+      "PenalFr/s02/262"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "263",
+     "anchor": "Article 263",
+     "chunk_ids": [
+      "PenalFr/s02/263"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "264",
+     "anchor": "Article 264",
+     "chunk_ids": [
+      "PenalFr/s02/264"
+     ]
+    }
+   ],
+   "rewrite": "Quelle est la peine d'emprisonnement et la sanction prévue par le Code pénal tunisien pour le vol (disposition, article et alinéa concernés) ?",
+   "sub_queries": [
+    "vol article Code pénal tunisien peine d'emprisonnement alinéa concerné",
+    "circonstances aggravantes vol Code pénal tunisien sanctions prévues et modalités d'application"
+   ],
+   "retrieved": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "264",
+     "chunk_id": "PenalFr/s02/264",
+     "article_label": "264",
+     "snippet": "Article 264.- La peine est de cinq ans d’emprisonnement et de \ncent vingt dinars d’amende, pour tous autres vols et soustractions \ncommis hors les cas prévus aux articles 260 à 263 du présent code. \nLa tentative est punissable."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "61",
+     "chunk_id": "PenalFr/s02/61-quater",
+     "article_label": "61-quater",
+     "snippet": "Article 61 quater. (Ajouté par le décret du 10 janvier 1957).- Est \ncoupable d'atteinte à la sûreté extérieure de l'État et puni des peines \nprévues à l'article 62 du présent code, sans préjudice, le cas échéant, \ndes peines encourues pour la tentative des crimes prévus aux articles \n60 et 60 bis du"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "129",
+     "chunk_id": "PenalFr/s02/129",
+     "article_label": "129",
+     "snippet": "Article 129.- Est puni d’un an d'emprisonnement, quiconque par \nparoles, écrits, gestes ou tous autres moyens, porte atteinte \npubliquement, au drapeau tunisien ou à un drapeau étranger."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "274",
+     "chunk_id": "PenalFr/s02/274",
+     "article_label": "274",
+     "snippet": "Article 274.- Est puni de deux ans d’emprisonnement et de trente six \ndinars d’amende quiconque, aura contrefait ou altéré des clefs ou aura \nconfectionné, sciemment, un instrument destiné à commettre un vol. \nLa peine est de cinq ans d’emprisonnement et de cent vingt dinars \nd'amende, si l’auteur d"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "186",
+     "chunk_id": "PenalFr/s02/186",
+     "article_label": "186",
+     "snippet": "Article 186 (Modifié par la loi n° 89-23 du 27 février 1989).- Est \npuni de quinze ans d'emprisonnement, celui qui contrefait ou altère \ndes monnaies en métal ayant cours légal dans la République \nTunisienne ou reçues par les caisses publiques, celui qui participe à \nl'émission ou exposition desdite"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "190",
+     "chunk_id": "PenalFr/s02/190",
+     "article_label": "190",
+     "snippet": "Article 190.- Est puni de trois ans d'emprisonnement, quiconque \naura coloré les monnaies ayant cours légal en Tunisie ou les monnaies \nétrangères, dans le but de tromper sur la nature du métal ou en aura \némis ou introduit sur le territoire tunisien.\n\n \nEncourt les mêmes peines, quiconque aura part"
+    }
+   ],
+   "n_candidates": 43,
+   "score": {
+    "hit": true,
+    "hit_at_1": true,
+    "first_rank": 1,
+    "recall": 0.16666666666666666,
+    "rr": 1.0
+   },
+   "t_llm": 0.0,
+   "t_retrieve": 4.61,
+   "t_rerank": 33.69
+  },
+  {
+   "id": "q046",
+   "concept_id": "penal_assault",
+   "split": "dev",
+   "question": "Que risque-t-on si on frappe quelqu'un ?",
+   "language": "fr",
+   "law_type": "penal",
+   "category": "colloquial",
+   "gold": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "208",
+     "anchor": "Article 208",
+     "chunk_ids": [
+      "PenalFr/s02/208"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "218",
+     "anchor": "Article 218 (Modifié par la loi n° 93-72",
+     "chunk_ids": [
+      "PenalFr/s02/218"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "219",
+     "anchor": "Article 219",
+     "chunk_ids": [
+      "PenalFr/s02/219"
+     ]
+    }
+   ],
+   "rewrite": "Sanctions pénales prévues par le Code pénal tunisien pour les violences volontaires (frapper autrui) : peine d’emprisonnement, amende, dispositions d’alinéa et circonstances aggravantes.",
+   "sub_queries": [
+    "définition et qualification des violences volontaires (frapper autrui) dans le Code pénal tunisien",
+    "sanctions pénales (peine d’emprisonnement, amende, alinéas) et circonstances aggravantes applicables aux violences volontaires selon le Code pénal tunisien"
+   ],
+   "retrieved": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "116",
+     "chunk_id": "PenalFr/s02/116",
+     "article_label": "116",
+     "snippet": "Article 116.- Est puni de six mois d'emprisonnement et de \nquarante huit dinars d’amende, quiconque exerce ou menace d'exercer \ndes violences pour résister à un fonctionnaire public, agissant dans \nl'exercice régulier de ses fonctions ou à toute personne légalement \nrequise d'assister ledit fonction"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "264",
+     "chunk_id": "PenalFr/s02/264",
+     "article_label": "264",
+     "snippet": "Article 264.- La peine est de cinq ans d’emprisonnement et de \ncent vingt dinars d’amende, pour tous autres vols et soustractions \ncommis hors les cas prévus aux articles 260 à 263 du présent code. \nLa tentative est punissable."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "295",
+     "chunk_id": "PenalFr/s02/295",
+     "article_label": "295",
+     "snippet": "Article 295.- Est puni des peines prévues à l'article 291du présent \ncode, quiconque, amène, frauduleusement, autrui à quitter le territoire \ntunisien en alléguant de faits inexistants ou en usant de fausses \nnouvelles."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "127",
+     "chunk_id": "PenalFr/s02/127",
+     "article_label": "127",
+     "snippet": "Article 127.- Est puni d'un an d’emprisonnement et de soixante \ndouze dinars d’amende, quiconque exerce sur un fonctionnaire public ou \nassimilé des voies de fait, telle que prévue à l'article 319 du présent code, \ndans l'exercice ou à l'occasion de l'exercice de ses fonctions. \nLa peine est de cinq"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "129",
+     "chunk_id": "PenalFr/s02/129",
+     "article_label": "129",
+     "snippet": "Article 129.- Est puni d’un an d'emprisonnement, quiconque par \nparoles, écrits, gestes ou tous autres moyens, porte atteinte \npubliquement, au drapeau tunisien ou à un drapeau étranger."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "61",
+     "chunk_id": "PenalFr/s02/61-bis",
+     "article_label": "61-bis",
+     "snippet": "Article 61 bis (Ajouté par le décret du 10 janvier 1957).- Est \ncoupable d'atteinte à la sûreté extérieure de l'État et puni des peines \nprévues à l'article 62 du présent code, tout Tunisien ou Etranger : \n1°-Qui aura entrepris, par quelque moyen que ce soit, de porter \natteinte à l'intégrité du ter"
+    }
+   ],
+   "n_candidates": 42,
+   "score": {
+    "hit": false,
+    "hit_at_1": false,
+    "first_rank": null,
+    "recall": 0.0,
+    "rr": 0.0
+   },
+   "t_llm": 0.13,
+   "t_retrieve": 6.73,
+   "t_rerank": 21.05
+  },
+  {
+   "id": "q047",
+   "concept_id": "penal_theft",
+   "split": "dev",
+   "question": "ما هي عقوبة السرقة؟",
+   "language": "ar",
+   "law_type": "penal",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "258",
+     "anchor": "Article 258",
+     "chunk_ids": [
+      "PenalFr/s02/258"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "260",
+     "anchor": "Article 260 (Modifié par la loi n° 89-23",
+     "chunk_ids": [
+      "PenalFr/s02/260"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "261",
+     "anchor": "Article 261",
+     "chunk_ids": [
+      "PenalFr/s02/261"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "262",
+     "anchor": "Article 262",
+     "chunk_ids": [
+      "PenalFr/s02/262"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "263",
+     "anchor": "Article 263",
+     "chunk_ids": [
+      "PenalFr/s02/263"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "264",
+     "anchor": "Article 264",
+     "chunk_ids": [
+      "PenalFr/s02/264"
+     ]
+    }
+   ],
+   "rewrite": "Sanction prévue par le Code pénal tunisien pour le vol : peine d’emprisonnement, amende et disposition de l’article correspondant (alinéa, capacité, consentement).",
+   "sub_queries": [
+    "vol Code pénal tunisien définition, capacité de discernement, consentement et éléments constitutifs de l’infraction",
+    "sanctions prévues pour le vol dans le Code pénal tunisien : peine d’emprisonnement, amende, alinéa et article correspondant"
+   ],
+   "retrieved": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "61",
+     "chunk_id": "PenalFr/s02/61-quater",
+     "article_label": "61-quater",
+     "snippet": "Article 61 quater. (Ajouté par le décret du 10 janvier 1957).- Est \ncoupable d'atteinte à la sûreté extérieure de l'État et puni des peines \nprévues à l'article 62 du présent code, sans préjudice, le cas échéant, \ndes peines encourues pour la tentative des crimes prévus aux articles \n60 et 60 bis du"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "264",
+     "chunk_id": "PenalFr/s02/264",
+     "article_label": "264",
+     "snippet": "Article 264.- La peine est de cinq ans d’emprisonnement et de \ncent vingt dinars d’amende, pour tous autres vols et soustractions \ncommis hors les cas prévus aux articles 260 à 263 du présent code. \nLa tentative est punissable."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "295",
+     "chunk_id": "PenalFr/s02/295",
+     "article_label": "295",
+     "snippet": "Article 295.- Est puni des peines prévues à l'article 291du présent \ncode, quiconque, amène, frauduleusement, autrui à quitter le territoire \ntunisien en alléguant de faits inexistants ou en usant de fausses \nnouvelles."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "274",
+     "chunk_id": "PenalFr/s02/274",
+     "article_label": "274",
+     "snippet": "Article 274.- Est puni de deux ans d’emprisonnement et de trente six \ndinars d’amende quiconque, aura contrefait ou altéré des clefs ou aura \nconfectionné, sciemment, un instrument destiné à commettre un vol. \nLa peine est de cinq ans d’emprisonnement et de cent vingt dinars \nd'amende, si l’auteur d"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "129",
+     "chunk_id": "PenalFr/s02/129",
+     "article_label": "129",
+     "snippet": "Article 129.- Est puni d’un an d'emprisonnement, quiconque par \nparoles, écrits, gestes ou tous autres moyens, porte atteinte \npubliquement, au drapeau tunisien ou à un drapeau étranger."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "61",
+     "chunk_id": "PenalFr/s02/61-ter",
+     "article_label": "61-ter",
+     "snippet": "Article 61 ter. (Ajouté par le décret du 10 janvier 1957).- Est \ncoupable d'atteinte à la sûreté extérieure de l'État et puni des peines \nprévues à l'article 62 du présent code, tout Tunisien ou Etranger : \n1°- Qui, sans intention d’en livrer le contenu à une puissance \nétrangère ou à ses agents, se"
+    }
+   ],
+   "n_candidates": 44,
+   "score": {
+    "hit": true,
+    "hit_at_1": false,
+    "first_rank": 2,
+    "recall": 0.16666666666666666,
+    "rr": 0.5
+   },
+   "t_llm": 0.15,
+   "t_retrieve": 2.79,
+   "t_rerank": 23.2
+  },
+  {
+   "id": "q055",
+   "concept_id": "cpp_custody_duration",
+   "split": "dev",
+   "question": "ما هي مدة الاحتفاظ؟",
+   "language": "ar",
+   "law_type": "procedure_penale",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "13",
+     "anchor": "Article 13.- Les officiers de police judiciaire visés aux 3°",
+     "chunk_ids": [
+      "ProcedurepenaleFr/s01/13"
+     ]
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "13",
+     "anchor": "Article 13 bis",
+     "chunk_ids": [
+      "ProcedurepenaleFr/s01/13-bis"
+     ]
+    }
+   ],
+   "rewrite": "Quelle est la durée légale de conservation des documents (dossiers du personnel, pièces comptables, contrats) prévue par les dispositions du Code du Travail et du Code des Obligations et Contrats en Tunisie ?",
+   "sub_queries": [
+    "durée légale de conservation des dossiers du personnel prévue par le Code du Travail tunisien",
+    "prescription, sanctions et exceptions relatives à la conservation des pièces comptables et des contrats selon le Code des Obligations et Contrats en Tunisie"
+   ],
+   "retrieved": [
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "75",
+     "chunk_id": "ProcedurepenaleFr/s04/75",
+     "article_label": "75",
+     "snippet": "Article 75 (Modifié par la loi n°2009-65 du 12 août 2009).- Les \npersonnes visées à l’article 74 de la présente loi doivent conserver \npendant une période qui ne peut être inférieure à dix ans à compter de \nla date de la réalisation de l’opération ou de clôture du compte, les \nregistres, livres comp"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "70",
+     "chunk_id": "ProcedurepenaleFr/s04/70",
+     "article_label": "70",
+     "snippet": "Article 70.- Les personnes morales doivent : \n- tenir des comptes sur un livre-journal faisant état de toutes \nrecettes et dépenses . \n- tenir un inventaire des recettes et virements en rapport avec \nl'étranger faisant état des montants y afférents, leur justification , la \ndate de leur réalisation "
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "83",
+     "chunk_id": "ProcedurepenaleFr/s04/83",
+     "article_label": "83",
+     "snippet": "Article 83 (Modifié par la loi n°2009-65 du 12 août 2009).- La \ncommission tunisienne des analyses financières est tenue de mettre en \nplace une base de données faisant état des personnes physiques et \nmorales suspectées d'être en lien avec des opérations de financement \ndu terrorisme ou de blanchim"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "85",
+     "chunk_id": "ProcedurepenaleFr/s02/85",
+     "article_label": "85",
+     "snippet": "Article 85 (Modifié par la loi n° 93-114 du 22 novembre 1993).- \nL'inculpé peut être soumis à la détention préventive dans les cas de \ncrimes ou délits flagrants et toutes les fois que, en raison de l'existence \nde présomptions graves, la détention semble nécessaire comme une \nmesure de sécurité pou"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "13",
+     "chunk_id": "ProcedurepenaleFr/s01/13-bis",
+     "article_label": "13-bis",
+     "snippet": "Article 13 bis (Ajouté par la loi n° 87-70 du 26 novembre 1987 \net modifié par la loi n° 99-90 du 2 août 1999).- Dans les cas où les \nnécessités de l'enquête l'exigent, les officiers de police judiciaire visés \naux numéros 3° et 4° de l'article 10, même en cas de crimes ou délits \nflagrants, et les "
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "202",
+     "chunk_id": "ProcedurepenaleFr/s02/202",
+     "article_label": "202",
+     "snippet": "Article 202.- Le juge peut retenir à sa disposition sous mandat de \ndépôt, le prévenu en état d'ivresse, ou ne pouvant justifier de son \nidentité, ou n'ayant pas de domicile fixe, ou lorsque des désordres sont \nà craindre. \nEn aucun cas le prévenu n'est retenu plus de huit jours."
+    }
+   ],
+   "n_candidates": 42,
+   "score": {
+    "hit": true,
+    "hit_at_1": false,
+    "first_rank": 5,
+    "recall": 0.5,
+    "rr": 0.2
+   },
+   "t_llm": 0.12,
+   "t_retrieve": 9.38,
+   "t_rerank": 32.22
+  },
+  {
+   "id": "q057",
+   "concept_id": "travail_paid_leave",
+   "split": "dev",
+   "question": "ما هي مدة الإجازة السنوية المدفوعة؟",
+   "language": "ar",
+   "law_type": "travail",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "travailFr.pdf",
+     "article": "112",
+     "anchor": "Article 112",
+     "chunk_ids": [
+      "travailFr/s01/112"
+     ]
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "113",
+     "anchor": "Article 113",
+     "chunk_ids": [
+      "travailFr/s01/113"
+     ]
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "115",
+     "anchor": "Article 115",
+     "chunk_ids": [
+      "travailFr/s01/115"
+     ]
+    }
+   ],
+   "rewrite": "Durée légale du congé annuel payé prévue par le Code du Travail tunisien, article ... , alinéa ... .",
+   "sub_queries": [
+    "durée légale du congé annuel payé selon le Code du travail tunisien : définition, calcul et période de référence",
+    "conditions d’attribution du congé annuel payé et sanctions prévues en cas de non‑respect du Code du travail tunisien"
+   ],
+   "retrieved": [
+    {
+     "source": "travailFr.pdf",
+     "article": "125",
+     "chunk_id": "travailFr/s01/125",
+     "article_label": "125",
+     "snippet": "Article 125.- Le congé annuel payé peut être fractionné en \npériodes d’un ou plusieurs jours jusqu’à concurrence de la moitié de \nsa durée totale. \nSont réputés jours ouvrables pour la jouissance d’un congé annuel \npayé, les jours normalement consacrés au travail dans l’établissement, \nmême s’ils so"
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "114",
+     "chunk_id": "travailFr/s01/114",
+     "article_label": "114",
+     "snippet": "Article 114 (Modifié par la loi n° 96-62 du 15 juillet 1996).- \nSont considérées comme un mois de travail effectif, pour la \ndétermination de la durée du congé annuel, les périodes équivalentes à \nvingt-six jours ouvrables. Sont assimilées à une période de travail \neffectif les périodes de congés pa"
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "410",
+     "chunk_id": "travailFr/s01/410",
+     "article_label": "410",
+     "snippet": "Article 410.- Les contrats ci-dessus définis doivent être écrits. \nIls sont au choix des parties, soit d’une durée déterminée, soit \nd’une durée indéterminée; ils doivent dans ce dernier cas, stipuler un \ndélai-congé dont la durée sera au moins égale à celle qui est au moins \négale par des conventio"
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "118",
+     "chunk_id": "travailFr/s01/118",
+     "article_label": "118",
+     "snippet": "Article 118.- Le congé payé ne dépassant pas six jours ouvrables \ndoit être continu. \nLe congé d'une durée supérieure à six jours ouvrables peut être \nfractionné par l'employeur, avec l'agrément du salarié. Dans le cas où\n\nle congé s'accompagne de la fermeture de l'établissement, le \nfractionnement "
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "113",
+     "chunk_id": "travailFr/s01/113",
+     "article_label": "113",
+     "snippet": "Article 113 (Modifié par la loi n° 96-62 du 15 juillet 1996).- \nTout travailleur qui, au cours de l'année de référence, justifie avoir été\n\noccupé chez le même employeur pendant une période de temps \néquivalente à un minimum d'un mois de travail effectif a droit à un \ncongé dont la durée est détermi"
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "117",
+     "chunk_id": "travailFr/s01/117",
+     "article_label": "117",
+     "snippet": "Article 117 (Modifié par la loi n° 96-62 du 15 juillet 1996).- Le \ncongé annuel est octroyé au cours de la période du 1er juin au 31 \noctobre de chaque année. Il peut être octroyé au cours d'une autre \npériode de l'année en vertu d'accords collectifs ou individuels ou par \nl'employeur lorsque la néc"
+    }
+   ],
+   "n_candidates": 37,
+   "score": {
+    "hit": true,
+    "hit_at_1": false,
+    "first_rank": 5,
+    "recall": 0.3333333333333333,
+    "rr": 0.2
+   },
+   "t_llm": 0.15,
+   "t_retrieve": 3.7,
+   "t_rerank": 40.78
+  },
+  {
+   "id": "q059",
+   "concept_id": "csp_marriage_conditions",
+   "split": "dev",
+   "question": "ما هي شروط الزواج؟",
+   "language": "ar",
+   "law_type": "statut_personnel",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "3",
+     "anchor": "Article 3 .- Le mariage n'est formé",
+     "chunk_ids": [
+      "Statutpersonnel/s01/3"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "5",
+     "anchor": "Article 5 (Modifié par le décret-loi n°64-1",
+     "chunk_ids": [
+      "Statutpersonnel/s01/5"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "6",
+     "anchor": "Article 6 (Modifié par la loi n°93-74 du 12 juillet 1993).- Le mariage du mineur",
+     "chunk_ids": [
+      "Statutpersonnel/s01/6"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "8",
+     "anchor": "Article 8 .- Consent au mariage du mineur",
+     "chunk_ids": [
+      "Statutpersonnel/s01/8"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "14",
+     "anchor": "Article 14 .- Les empêchements au mariage",
+     "chunk_ids": [
+      "Statutpersonnel/s01/14"
+     ]
+    }
+   ],
+   "rewrite": "Conditions légales du mariage en Tunisie : capacité, consentement, âge minimum, absence de lien de parenté prohibé, régime matrimonial – recherche dans le Code du Statut Personnel (articles relatifs aux conditions de validité du mariage).",
+   "sub_queries": [
+    "conditions de validité du mariage en Tunisie capacité, consentement, âge minimum Code du Statut Personnel articles 1 à 5",
+    "exclusions et régimes matrimoniaux du mariage tunisien lien de parenté prohibé, régime matrimonial Code du Statut Personnel articles 6 à 10"
+   ],
+   "retrieved": [
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "31",
+     "chunk_id": "Statutpersonnel/s02/31",
+     "article_label": "31",
+     "snippet": "Article 31 .- L'acte de mariage est conclu en Tunisie devant deux \nnotaires ou devant l'Officier de l'état civil en présence de deux témoins \nhonorables. \nLe mariage des Tunisiens à l'étranger est célébré devant les agents \ndiplomatiques ou consulaires de Tunisie, ou selon la loi locale."
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "37",
+     "chunk_id": "Statutpersonnel/s02/37",
+     "article_label": "37",
+     "snippet": "Article 37 .- Tout acte de mariage des Tunisiens, conclu à \nl'étranger selon les formes locales, devra être transcrit, dans les trois \nmois de sa rédaction et à la diligence des époux, dans le registre des \nmariages du Consulat de Tunisie le plus proche. \nToute infraction à cette obligation sera pun"
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "38",
+     "chunk_id": "Statutpersonnel/s02/38",
+     "article_label": "38",
+     "snippet": "Article 38 .- L'acte de mariage des Etrangers en Tunisie sera \nrédigé conformément aux lois tunisiennes, sur le vu d'un certificat de \nleur consul attestant qu'ils peuvent contracter mariage. \nLe mariage contracté en Tunisie entre deux Etrangers de même \nnationalité pourra être célébré par les agent"
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "10",
+     "chunk_id": "Statutpersonnel/s11/10",
+     "article_label": "10",
+     "snippet": "Article 10 .- La différence d'âge entre l'adoptant et l'adopté doit \nêtre au minimum de 15 ans, sauf dans les cas ou l'adopté est l'enfant \ndu conjoint de l'adoptant. \nUn tunisien peut adopter un étranger."
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "2",
+     "chunk_id": "Statutpersonnel/s06/2",
+     "article_label": "2",
+     "snippet": "Article 2 .- Le ministre de l'intérieur est chargé de l'exécution du \nprésent arrêté qui sera publié au Journal Officiel de la République \nTunisienne. \nTunis, le 11 janvier 2013. \nLe Chef du Gouvernement \nHamadi Jebali\n\nREGIME DE LA COMMUNAUTE \nDES BIENS ENTRE EPOUX\n\nREGIME DE LA COMMUNAUTE DES BIEN"
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "7",
+     "chunk_id": "Statutpersonnel/s08/7",
+     "article_label": "7",
+     "snippet": "Article 7 .- L'officier de l'état civil et les notaires qui ne se \nconformeront pas aux prescriptions de l'article premier de la présente \nloi seront poursuivis devant le tribunal de première instance \nterritorialement compétent et punis d'une amende de 100 dinars. \nLa présente loi sera publiée au J"
+    }
+   ],
+   "n_candidates": 34,
+   "score": {
+    "hit": false,
+    "hit_at_1": false,
+    "first_rank": null,
+    "recall": 0.0,
+    "rr": 0.0
+   },
+   "t_llm": 0.24,
+   "t_retrieve": 4.39,
+   "t_rerank": 17.81
+  },
+  {
+   "id": "q062",
+   "concept_id": "csp_child_custody",
+   "split": "dev",
+   "question": "من يحق له حضانة الأطفال؟",
+   "language": "ar",
+   "law_type": "statut_personnel",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "54",
+     "anchor": "Article 54 .- La garde consiste",
+     "chunk_ids": [
+      "Statutpersonnel/s01/54"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "55",
+     "anchor": "Article 55 .- La femme qui refuse",
+     "chunk_ids": [
+      "Statutpersonnel/s01/55"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "56",
+     "anchor": "Article 56 (Paragraphes 2, 3, 4",
+     "chunk_ids": [
+      "Statutpersonnel/s01/56"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "57",
+     "anchor": "Article 57 (Modifié par la loi n°66-49",
+     "chunk_ids": [
+      "Statutpersonnel/s01/57"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "58",
+     "anchor": "Article 58 (Modifié par la loi n°81-7",
+     "chunk_ids": [
+      "Statutpersonnel/s01/58"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "67",
+     "anchor": "Article 67. (Modifié par la loi n°93-74",
+     "chunk_ids": [
+      "Statutpersonnel/s01/67"
+     ]
+    }
+   ],
+   "rewrite": "Qui a droit à la garde des enfants selon le Code du Statut Personnel : dispositions relatives à la garde (exclusive ou partagée), capacité parentale, consentement, alinéas et articles applicables.",
+   "sub_queries": [
+    "garde des enfants Code du Statut Personnel définition, capacité parentale, critères d’attribution, garde exclusive ou partagée, articles applicables",
+    "procédure d’attribution de la garde des enfants Code du Statut Personnel, consentement des parents, modalités de garde partagée, alinéas et dispositions procédurales."
+   ],
+   "retrieved": [
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "5",
+     "chunk_id": "Statutpersonnel/s11/5",
+     "article_label": "5",
+     "snippet": "Article 5 .- Le tuteur officieux a, vis-à-vis du pupille, les droits et \nobligations prévus par les articles 54 et suivant du code du statut \npersonnel. \nIl est, en outre, civilement responsable des actes du pupille, dans \nles mêmes conditions que les père et mère."
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "59",
+     "chunk_id": "Statutpersonnel/s01/59",
+     "article_label": "59",
+     "snippet": "Article 59 .- La titulaire du droit de garde d'une confession autre \nque celle du père de l'enfant ne pourra exercer ce droit qu'autant que\n\nl'enfant n'aura pas cinq ans révolus et qu'il n'y aura aucun sujet de \ncraindre qu'il ne soit élevé dans une autre religion que celle de son \npère. \nLes dispos"
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "60",
+     "chunk_id": "Statutpersonnel/s01/60",
+     "article_label": "60",
+     "snippet": "Article 60. (Modifié par la loi n°93-74 du 12 juillet 1993).- Le \npère, le tuteur et la mère de l'enfant peuvent avoir un droit de regard \nsur ses affaires, pourvoir à son éducation et l'envoyer aux \nétablissements scolaires, mais l'enfant ne peut passer la nuit que chez \ncelui qui en a la garde, le"
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "58",
+     "chunk_id": "Statutpersonnel/s01/58",
+     "article_label": "58",
+     "snippet": "Article 58 (Modifié par la loi n°81-7 du 18 février 1981).- Le \ntitulaire du droit de garde doit être majeur, sain d'esprit, honnête, \ncapable de pourvoir aux besoins de l'enfant, indemne de toute maladie \ncontagieuse. Le titulaire du droit de garde de sexe masculin doit avoir, \nen outre, à sa dispo"
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "3",
+     "chunk_id": "Statutpersonnel/s11/3",
+     "article_label": "3",
+     "snippet": "Article 3 .- La tutelle officieuse est l'acte par lequel une personne \nmajeure jouissant de la pleine capacité civile, ou un organisme \nd'assistance, prend à sa charge un enfant mineur dont il assure la garde \net subvient aux besoins."
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "55",
+     "chunk_id": "Statutpersonnel/s01/55",
+     "article_label": "55",
+     "snippet": "Article 55 .- La femme qui refuse d'assurer la garde de l'enfant n'y \nsera obligée que lorsque aucune autre personne ne pourra lui être \nsubstituée."
+    }
+   ],
+   "n_candidates": 41,
+   "score": {
+    "hit": true,
+    "hit_at_1": false,
+    "first_rank": 4,
+    "recall": 0.3333333333333333,
+    "rr": 0.25
+   },
+   "t_llm": 0.13,
+   "t_retrieve": 1.96,
+   "t_rerank": 17.39
+  },
+  {
+   "id": "q063",
+   "concept_id": "coc_contract_validity",
+   "split": "dev",
+   "question": "ما هي شروط صحة العقد؟",
+   "language": "ar",
+   "law_type": "obligations_contrats",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "COC.pdf",
+     "article": "2",
+     "anchor": "Article 2.- Les éléments nécessaires pour la validité",
+     "chunk_ids": [
+      "COC/s02/2"
+     ]
+    },
+    {
+     "source": "COC.pdf",
+     "article": "3",
+     "anchor": "Article 3.- Toute personne est capable",
+     "chunk_ids": [
+      "COC/s02/3"
+     ]
+    }
+   ],
+   "rewrite": "Quelles sont les conditions de validité d’un contrat selon le Code des Obligations et des Contrats tunisien (capacité, consentement, objet licite, cause licite, forme) ?",
+   "sub_queries": [
+    "définition et exigences de capacité, consentement, objet licite, cause licite et forme dans le Code des Obligations et des Contrats tunisien",
+    "sanctions, nullité et jurisprudence tunisienne en cas de non‑respect des conditions de validité d’un contrat prévues par le COCT"
+   ],
+   "retrieved": [
+    {
+     "source": "COC.pdf",
+     "article": "1531",
+     "chunk_id": "COC/s02/1531",
+     "article_label": "1531",
+     "snippet": "Article 1531.- La caution qui a été condamnée à payer, faute de \nprésenter le débiteur, a le droit de faire révoquer la condamnation, si \nelle prouve qu'à la date du jugement le cautionné était mort ou \ninsolvable. \nSi la caution a exécuté le jugement qui la condamne, elle a recours \ncontre le créan"
+    },
+    {
+     "source": "COC.pdf",
+     "article": "119",
+     "chunk_id": "COC/s02/119",
+     "article_label": "119",
+     "snippet": "Article 119.- La condition incompatible avec la nature de l'acte \nauquel elle est ajoutée est nulle et rend nulle l'obligation qui en dépend. \nCette obligation peut être validée, toutefois, si la partie en faveur \nde laquelle la condition a été apposée renonce expressément à s'en \nprévaloir."
+    },
+    {
+     "source": "COC.pdf",
+     "article": "1",
+     "chunk_id": "COC/s00/1",
+     "article_label": "1",
+     "snippet": "Article premier.- Les textes publiés ci-après et relatifs aux \nobligations et aux contrats sont réunis en un seul corps sous le titre du \ncode tunisien des obligations et des contrats."
+    },
+    {
+     "source": "COC.pdf",
+     "article": "2",
+     "chunk_id": "COC/s02/2",
+     "article_label": "2",
+     "snippet": "Article 2.- Les éléments nécessaires pour la validité des \nobligations qui dérivent d'une déclaration de volonté sont : \n1) la capacité de s'obliger ; \n2) une déclaration valable de volonté portant sur les éléments \nessentiels de l'obligation ; \n3) un objet certain pouvant former objet d'obligation "
+    },
+    {
+     "source": "COC.pdf",
+     "article": "2",
+     "chunk_id": "COC/s01/2",
+     "article_label": "2",
+     "snippet": "Article 2.- Il ne découle de la réorganisation du code des \nobligations et des contrats tunisien aucune modification de son \ncontenu, ou abrogation ou modification des dispositions spéciales qui \nlui sont contraires. \nLa présente loi sera publiée au Journal Officiel de la République \nTunisienne et e"
+    },
+    {
+     "source": "COC.pdf",
+     "article": "830",
+     "chunk_id": "COC/s02/830",
+     "article_label": "830",
+     "snippet": "Article 830.- Le louage d'ouvrages et celui de services ne sont \nvalables que si les parties contractantes ont la capacité de s'obliger ; \nl'interdit et le mineur doivent être assistés par les personnes sous \nl'autorité desquelles ils sont placés."
+    }
+   ],
+   "n_candidates": 49,
+   "score": {
+    "hit": true,
+    "hit_at_1": false,
+    "first_rank": 4,
+    "recall": 0.5,
+    "rr": 0.25
+   },
+   "t_llm": 0.11,
+   "t_retrieve": 1.81,
+   "t_rerank": 17.68
+  },
+  {
+   "id": "q066",
+   "concept_id": "penal_theft",
+   "split": "dev",
+   "question": "ما هي عقوبة السرقة؟",
+   "language": "ar",
+   "law_type": null,
+   "category": "cross_domain",
+   "gold": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "258",
+     "anchor": "Article 258",
+     "chunk_ids": [
+      "PenalFr/s02/258"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "260",
+     "anchor": "Article 260 (Modifié par la loi n° 89-23",
+     "chunk_ids": [
+      "PenalFr/s02/260"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "261",
+     "anchor": "Article 261",
+     "chunk_ids": [
+      "PenalFr/s02/261"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "262",
+     "anchor": "Article 262",
+     "chunk_ids": [
+      "PenalFr/s02/262"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "263",
+     "anchor": "Article 263",
+     "chunk_ids": [
+      "PenalFr/s02/263"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "264",
+     "anchor": "Article 264",
+     "chunk_ids": [
+      "PenalFr/s02/264"
+     ]
+    }
+   ],
+   "rewrite": "Sanction prévue par le Code pénal tunisien pour le vol : peine d’emprisonnement, amende et disposition de l’article correspondant (alinéa, capacité, consentement).",
+   "sub_queries": [
+    "vol Code pénal tunisien définition, capacité de discernement, consentement et éléments constitutifs de l’infraction",
+    "sanctions prévues pour le vol dans le Code pénal tunisien : peine d’emprisonnement, amende, alinéa et article correspondant"
+   ],
+   "retrieved": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "61",
+     "chunk_id": "PenalFr/s02/61-quater",
+     "article_label": "61-quater",
+     "snippet": "Article 61 quater. (Ajouté par le décret du 10 janvier 1957).- Est \ncoupable d'atteinte à la sûreté extérieure de l'État et puni des peines \nprévues à l'article 62 du présent code, sans préjudice, le cas échéant, \ndes peines encourues pour la tentative des crimes prévus aux articles \n60 et 60 bis du"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "264",
+     "chunk_id": "PenalFr/s02/264",
+     "article_label": "264",
+     "snippet": "Article 264.- La peine est de cinq ans d’emprisonnement et de \ncent vingt dinars d’amende, pour tous autres vols et soustractions \ncommis hors les cas prévus aux articles 260 à 263 du présent code. \nLa tentative est punissable."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "295",
+     "chunk_id": "PenalFr/s02/295",
+     "article_label": "295",
+     "snippet": "Article 295.- Est puni des peines prévues à l'article 291du présent \ncode, quiconque, amène, frauduleusement, autrui à quitter le territoire \ntunisien en alléguant de faits inexistants ou en usant de fausses \nnouvelles."
+    },
+    {
+     "source": "CommerceFr.pdf",
+     "article": "411",
+     "chunk_id": "CommerceFr/s01/411-ter",
+     "article_label": "411-ter",
+     "snippet": "Article 411 ter. (Ajouté par la loi n° 85-82 du 11 août \n1985) \nEst puni d'un an d'emprisonnement et d'une amende de 500 \ndinars : \n- Celui qui émet un chèque avant l'expiration du délai \nd'interdiction d'usage de chèque qui lui aurait été notifiée; \n- Celui qui a sciemment modifié sa signature à l'"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "274",
+     "chunk_id": "PenalFr/s02/274",
+     "article_label": "274",
+     "snippet": "Article 274.- Est puni de deux ans d’emprisonnement et de trente six \ndinars d’amende quiconque, aura contrefait ou altéré des clefs ou aura \nconfectionné, sciemment, un instrument destiné à commettre un vol. \nLa peine est de cinq ans d’emprisonnement et de cent vingt dinars \nd'amende, si l’auteur d"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "129",
+     "chunk_id": "PenalFr/s02/129",
+     "article_label": "129",
+     "snippet": "Article 129.- Est puni d’un an d'emprisonnement, quiconque par \nparoles, écrits, gestes ou tous autres moyens, porte atteinte \npubliquement, au drapeau tunisien ou à un drapeau étranger."
+    }
+   ],
+   "n_candidates": 51,
+   "score": {
+    "hit": true,
+    "hit_at_1": false,
+    "first_rank": 2,
+    "recall": 0.16666666666666666,
+    "rr": 0.5
+   },
+   "t_llm": 0.0,
+   "t_retrieve": 1.67,
+   "t_rerank": 17.5
+  },
+  {
+   "id": "q067",
+   "concept_id": "csp_marriage_conditions",
+   "split": "dev",
+   "question": "ما هي شروط الزواج؟",
+   "language": "ar",
+   "law_type": null,
+   "category": "cross_domain",
+   "gold": [
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "3",
+     "anchor": "Article 3 .- Le mariage n'est formé",
+     "chunk_ids": [
+      "Statutpersonnel/s01/3"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "5",
+     "anchor": "Article 5 (Modifié par le décret-loi n°64-1",
+     "chunk_ids": [
+      "Statutpersonnel/s01/5"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "6",
+     "anchor": "Article 6 (Modifié par la loi n°93-74 du 12 juillet 1993).- Le mariage du mineur",
+     "chunk_ids": [
+      "Statutpersonnel/s01/6"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "8",
+     "anchor": "Article 8 .- Consent au mariage du mineur",
+     "chunk_ids": [
+      "Statutpersonnel/s01/8"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "14",
+     "anchor": "Article 14 .- Les empêchements au mariage",
+     "chunk_ids": [
+      "Statutpersonnel/s01/14"
+     ]
+    }
+   ],
+   "rewrite": "Conditions légales du mariage en Tunisie : capacité, consentement, âge minimum, absence de lien de parenté prohibé, régime matrimonial – recherche dans le Code du Statut Personnel (articles relatifs aux conditions de validité du mariage).",
+   "sub_queries": [
+    "conditions de validité du mariage en Tunisie capacité, consentement, âge minimum Code du Statut Personnel articles 1 à 5",
+    "exclusions et régimes matrimoniaux du mariage tunisien lien de parenté prohibé, régime matrimonial Code du Statut Personnel articles 6 à 10"
+   ],
+   "retrieved": [
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "31",
+     "chunk_id": "Statutpersonnel/s02/31",
+     "article_label": "31",
+     "snippet": "Article 31 .- L'acte de mariage est conclu en Tunisie devant deux \nnotaires ou devant l'Officier de l'état civil en présence de deux témoins \nhonorables. \nLe mariage des Tunisiens à l'étranger est célébré devant les agents \ndiplomatiques ou consulaires de Tunisie, ou selon la loi locale."
+    },
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "4",
+     "chunk_id": "tun_RecAcFreeLi/s00/4",
+     "article_label": "4",
+     "snippet": "Art. 4 – La Tunisie est un Etat unitaire. Il n’est pas permis d’édicter toute législation portant atteinte à son \nunité."
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "37",
+     "chunk_id": "Statutpersonnel/s02/37",
+     "article_label": "37",
+     "snippet": "Article 37 .- Tout acte de mariage des Tunisiens, conclu à \nl'étranger selon les formes locales, devra être transcrit, dans les trois \nmois de sa rédaction et à la diligence des époux, dans le registre des \nmariages du Consulat de Tunisie le plus proche. \nToute infraction à cette obligation sera pun"
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "38",
+     "chunk_id": "Statutpersonnel/s02/38",
+     "article_label": "38",
+     "snippet": "Article 38 .- L'acte de mariage des Etrangers en Tunisie sera \nrédigé conformément aux lois tunisiennes, sur le vu d'un certificat de \nleur consul attestant qu'ils peuvent contracter mariage. \nLe mariage contracté en Tunisie entre deux Etrangers de même \nnationalité pourra être célébré par les agent"
+    },
+    {
+     "source": "NationaliteFr.pdf",
+     "article": "13",
+     "chunk_id": "NationaliteFr/s01/13",
+     "article_label": "13",
+     "snippet": "Article 13.- La femme étrangère qui épouse un tunisien acquiert la \nnationalité tunisienne au moment de la célébration du mariage, \nlorsque, en vertu de sa loi nationale, elle perd sa nationalité d’origine \npar le mariage avec un étranger."
+    },
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "59",
+     "chunk_id": "tun_RecAcFreeLi/s00/59",
+     "article_label": "59",
+     "snippet": "Art. 59 – Est électeur tout citoyen ou citoyenne de nationalité tunisienne, âgé de dix-huit ans révolus et \nremplissant les conditions fixées par la loi électorale."
+    }
+   ],
+   "n_candidates": 49,
+   "score": {
+    "hit": false,
+    "hit_at_1": false,
+    "first_rank": null,
+    "recall": 0.0,
+    "rr": 0.0
+   },
+   "t_llm": 0.0,
+   "t_retrieve": 1.64,
+   "t_rerank": 26.8
+  },
+  {
+   "id": "q068",
+   "concept_id": "penal_theft",
+   "split": "dev",
+   "question": "What is the penalty for theft?",
+   "language": "en",
+   "law_type": "penal",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "258",
+     "anchor": "Article 258",
+     "chunk_ids": [
+      "PenalFr/s02/258"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "260",
+     "anchor": "Article 260 (Modifié par la loi n° 89-23",
+     "chunk_ids": [
+      "PenalFr/s02/260"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "261",
+     "anchor": "Article 261",
+     "chunk_ids": [
+      "PenalFr/s02/261"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "262",
+     "anchor": "Article 262",
+     "chunk_ids": [
+      "PenalFr/s02/262"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "263",
+     "anchor": "Article 263",
+     "chunk_ids": [
+      "PenalFr/s02/263"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "264",
+     "anchor": "Article 264",
+     "chunk_ids": [
+      "PenalFr/s02/264"
+     ]
+    }
+   ],
+   "rewrite": "Peine prévue au Code pénal tunisien pour le vol (art. 239 et suivants) – disposition, alinéa, sanction d’emprisonnement et amende.",
+   "sub_queries": [
+    "vol article 239 du Code pénal tunisien définition du vol, éléments constitutifs, alinéas applicables",
+    "vol article 239 du Code pénal tunisien sanctions, peine d’emprisonnement, amende, circonstances aggravantes et modalités d’exécution"
+   ],
+   "retrieved": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "61",
+     "chunk_id": "PenalFr/s02/61-quater",
+     "article_label": "61-quater",
+     "snippet": "Article 61 quater. (Ajouté par le décret du 10 janvier 1957).- Est \ncoupable d'atteinte à la sûreté extérieure de l'État et puni des peines \nprévues à l'article 62 du présent code, sans préjudice, le cas échéant, \ndes peines encourues pour la tentative des crimes prévus aux articles \n60 et 60 bis du"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "264",
+     "chunk_id": "PenalFr/s02/264",
+     "article_label": "264",
+     "snippet": "Article 264.- La peine est de cinq ans d’emprisonnement et de \ncent vingt dinars d’amende, pour tous autres vols et soustractions \ncommis hors les cas prévus aux articles 260 à 263 du présent code. \nLa tentative est punissable."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "295",
+     "chunk_id": "PenalFr/s02/295",
+     "article_label": "295",
+     "snippet": "Article 295.- Est puni des peines prévues à l'article 291du présent \ncode, quiconque, amène, frauduleusement, autrui à quitter le territoire \ntunisien en alléguant de faits inexistants ou en usant de fausses \nnouvelles."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "274",
+     "chunk_id": "PenalFr/s02/274",
+     "article_label": "274",
+     "snippet": "Article 274.- Est puni de deux ans d’emprisonnement et de trente six \ndinars d’amende quiconque, aura contrefait ou altéré des clefs ou aura \nconfectionné, sciemment, un instrument destiné à commettre un vol. \nLa peine est de cinq ans d’emprisonnement et de cent vingt dinars \nd'amende, si l’auteur d"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "262",
+     "chunk_id": "PenalFr/s02/262",
+     "article_label": "262",
+     "snippet": "Article 262 (Modifié par la loi n° 89-23 du 27 février 1989).- Est \npuni de douze ans de prison, le vol commis avec la réunion des trois \ndernières circonstances prévues à l'article 260."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "247",
+     "chunk_id": "PenalFr/s02/247",
+     "article_label": "247",
+     "snippet": "Article 247.- Est puni de six mois d’emprisonnement et de deux cent \nquarante dinars d’amende, quiconque, se sera rendu coupable de \ndiffamation. \nEst puni d'un an d’emprisonnement et de deux cent quarante dinars \nd’amende, quiconque, se sera rendu coupable de calomnie."
+    }
+   ],
+   "n_candidates": 35,
+   "score": {
+    "hit": true,
+    "hit_at_1": false,
+    "first_rank": 2,
+    "recall": 0.3333333333333333,
+    "rr": 0.5
+   },
+   "t_llm": 0.19,
+   "t_retrieve": 7.62,
+   "t_rerank": 32.53
+  },
+  {
+   "id": "q073",
+   "concept_id": "csp_marriage_conditions",
+   "split": "dev",
+   "question": "What are the conditions for marriage?",
+   "language": "en",
+   "law_type": "statut_personnel",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "3",
+     "anchor": "Article 3 .- Le mariage n'est formé",
+     "chunk_ids": [
+      "Statutpersonnel/s01/3"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "5",
+     "anchor": "Article 5 (Modifié par le décret-loi n°64-1",
+     "chunk_ids": [
+      "Statutpersonnel/s01/5"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "6",
+     "anchor": "Article 6 (Modifié par la loi n°93-74 du 12 juillet 1993).- Le mariage du mineur",
+     "chunk_ids": [
+      "Statutpersonnel/s01/6"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "8",
+     "anchor": "Article 8 .- Consent au mariage du mineur",
+     "chunk_ids": [
+      "Statutpersonnel/s01/8"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "14",
+     "anchor": "Article 14 .- Les empêchements au mariage",
+     "chunk_ids": [
+      "Statutpersonnel/s01/14"
+     ]
+    }
+   ],
+   "rewrite": "Conditions de capacité matrimoniale, de consentement, d’âge légal, d’absence de lien de parenté et de forme requises par le Code du Statut Personnel tunisien pour la célébration du mariage.",
+   "sub_queries": [
+    "Code du Statut Personnel tunisien capacité matrimoniale : conditions de consentement, âge légal, absence de lien de parenté pour le mariage",
+    "Code du Statut Personnel tunisien formalités et sanctions liées à la célébration du mariage en cas de non‑respect des exigences de capacité matrimoniale"
+   ],
+   "retrieved": [
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "9",
+     "chunk_id": "Statutpersonnel/s11/9",
+     "article_label": "9",
+     "snippet": "Article 9. (Modifié par la loi n°59-69 du 19 juin 1959).- \nL'adoptant doit être une personne majeure de l'un ou l'autre sexe, \nmariée, jouissant de la pleine capacité civile. \nIl doit être de bonne moralité, sain de corps et d'esprit et en mesure \nde subvenir aux besoins de l'adopté. \nLe juge peut, "
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "58",
+     "chunk_id": "Statutpersonnel/s01/58",
+     "article_label": "58",
+     "snippet": "Article 58 (Modifié par la loi n°81-7 du 18 février 1981).- Le \ntitulaire du droit de garde doit être majeur, sain d'esprit, honnête, \ncapable de pourvoir aux besoins de l'enfant, indemne de toute maladie \ncontagieuse. Le titulaire du droit de garde de sexe masculin doit avoir, \nen outre, à sa dispo"
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "9",
+     "chunk_id": "Statutpersonnel/s15/9",
+     "article_label": "9",
+     "snippet": "Article 9 .- Les ministres de la justice et des affaires sociales sont \nchargés, chacun en ce qui le concerne, de l’exécution du présent \ndécret qui sera publié au Journal Officiel de la République Tunisienne. \nTunis, le 9 août 1993. \nZine El Abidine Ben Ali\n\nTABLE DES MATIERES\nSujet \nArticles \nPage"
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "8",
+     "chunk_id": "Statutpersonnel/s01/8",
+     "article_label": "8",
+     "snippet": "Article 8 .- Consent au mariage du mineur le plus proche parent \nagnat. Il doit être saint d'esprit, de sexe masculin, majeur. \nLe père ou son mandataire consent au mariage de son enfant \nmineur, qu'il soit de sexe masculin ou féminin. \nS'il n’y a point de tuteur, le consentement est donné par le ju"
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "118",
+     "chunk_id": "Statutpersonnel/s01/118",
+     "article_label": "118",
+     "snippet": "Article 118.- En cas d’égalité dans la classe et le degré et lorsque \nla parenté est plus ou moins proche, le lien de parenté le plus fort \nl’emporte sur celui le plus faible."
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "10",
+     "chunk_id": "Statutpersonnel/s11/10",
+     "article_label": "10",
+     "snippet": "Article 10 .- La différence d'âge entre l'adoptant et l'adopté doit \nêtre au minimum de 15 ans, sauf dans les cas ou l'adopté est l'enfant \ndu conjoint de l'adoptant. \nUn tunisien peut adopter un étranger."
+    }
+   ],
+   "n_candidates": 38,
+   "score": {
+    "hit": true,
+    "hit_at_1": false,
+    "first_rank": 4,
+    "recall": 0.2,
+    "rr": 0.25
+   },
+   "t_llm": 0.14,
+   "t_retrieve": 3.99,
+   "t_rerank": 21.4
+  },
+  {
+   "id": "q075",
+   "concept_id": "csp_child_custody",
+   "split": "dev",
+   "question": "Who gets custody of the children after divorce?",
+   "language": "en",
+   "law_type": "statut_personnel",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "54",
+     "anchor": "Article 54 .- La garde consiste",
+     "chunk_ids": [
+      "Statutpersonnel/s01/54"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "55",
+     "anchor": "Article 55 .- La femme qui refuse",
+     "chunk_ids": [
+      "Statutpersonnel/s01/55"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "56",
+     "anchor": "Article 56 (Paragraphes 2, 3, 4",
+     "chunk_ids": [
+      "Statutpersonnel/s01/56"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "57",
+     "anchor": "Article 57 (Modifié par la loi n°66-49",
+     "chunk_ids": [
+      "Statutpersonnel/s01/57"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "58",
+     "anchor": "Article 58 (Modifié par la loi n°81-7",
+     "chunk_ids": [
+      "Statutpersonnel/s01/58"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "67",
+     "anchor": "Article 67. (Modifié par la loi n°93-74",
+     "chunk_ids": [
+      "Statutpersonnel/s01/67"
+     ]
+    }
+   ],
+   "rewrite": "Disposition du Code du Statut Personnel concernant la garde des enfants après le divorce : article, alinéa et critères de capacité, de consentement et d’autorité parentale (garde exclusive ou partagée).",
+   "sub_queries": [
+    "garde des enfants après divorce Code du statut personnel critères de capacité, consentement et autorité parentale article",
+    "procédure de fixation de la garde exclusive ou partagée post‑divorce Code du statut personnel alinéa et conditions"
+   ],
+   "retrieved": [
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "11",
+     "chunk_id": "Statutpersonnel/s11/11",
+     "article_label": "11",
+     "snippet": "Article 11 .- (Modifié par la loi n°59-69 du 19 juin 1959).- Dans \ntous les cas, et compte tenu des dispositions des deuxième et troisième \nalinéa de l'article 9, le consentement du conjoint est nécessaire ."
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "69",
+     "chunk_id": "Statutpersonnel/s01/69",
+     "article_label": "69",
+     "snippet": "Article 69 .- La filiation n’est pas établie en cas de désaveu d’un \nenfant d’une femme mariée dont la non-cohabitation avec le mari a été \nprouvée, ou d’un enfant mis au monde par une femme mariée un an \naprès l’absence ou le décès du mari ou la date du divorce."
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "59",
+     "chunk_id": "Statutpersonnel/s01/59",
+     "article_label": "59",
+     "snippet": "Article 59 .- La titulaire du droit de garde d'une confession autre \nque celle du père de l'enfant ne pourra exercer ce droit qu'autant que\n\nl'enfant n'aura pas cinq ans révolus et qu'il n'y aura aucun sujet de \ncraindre qu'il ne soit élevé dans une autre religion que celle de son \npère. \nLes dispos"
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "60",
+     "chunk_id": "Statutpersonnel/s01/60",
+     "article_label": "60",
+     "snippet": "Article 60. (Modifié par la loi n°93-74 du 12 juillet 1993).- Le \npère, le tuteur et la mère de l'enfant peuvent avoir un droit de regard \nsur ses affaires, pourvoir à son éducation et l'envoyer aux \nétablissements scolaires, mais l'enfant ne peut passer la nuit que chez \ncelui qui en a la garde, le"
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "63",
+     "chunk_id": "Statutpersonnel/s01/63",
+     "article_label": "63",
+     "snippet": "Article 63 .- La femme à laquelle le droit de garde est transféré, \npour une cause autre que l'incapacité physique de la gardienne \nprécédente ne peut cohabiter avec celle-ci qu'avec le consentement du \ntuteur de l'enfant, sous peine de déchéance."
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "5",
+     "chunk_id": "Statutpersonnel/s13/5",
+     "article_label": "5",
+     "snippet": "Article 5 .- Les règles relatives aux empêchements au mariage \nprévues par les articles 14, 15, 16 et 17 du code du statut \npersonnel, lorsque la paternité est prouvée, sont applicables aux \nenfants abandonnés ou dont la filiation est inconnue auxquels on a \nattribué un nom patronymique en vertu de "
+    }
+   ],
+   "n_candidates": 42,
+   "score": {
+    "hit": false,
+    "hit_at_1": false,
+    "first_rank": null,
+    "recall": 0.0,
+    "rr": 0.0
+   },
+   "t_llm": 0.11,
+   "t_retrieve": 1.98,
+   "t_rerank": 20.52
+  },
+  {
+   "id": "q076",
+   "concept_id": "const_fundamental_rights",
+   "split": "dev",
+   "question": "What are the fundamental rights?",
+   "language": "en",
+   "law_type": "constitution",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "24"
+    },
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "25"
+    },
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "26"
+    }
+   ],
+   "rewrite": "« Liste des droits fondamentaux garantis par la Constitution tunisienne : articles, alinéas et dispositions relatifs aux libertés, à l’égalité, à la dignité, à la protection de la personne et aux garanties juridiques. »",
+   "sub_queries": [
+    "articles de la Constitution tunisienne énumérant les droits fondamentaux : libertés, égalité, dignité, protection de la personne et garanties juridiques",
+    "conditions d’application, limites et garanties juridiques des droits fondamentaux tunisiens, procédures de mise en œuvre et recours constitutionnels"
+   ],
+   "retrieved": [
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "37",
+     "chunk_id": "tun_RecAcFreeLi/s00/37",
+     "article_label": "37",
+     "snippet": "Art. 37 – Les libertés d’opinion, de pensée, d’expression, d’information et de publication sont garanties. \nAucun contrôle préalable ne peut être exercé sur ces libertés."
+    },
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "9",
+     "chunk_id": "tun_RecAcFreeLi/s00/9",
+     "article_label": "9",
+     "snippet": "Art. 9 – La devise de la République tunisienne est Liberté, Ordre, Justice."
+    },
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "52",
+     "chunk_id": "tun_RecAcFreeLi/s00/52",
+     "article_label": "52",
+     "snippet": "Art. 52 – Les droits de l’enfant sont garantis. \nIl incombe à ses père et mère et à l’Etat de lui garantir la dignité, la santé, les soins, l’éducation et \nl’enseignement. L’Etat doit également fournir à tous les enfants toutes les formes de protection sans \ndiscrimination et conformément à l’intérê"
+    },
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "1",
+     "chunk_id": "tun_RecAcFreeLi/s00/1",
+     "article_label": "1",
+     "snippet": "Article premier – La Tunisie est un Etat libre, indépendant et souverain."
+    },
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "26",
+     "chunk_id": "tun_RecAcFreeLi/s00/26",
+     "article_label": "26",
+     "snippet": "Art. 26 – La liberté de l’individu est garantie."
+    },
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "5",
+     "chunk_id": "tun_RecAcFreeLi/s00/5",
+     "article_label": "5",
+     "snippet": "Art. 5 – La Tunisie constitue une partie de la nation islamique. Seul l’Etat doit œuvrer, dans un régime \ndémocratique, à la réalisation des vocations de l’Islam authentique qui consistent à préserver la vie, \nl’honneur, les biens, la religion et la liberté."
+    }
+   ],
+   "n_candidates": 34,
+   "score": {
+    "hit": true,
+    "hit_at_1": false,
+    "first_rank": 5,
+    "recall": 0.3333333333333333,
+    "rr": 0.2
+   },
+   "t_llm": 0.14,
+   "t_retrieve": 2.25,
+   "t_rerank": 21.02
+  },
+  {
+   "id": "q078",
+   "concept_id": "cpp_custody_duration",
+   "split": "dev",
+   "question": "How long can police custody last?",
+   "language": "en",
+   "law_type": "procedure_penale",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "13",
+     "anchor": "Article 13.- Les officiers de police judiciaire visés aux 3°",
+     "chunk_ids": [
+      "ProcedurepenaleFr/s01/13"
+     ]
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "13",
+     "anchor": "Article 13 bis",
+     "chunk_ids": [
+      "ProcedurepenaleFr/s01/13-bis"
+     ]
+    }
+   ],
+   "rewrite": "Durée maximale de la garde à vue (police) prévue par le Code de procédure pénale tunisien (articles relatifs à la garde à vue et à la détention préventive).",
+   "sub_queries": [
+    "garde à vue durée maximale Code de procédure pénale tunisien articles relatifs à la garde à vue",
+    "conditions de prolongation et exceptions de la détention préventive pendant la garde à vue Code de procédure pénale tunisien"
+   ],
+   "retrieved": [
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "85",
+     "chunk_id": "ProcedurepenaleFr/s02/85",
+     "article_label": "85",
+     "snippet": "Article 85 (Modifié par la loi n° 93-114 du 22 novembre 1993).- \nL'inculpé peut être soumis à la détention préventive dans les cas de \ncrimes ou délits flagrants et toutes les fois que, en raison de l'existence \nde présomptions graves, la détention semble nécessaire comme une \nmesure de sécurité pou"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "321",
+     "chunk_id": "ProcedurepenaleFr/s02/321",
+     "article_label": "321",
+     "snippet": "Article 321.- L'examen des demandes d'extradition est de la \ncompétence de la chambre d'accusation de la cour d'appel de Tunis. \nL'étranger comparaît devant elle dans un délai maximum de 15 jours, \nà compter de la notification du titre d'arrestation. Il est alors procédé à un \ninterrogatoire dont il"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "7",
+     "chunk_id": "ProcedurepenaleFr/s04/7",
+     "article_label": "7",
+     "snippet": "Article 7.- Le minimum de la peine d'emprisonnement encourue \npour infraction terroriste est fixé comme suit : \n- Si la peine encourue est l'emprisonnement à vie, le minimum est \nfixé à trente ans d'emprisonnement ; \n- Si la peine encourue est l'emprisonnement pour une période \ndéterminée, le minimu"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "13",
+     "chunk_id": "ProcedurepenaleFr/s01/13-bis",
+     "article_label": "13-bis",
+     "snippet": "Article 13 bis (Ajouté par la loi n° 87-70 du 26 novembre 1987 \net modifié par la loi n° 99-90 du 2 août 1999).- Dans les cas où les \nnécessités de l'enquête l'exigent, les officiers de police judiciaire visés \naux numéros 3° et 4° de l'article 10, même en cas de crimes ou délits \nflagrants, et les "
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "103",
+     "chunk_id": "ProcedurepenaleFr/s04/103",
+     "article_label": "103",
+     "snippet": "Article 103.- Sont abrogées, les dispositions de l'article 52 bis du \ncode pénal, le troisième alinéa de l'article 305, le deuxième alinéa de \npremièrement de l'article 313 du code de procédure pénale et l'article \n30 de la loi n° 92-52 du 18 mai 1992 relative aux stupéfiants. \nLa présente loi sera "
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "136",
+     "chunk_id": "ProcedurepenaleFr/s02/136",
+     "article_label": "136",
+     "snippet": "Article 136.- Le délai entre le jour où la citation est délivrée et le \njour fixé pour la comparution à l'audience est d'au moins trois jours. \nSi la partie citée demeure hors du territoire de la République, ce \ndélai est porté à trente jours."
+    }
+   ],
+   "n_candidates": 40,
+   "score": {
+    "hit": true,
+    "hit_at_1": false,
+    "first_rank": 4,
+    "recall": 0.5,
+    "rr": 0.25
+   },
+   "t_llm": 0.19,
+   "t_retrieve": 2.62,
+   "t_rerank": 33.16
+  },
+  {
+   "id": "q080",
+   "concept_id": "travail_paid_leave",
+   "split": "dev",
+   "question": "How many days of paid annual leave is a worker entitled to?",
+   "language": "en",
+   "law_type": "travail",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "travailFr.pdf",
+     "article": "112",
+     "anchor": "Article 112",
+     "chunk_ids": [
+      "travailFr/s01/112"
+     ]
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "113",
+     "anchor": "Article 113",
+     "chunk_ids": [
+      "travailFr/s01/113"
+     ]
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "115",
+     "anchor": "Article 115",
+     "chunk_ids": [
+      "travailFr/s01/115"
+     ]
+    }
+   ],
+   "rewrite": "Nombre de jours de congé annuel payé auquel a droit un salarié selon le Code du Travail tunisien, disposition relative à la durée du congé annuel (article applicable).",
+   "sub_queries": [
+    "nombre de jours de congé annuel payé prévus par le Code du travail tunisien et article correspondant",
+    "conditions d’attribution, calcul et durée du congé annuel payé du salarié selon le Code du travail tunisien"
+   ],
+   "retrieved": [
+    {
+     "source": "travailFr.pdf",
+     "article": "123",
+     "chunk_id": "travailFr/s01/123",
+     "article_label": "123",
+     "snippet": "Article 123 (Modifié par la loi n° 96-62 du 15 juillet 1996).- Les \ntravailleurs ont droit, à condition de compter au moins six mois de \nservices continus chez le même employeur, à un jour ouvrable de congé \npar mois écoulé depuis leur entrée en service, sans que la durée totale de \nce congé, puisse"
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "113",
+     "chunk_id": "travailFr/s01/113",
+     "article_label": "113",
+     "snippet": "Article 113 (Modifié par la loi n° 96-62 du 15 juillet 1996).- \nTout travailleur qui, au cours de l'année de référence, justifie avoir été\n\noccupé chez le même employeur pendant une période de temps \néquivalente à un minimum d'un mois de travail effectif a droit à un \ncongé dont la durée est détermi"
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "118",
+     "chunk_id": "travailFr/s01/118",
+     "article_label": "118",
+     "snippet": "Article 118.- Le congé payé ne dépassant pas six jours ouvrables \ndoit être continu. \nLe congé d'une durée supérieure à six jours ouvrables peut être \nfractionné par l'employeur, avec l'agrément du salarié. Dans le cas où\n\nle congé s'accompagne de la fermeture de l'établissement, le \nfractionnement "
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "114",
+     "chunk_id": "travailFr/s01/114",
+     "article_label": "114",
+     "snippet": "Article 114 (Modifié par la loi n° 96-62 du 15 juillet 1996).- \nSont considérées comme un mois de travail effectif, pour la \ndétermination de la durée du congé annuel, les périodes équivalentes à \nvingt-six jours ouvrables. Sont assimilées à une période de travail \neffectif les périodes de congés pa"
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "125",
+     "chunk_id": "travailFr/s01/125",
+     "article_label": "125",
+     "snippet": "Article 125.- Le congé annuel payé peut être fractionné en \npériodes d’un ou plusieurs jours jusqu’à concurrence de la moitié de \nsa durée totale. \nSont réputés jours ouvrables pour la jouissance d’un congé annuel \npayé, les jours normalement consacrés au travail dans l’établissement, \nmême s’ils so"
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "128",
+     "chunk_id": "travailFr/s01/128",
+     "article_label": "128",
+     "snippet": "Article 128.- Lorsque le contrat de travail d’un salarié, ayant au \nmoins six mois de services continus dans la même entreprise, est \nrésilié par le fait de l'employeur, avant que ledit salarié ait pu \nbénéficier de son congé annuel payé, et sans que cette résiliation soit \nprovoquée par une faute l"
+    }
+   ],
+   "n_candidates": 31,
+   "score": {
+    "hit": true,
+    "hit_at_1": false,
+    "first_rank": 2,
+    "recall": 0.3333333333333333,
+    "rr": 0.5
+   },
+   "t_llm": 0.22,
+   "t_retrieve": 4.04,
+   "t_rerank": 54.21
+  },
+  {
+   "id": "q082",
+   "concept_id": "coc_contract_validity",
+   "split": "dev",
+   "question": "What makes a contract valid?",
+   "language": "en",
+   "law_type": "obligations_contrats",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "COC.pdf",
+     "article": "2",
+     "anchor": "Article 2.- Les éléments nécessaires pour la validité",
+     "chunk_ids": [
+      "COC/s02/2"
+     ]
+    },
+    {
+     "source": "COC.pdf",
+     "article": "3",
+     "anchor": "Article 3.- Toute personne est capable",
+     "chunk_ids": [
+      "COC/s02/3"
+     ]
+    }
+   ],
+   "rewrite": "Conditions de validité d’un contrat selon le Code des Obligations et des Contrats tunisien : capacité des parties, consentement, objet licite, cause licite et forme prescrite.",
+   "sub_queries": [
+    "Code des Obligations et des Contrats tunisien conditions de validité du contrat capacité des parties, consentement, objet licite, cause licite, forme prescrite",
+    "Code des Obligations et des Contrats tunisien nullité et sanctions du contrat en cas d'absence de capacité, de consentement, d'objet ou de cause illicite, ou de non‑respect de la forme prescrite"
+   ],
+   "retrieved": [
+    {
+     "source": "COC.pdf",
+     "article": "2",
+     "chunk_id": "COC/s02/2",
+     "article_label": "2",
+     "snippet": "Article 2.- Les éléments nécessaires pour la validité des \nobligations qui dérivent d'une déclaration de volonté sont : \n1) la capacité de s'obliger ; \n2) une déclaration valable de volonté portant sur les éléments \nessentiels de l'obligation ; \n3) un objet certain pouvant former objet d'obligation "
+    },
+    {
+     "source": "COC.pdf",
+     "article": "1531",
+     "chunk_id": "COC/s02/1531",
+     "article_label": "1531",
+     "snippet": "Article 1531.- La caution qui a été condamnée à payer, faute de \nprésenter le débiteur, a le droit de faire révoquer la condamnation, si \nelle prouve qu'à la date du jugement le cautionné était mort ou \ninsolvable. \nSi la caution a exécuté le jugement qui la condamne, elle a recours \ncontre le créan"
+    },
+    {
+     "source": "COC.pdf",
+     "article": "119",
+     "chunk_id": "COC/s02/119",
+     "article_label": "119",
+     "snippet": "Article 119.- La condition incompatible avec la nature de l'acte \nauquel elle est ajoutée est nulle et rend nulle l'obligation qui en dépend. \nCette obligation peut être validée, toutefois, si la partie en faveur \nde laquelle la condition a été apposée renonce expressément à s'en \nprévaloir."
+    },
+    {
+     "source": "COC.pdf",
+     "article": "2",
+     "chunk_id": "COC/s01/2",
+     "article_label": "2",
+     "snippet": "Article 2.- Il ne découle de la réorganisation du code des \nobligations et des contrats tunisien aucune modification de son \ncontenu, ou abrogation ou modification des dispositions spéciales qui \nlui sont contraires. \nLa présente loi sera publiée au Journal Officiel de la République \nTunisienne et e"
+    },
+    {
+     "source": "COC.pdf",
+     "article": "24",
+     "chunk_id": "COC/s02/24",
+     "article_label": "24",
+     "snippet": "Article 24.- Le contrat n'est point parfait lorsque les parties ont \nexpressément réservé certaines clauses comme devant former objet \nd'un accord ultérieur ; l'accord intervenu, dans ces conditions, sur une \nou plusieurs clauses, ne constitue pas engagement, alors même que les \npréliminaires de la "
+    },
+    {
+     "source": "COC.pdf",
+     "article": "1",
+     "chunk_id": "COC/s00/1",
+     "article_label": "1",
+     "snippet": "Article premier.- Les textes publiés ci-après et relatifs aux \nobligations et aux contrats sont réunis en un seul corps sous le titre du \ncode tunisien des obligations et des contrats."
+    }
+   ],
+   "n_candidates": 45,
+   "score": {
+    "hit": true,
+    "hit_at_1": true,
+    "first_rank": 1,
+    "recall": 0.5,
+    "rr": 1.0
+   },
+   "t_llm": 0.58,
+   "t_retrieve": 19.15,
+   "t_rerank": 38.77
+  },
+  {
+   "id": "q085",
+   "concept_id": "penal_theft",
+   "split": "dev",
+   "question": "What is the penalty for theft?",
+   "language": "en",
+   "law_type": null,
+   "category": "cross_domain",
+   "gold": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "258",
+     "anchor": "Article 258",
+     "chunk_ids": [
+      "PenalFr/s02/258"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "260",
+     "anchor": "Article 260 (Modifié par la loi n° 89-23",
+     "chunk_ids": [
+      "PenalFr/s02/260"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "261",
+     "anchor": "Article 261",
+     "chunk_ids": [
+      "PenalFr/s02/261"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "262",
+     "anchor": "Article 262",
+     "chunk_ids": [
+      "PenalFr/s02/262"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "263",
+     "anchor": "Article 263",
+     "chunk_ids": [
+      "PenalFr/s02/263"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "264",
+     "anchor": "Article 264",
+     "chunk_ids": [
+      "PenalFr/s02/264"
+     ]
+    }
+   ],
+   "rewrite": "Peine prévue au Code pénal tunisien pour le vol (art. 239 et suivants) – disposition, alinéa, sanction d’emprisonnement et amende.",
+   "sub_queries": [
+    "vol article 239 du Code pénal tunisien définition du vol, éléments constitutifs, alinéas applicables",
+    "vol article 239 du Code pénal tunisien sanctions, peine d’emprisonnement, amende, circonstances aggravantes et modalités d’exécution"
+   ],
+   "retrieved": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "264",
+     "chunk_id": "PenalFr/s02/264",
+     "article_label": "264",
+     "snippet": "Article 264.- La peine est de cinq ans d’emprisonnement et de \ncent vingt dinars d’amende, pour tous autres vols et soustractions \ncommis hors les cas prévus aux articles 260 à 263 du présent code. \nLa tentative est punissable."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "295",
+     "chunk_id": "PenalFr/s02/295",
+     "article_label": "295",
+     "snippet": "Article 295.- Est puni des peines prévues à l'article 291du présent \ncode, quiconque, amène, frauduleusement, autrui à quitter le territoire \ntunisien en alléguant de faits inexistants ou en usant de fausses \nnouvelles."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "274",
+     "chunk_id": "PenalFr/s02/274",
+     "article_label": "274",
+     "snippet": "Article 274.- Est puni de deux ans d’emprisonnement et de trente six \ndinars d’amende quiconque, aura contrefait ou altéré des clefs ou aura \nconfectionné, sciemment, un instrument destiné à commettre un vol. \nLa peine est de cinq ans d’emprisonnement et de cent vingt dinars \nd'amende, si l’auteur d"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "262",
+     "chunk_id": "PenalFr/s02/262",
+     "article_label": "262",
+     "snippet": "Article 262 (Modifié par la loi n° 89-23 du 27 février 1989).- Est \npuni de douze ans de prison, le vol commis avec la réunion des trois \ndernières circonstances prévues à l'article 260."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "129",
+     "chunk_id": "PenalFr/s02/129",
+     "article_label": "129",
+     "snippet": "Article 129.- Est puni d’un an d'emprisonnement, quiconque par \nparoles, écrits, gestes ou tous autres moyens, porte atteinte \npubliquement, au drapeau tunisien ou à un drapeau étranger."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "263",
+     "chunk_id": "PenalFr/s02/263",
+     "article_label": "263",
+     "snippet": "Article 263.- Est puni de dix ans d’emprisonnement l’auteur du \nvol commis : \n1°- au cours d'un incendie ou après une explosion, inondation, \nnaufrage, accident de chemin de fer, révolte, émeute ou tout autre \ntrouble, \n2°- par des hôteliers et autres tenanciers d’établissements exerçant \nune telle "
+    }
+   ],
+   "n_candidates": 46,
+   "score": {
+    "hit": true,
+    "hit_at_1": true,
+    "first_rank": 1,
+    "recall": 0.5,
+    "rr": 1.0
+   },
+   "t_llm": 0.0,
+   "t_retrieve": 4.02,
+   "t_rerank": 27.56
+  }
+ ]
+}
