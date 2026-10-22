@@ -10,23 +10,56 @@
   "gold": [
    {
     "source": "PenalFr.pdf",
-    "article": "258"
+    "article": "258",
+    "anchor": "Article 258",
+    "chunk_ids": [
+     "PenalFr/s02/258"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "260"
+    "article": "260",
+    "anchor": "Article 260 (Modifié par la loi n° 89-23",
+    "chunk_ids": [
+     "PenalFr/s02/260"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "261"
+    "article": "261",
+    "anchor": "Article 261",
+    "chunk_ids": [
+     "PenalFr/s02/261"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "262"
+    "article": "262",
+    "anchor": "Article 262",
+    "chunk_ids": [
+     "PenalFr/s02/262"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "263",
+    "anchor": "Article 263",
+    "chunk_ids": [
+     "PenalFr/s02/263"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "264",
+    "anchor": "Article 264",
+    "chunk_ids": [
+     "PenalFr/s02/264"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Add 263 (theft committed during fire/explosion etc., 10 years) and 264 (\"tous autres vols\", 5 years): both are theft penalties in the corpus, and 264 is the single most frequent 'wrong' result in the v1 baseline."
  },
  {
   "id": "q002",
@@ -39,19 +72,48 @@
   "gold": [
    {
     "source": "PenalFr.pdf",
-    "article": "201"
+    "article": "201",
+    "anchor": "Article 201",
+    "chunk_ids": [
+     "PenalFr/s02/201"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "202"
+    "article": "202",
+    "anchor": "Article 202",
+    "chunk_ids": [
+     "PenalFr/s02/202"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "203"
+    "article": "203",
+    "anchor": "Article 203",
+    "chunk_ids": [
+     "PenalFr/s02/203"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "204",
+    "anchor": "Article 204",
+    "chunk_ids": [
+     "PenalFr/s02/204"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "205",
+    "anchor": "Article 205",
+    "chunk_ids": [
+     "PenalFr/s02/205"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Add 204 (homicide preceded/accompanied by another offence: death) and 205 (meurtre in all cases not provided above: life imprisonment): they define/penalise murder directly. 201-203 unchanged."
  },
  {
   "id": "q003",
@@ -64,19 +126,40 @@
   "gold": [
    {
     "source": "PenalFr.pdf",
-    "article": "84"
+    "article": "83",
+    "anchor": "Article 83",
+    "chunk_ids": [
+     "PenalFr/s02/83"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "85"
+    "article": "84",
+    "anchor": "Article 84",
+    "chunk_ids": [
+     "PenalFr/s02/84"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "86"
+    "article": "85",
+    "anchor": "Article 85",
+    "chunk_ids": [
+     "PenalFr/s02/85"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "91",
+    "anchor": "Article 91",
+    "chunk_ids": [
+     "PenalFr/s02/91"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Remove 86: its heading says 'Abrogé par la loi n° 1998-33' (empty article). Add 83 (fonctionnaire who agrees to offers/promises, i.e. passive corruption) and 91 (person who corrupted or attempted to corrupt, 5 years). 84-85 unchanged."
  },
  {
   "id": "q004",
@@ -89,11 +172,24 @@
   "gold": [
    {
     "source": "PenalFr.pdf",
-    "article": "291"
+    "article": "291",
+    "anchor": "Article 291 (Modifié par le décret du 8 octobre 1935)",
+    "chunk_ids": [
+     "PenalFr/s02/291"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "292",
+    "anchor": "Article 292",
+    "chunk_ids": [
+     "PenalFr/s02/292"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Add 292: 'assimilé à l'escroquerie et puni des peines prévues à l'article précédent'. 291 is anchored to the main article (two fragment chunks also carry number 291)."
  },
  {
   "id": "q005",
@@ -106,11 +202,16 @@
   "gold": [
    {
     "source": "PenalFr.pdf",
-    "article": "297"
+    "article": "297",
+    "anchor": "Article 297",
+    "chunk_ids": [
+     "PenalFr/s02/297"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "No change; only anchored to the real heading (297 is the abus de confiance article)."
  },
  {
   "id": "q006",
@@ -123,15 +224,32 @@
   "gold": [
    {
     "source": "PenalFr.pdf",
-    "article": "245"
+    "article": "245",
+    "anchor": "Article 245",
+    "chunk_ids": [
+     "PenalFr/s02/245"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "246"
+    "article": "246",
+    "anchor": "Article 246",
+    "chunk_ids": [
+     "PenalFr/s02/246"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "247",
+    "anchor": "Article 247",
+    "chunk_ids": [
+     "PenalFr/s02/247"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Add 247: it is the penalty article ('Est puni de six mois d'emprisonnement ... diffamation'); 245 defines diffamation, 246 defines calomnie. 247 is a frequent 'wrong' result in v1 because it is in fact relevant."
  },
  {
   "id": "q007",
@@ -144,11 +262,24 @@
   "gold": [
    {
     "source": "PenalFr.pdf",
-    "article": "227"
+    "article": "227",
+    "anchor": "Article 227 (Modifié par la loi n° 85-9",
+    "chunk_ids": [
+     "PenalFr/s02/227"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "227",
+    "anchor": "Article 227 bis",
+    "chunk_ids": [
+     "PenalFr/s02/227-bis"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "No change in articles; anchors separate 227 and 227 bis (same law, both about rape / sexual acts without violence)."
  },
  {
   "id": "q008",
@@ -161,11 +292,24 @@
   "gold": [
    {
     "source": "PenalFr.pdf",
-    "article": "226"
+    "article": "226",
+    "anchor": "Article 226 ter",
+    "chunk_ids": [
+     "PenalFr/s02/226-ter"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "226",
+    "anchor": "Article 226 quater",
+    "chunk_ids": [
+     "PenalFr/s02/226-quater"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Narrow: the harassment article is 226 ter ('commet le harcèlement sexuel', 1 year + 3000 dinars). 226 (outrage public à la pudeur) and 226 bis (atteinte aux bonnes moeurs) are different offences. Keep 226 quater (rules attached to the two preceding articles)."
  },
  {
   "id": "q009",
@@ -195,19 +339,24 @@
   "gold": [
    {
     "source": "PenalFr.pdf",
-    "article": "307"
+    "article": "307",
+    "anchor": "Article 307",
+    "chunk_ids": [
+     "PenalFr/s02/307"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "308"
-   },
-   {
-    "source": "PenalFr.pdf",
-    "article": "309"
+    "article": "308",
+    "anchor": "Article 308",
+    "chunk_ids": [
+     "PenalFr/s02/308"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Remove 309: it punishes fires caused by 'maladresse, imprudence, négligence' (involuntary), while the question asks about incendie volontaire. 307 and 308 unchanged."
  },
  {
   "id": "q011",
@@ -220,11 +369,16 @@
   "gold": [
    {
     "source": "PenalFr.pdf",
-    "article": "59"
+    "article": "59",
+    "anchor": "Article 59",
+    "chunk_ids": [
+     "PenalFr/s02/59"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "No change (Art 59 = tentative punissable)."
  },
  {
   "id": "q012",
@@ -237,19 +391,32 @@
   "gold": [
    {
     "source": "PenalFr.pdf",
-    "article": "217"
+    "article": "208",
+    "anchor": "Article 208",
+    "chunk_ids": [
+     "PenalFr/s02/208"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "218"
+    "article": "218",
+    "anchor": "Article 218 (Modifié par la loi n° 93-72",
+    "chunk_ids": [
+     "PenalFr/s02/218"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "219"
+    "article": "219",
+    "anchor": "Article 219",
+    "chunk_ids": [
+     "PenalFr/s02/219"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Remove 217: it is homicide involontaire (maladresse, imprudence). Add 208 (coups portés ou blessures faites volontairement sans intention de donner la mort: 20 years). 218-219 unchanged; 218 anchored to the main article (a fragment chunk also carries 218)."
  },
  {
   "id": "q013",
@@ -262,11 +429,56 @@
   "gold": [
    {
     "source": "PenalFr.pdf",
-    "article": "258"
+    "article": "258",
+    "anchor": "Article 258",
+    "chunk_ids": [
+     "PenalFr/s02/258"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "260",
+    "anchor": "Article 260 (Modifié par la loi n° 89-23",
+    "chunk_ids": [
+     "PenalFr/s02/260"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "261",
+    "anchor": "Article 261",
+    "chunk_ids": [
+     "PenalFr/s02/261"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "262",
+    "anchor": "Article 262",
+    "chunk_ids": [
+     "PenalFr/s02/262"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "263",
+    "anchor": "Article 263",
+    "chunk_ids": [
+     "PenalFr/s02/263"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "264",
+    "anchor": "Article 264",
+    "chunk_ids": [
+     "PenalFr/s02/264"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Add 263 (theft committed during fire/explosion etc., 10 years) and 264 (\"tous autres vols\", 5 years): both are theft penalties in the corpus, and 264 is the single most frequent 'wrong' result in the v1 baseline."
  },
  {
   "id": "q014",
@@ -279,11 +491,48 @@
   "gold": [
    {
     "source": "PenalFr.pdf",
-    "article": "201"
+    "article": "201",
+    "anchor": "Article 201",
+    "chunk_ids": [
+     "PenalFr/s02/201"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "202",
+    "anchor": "Article 202",
+    "chunk_ids": [
+     "PenalFr/s02/202"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "203",
+    "anchor": "Article 203",
+    "chunk_ids": [
+     "PenalFr/s02/203"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "204",
+    "anchor": "Article 204",
+    "chunk_ids": [
+     "PenalFr/s02/204"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "205",
+    "anchor": "Article 205",
+    "chunk_ids": [
+     "PenalFr/s02/205"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Add 204 (homicide preceded/accompanied by another offence: death) and 205 (meurtre in all cases not provided above: life imprisonment): they define/penalise murder directly. 201-203 unchanged."
  },
  {
   "id": "q015",
@@ -296,11 +545,16 @@
   "gold": [
    {
     "source": "tun_RecAcFreeLi.pdf",
-    "article": "24"
+    "article": "24",
+    "anchor": "Art. 24",
+    "chunk_ids": [
+     "tun_RecAcFreeLi/s00/24"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "No change; anchored."
  },
  {
   "id": "q016",
@@ -338,11 +592,24 @@
   "gold": [
    {
     "source": "ProcedurepenaleFr.pdf",
-    "article": "13"
+    "article": "13",
+    "anchor": "Article 13.- Les officiers de police judiciaire visés aux 3°",
+    "chunk_ids": [
+     "ProcedurepenaleFr/s01/13"
+    ]
+   },
+   {
+    "source": "ProcedurepenaleFr.pdf",
+    "article": "13",
+    "anchor": "Article 13 bis",
+    "chunk_ids": [
+     "ProcedurepenaleFr/s01/13-bis"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Disambiguate: ProcedurepenaleFr.pdf bundles several laws and has 4 chunks numbered 13 (OPJ powers, garde à vue = Art 13 bis, an indemnisation law, a terrorism law). Only Art 13 (OPJ) and Art 13 bis count."
  },
  {
   "id": "q018",
@@ -355,11 +622,24 @@
   "gold": [
    {
     "source": "ProcedurepenaleFr.pdf",
-    "article": "13"
+    "article": "13",
+    "anchor": "Article 13.- Les officiers de police judiciaire visés aux 3°",
+    "chunk_ids": [
+     "ProcedurepenaleFr/s01/13"
+    ]
+   },
+   {
+    "source": "ProcedurepenaleFr.pdf",
+    "article": "13",
+    "anchor": "Article 13 bis",
+    "chunk_ids": [
+     "ProcedurepenaleFr/s01/13-bis"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Disambiguate: ProcedurepenaleFr.pdf bundles several laws and has 4 chunks numbered 13 (OPJ powers, garde à vue = Art 13 bis, an indemnisation law, a terrorism law). Only Art 13 (OPJ) and Art 13 bis count."
  },
  {
   "id": "q019",
@@ -372,15 +652,32 @@
   "gold": [
    {
     "source": "ProcedurepenaleFr.pdf",
-    "article": "13"
+    "article": "13",
+    "anchor": "Article 13.- Les officiers de police judiciaire visés aux 3°",
+    "chunk_ids": [
+     "ProcedurepenaleFr/s01/13"
+    ]
    },
    {
     "source": "ProcedurepenaleFr.pdf",
-    "article": "70"
+    "article": "13",
+    "anchor": "Article 13 bis",
+    "chunk_ids": [
+     "ProcedurepenaleFr/s01/13-bis"
+    ]
+   },
+   {
+    "source": "ProcedurepenaleFr.pdf",
+    "article": "70",
+    "anchor": "Article 70.- L'inculpé détenu",
+    "chunk_ids": [
+     "ProcedurepenaleFr/s02/70"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Same disambiguation for 13/13 bis; 70 anchored to 'L'inculpé détenu est autorisé à communiquer ... avec son conseil' (another chunk numbered 70 is about personnes morales)."
  },
  {
   "id": "q020",
@@ -393,11 +690,24 @@
   "gold": [
    {
     "source": "ProcedurepenaleFr.pdf",
-    "article": "5"
+    "article": "5",
+    "anchor": "Article 5.- Sauf dispositions spéciales de la loi, l'action publique",
+    "chunk_ids": [
+     "ProcedurepenaleFr/s01/5"
+    ]
+   },
+   {
+    "source": "ProcedurepenaleFr.pdf",
+    "article": "6",
+    "anchor": "Article 6.- S'il a été fait, au cours des délais",
+    "chunk_ids": [
+     "ProcedurepenaleFr/s01/6"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Anchor 5 to the prescription article (another 'Article 5' concerns the cour d'appel de Tunis and one is abrogated). Add 6 (interruption of the prescription)."
  },
  {
   "id": "q021",
@@ -410,15 +720,40 @@
   "gold": [
    {
     "source": "travailFr.pdf",
-    "article": "79"
+    "article": "79",
+    "anchor": "Article 79",
+    "chunk_ids": [
+     "travailFr/s01/79"
+    ]
    },
    {
     "source": "travailFr.pdf",
-    "article": "85"
+    "article": "83",
+    "anchor": "Article 83",
+    "chunk_ids": [
+     "travailFr/s01/83"
+    ]
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "85",
+    "anchor": "Article 85",
+    "chunk_ids": [
+     "travailFr/s01/85"
+    ]
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "88",
+    "anchor": "Article 88",
+    "chunk_ids": [
+     "travailFr/s01/88"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Add 88 (legal duration in agricultural enterprises: 2700 h/year) and 83 (exceptional extensions of the working day). 79 and 85 kept (85 = work schedule, borderline)."
  },
  {
   "id": "q022",
@@ -431,19 +766,49 @@
   "gold": [
    {
     "source": "travailFr.pdf",
-    "article": "14"
+    "article": "14",
+    "anchor": "Article 14",
+    "chunk_ids": [
+     "travailFr/s01/14",
+     "travailFr/s01/14-bis",
+     "travailFr/s01/14-ter",
+     "travailFr/s01/14-quater",
+     "travailFr/s01/14-quinter"
+    ]
    },
    {
     "source": "travailFr.pdf",
-    "article": "16"
+    "article": "21",
+    "anchor": "Article 21",
+    "chunk_ids": [
+     "travailFr/s01/21",
+     "travailFr/s01/21-2",
+     "travailFr/s01/21-3",
+     "travailFr/s01/21-4",
+     "travailFr/s01/21-5",
+     "travailFr/s01/21-6",
+     "travailFr/s01/21-7",
+     "travailFr/s01/21-8",
+     "travailFr/s01/21-9",
+     "travailFr/s01/21-10",
+     "travailFr/s01/21-11",
+     "travailFr/s01/21-12",
+     "travailFr/s01/21-13"
+    ]
    },
    {
     "source": "travailFr.pdf",
-    "article": "23"
+    "article": "23",
+    "anchor": "Article 23",
+    "chunk_ids": [
+     "travailFr/s01/23",
+     "travailFr/s01/23-bis"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Remove 16 (employer bankruptcy 'n'est pas une cause de résiliation': not a dismissal condition). Add 21 (the 21-x series on economic dismissal and the control commission). 14 (14 bis..quinquies: notice, grounds, serious fault, judge control) and 23 kept."
  },
  {
   "id": "q023",
@@ -456,11 +821,32 @@
   "gold": [
    {
     "source": "travailFr.pdf",
-    "article": "112"
+    "article": "112",
+    "anchor": "Article 112",
+    "chunk_ids": [
+     "travailFr/s01/112"
+    ]
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "113",
+    "anchor": "Article 113",
+    "chunk_ids": [
+     "travailFr/s01/113"
+    ]
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "115",
+    "anchor": "Article 115",
+    "chunk_ids": [
+     "travailFr/s01/115"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Add 113 (right acquired per month of work, i.e. the duration) and 115 (extra day per 5 years of service). 112 only states the right."
  },
  {
   "id": "q024",
@@ -473,11 +859,24 @@
   "gold": [
    {
     "source": "travailFr.pdf",
-    "article": "6"
+    "article": "6",
+    "anchor": "Article 6-2",
+    "chunk_ids": [
+     "travailFr/s01/6-2"
+    ]
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "6",
+    "anchor": "Article 6-4",
+    "chunk_ids": [
+     "travailFr/s01/6-4"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Narrow to the CDD articles 6-2 (CDI or CDD, limitation of duration) and 6-4 (cases where a CDD may be concluded); plain 'Article 6' is the general contract definition."
  },
  {
   "id": "q025",
@@ -490,11 +889,16 @@
   "gold": [
    {
     "source": "travailFr.pdf",
-    "article": "64"
+    "article": "64",
+    "anchor": "Article 64.- Dans les entreprises",
+    "chunk_ids": [
+     "travailFr/s01/64"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "No change; anchored (two fragment chunks also carry number 64)."
  },
  {
   "id": "q026",
@@ -507,19 +911,48 @@
   "gold": [
    {
     "source": "Statutpersonnel.pdf",
-    "article": "5"
+    "article": "3",
+    "anchor": "Article 3 .- Le mariage n'est formé",
+    "chunk_ids": [
+     "Statutpersonnel/s01/3"
+    ]
    },
    {
     "source": "Statutpersonnel.pdf",
-    "article": "8"
+    "article": "5",
+    "anchor": "Article 5 (Modifié par le décret-loi n°64-1",
+    "chunk_ids": [
+     "Statutpersonnel/s01/5"
+    ]
    },
    {
     "source": "Statutpersonnel.pdf",
-    "article": "14"
+    "article": "6",
+    "anchor": "Article 6 (Modifié par la loi n°93-74 du 12 juillet 1993).- Le mariage du mineur",
+    "chunk_ids": [
+     "Statutpersonnel/s01/6"
+    ]
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "8",
+    "anchor": "Article 8 .- Consent au mariage du mineur",
+    "chunk_ids": [
+     "Statutpersonnel/s01/8"
+    ]
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "14",
+    "anchor": "Article 14 .- Les empêchements au mariage",
+    "chunk_ids": [
+     "Statutpersonnel/s01/14"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Statutpersonnel.pdf bundles the CSP with état-civil, adoption, tutelle... laws, so 'Article 5/8/14' have 13/9/6 chunks. Anchors select the CSP articles. Add 3 (consentement des deux époux) and 6 (consentement du tuteur pour le mineur). Optional candidates not added: 7 (prodigue), 15-17 (empêchements)."
  },
  {
   "id": "q027",
@@ -532,19 +965,40 @@
   "gold": [
    {
     "source": "Statutpersonnel.pdf",
-    "article": "29"
+    "article": "29",
+    "anchor": "Article 29 .- Le divorce est la dissolution",
+    "chunk_ids": [
+     "Statutpersonnel/s01/29"
+    ]
    },
    {
     "source": "Statutpersonnel.pdf",
-    "article": "30"
+    "article": "30",
+    "anchor": "Article 30 .- Le divorce ne peut avoir lieu",
+    "chunk_ids": [
+     "Statutpersonnel/s01/30"
+    ]
    },
    {
     "source": "Statutpersonnel.pdf",
-    "article": "31"
+    "article": "31",
+    "anchor": "Article 31. (Modifié par la loi n°81-7",
+    "chunk_ids": [
+     "Statutpersonnel/s01/31"
+    ]
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "32",
+    "anchor": "Article 32 (Modifié par la loi n°2010-50",
+    "chunk_ids": [
+     "Statutpersonnel/s01/32"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Anchor 29/30/31 to the CSP divorce articles (other chunks numbered 29/30/31 are ship registers and civil-status acts). Add 32 (procedure before the tribunal)."
  },
  {
   "id": "q028",
@@ -557,11 +1011,16 @@
   "gold": [
    {
     "source": "Statutpersonnel.pdf",
-    "article": "18"
+    "article": "18",
+    "anchor": "Article 18 (Modifié par la loi n°58-70",
+    "chunk_ids": [
+     "Statutpersonnel/s01/18"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "No change; anchored to the CSP Art 18 (4 other chunks are numbered 18)."
  },
  {
   "id": "q029",
@@ -574,23 +1033,56 @@
   "gold": [
    {
     "source": "Statutpersonnel.pdf",
-    "article": "54"
+    "article": "54",
+    "anchor": "Article 54 .- La garde consiste",
+    "chunk_ids": [
+     "Statutpersonnel/s01/54"
+    ]
    },
    {
     "source": "Statutpersonnel.pdf",
-    "article": "55"
+    "article": "55",
+    "anchor": "Article 55 .- La femme qui refuse",
+    "chunk_ids": [
+     "Statutpersonnel/s01/55"
+    ]
    },
    {
     "source": "Statutpersonnel.pdf",
-    "article": "56"
+    "article": "56",
+    "anchor": "Article 56 (Paragraphes 2, 3, 4",
+    "chunk_ids": [
+     "Statutpersonnel/s01/56"
+    ]
    },
    {
     "source": "Statutpersonnel.pdf",
-    "article": "57"
+    "article": "57",
+    "anchor": "Article 57 (Modifié par la loi n°66-49",
+    "chunk_ids": [
+     "Statutpersonnel/s01/57"
+    ]
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "58",
+    "anchor": "Article 58 (Modifié par la loi n°81-7",
+    "chunk_ids": [
+     "Statutpersonnel/s01/58"
+    ]
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "67",
+    "anchor": "Article 67. (Modifié par la loi n°93-74",
+    "chunk_ids": [
+     "Statutpersonnel/s01/67"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Anchor 54-57 to the CSP garde articles (54/55/56/57 each also exist as 'disparu / procès-verbal' civil-status articles). Add 58 (conditions to hold the garde) and 67 (garde when the marriage is dissolved by divorce)."
  },
  {
   "id": "q030",
@@ -603,23 +1095,72 @@
   "gold": [
    {
     "source": "Statutpersonnel.pdf",
-    "article": "37"
+    "article": "37",
+    "anchor": "Article 37 .- L'obligation alimentaire",
+    "chunk_ids": [
+     "Statutpersonnel/s01/37"
+    ]
    },
    {
     "source": "Statutpersonnel.pdf",
-    "article": "38"
+    "article": "38",
+    "anchor": "Article 38 .- Le mari doit des aliments",
+    "chunk_ids": [
+     "Statutpersonnel/s01/38"
+    ]
    },
    {
     "source": "Statutpersonnel.pdf",
-    "article": "46"
+    "article": "43",
+    "anchor": "Article 43 (Modifié par la loi n°93-74",
+    "chunk_ids": [
+     "Statutpersonnel/s01/43"
+    ]
    },
    {
     "source": "Statutpersonnel.pdf",
-    "article": "47"
+    "article": "46",
+    "anchor": "Article 46 (Modifié par la loi n°93-74",
+    "chunk_ids": [
+     "Statutpersonnel/s01/46"
+    ]
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "47",
+    "anchor": "Article 47 .- En cas d'indigence",
+    "chunk_ids": [
+     "Statutpersonnel/s01/47"
+    ]
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "50",
+    "anchor": "Article 50 .- La pension alimentaire comprend",
+    "chunk_ids": [
+     "Statutpersonnel/s01/50"
+    ]
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "51",
+    "anchor": "Article 51 .- La pension alimentaire s'éteint",
+    "chunk_ids": [
+     "Statutpersonnel/s01/51"
+    ]
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "52",
+    "anchor": "Article 52.- Les aliments ne sont accordés",
+    "chunk_ids": [
+     "Statutpersonnel/s01/52"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Anchor 37/38/46/47 to the CSP alimony articles (other chunks with these numbers concern marriage abroad and death certificates). Add 43 (who is entitled), 50 (what the pension comprises), 51 (extinction), 52 (proportionality)."
  },
  {
   "id": "q031",
@@ -632,15 +1173,24 @@
   "gold": [
    {
     "source": "COC.pdf",
-    "article": "2"
+    "article": "2",
+    "anchor": "Article 2.- Les éléments nécessaires pour la validité",
+    "chunk_ids": [
+     "COC/s02/2"
+    ]
    },
    {
     "source": "COC.pdf",
-    "article": "3"
+    "article": "3",
+    "anchor": "Article 3.- Toute personne est capable",
+    "chunk_ids": [
+     "COC/s02/3"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Anchor: COC.pdf has three chunks numbered 2 and two numbered 3; the right ones are Art 2 'Les éléments nécessaires pour la validité des obligations ...' and Art 3 'Toute personne est capable'. Not added (lexical search did not surface them): the articles on consent, object and cause, so the label may be incomplete."
  },
  {
   "id": "q032",
@@ -653,19 +1203,32 @@
   "gold": [
    {
     "source": "COC.pdf",
-    "article": "82"
+    "article": "82",
+    "anchor": "Article 82",
+    "chunk_ids": [
+     "COC/s02/82"
+    ]
    },
    {
     "source": "COC.pdf",
-    "article": "83"
+    "article": "83",
+    "anchor": "Article 83",
+    "chunk_ids": [
+     "COC/s02/83"
+    ]
    },
    {
     "source": "COC.pdf",
-    "article": "84"
+    "article": "84",
+    "anchor": "Article 84",
+    "chunk_ids": [
+     "COC/s02/84"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "No change; anchored."
  },
  {
   "id": "q033",
@@ -678,11 +1241,24 @@
   "gold": [
    {
     "source": "COC.pdf",
-    "article": "283"
+    "article": "280",
+    "anchor": "Article 280",
+    "chunk_ids": [
+     "COC/s02/280"
+    ]
+   },
+   {
+    "source": "COC.pdf",
+    "article": "283",
+    "anchor": "Article 283",
+    "chunk_ids": [
+     "COC/s02/283"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Add 280 ('Le débiteur en demeure répond du cas fortuit et de la force majeure')."
  },
  {
   "id": "q034",
@@ -695,11 +1271,16 @@
   "gold": [
    {
     "source": "COC.pdf",
-    "article": "242"
+    "article": "242",
+    "anchor": "Article 242",
+    "chunk_ids": [
+     "COC/s02/242"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "No change; anchored."
  },
  {
   "id": "q035",
@@ -737,11 +1318,16 @@
   "gold": [
    {
     "source": "COC.pdf",
-    "article": "728"
+    "article": "728",
+    "anchor": "Article 728",
+    "chunk_ids": [
+     "COC/s02/728"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "No change; anchored."
  },
  {
   "id": "q037",
@@ -754,23 +1340,40 @@
   "gold": [
    {
     "source": "NationaliteFr.pdf",
-    "article": "6"
+    "article": "6",
+    "anchor": "Article 6",
+    "chunk_ids": [
+     "NationaliteFr/s01/6"
+    ]
    },
    {
     "source": "NationaliteFr.pdf",
-    "article": "7"
+    "article": "7",
+    "anchor": "Article 7",
+    "chunk_ids": [
+     "NationaliteFr/s01/7"
+    ]
    },
    {
     "source": "NationaliteFr.pdf",
-    "article": "8"
+    "article": "8",
+    "anchor": "Article 8",
+    "chunk_ids": [
+     "NationaliteFr/s01/8"
+    ]
    },
    {
     "source": "NationaliteFr.pdf",
-    "article": "9"
+    "article": "9",
+    "anchor": "Article 9",
+    "chunk_ids": [
+     "NationaliteFr/s01/9"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "No change; anchored. The question says 'acquérir': the corpus also has acquisition by marriage (13-14) and naturalisation, which lexical search did not surface, so the label may be incomplete."
  },
  {
   "id": "q038",
@@ -783,19 +1386,48 @@
   "gold": [
    {
     "source": "EnfantFr.pdf",
-    "article": "20"
+    "article": "20",
+    "anchor": "Article 20.- Sont considérés, en particulier, comme des situations difficiles",
+    "chunk_ids": [
+     "EnfantFr/s01/20"
+    ]
    },
    {
     "source": "EnfantFr.pdf",
-    "article": "21"
+    "article": "21",
+    "anchor": "Article 21.- La négligence signifie",
+    "chunk_ids": [
+     "EnfantFr/s01/21"
+    ]
    },
    {
     "source": "EnfantFr.pdf",
-    "article": "22"
+    "article": "22",
+    "anchor": "Article 22.- Est considéré comme étant une des situations",
+    "chunk_ids": [
+     "EnfantFr/s01/22"
+    ]
+   },
+   {
+    "source": "EnfantFr.pdf",
+    "article": "30",
+    "anchor": "Article 30.- Le délégué à la protection de l'enfance est chargé",
+    "chunk_ids": [
+     "EnfantFr/s01/30"
+    ]
+   },
+   {
+    "source": "EnfantFr.pdf",
+    "article": "46",
+    "anchor": "Article 46.- Dans les cas de danger imminent",
+    "chunk_ids": [
+     "EnfantFr/s01/46"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Anchor 20/21/22 to the child-protection code (other chunks numbered 20-22 are CRC treaty articles and prison rules). Add 30 (délégué à la protection de l'enfance, preventive intervention) and 46 (danger imminent: removal of the child)."
  },
  {
   "id": "q039",
@@ -808,15 +1440,32 @@
   "gold": [
    {
     "source": "ArbitrageFr.pdf",
-    "article": "2"
+    "article": "2",
+    "anchor": "Article 2 La convention d'arbitrage est l'engagement",
+    "chunk_ids": [
+     "ArbitrageFr/s01/2"
+    ]
    },
    {
     "source": "ArbitrageFr.pdf",
-    "article": "3"
+    "article": "3",
+    "anchor": "Article 3 La clause compromissoire",
+    "chunk_ids": [
+     "ArbitrageFr/s01/3"
+    ]
+   },
+   {
+    "source": "ArbitrageFr.pdf",
+    "article": "6",
+    "anchor": "Article 6 La convention d'arbitrage ne peut",
+    "chunk_ids": [
+     "ArbitrageFr/s01/6"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Anchor 2 and 3 to the arbitration-agreement/clause articles (6 chunks each carry numbers 2 and 3). Add 6 (form: la convention d'arbitrage ne peut être établie que par écrit)."
  },
  {
   "id": "q040",
@@ -833,7 +1482,8 @@
    }
   ],
   "source_ambiguous": true,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "No change. Source wildcard kept: the question names no code, so an article 13 from any code is an acceptable answer."
  },
  {
   "id": "q041",
@@ -846,23 +1496,56 @@
   "gold": [
    {
     "source": "PenalFr.pdf",
-    "article": "258"
+    "article": "258",
+    "anchor": "Article 258",
+    "chunk_ids": [
+     "PenalFr/s02/258"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "260"
+    "article": "260",
+    "anchor": "Article 260 (Modifié par la loi n° 89-23",
+    "chunk_ids": [
+     "PenalFr/s02/260"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "261"
+    "article": "261",
+    "anchor": "Article 261",
+    "chunk_ids": [
+     "PenalFr/s02/261"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "262"
+    "article": "262",
+    "anchor": "Article 262",
+    "chunk_ids": [
+     "PenalFr/s02/262"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "263",
+    "anchor": "Article 263",
+    "chunk_ids": [
+     "PenalFr/s02/263"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "264",
+    "anchor": "Article 264",
+    "chunk_ids": [
+     "PenalFr/s02/264"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Add 263 (theft committed during fire/explosion etc., 10 years) and 264 (\"tous autres vols\", 5 years): both are theft penalties in the corpus, and 264 is the single most frequent 'wrong' result in the v1 baseline."
  },
  {
   "id": "q042",
@@ -875,19 +1558,40 @@
   "gold": [
    {
     "source": "Statutpersonnel.pdf",
-    "article": "29"
+    "article": "29",
+    "anchor": "Article 29 .- Le divorce est la dissolution",
+    "chunk_ids": [
+     "Statutpersonnel/s01/29"
+    ]
    },
    {
     "source": "Statutpersonnel.pdf",
-    "article": "30"
+    "article": "30",
+    "anchor": "Article 30 .- Le divorce ne peut avoir lieu",
+    "chunk_ids": [
+     "Statutpersonnel/s01/30"
+    ]
    },
    {
     "source": "Statutpersonnel.pdf",
-    "article": "31"
+    "article": "31",
+    "anchor": "Article 31. (Modifié par la loi n°81-7",
+    "chunk_ids": [
+     "Statutpersonnel/s01/31"
+    ]
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "32",
+    "anchor": "Article 32 (Modifié par la loi n°2010-50",
+    "chunk_ids": [
+     "Statutpersonnel/s01/32"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Anchor 29/30/31 to the CSP divorce articles (other chunks numbered 29/30/31 are ship registers and civil-status acts). Add 32 (procedure before the tribunal)."
  },
  {
   "id": "q043",
@@ -900,15 +1604,40 @@
   "gold": [
    {
     "source": "travailFr.pdf",
-    "article": "79"
+    "article": "79",
+    "anchor": "Article 79",
+    "chunk_ids": [
+     "travailFr/s01/79"
+    ]
    },
    {
     "source": "travailFr.pdf",
-    "article": "85"
+    "article": "83",
+    "anchor": "Article 83",
+    "chunk_ids": [
+     "travailFr/s01/83"
+    ]
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "85",
+    "anchor": "Article 85",
+    "chunk_ids": [
+     "travailFr/s01/85"
+    ]
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "88",
+    "anchor": "Article 88",
+    "chunk_ids": [
+     "travailFr/s01/88"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Add 88 (legal duration in agricultural enterprises: 2700 h/year) and 83 (exceptional extensions of the working day). 79 and 85 kept (85 = work schedule, borderline)."
  },
  {
   "id": "q044",
@@ -921,19 +1650,49 @@
   "gold": [
    {
     "source": "travailFr.pdf",
-    "article": "14"
+    "article": "14",
+    "anchor": "Article 14",
+    "chunk_ids": [
+     "travailFr/s01/14",
+     "travailFr/s01/14-bis",
+     "travailFr/s01/14-ter",
+     "travailFr/s01/14-quater",
+     "travailFr/s01/14-quinter"
+    ]
    },
    {
     "source": "travailFr.pdf",
-    "article": "16"
+    "article": "21",
+    "anchor": "Article 21",
+    "chunk_ids": [
+     "travailFr/s01/21",
+     "travailFr/s01/21-2",
+     "travailFr/s01/21-3",
+     "travailFr/s01/21-4",
+     "travailFr/s01/21-5",
+     "travailFr/s01/21-6",
+     "travailFr/s01/21-7",
+     "travailFr/s01/21-8",
+     "travailFr/s01/21-9",
+     "travailFr/s01/21-10",
+     "travailFr/s01/21-11",
+     "travailFr/s01/21-12",
+     "travailFr/s01/21-13"
+    ]
    },
    {
     "source": "travailFr.pdf",
-    "article": "23"
+    "article": "23",
+    "anchor": "Article 23",
+    "chunk_ids": [
+     "travailFr/s01/23",
+     "travailFr/s01/23-bis"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Remove 16 (employer bankruptcy 'n'est pas une cause de résiliation': not a dismissal condition). Add 21 (the 21-x series on economic dismissal and the control commission). 14 (14 bis..quinquies: notice, grounds, serious fault, judge control) and 23 kept."
  },
  {
   "id": "q045",
@@ -946,11 +1705,16 @@
   "gold": [
    {
     "source": "Statutpersonnel.pdf",
-    "article": "18"
+    "article": "18",
+    "anchor": "Article 18 (Modifié par la loi n°58-70",
+    "chunk_ids": [
+     "Statutpersonnel/s01/18"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "No change; anchored to the CSP Art 18 (4 other chunks are numbered 18)."
  },
  {
   "id": "q046",
@@ -963,19 +1727,32 @@
   "gold": [
    {
     "source": "PenalFr.pdf",
-    "article": "217"
+    "article": "208",
+    "anchor": "Article 208",
+    "chunk_ids": [
+     "PenalFr/s02/208"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "218"
+    "article": "218",
+    "anchor": "Article 218 (Modifié par la loi n° 93-72",
+    "chunk_ids": [
+     "PenalFr/s02/218"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "219"
+    "article": "219",
+    "anchor": "Article 219",
+    "chunk_ids": [
+     "PenalFr/s02/219"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Remove 217: it is homicide involontaire (maladresse, imprudence). Add 208 (coups portés ou blessures faites volontairement sans intention de donner la mort: 20 years). 218-219 unchanged; 218 anchored to the main article (a fragment chunk also carries 218)."
  },
  {
   "id": "q047",
@@ -988,23 +1765,56 @@
   "gold": [
    {
     "source": "PenalFr.pdf",
-    "article": "258"
+    "article": "258",
+    "anchor": "Article 258",
+    "chunk_ids": [
+     "PenalFr/s02/258"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "260"
+    "article": "260",
+    "anchor": "Article 260 (Modifié par la loi n° 89-23",
+    "chunk_ids": [
+     "PenalFr/s02/260"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "261"
+    "article": "261",
+    "anchor": "Article 261",
+    "chunk_ids": [
+     "PenalFr/s02/261"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "262"
+    "article": "262",
+    "anchor": "Article 262",
+    "chunk_ids": [
+     "PenalFr/s02/262"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "263",
+    "anchor": "Article 263",
+    "chunk_ids": [
+     "PenalFr/s02/263"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "264",
+    "anchor": "Article 264",
+    "chunk_ids": [
+     "PenalFr/s02/264"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Add 263 (theft committed during fire/explosion etc., 10 years) and 264 (\"tous autres vols\", 5 years): both are theft penalties in the corpus, and 264 is the single most frequent 'wrong' result in the v1 baseline."
  },
  {
   "id": "q048",
@@ -1017,19 +1827,40 @@
   "gold": [
    {
     "source": "PenalFr.pdf",
-    "article": "84"
+    "article": "83",
+    "anchor": "Article 83",
+    "chunk_ids": [
+     "PenalFr/s02/83"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "85"
+    "article": "84",
+    "anchor": "Article 84",
+    "chunk_ids": [
+     "PenalFr/s02/84"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "86"
+    "article": "85",
+    "anchor": "Article 85",
+    "chunk_ids": [
+     "PenalFr/s02/85"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "91",
+    "anchor": "Article 91",
+    "chunk_ids": [
+     "PenalFr/s02/91"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Remove 86: its heading says 'Abrogé par la loi n° 1998-33' (empty article). Add 83 (fonctionnaire who agrees to offers/promises, i.e. passive corruption) and 91 (person who corrupted or attempted to corrupt, 5 years). 84-85 unchanged."
  },
  {
   "id": "q049",
@@ -1042,19 +1873,48 @@
   "gold": [
    {
     "source": "PenalFr.pdf",
-    "article": "201"
+    "article": "201",
+    "anchor": "Article 201",
+    "chunk_ids": [
+     "PenalFr/s02/201"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "202"
+    "article": "202",
+    "anchor": "Article 202",
+    "chunk_ids": [
+     "PenalFr/s02/202"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "203"
+    "article": "203",
+    "anchor": "Article 203",
+    "chunk_ids": [
+     "PenalFr/s02/203"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "204",
+    "anchor": "Article 204",
+    "chunk_ids": [
+     "PenalFr/s02/204"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "205",
+    "anchor": "Article 205",
+    "chunk_ids": [
+     "PenalFr/s02/205"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Add 204 (homicide preceded/accompanied by another offence: death) and 205 (meurtre in all cases not provided above: life imprisonment): they define/penalise murder directly. 201-203 unchanged."
  },
  {
   "id": "q050",
@@ -1067,11 +1927,24 @@
   "gold": [
    {
     "source": "PenalFr.pdf",
-    "article": "291"
+    "article": "291",
+    "anchor": "Article 291 (Modifié par le décret du 8 octobre 1935)",
+    "chunk_ids": [
+     "PenalFr/s02/291"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "292",
+    "anchor": "Article 292",
+    "chunk_ids": [
+     "PenalFr/s02/292"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Add 292: 'assimilé à l'escroquerie et puni des peines prévues à l'article précédent'. 291 is anchored to the main article (two fragment chunks also carry number 291)."
  },
  {
   "id": "q051",
@@ -1084,11 +1957,24 @@
   "gold": [
    {
     "source": "PenalFr.pdf",
-    "article": "227"
+    "article": "227",
+    "anchor": "Article 227 (Modifié par la loi n° 85-9",
+    "chunk_ids": [
+     "PenalFr/s02/227"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "227",
+    "anchor": "Article 227 bis",
+    "chunk_ids": [
+     "PenalFr/s02/227-bis"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "No change in articles; anchors separate 227 and 227 bis (same law, both about rape / sexual acts without violence)."
  },
  {
   "id": "q052",
@@ -1118,11 +2004,16 @@
   "gold": [
    {
     "source": "tun_RecAcFreeLi.pdf",
-    "article": "24"
+    "article": "24",
+    "anchor": "Art. 24",
+    "chunk_ids": [
+     "tun_RecAcFreeLi/s00/24"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "No change; anchored."
  },
  {
   "id": "q054",
@@ -1135,15 +2026,32 @@
   "gold": [
    {
     "source": "ProcedurepenaleFr.pdf",
-    "article": "13"
+    "article": "13",
+    "anchor": "Article 13.- Les officiers de police judiciaire visés aux 3°",
+    "chunk_ids": [
+     "ProcedurepenaleFr/s01/13"
+    ]
    },
    {
     "source": "ProcedurepenaleFr.pdf",
-    "article": "70"
+    "article": "13",
+    "anchor": "Article 13 bis",
+    "chunk_ids": [
+     "ProcedurepenaleFr/s01/13-bis"
+    ]
+   },
+   {
+    "source": "ProcedurepenaleFr.pdf",
+    "article": "70",
+    "anchor": "Article 70.- L'inculpé détenu",
+    "chunk_ids": [
+     "ProcedurepenaleFr/s02/70"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Same disambiguation for 13/13 bis; 70 anchored to 'L'inculpé détenu est autorisé à communiquer ... avec son conseil' (another chunk numbered 70 is about personnes morales)."
  },
  {
   "id": "q055",
@@ -1156,11 +2064,24 @@
   "gold": [
    {
     "source": "ProcedurepenaleFr.pdf",
-    "article": "13"
+    "article": "13",
+    "anchor": "Article 13.- Les officiers de police judiciaire visés aux 3°",
+    "chunk_ids": [
+     "ProcedurepenaleFr/s01/13"
+    ]
+   },
+   {
+    "source": "ProcedurepenaleFr.pdf",
+    "article": "13",
+    "anchor": "Article 13 bis",
+    "chunk_ids": [
+     "ProcedurepenaleFr/s01/13-bis"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Disambiguate: ProcedurepenaleFr.pdf bundles several laws and has 4 chunks numbered 13 (OPJ powers, garde à vue = Art 13 bis, an indemnisation law, a terrorism law). Only Art 13 (OPJ) and Art 13 bis count."
  },
  {
   "id": "q056",
@@ -1173,15 +2094,40 @@
   "gold": [
    {
     "source": "travailFr.pdf",
-    "article": "79"
+    "article": "79",
+    "anchor": "Article 79",
+    "chunk_ids": [
+     "travailFr/s01/79"
+    ]
    },
    {
     "source": "travailFr.pdf",
-    "article": "85"
+    "article": "83",
+    "anchor": "Article 83",
+    "chunk_ids": [
+     "travailFr/s01/83"
+    ]
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "85",
+    "anchor": "Article 85",
+    "chunk_ids": [
+     "travailFr/s01/85"
+    ]
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "88",
+    "anchor": "Article 88",
+    "chunk_ids": [
+     "travailFr/s01/88"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Add 88 (legal duration in agricultural enterprises: 2700 h/year) and 83 (exceptional extensions of the working day). 79 and 85 kept (85 = work schedule, borderline)."
  },
  {
   "id": "q057",
@@ -1194,11 +2140,32 @@
   "gold": [
    {
     "source": "travailFr.pdf",
-    "article": "112"
+    "article": "112",
+    "anchor": "Article 112",
+    "chunk_ids": [
+     "travailFr/s01/112"
+    ]
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "113",
+    "anchor": "Article 113",
+    "chunk_ids": [
+     "travailFr/s01/113"
+    ]
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "115",
+    "anchor": "Article 115",
+    "chunk_ids": [
+     "travailFr/s01/115"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Add 113 (right acquired per month of work, i.e. the duration) and 115 (extra day per 5 years of service). 112 only states the right."
  },
  {
   "id": "q058",
@@ -1211,19 +2178,49 @@
   "gold": [
    {
     "source": "travailFr.pdf",
-    "article": "14"
+    "article": "14",
+    "anchor": "Article 14",
+    "chunk_ids": [
+     "travailFr/s01/14",
+     "travailFr/s01/14-bis",
+     "travailFr/s01/14-ter",
+     "travailFr/s01/14-quater",
+     "travailFr/s01/14-quinter"
+    ]
    },
    {
     "source": "travailFr.pdf",
-    "article": "16"
+    "article": "21",
+    "anchor": "Article 21",
+    "chunk_ids": [
+     "travailFr/s01/21",
+     "travailFr/s01/21-2",
+     "travailFr/s01/21-3",
+     "travailFr/s01/21-4",
+     "travailFr/s01/21-5",
+     "travailFr/s01/21-6",
+     "travailFr/s01/21-7",
+     "travailFr/s01/21-8",
+     "travailFr/s01/21-9",
+     "travailFr/s01/21-10",
+     "travailFr/s01/21-11",
+     "travailFr/s01/21-12",
+     "travailFr/s01/21-13"
+    ]
    },
    {
     "source": "travailFr.pdf",
-    "article": "23"
+    "article": "23",
+    "anchor": "Article 23",
+    "chunk_ids": [
+     "travailFr/s01/23",
+     "travailFr/s01/23-bis"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Remove 16 (employer bankruptcy 'n'est pas une cause de résiliation': not a dismissal condition). Add 21 (the 21-x series on economic dismissal and the control commission). 14 (14 bis..quinquies: notice, grounds, serious fault, judge control) and 23 kept."
  },
  {
   "id": "q059",
@@ -1236,19 +2233,48 @@
   "gold": [
    {
     "source": "Statutpersonnel.pdf",
-    "article": "5"
+    "article": "3",
+    "anchor": "Article 3 .- Le mariage n'est formé",
+    "chunk_ids": [
+     "Statutpersonnel/s01/3"
+    ]
    },
    {
     "source": "Statutpersonnel.pdf",
-    "article": "8"
+    "article": "5",
+    "anchor": "Article 5 (Modifié par le décret-loi n°64-1",
+    "chunk_ids": [
+     "Statutpersonnel/s01/5"
+    ]
    },
    {
     "source": "Statutpersonnel.pdf",
-    "article": "14"
+    "article": "6",
+    "anchor": "Article 6 (Modifié par la loi n°93-74 du 12 juillet 1993).- Le mariage du mineur",
+    "chunk_ids": [
+     "Statutpersonnel/s01/6"
+    ]
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "8",
+    "anchor": "Article 8 .- Consent au mariage du mineur",
+    "chunk_ids": [
+     "Statutpersonnel/s01/8"
+    ]
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "14",
+    "anchor": "Article 14 .- Les empêchements au mariage",
+    "chunk_ids": [
+     "Statutpersonnel/s01/14"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Statutpersonnel.pdf bundles the CSP with état-civil, adoption, tutelle... laws, so 'Article 5/8/14' have 13/9/6 chunks. Anchors select the CSP articles. Add 3 (consentement des deux époux) and 6 (consentement du tuteur pour le mineur). Optional candidates not added: 7 (prodigue), 15-17 (empêchements)."
  },
  {
   "id": "q060",
@@ -1261,11 +2287,16 @@
   "gold": [
    {
     "source": "Statutpersonnel.pdf",
-    "article": "18"
+    "article": "18",
+    "anchor": "Article 18 (Modifié par la loi n°58-70",
+    "chunk_ids": [
+     "Statutpersonnel/s01/18"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "No change; anchored to the CSP Art 18 (4 other chunks are numbered 18)."
  },
  {
   "id": "q061",
@@ -1278,19 +2309,40 @@
   "gold": [
    {
     "source": "Statutpersonnel.pdf",
-    "article": "29"
+    "article": "29",
+    "anchor": "Article 29 .- Le divorce est la dissolution",
+    "chunk_ids": [
+     "Statutpersonnel/s01/29"
+    ]
    },
    {
     "source": "Statutpersonnel.pdf",
-    "article": "30"
+    "article": "30",
+    "anchor": "Article 30 .- Le divorce ne peut avoir lieu",
+    "chunk_ids": [
+     "Statutpersonnel/s01/30"
+    ]
    },
    {
     "source": "Statutpersonnel.pdf",
-    "article": "31"
+    "article": "31",
+    "anchor": "Article 31. (Modifié par la loi n°81-7",
+    "chunk_ids": [
+     "Statutpersonnel/s01/31"
+    ]
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "32",
+    "anchor": "Article 32 (Modifié par la loi n°2010-50",
+    "chunk_ids": [
+     "Statutpersonnel/s01/32"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Anchor 29/30/31 to the CSP divorce articles (other chunks numbered 29/30/31 are ship registers and civil-status acts). Add 32 (procedure before the tribunal)."
  },
  {
   "id": "q062",
@@ -1303,23 +2355,56 @@
   "gold": [
    {
     "source": "Statutpersonnel.pdf",
-    "article": "54"
+    "article": "54",
+    "anchor": "Article 54 .- La garde consiste",
+    "chunk_ids": [
+     "Statutpersonnel/s01/54"
+    ]
    },
    {
     "source": "Statutpersonnel.pdf",
-    "article": "55"
+    "article": "55",
+    "anchor": "Article 55 .- La femme qui refuse",
+    "chunk_ids": [
+     "Statutpersonnel/s01/55"
+    ]
    },
    {
     "source": "Statutpersonnel.pdf",
-    "article": "56"
+    "article": "56",
+    "anchor": "Article 56 (Paragraphes 2, 3, 4",
+    "chunk_ids": [
+     "Statutpersonnel/s01/56"
+    ]
    },
    {
     "source": "Statutpersonnel.pdf",
-    "article": "57"
+    "article": "57",
+    "anchor": "Article 57 (Modifié par la loi n°66-49",
+    "chunk_ids": [
+     "Statutpersonnel/s01/57"
+    ]
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "58",
+    "anchor": "Article 58 (Modifié par la loi n°81-7",
+    "chunk_ids": [
+     "Statutpersonnel/s01/58"
+    ]
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "67",
+    "anchor": "Article 67. (Modifié par la loi n°93-74",
+    "chunk_ids": [
+     "Statutpersonnel/s01/67"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Anchor 54-57 to the CSP garde articles (54/55/56/57 each also exist as 'disparu / procès-verbal' civil-status articles). Add 58 (conditions to hold the garde) and 67 (garde when the marriage is dissolved by divorce)."
  },
  {
   "id": "q063",
@@ -1332,15 +2417,24 @@
   "gold": [
    {
     "source": "COC.pdf",
-    "article": "2"
+    "article": "2",
+    "anchor": "Article 2.- Les éléments nécessaires pour la validité",
+    "chunk_ids": [
+     "COC/s02/2"
+    ]
    },
    {
     "source": "COC.pdf",
-    "article": "3"
+    "article": "3",
+    "anchor": "Article 3.- Toute personne est capable",
+    "chunk_ids": [
+     "COC/s02/3"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Anchor: COC.pdf has three chunks numbered 2 and two numbered 3; the right ones are Art 2 'Les éléments nécessaires pour la validité des obligations ...' and Art 3 'Toute personne est capable'. Not added (lexical search did not surface them): the articles on consent, object and cause, so the label may be incomplete."
  },
  {
   "id": "q064",
@@ -1353,11 +2447,24 @@
   "gold": [
    {
     "source": "COC.pdf",
-    "article": "283"
+    "article": "280",
+    "anchor": "Article 280",
+    "chunk_ids": [
+     "COC/s02/280"
+    ]
+   },
+   {
+    "source": "COC.pdf",
+    "article": "283",
+    "anchor": "Article 283",
+    "chunk_ids": [
+     "COC/s02/283"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Add 280 ('Le débiteur en demeure répond du cas fortuit et de la force majeure')."
  },
  {
   "id": "q065",
@@ -1370,23 +2477,40 @@
   "gold": [
    {
     "source": "NationaliteFr.pdf",
-    "article": "6"
+    "article": "6",
+    "anchor": "Article 6",
+    "chunk_ids": [
+     "NationaliteFr/s01/6"
+    ]
    },
    {
     "source": "NationaliteFr.pdf",
-    "article": "7"
+    "article": "7",
+    "anchor": "Article 7",
+    "chunk_ids": [
+     "NationaliteFr/s01/7"
+    ]
    },
    {
     "source": "NationaliteFr.pdf",
-    "article": "8"
+    "article": "8",
+    "anchor": "Article 8",
+    "chunk_ids": [
+     "NationaliteFr/s01/8"
+    ]
    },
    {
     "source": "NationaliteFr.pdf",
-    "article": "9"
+    "article": "9",
+    "anchor": "Article 9",
+    "chunk_ids": [
+     "NationaliteFr/s01/9"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "No change; anchored. The question says 'acquérir': the corpus also has acquisition by marriage (13-14) and naturalisation, which lexical search did not surface, so the label may be incomplete."
  },
  {
   "id": "q066",
@@ -1399,23 +2523,56 @@
   "gold": [
    {
     "source": "PenalFr.pdf",
-    "article": "258"
+    "article": "258",
+    "anchor": "Article 258",
+    "chunk_ids": [
+     "PenalFr/s02/258"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "260"
+    "article": "260",
+    "anchor": "Article 260 (Modifié par la loi n° 89-23",
+    "chunk_ids": [
+     "PenalFr/s02/260"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "261"
+    "article": "261",
+    "anchor": "Article 261",
+    "chunk_ids": [
+     "PenalFr/s02/261"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "262"
+    "article": "262",
+    "anchor": "Article 262",
+    "chunk_ids": [
+     "PenalFr/s02/262"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "263",
+    "anchor": "Article 263",
+    "chunk_ids": [
+     "PenalFr/s02/263"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "264",
+    "anchor": "Article 264",
+    "chunk_ids": [
+     "PenalFr/s02/264"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Add 263 (theft committed during fire/explosion etc., 10 years) and 264 (\"tous autres vols\", 5 years): both are theft penalties in the corpus, and 264 is the single most frequent 'wrong' result in the v1 baseline."
  },
  {
   "id": "q067",
@@ -1428,19 +2585,48 @@
   "gold": [
    {
     "source": "Statutpersonnel.pdf",
-    "article": "5"
+    "article": "3",
+    "anchor": "Article 3 .- Le mariage n'est formé",
+    "chunk_ids": [
+     "Statutpersonnel/s01/3"
+    ]
    },
    {
     "source": "Statutpersonnel.pdf",
-    "article": "8"
+    "article": "5",
+    "anchor": "Article 5 (Modifié par le décret-loi n°64-1",
+    "chunk_ids": [
+     "Statutpersonnel/s01/5"
+    ]
    },
    {
     "source": "Statutpersonnel.pdf",
-    "article": "14"
+    "article": "6",
+    "anchor": "Article 6 (Modifié par la loi n°93-74 du 12 juillet 1993).- Le mariage du mineur",
+    "chunk_ids": [
+     "Statutpersonnel/s01/6"
+    ]
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "8",
+    "anchor": "Article 8 .- Consent au mariage du mineur",
+    "chunk_ids": [
+     "Statutpersonnel/s01/8"
+    ]
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "14",
+    "anchor": "Article 14 .- Les empêchements au mariage",
+    "chunk_ids": [
+     "Statutpersonnel/s01/14"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Statutpersonnel.pdf bundles the CSP with état-civil, adoption, tutelle... laws, so 'Article 5/8/14' have 13/9/6 chunks. Anchors select the CSP articles. Add 3 (consentement des deux époux) and 6 (consentement du tuteur pour le mineur). Optional candidates not added: 7 (prodigue), 15-17 (empêchements)."
  },
  {
   "id": "q068",
@@ -1453,23 +2639,56 @@
   "gold": [
    {
     "source": "PenalFr.pdf",
-    "article": "258"
+    "article": "258",
+    "anchor": "Article 258",
+    "chunk_ids": [
+     "PenalFr/s02/258"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "260"
+    "article": "260",
+    "anchor": "Article 260 (Modifié par la loi n° 89-23",
+    "chunk_ids": [
+     "PenalFr/s02/260"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "261"
+    "article": "261",
+    "anchor": "Article 261",
+    "chunk_ids": [
+     "PenalFr/s02/261"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "262"
+    "article": "262",
+    "anchor": "Article 262",
+    "chunk_ids": [
+     "PenalFr/s02/262"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "263",
+    "anchor": "Article 263",
+    "chunk_ids": [
+     "PenalFr/s02/263"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "264",
+    "anchor": "Article 264",
+    "chunk_ids": [
+     "PenalFr/s02/264"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Add 263 (theft committed during fire/explosion etc., 10 years) and 264 (\"tous autres vols\", 5 years): both are theft penalties in the corpus, and 264 is the single most frequent 'wrong' result in the v1 baseline."
  },
  {
   "id": "q069",
@@ -1482,19 +2701,48 @@
   "gold": [
    {
     "source": "PenalFr.pdf",
-    "article": "201"
+    "article": "201",
+    "anchor": "Article 201",
+    "chunk_ids": [
+     "PenalFr/s02/201"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "202"
+    "article": "202",
+    "anchor": "Article 202",
+    "chunk_ids": [
+     "PenalFr/s02/202"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "203"
+    "article": "203",
+    "anchor": "Article 203",
+    "chunk_ids": [
+     "PenalFr/s02/203"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "204",
+    "anchor": "Article 204",
+    "chunk_ids": [
+     "PenalFr/s02/204"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "205",
+    "anchor": "Article 205",
+    "chunk_ids": [
+     "PenalFr/s02/205"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Add 204 (homicide preceded/accompanied by another offence: death) and 205 (meurtre in all cases not provided above: life imprisonment): they define/penalise murder directly. 201-203 unchanged."
  },
  {
   "id": "q070",
@@ -1507,11 +2755,24 @@
   "gold": [
    {
     "source": "PenalFr.pdf",
-    "article": "291"
+    "article": "291",
+    "anchor": "Article 291 (Modifié par le décret du 8 octobre 1935)",
+    "chunk_ids": [
+     "PenalFr/s02/291"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "292",
+    "anchor": "Article 292",
+    "chunk_ids": [
+     "PenalFr/s02/292"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Add 292: 'assimilé à l'escroquerie et puni des peines prévues à l'article précédent'. 291 is anchored to the main article (two fragment chunks also carry number 291)."
  },
  {
   "id": "q071",
@@ -1524,19 +2785,40 @@
   "gold": [
    {
     "source": "PenalFr.pdf",
-    "article": "84"
+    "article": "83",
+    "anchor": "Article 83",
+    "chunk_ids": [
+     "PenalFr/s02/83"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "85"
+    "article": "84",
+    "anchor": "Article 84",
+    "chunk_ids": [
+     "PenalFr/s02/84"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "86"
+    "article": "85",
+    "anchor": "Article 85",
+    "chunk_ids": [
+     "PenalFr/s02/85"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "91",
+    "anchor": "Article 91",
+    "chunk_ids": [
+     "PenalFr/s02/91"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Remove 86: its heading says 'Abrogé par la loi n° 1998-33' (empty article). Add 83 (fonctionnaire who agrees to offers/promises, i.e. passive corruption) and 91 (person who corrupted or attempted to corrupt, 5 years). 84-85 unchanged."
  },
  {
   "id": "q072",
@@ -1566,19 +2848,48 @@
   "gold": [
    {
     "source": "Statutpersonnel.pdf",
-    "article": "5"
+    "article": "3",
+    "anchor": "Article 3 .- Le mariage n'est formé",
+    "chunk_ids": [
+     "Statutpersonnel/s01/3"
+    ]
    },
    {
     "source": "Statutpersonnel.pdf",
-    "article": "8"
+    "article": "5",
+    "anchor": "Article 5 (Modifié par le décret-loi n°64-1",
+    "chunk_ids": [
+     "Statutpersonnel/s01/5"
+    ]
    },
    {
     "source": "Statutpersonnel.pdf",
-    "article": "14"
+    "article": "6",
+    "anchor": "Article 6 (Modifié par la loi n°93-74 du 12 juillet 1993).- Le mariage du mineur",
+    "chunk_ids": [
+     "Statutpersonnel/s01/6"
+    ]
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "8",
+    "anchor": "Article 8 .- Consent au mariage du mineur",
+    "chunk_ids": [
+     "Statutpersonnel/s01/8"
+    ]
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "14",
+    "anchor": "Article 14 .- Les empêchements au mariage",
+    "chunk_ids": [
+     "Statutpersonnel/s01/14"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Statutpersonnel.pdf bundles the CSP with état-civil, adoption, tutelle... laws, so 'Article 5/8/14' have 13/9/6 chunks. Anchors select the CSP articles. Add 3 (consentement des deux époux) and 6 (consentement du tuteur pour le mineur). Optional candidates not added: 7 (prodigue), 15-17 (empêchements)."
  },
  {
   "id": "q074",
@@ -1591,11 +2902,16 @@
   "gold": [
    {
     "source": "Statutpersonnel.pdf",
-    "article": "18"
+    "article": "18",
+    "anchor": "Article 18 (Modifié par la loi n°58-70",
+    "chunk_ids": [
+     "Statutpersonnel/s01/18"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "No change; anchored to the CSP Art 18 (4 other chunks are numbered 18)."
  },
  {
   "id": "q075",
@@ -1608,23 +2924,56 @@
   "gold": [
    {
     "source": "Statutpersonnel.pdf",
-    "article": "54"
+    "article": "54",
+    "anchor": "Article 54 .- La garde consiste",
+    "chunk_ids": [
+     "Statutpersonnel/s01/54"
+    ]
    },
    {
     "source": "Statutpersonnel.pdf",
-    "article": "55"
+    "article": "55",
+    "anchor": "Article 55 .- La femme qui refuse",
+    "chunk_ids": [
+     "Statutpersonnel/s01/55"
+    ]
    },
    {
     "source": "Statutpersonnel.pdf",
-    "article": "56"
+    "article": "56",
+    "anchor": "Article 56 (Paragraphes 2, 3, 4",
+    "chunk_ids": [
+     "Statutpersonnel/s01/56"
+    ]
    },
    {
     "source": "Statutpersonnel.pdf",
-    "article": "57"
+    "article": "57",
+    "anchor": "Article 57 (Modifié par la loi n°66-49",
+    "chunk_ids": [
+     "Statutpersonnel/s01/57"
+    ]
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "58",
+    "anchor": "Article 58 (Modifié par la loi n°81-7",
+    "chunk_ids": [
+     "Statutpersonnel/s01/58"
+    ]
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "67",
+    "anchor": "Article 67. (Modifié par la loi n°93-74",
+    "chunk_ids": [
+     "Statutpersonnel/s01/67"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Anchor 54-57 to the CSP garde articles (54/55/56/57 each also exist as 'disparu / procès-verbal' civil-status articles). Add 58 (conditions to hold the garde) and 67 (garde when the marriage is dissolved by divorce)."
  },
  {
   "id": "q076",
@@ -1662,15 +3011,32 @@
   "gold": [
    {
     "source": "ProcedurepenaleFr.pdf",
-    "article": "13"
+    "article": "13",
+    "anchor": "Article 13.- Les officiers de police judiciaire visés aux 3°",
+    "chunk_ids": [
+     "ProcedurepenaleFr/s01/13"
+    ]
    },
    {
     "source": "ProcedurepenaleFr.pdf",
-    "article": "70"
+    "article": "13",
+    "anchor": "Article 13 bis",
+    "chunk_ids": [
+     "ProcedurepenaleFr/s01/13-bis"
+    ]
+   },
+   {
+    "source": "ProcedurepenaleFr.pdf",
+    "article": "70",
+    "anchor": "Article 70.- L'inculpé détenu",
+    "chunk_ids": [
+     "ProcedurepenaleFr/s02/70"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Same disambiguation for 13/13 bis; 70 anchored to 'L'inculpé détenu est autorisé à communiquer ... avec son conseil' (another chunk numbered 70 is about personnes morales)."
  },
  {
   "id": "q078",
@@ -1683,11 +3049,24 @@
   "gold": [
    {
     "source": "ProcedurepenaleFr.pdf",
-    "article": "13"
+    "article": "13",
+    "anchor": "Article 13.- Les officiers de police judiciaire visés aux 3°",
+    "chunk_ids": [
+     "ProcedurepenaleFr/s01/13"
+    ]
+   },
+   {
+    "source": "ProcedurepenaleFr.pdf",
+    "article": "13",
+    "anchor": "Article 13 bis",
+    "chunk_ids": [
+     "ProcedurepenaleFr/s01/13-bis"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Disambiguate: ProcedurepenaleFr.pdf bundles several laws and has 4 chunks numbered 13 (OPJ powers, garde à vue = Art 13 bis, an indemnisation law, a terrorism law). Only Art 13 (OPJ) and Art 13 bis count."
  },
  {
   "id": "q079",
@@ -1700,15 +3079,40 @@
   "gold": [
    {
     "source": "travailFr.pdf",
-    "article": "79"
+    "article": "79",
+    "anchor": "Article 79",
+    "chunk_ids": [
+     "travailFr/s01/79"
+    ]
    },
    {
     "source": "travailFr.pdf",
-    "article": "85"
+    "article": "83",
+    "anchor": "Article 83",
+    "chunk_ids": [
+     "travailFr/s01/83"
+    ]
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "85",
+    "anchor": "Article 85",
+    "chunk_ids": [
+     "travailFr/s01/85"
+    ]
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "88",
+    "anchor": "Article 88",
+    "chunk_ids": [
+     "travailFr/s01/88"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Add 88 (legal duration in agricultural enterprises: 2700 h/year) and 83 (exceptional extensions of the working day). 79 and 85 kept (85 = work schedule, borderline)."
  },
  {
   "id": "q080",
@@ -1721,11 +3125,32 @@
   "gold": [
    {
     "source": "travailFr.pdf",
-    "article": "112"
+    "article": "112",
+    "anchor": "Article 112",
+    "chunk_ids": [
+     "travailFr/s01/112"
+    ]
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "113",
+    "anchor": "Article 113",
+    "chunk_ids": [
+     "travailFr/s01/113"
+    ]
+   },
+   {
+    "source": "travailFr.pdf",
+    "article": "115",
+    "anchor": "Article 115",
+    "chunk_ids": [
+     "travailFr/s01/115"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Add 113 (right acquired per month of work, i.e. the duration) and 115 (extra day per 5 years of service). 112 only states the right."
  },
  {
   "id": "q081",
@@ -1738,19 +3163,49 @@
   "gold": [
    {
     "source": "travailFr.pdf",
-    "article": "14"
+    "article": "14",
+    "anchor": "Article 14",
+    "chunk_ids": [
+     "travailFr/s01/14",
+     "travailFr/s01/14-bis",
+     "travailFr/s01/14-ter",
+     "travailFr/s01/14-quater",
+     "travailFr/s01/14-quinter"
+    ]
    },
    {
     "source": "travailFr.pdf",
-    "article": "16"
+    "article": "21",
+    "anchor": "Article 21",
+    "chunk_ids": [
+     "travailFr/s01/21",
+     "travailFr/s01/21-2",
+     "travailFr/s01/21-3",
+     "travailFr/s01/21-4",
+     "travailFr/s01/21-5",
+     "travailFr/s01/21-6",
+     "travailFr/s01/21-7",
+     "travailFr/s01/21-8",
+     "travailFr/s01/21-9",
+     "travailFr/s01/21-10",
+     "travailFr/s01/21-11",
+     "travailFr/s01/21-12",
+     "travailFr/s01/21-13"
+    ]
    },
    {
     "source": "travailFr.pdf",
-    "article": "23"
+    "article": "23",
+    "anchor": "Article 23",
+    "chunk_ids": [
+     "travailFr/s01/23",
+     "travailFr/s01/23-bis"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Remove 16 (employer bankruptcy 'n'est pas une cause de résiliation': not a dismissal condition). Add 21 (the 21-x series on economic dismissal and the control commission). 14 (14 bis..quinquies: notice, grounds, serious fault, judge control) and 23 kept."
  },
  {
   "id": "q082",
@@ -1763,15 +3218,24 @@
   "gold": [
    {
     "source": "COC.pdf",
-    "article": "2"
+    "article": "2",
+    "anchor": "Article 2.- Les éléments nécessaires pour la validité",
+    "chunk_ids": [
+     "COC/s02/2"
+    ]
    },
    {
     "source": "COC.pdf",
-    "article": "3"
+    "article": "3",
+    "anchor": "Article 3.- Toute personne est capable",
+    "chunk_ids": [
+     "COC/s02/3"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Anchor: COC.pdf has three chunks numbered 2 and two numbered 3; the right ones are Art 2 'Les éléments nécessaires pour la validité des obligations ...' and Art 3 'Toute personne est capable'. Not added (lexical search did not surface them): the articles on consent, object and cause, so the label may be incomplete."
  },
  {
   "id": "q083",
@@ -1784,11 +3248,24 @@
   "gold": [
    {
     "source": "COC.pdf",
-    "article": "283"
+    "article": "280",
+    "anchor": "Article 280",
+    "chunk_ids": [
+     "COC/s02/280"
+    ]
+   },
+   {
+    "source": "COC.pdf",
+    "article": "283",
+    "anchor": "Article 283",
+    "chunk_ids": [
+     "COC/s02/283"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Add 280 ('Le débiteur en demeure répond du cas fortuit et de la force majeure')."
  },
  {
   "id": "q084",
@@ -1801,23 +3278,40 @@
   "gold": [
    {
     "source": "NationaliteFr.pdf",
-    "article": "6"
+    "article": "6",
+    "anchor": "Article 6",
+    "chunk_ids": [
+     "NationaliteFr/s01/6"
+    ]
    },
    {
     "source": "NationaliteFr.pdf",
-    "article": "7"
+    "article": "7",
+    "anchor": "Article 7",
+    "chunk_ids": [
+     "NationaliteFr/s01/7"
+    ]
    },
    {
     "source": "NationaliteFr.pdf",
-    "article": "8"
+    "article": "8",
+    "anchor": "Article 8",
+    "chunk_ids": [
+     "NationaliteFr/s01/8"
+    ]
    },
    {
     "source": "NationaliteFr.pdf",
-    "article": "9"
+    "article": "9",
+    "anchor": "Article 9",
+    "chunk_ids": [
+     "NationaliteFr/s01/9"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "No change; anchored. The question says 'acquérir': the corpus also has acquisition by marriage (13-14) and naturalisation, which lexical search did not surface, so the label may be incomplete."
  },
  {
   "id": "q085",
@@ -1830,23 +3324,56 @@
   "gold": [
    {
     "source": "PenalFr.pdf",
-    "article": "258"
+    "article": "258",
+    "anchor": "Article 258",
+    "chunk_ids": [
+     "PenalFr/s02/258"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "260"
+    "article": "260",
+    "anchor": "Article 260 (Modifié par la loi n° 89-23",
+    "chunk_ids": [
+     "PenalFr/s02/260"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "261"
+    "article": "261",
+    "anchor": "Article 261",
+    "chunk_ids": [
+     "PenalFr/s02/261"
+    ]
    },
    {
     "source": "PenalFr.pdf",
-    "article": "262"
+    "article": "262",
+    "anchor": "Article 262",
+    "chunk_ids": [
+     "PenalFr/s02/262"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "263",
+    "anchor": "Article 263",
+    "chunk_ids": [
+     "PenalFr/s02/263"
+    ]
+   },
+   {
+    "source": "PenalFr.pdf",
+    "article": "264",
+    "anchor": "Article 264",
+    "chunk_ids": [
+     "PenalFr/s02/264"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Add 263 (theft committed during fire/explosion etc., 10 years) and 264 (\"tous autres vols\", 5 years): both are theft penalties in the corpus, and 264 is the single most frequent 'wrong' result in the v1 baseline."
  },
  {
   "id": "q086",
@@ -1863,7 +3390,8 @@
    }
   ],
   "source_ambiguous": true,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "No change. Source wildcard kept: the question names no code, so an article 13 from any code is an acceptable answer."
  },
  {
   "id": "q087",
@@ -1876,18 +3404,39 @@
   "gold": [
    {
     "source": "Statutpersonnel.pdf",
-    "article": "29"
+    "article": "29",
+    "anchor": "Article 29 .- Le divorce est la dissolution",
+    "chunk_ids": [
+     "Statutpersonnel/s01/29"
+    ]
    },
    {
     "source": "Statutpersonnel.pdf",
-    "article": "30"
+    "article": "30",
+    "anchor": "Article 30 .- Le divorce ne peut avoir lieu",
+    "chunk_ids": [
+     "Statutpersonnel/s01/30"
+    ]
    },
    {
     "source": "Statutpersonnel.pdf",
-    "article": "31"
+    "article": "31",
+    "anchor": "Article 31. (Modifié par la loi n°81-7",
+    "chunk_ids": [
+     "Statutpersonnel/s01/31"
+    ]
+   },
+   {
+    "source": "Statutpersonnel.pdf",
+    "article": "32",
+    "anchor": "Article 32 (Modifié par la loi n°2010-50",
+    "chunk_ids": [
+     "Statutpersonnel/s01/32"
+    ]
    }
   ],
   "source_ambiguous": false,
-  "label_status": "unverified"
+  "label_status": "verified",
+  "label_note": "Anchor 29/30/31 to the CSP divorce articles (other chunks numbered 29/30/31 are ship registers and civil-status acts). Add 32 (procedure before the tribunal)."
  }
 ]
