@@ -75,3 +75,25 @@ approved) labels: Hit@6 60.0% → 74.3%, MRR 0.418 → 0.417.
 |---|---|---|---|---|
 | v1 chunks | 60.0 | 34.3 | 27.8 | 0.418 |
 | + chunk fix | 74.3 | 25.7 | 34.4 | 0.417 |
+
+## Phase 3.2 — Raw-first retrieval (no LLM for French, faithful translation for Arabic/English)
+
+**What was wrong.** v1 sent every question through an LLM "rewrite" and two LLM "sub-queries". The audit of
+243 generated queries showed what that did: 26% contained an article number the user never wrote (e.g.
+"article 226" for breach of trust), 64% contained filler words such as "alinéa", "capacité", "consentement",
+7% mentioned "jurisprudence" (the corpus is only codes), and a few contained the literal placeholder
+"article X, alinéa Y". Those extra words pulled retrieval towards unrelated articles.
+**What I changed.** French questions are searched exactly as written (no LLM call). Arabic and English
+questions get a literal French translation with a strict prompt: no added terms, no article numbers, keep
+ambiguous words in parentheses. No sub-queries. (The original Arabic/English question is still searched in
+addition, as before.) Switches in `config.py`: `RAW_FIRST`, `USE_SUBQUERIES`.
+**Why it helps.** The search text now says only what the user said. It also removes ~2/3 of the LLM calls
+(and all of them for French).
+**Numbers (dev, 35 questions, temperature 0).** Hit@6 71.4% → 88.6%, Hit@1 25.7% → 54.3%, MRR 0.403 → 0.657.
+13 new LLM calls in total (one per distinct non-French question), all at low reasoning effort.
+
+| Dev, final labels | Hit@6 | Hit@1 | Recall | MRR |
+|---|---|---|---|---|
+| v1 (old chunks, rewrite + sub-queries) | 57.1 | 34.3 | 25.4 | 0.403 |
+| + chunk fix | 71.4 | 25.7 | 32.0 | 0.403 |
+| + raw-first (no sub-queries) | 88.6 | 54.3 | 53.5 | 0.657 |

@@ -1,0 +1,54 @@
+
+================================================================================
+              Tunisian Legal RAG — End-to-End Retrieval Evaluation              
+                            split=dev  n=35  top_k=6                            
+================================================================================
+  LLM        : openai/gpt-oss-120b  temps=[0.0]
+  Reranker   : cross-encoder/mmarco-mMiniLMv2-L12-H384-v1  ran on 33/35 cases
+  Code       : v1-baseline-runnable-11-g5a49d61-dirty
+  Degraded   : 2 events
+
+  Overall (dev)                35    88.6%    54.3%    53.5%   0.657
+
+  By filtered vs unfiltered
+                             n    Hit@6    Hit@1   Recall     MRR
+  filtered (law given)      31    87.1%    51.6%    52.3%   0.634
+  unfiltered (no law)        4   100.0%    75.0%    63.3%   0.833
+
+  By language
+                             n    Hit@6    Hit@1   Recall     MRR
+  ar                         8    87.5%    37.5%    45.0%   0.525
+  en                         8    87.5%    62.5%    48.8%   0.719
+  fr                        19    89.5%    57.9%    59.1%   0.686
+
+  By category
+                             n    Hit@6    Hit@1   Recall     MRR
+  article_lookup             2   100.0%    50.0%    58.3%   0.667
+  colloquial                 1     0.0%     0.0%     0.0%   0.000
+  concept                   28    89.3%    53.6%    53.7%   0.654
+  cross_domain               4   100.0%    75.0%    63.3%   0.833
+
+  By domain
+                             n    Hit@6    Hit@1   Recall     MRR
+  all                        4   100.0%    75.0%    63.3%   0.833
+  arbitrage                  1   100.0%   100.0%    66.7%   1.000
+  constitution               2   100.0%     0.0%    50.0%   0.375
+  obligations_contrats       4    25.0%     0.0%     8.3%   0.042
+  penal                      9    88.9%    77.8%    68.5%   0.833
+  procedure_penale           5   100.0%    40.0%    70.0%   0.600
+  statut_personnel           6   100.0%    83.3%    42.2%   0.889
+  travail                    4   100.0%    25.0%    50.0%   0.475
+
+  Misses (4):
+    - [fr] Quelles sont les conditions de validité d'un contrat ?
+        gold: 2, 3   got: 1477@COC.pd, 24@COC.pd, 242@COC.pd, 274@COC.pd, 1000@COC.pd, 328@COC.pd
+    - [fr] Que risque-t-on si on frappe quelqu'un ?
+        gold: 208, 218, 219   got: 223@PenalF, 101@PenalF, 255@PenalF, 125@PenalF, 225@PenalF, 175@PenalF
+    - [ar] ما هي شروط صحة العقد؟
+        gold: 2, 3   got: 1477@COC.pd, 24@COC.pd, 242@COC.pd, 274@COC.pd, 1000@COC.pd, 23@COC.pd
+    - [en] What makes a contract valid?
+        gold: 2, 3   got: 242@COC.pd, 24@COC.pd, 1477@COC.pd, 1198@COC.pd, 28@COC.pd, 1301@COC.pd
+================================================================================
+
+  Saved results/item2_rawfirst_dev.json
+

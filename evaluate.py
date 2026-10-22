@@ -159,13 +159,32 @@ def load_questions(split: str) -> list[dict]:
     return qs if split == "all" else [q for q in qs if q["split"] == split]
 
 
+def apply_overrides(pairs: list[str]) -> dict:
+    """--override KEY=VALUE: set config knobs for this run (before pipeline modules import them)."""
+    import ast
+    import config
+    applied = {}
+    for p in pairs or []:
+        key, _, val = p.partition("=")
+        if not hasattr(config, key):
+            raise SystemExit(f"unknown config key {key!r}")
+        try:
+            parsed = ast.literal_eval(val)
+        except Exception:
+            parsed = val
+        setattr(config, key, parsed)
+        applied[key] = parsed
+    return applied
+
+
 def run(args) -> tuple[list[dict], dict]:
+    overrides = apply_overrides(args.override)
     import translate
     import retriever
     from config import LLM_MODEL, RERANKER_MODEL, EMBEDDING_MODEL
     from eval_harness import install_llm_cache, DegradationCounter
-    from pipeline import (load_vectorstore, step_rewrite, step_subqueries,
-                          step_retrieve, step_rerank, _is_complex)
+    from pipeline import (load_vectorstore, step_query, step_subqueries_if_enabled,
+                          step_retrieve, step_rerank)
 
     cache = None if args.no_cache else CACHE_PATH
     stats = install_llm_cache(translate, args.temperature, cache, args.cache_salt)
@@ -182,8 +201,8 @@ def run(args) -> tuple[list[dict], dict]:
         n_events = len(degraded.events)
 
         t0 = time.time()
-        french_q    = step_rewrite(q["question"])
-        sub_queries = step_subqueries(french_q) if _is_complex(q["question"]) else []
+        french_q    = step_query(q["question"])
+        sub_queries = step_subqueries_if_enabled(q["question"], french_q)
         t1 = time.time()
         candidates  = step_retrieve(vs, q["question"], french_q, sub_queries, q["law_type"])
         t2 = time.time()
@@ -219,6 +238,7 @@ def run(args) -> tuple[list[dict], dict]:
         "llm_temperatures": sorted(stats.temps), "temperature_override": args.temperature,
         "llm_calls": stats.calls, "llm_cache_hits": stats.cache_hits, "cache_salt": args.cache_salt,
         "bm25_built": bm25_ok, "rerank_ran": rerank_ran, "degraded_events": degraded.events,
+        "overrides": overrides,
         "avg_seconds": {k: round(sum(r[k] for r in rows) / len(rows), 2)
                         for k in ("t_llm", "t_retrieve", "t_rerank")},
     }
@@ -252,6 +272,8 @@ def main() -> None:
     ap.add_argument("--cache-salt", default="", help="changes the cache key (separate sampling runs)")
     ap.add_argument("--allow-degraded", action="store_true",
                     help="do not abort when the rewrite/rerank component silently falls back")
+    ap.add_argument("--override", action="append", metavar="KEY=VALUE",
+                    help="override a config knob for this run, e.g. --override RAW_FIRST=False")
     ap.add_argument("--out", help="write the full run (meta + per-case results) to this JSON")
     ap.add_argument("--rescore", help="re-score a saved run JSON against the current labels")
     args = ap.parse_args()

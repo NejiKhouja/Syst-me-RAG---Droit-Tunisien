@@ -50,17 +50,18 @@ def install_llm_cache(
     if cache_path and cache_path.exists():
         cache = json.loads(cache_path.read_text(encoding="utf-8"))
 
-    def make(requested: float):
+    def make(requested: float, effort: str | None = None):
         temp = requested if temperature is None else temperature
         # max_tokens only caps the output reserved against Groq's per-minute token budget
         # (the default reservation would let one call starve the next); prompts/model/temperature are unchanged.
-        llm = ChatGroq(api_key=GROQ_API_KEY, model_name=LLM_MODEL, temperature=temp, max_tokens=max_tokens)
+        extra = {"reasoning_effort": effort} if effort else {}
+        llm = ChatGroq(api_key=GROQ_API_KEY, model_name=LLM_MODEL, temperature=temp, max_tokens=max_tokens, **extra)
 
         def run(prompt_value):
             msgs = prompt_value.to_messages()
             # The salt separates independent samples of NON-deterministic calls only (temperature > 0);
             # temperature-0 outputs are shared across runs.
-            key = hashlib.sha256(f"{msgs}|{LLM_MODEL}|{temp}|{salt if temp > 0 else ''}".encode()).hexdigest()
+            key = hashlib.sha256(f"{msgs}|{LLM_MODEL}|{temp}|{salt if temp > 0 else ''}|{effort or ''}".encode()).hexdigest()
             stats.temps.add(temp)
             if cache_path and key in cache:
                 stats.cache_hits += 1
@@ -98,8 +99,10 @@ def install_llm_cache(
 
         return RunnableLambda(run)
 
-    translate_module._get_llm = lambda temperature=0.0: make(0.0 if temperature == 0.0 else 0.3)
+    translate_module._get_llm = lambda temperature=0.0, reasoning_effort=None: make(
+        0.0 if temperature == 0.0 else 0.3, reasoning_effort)
     translate_module._rewrite_cache.clear()
+    translate_module._translate_cache.clear()
     translate_module._subquery_cache.clear()
     return stats
 

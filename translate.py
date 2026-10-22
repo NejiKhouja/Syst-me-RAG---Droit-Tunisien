@@ -4,7 +4,7 @@ from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
-from config import GROQ_API_KEY, LLM_MODEL, SUBQUERY_N
+from config import GROQ_API_KEY, LLM_MODEL, SUBQUERY_N, TRANSLATE_REASONING_EFFORT
 
 logger = logging.getLogger(__name__)
 
@@ -12,8 +12,18 @@ _llm_precise:  ChatGroq | None = None   # temperature=0.0  (deterministic rewrit
 _llm_creative: ChatGroq | None = None   # temperature=0.3  (diverse sub-queries)
 
 
-def _get_llm(temperature: float = 0.0) -> ChatGroq:
-    global _llm_precise, _llm_creative
+_llm_translate: ChatGroq | None = None
+
+
+def _get_llm(temperature: float = 0.0, reasoning_effort: str | None = None) -> ChatGroq:
+    global _llm_precise, _llm_creative, _llm_translate
+    if reasoning_effort:
+        if _llm_translate is None:
+            _llm_translate = ChatGroq(
+                api_key=GROQ_API_KEY, model_name=LLM_MODEL, temperature=temperature,
+                reasoning_effort=reasoning_effort,
+            )
+        return _llm_translate
     if temperature == 0.0:
         if _llm_precise is None:
             _llm_precise = ChatGroq(
@@ -108,3 +118,38 @@ def generate_subqueries(french_query: str, n: int = SUBQUERY_N) -> list[str]:
 
 def to_french(question: str) -> str:
     return rewrite_query(question)
+
+
+# ── Faithful translation (raw-first retrieval) ───────────────────────────────
+_translate_cache: dict[str, str] = {}
+
+_TRANSLATE_PROMPT = ChatPromptTemplate.from_messages([
+    ("system", (
+        "You are a precise legal translator. Translate the user's question into French as literally "
+        "and faithfully as possible.\n"
+        "Rules:\n"
+        "  - Output only the French translation, as one question, no explanation.\n"
+        "  - Do NOT add legal terms, code names, article numbers, synonyms or any information "
+        "that is not in the question.\n"
+        "  - Do NOT answer the question.\n"
+        "  - If a word is ambiguous, keep the original word in parentheses after your best French rendering."
+    )),
+    ("human", "{question}"),
+])
+
+
+def translate_to_french(question: str) -> str:
+    """Faithful translation of an Arabic/English question into French. Falls back to the original."""
+    if question in _translate_cache:
+        return _translate_cache[question]
+    try:
+        out = (
+            _TRANSLATE_PROMPT | _get_llm(0.0, TRANSLATE_REASONING_EFFORT) | StrOutputParser()
+        ).invoke({"question": question}).strip()
+        if not out:
+            raise ValueError("empty translation")
+        _translate_cache[question] = out
+        return out
+    except Exception as exc:
+        logger.warning("Query translation failed (%s) - using original", exc)
+        return question

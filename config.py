@@ -20,6 +20,12 @@ BM25_K       = 15   # BM25 candidates (primary query only)
 RERANK_TOP_K = 6    # docs returned to the user after reranking
 SUBQUERY_N   = 2    # sub-queries generated for complex (non-article) questions
 
+# Query preparation. RAW_FIRST: French questions are searched as written (no LLM call); Arabic/English are
+# translated to French faithfully (no enrichment). USE_SUBQUERIES: LLM sub-queries (v1 behaviour, off).
+RAW_FIRST                   = True
+USE_SUBQUERIES              = False
+TRANSLATE_REASONING_EFFORT  = "low"   # translation needs no deliberation; keeps Groq token use small
+
 # Maps law_type substrings to match against the lowercased PDF filename
 LAW_TYPE_MAP: dict[str, list[str]] = {
     "procedure_penale":       ["procedurepenal"],

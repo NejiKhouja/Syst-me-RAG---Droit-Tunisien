@@ -1,0 +1,3367 @@
+{
+ "meta": {
+  "git_describe": "v1-baseline-runnable-11-g5a49d61-dirty",
+  "split": "dev",
+  "n_cases": 35,
+  "top_k": 6,
+  "llm_model": "openai/gpt-oss-120b",
+  "reranker_model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+  "embedding_model": "OrdalieTech/Solon-embeddings-large-0.1",
+  "llm_temperatures": [
+   0.0
+  ],
+  "temperature_override": 0.0,
+  "llm_calls": 13,
+  "llm_cache_hits": 0,
+  "cache_salt": "",
+  "bm25_built": true,
+  "rerank_ran": 33,
+  "degraded_events": [
+   "reranker: Reranking failed (list index out of range) — returning original order",
+   "reranker: Reranking failed (list index out of range) — returning original order"
+  ],
+  "overrides": {},
+  "avg_seconds": {
+   "t_llm": 0.79,
+   "t_retrieve": 0.98,
+   "t_rerank": 15.93
+  }
+ },
+ "cases": [
+  {
+   "id": "q001",
+   "concept_id": "penal_theft",
+   "split": "dev",
+   "question": "Quelle est la peine pour le vol ?",
+   "language": "fr",
+   "law_type": "penal",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "258",
+     "anchor": "Article 258",
+     "chunk_ids": [
+      "PenalFr/s02/258"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "260",
+     "anchor": "Article 260 (Modifié par la loi n° 89-23",
+     "chunk_ids": [
+      "PenalFr/s02/260"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "261",
+     "anchor": "Article 261",
+     "chunk_ids": [
+      "PenalFr/s02/261"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "262",
+     "anchor": "Article 262",
+     "chunk_ids": [
+      "PenalFr/s02/262"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "263",
+     "anchor": "Article 263",
+     "chunk_ids": [
+      "PenalFr/s02/263"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "264",
+     "anchor": "Article 264",
+     "chunk_ids": [
+      "PenalFr/s02/264"
+     ]
+    }
+   ],
+   "rewrite": "Quelle est la peine pour le vol ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "261",
+     "chunk_id": "PenalFr/s02/261",
+     "article_label": "261",
+     "snippet": "Article 261 (Modifié par la loi n° 89-23 du 27 février 1989).- Est \npuni de vingt ans de prison, le vol commis à l'aide de l'une des deux \npremières circonstances édictées par l'article précédent."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "262",
+     "chunk_id": "PenalFr/s02/262",
+     "article_label": "262",
+     "snippet": "Article 262 (Modifié par la loi n° 89-23 du 27 février 1989).- Est \npuni de douze ans de prison, le vol commis avec la réunion des trois \ndernières circonstances prévues à l'article 260."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "274",
+     "chunk_id": "PenalFr/s02/274",
+     "article_label": "274",
+     "snippet": "Article 274.- Est puni de deux ans d’emprisonnement et de trente six \ndinars d’amende quiconque, aura contrefait ou altéré des clefs ou aura \nconfectionné, sciemment, un instrument destiné à commettre un vol. \nLa peine est de cinq ans d’emprisonnement et de cent vingt dinars \nd'amende, si l’auteur d"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "264",
+     "chunk_id": "PenalFr/s02/264",
+     "article_label": "264",
+     "snippet": "Article 264.- La peine est de cinq ans d’emprisonnement et de \ncent vingt dinars d’amende, pour tous autres vols et soustractions \ncommis hors les cas prévus aux articles 260 à 263 du présent code. \nLa tentative est punissable."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "260",
+     "chunk_id": "PenalFr/s02/260",
+     "article_label": "260",
+     "snippet": "Article 260 (Modifié par la loi n° 89-23 du 27 février 1989).- Est \npuni de l'emprisonnement à vie, le vol commis avec la réunion des \ncinq circonstances suivantes : \n1) à l'aide de violences graves ou de menaces de violences graves \nenvers la victime ou ses proches, \n2) à l'aide d'escalade ou d'ouv"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "265",
+     "chunk_id": "PenalFr/s02/265",
+     "article_label": "265",
+     "snippet": "Article 265.- Tout individu coupable de vol peut être condamné \naux peines accessoires prévues par l'article 5 du présent code."
+    }
+   ],
+   "n_candidates": 32,
+   "score": {
+    "hit": true,
+    "hit_at_1": true,
+    "first_rank": 1,
+    "recall": 0.6666666666666666,
+    "rr": 1.0
+   },
+   "t_llm": 0.0,
+   "t_retrieve": 4.46,
+   "t_rerank": 41.16
+  },
+  {
+   "id": "q006",
+   "concept_id": "penal_defamation",
+   "split": "dev",
+   "question": "Que dit la loi sur la diffamation ?",
+   "language": "fr",
+   "law_type": "penal",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "245",
+     "anchor": "Article 245",
+     "chunk_ids": [
+      "PenalFr/s02/245"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "246",
+     "anchor": "Article 246",
+     "chunk_ids": [
+      "PenalFr/s02/246"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "247",
+     "anchor": "Article 247",
+     "chunk_ids": [
+      "PenalFr/s02/247"
+     ]
+    }
+   ],
+   "rewrite": "Que dit la loi sur la diffamation ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "245",
+     "chunk_id": "PenalFr/s02/245",
+     "article_label": "245",
+     "snippet": "Article 245.- Il y a diffamation dans toute allégation ou imputation \npublique d'un fait qui porte atteinte à l'honneur ou à la considération d'une \npersonne ou d'un corps constitué. \nLa preuve du fait diffamatoire peut être établie dans les cas prévus \nà l'article 57 du code de la presse."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "246",
+     "chunk_id": "PenalFr/s02/246",
+     "article_label": "246",
+     "snippet": "Article 246.- Il y a calomnie : \n1) lorsque le fait diffamatoire a été judiciairement déclaré non \nétabli, \n2) lorsque le prévenu ne peut rapporter la preuve dudit fait dans le \ncas où la loi l'y autorise. \nLa calomnie est punissable même si les imputations ont été faites \npar écrits non rendus publ"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "247",
+     "chunk_id": "PenalFr/s02/247",
+     "article_label": "247",
+     "snippet": "Article 247.- Est puni de six mois d’emprisonnement et de deux cent \nquarante dinars d’amende, quiconque, se sera rendu coupable de \ndiffamation. \nEst puni d'un an d’emprisonnement et de deux cent quarante dinars \nd’amende, quiconque, se sera rendu coupable de calomnie."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "248",
+     "chunk_id": "PenalFr/s02/248",
+     "article_label": "248",
+     "snippet": "Article 248 (Modifié par la loi n° 58-73 du 4 juillet 1958).- Est \npuni de deux à cinq ans d'emprisonnement et de sept cent vingt dinars \nd’amende, quiconque aura, par quelque moyen que ce soit, fait une \ndénonciation calomnieuse contre une ou plusieurs personnes à une autorité, \nadministrative ou j"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "226",
+     "chunk_id": "PenalFr/s02/226",
+     "article_label": "226",
+     "snippet": "Article 226.- Est puni de six mois d'emprisonnement et de \nquarante huit dinars d’amende, quiconque se sera, sciemment, rendu \ncoupable d'outrage public à la pudeur."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "129",
+     "chunk_id": "PenalFr/s02/129",
+     "article_label": "129",
+     "snippet": "Article 129.- Est puni d’un an d'emprisonnement, quiconque par \nparoles, écrits, gestes ou tous autres moyens, porte atteinte \npubliquement, au drapeau tunisien ou à un drapeau étranger."
+    }
+   ],
+   "n_candidates": 22,
+   "score": {
+    "hit": true,
+    "hit_at_1": true,
+    "first_rank": 1,
+    "recall": 1.0,
+    "rr": 1.0
+   },
+   "t_llm": 0.0,
+   "t_retrieve": 1.11,
+   "t_rerank": 11.8
+  },
+  {
+   "id": "q010",
+   "concept_id": "penal_arson",
+   "split": "dev",
+   "question": "Comment est puni l'incendie volontaire ?",
+   "language": "fr",
+   "law_type": "penal",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "307",
+     "anchor": "Article 307",
+     "chunk_ids": [
+      "PenalFr/s02/307"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "308",
+     "anchor": "Article 308",
+     "chunk_ids": [
+      "PenalFr/s02/308"
+     ]
+    }
+   ],
+   "rewrite": "Comment est puni l'incendie volontaire ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "307",
+     "chunk_id": "PenalFr/s02/307",
+     "article_label": "307",
+     "snippet": "Article 307 (Modifié par la loi n° 89-23 du 27 février 1989).- Est \npuni de l'emprisonnement à vie, quiconque aura mis volontairement le \nfeu, directement ou indirectement, à des édifices, navires, bateaux, \nmagasins, chantiers habités ou servant à l'habitation, et généralement aux \nlieux habités ou"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "304",
+     "chunk_id": "PenalFr/s02/304",
+     "article_label": "304",
+     "snippet": "Article 304 (Modifié par la loi n° 69-44 du 26 juillet 1969).- \nQuiconque, volontairement et autrement que par une explosion ou un \nincendie, cause un dommage à la propriété immobilière ou mobilière \nd'autrui, est puni de l'emprisonnement pendant trois ans et d'une \namende de deux mille dinars. \nSi "
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "204",
+     "chunk_id": "PenalFr/s02/204",
+     "article_label": "204",
+     "snippet": "Article 204 (Modifié par la loi n° 89-23 du 27 février 1989).- Est \npuni de mort, l’auteur de l'homicide volontaire lorsque l’homicide a \nété précédé, accompagné ou suivi d’une autre infraction passible de la \npeine d'emprisonnement ou lorsqu'il a eu pour objet, soit de préparer, \nfaciliter ou exécu"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "308",
+     "chunk_id": "PenalFr/s02/308",
+     "article_label": "308",
+     "snippet": "Article 308 (Modifié par la loi n° 89-23 du 27 février 1989).- La \npeine encourue est celle de vingt ans d'emprisonnement, si les \nbâtiments incendiés n'étaient pas habités ou ne servaient pas \nd'habitation, elle est réduite à dix ans si l'auteur du crime est \npropriétaire du bâtiment incendié."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "264",
+     "chunk_id": "PenalFr/s02/264",
+     "article_label": "264",
+     "snippet": "Article 264.- La peine est de cinq ans d’emprisonnement et de \ncent vingt dinars d’amende, pour tous autres vols et soustractions \ncommis hors les cas prévus aux articles 260 à 263 du présent code. \nLa tentative est punissable."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "201",
+     "chunk_id": "PenalFr/s02/201",
+     "article_label": "201",
+     "snippet": "Article 201.- Est puni de mort, quiconque aura, par quelque \nmoyen que ce soit, commis volontairement et avec préméditation un \nhomicide."
+    }
+   ],
+   "n_candidates": 33,
+   "score": {
+    "hit": true,
+    "hit_at_1": true,
+    "first_rank": 1,
+    "recall": 1.0,
+    "rr": 1.0
+   },
+   "t_llm": 0.0,
+   "t_retrieve": 0.3,
+   "t_rerank": 12.41
+  },
+  {
+   "id": "q011",
+   "concept_id": "penal_attempt",
+   "split": "dev",
+   "question": "Que dit la loi sur la tentative de crime ?",
+   "language": "fr",
+   "law_type": "penal",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "59",
+     "anchor": "Article 59",
+     "chunk_ids": [
+      "PenalFr/s02/59"
+     ]
+    }
+   ],
+   "rewrite": "Que dit la loi sur la tentative de crime ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "278",
+     "chunk_id": "PenalFr/s02/278",
+     "article_label": "278",
+     "snippet": "Article 278 (Modifié par la loi n°2001-49 du 3 mai 2001).- Est \npuni de deux ans d’emprisonnement et d’une amende de mille dinars, \nquiconque détruit, détourne, dissipe, prête ou dissimule des objets \nqu’il sait saisis. \nLa tentative est punissable. \nLa peine est portée au double lorsque l’infractio"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "59",
+     "chunk_id": "PenalFr/s02/59",
+     "article_label": "59",
+     "snippet": "Article 59.- Toute tentative d'infraction est punissable comme \nl'infraction elle-même si elle n'a été suspendue ou si elle n'a manqué \nson effet que par des circonstances indépendantes de la volonté de son \nauteur. Toutefois, la tentative n'est pas punissable, sauf disposition \ncontraire de la loi,"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "228",
+     "chunk_id": "PenalFr/s02/228-bis",
+     "article_label": "228-bis",
+     "snippet": "Article 228 bis (Ajouté par la loi n° 1958-15 du 4 mars 1958 et \nmodifié par la loi n° 95-93 du 9 novembre 1995).- L'attentat à la \npudeur commis sans violence sur la personne d'un enfant âgé de moins \nde dix-huit ans accomplis, est puni de cinq ans d'emprisonnement. \nLa tentative est punissable."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "97",
+     "chunk_id": "PenalFr/s02/97",
+     "article_label": "97",
+     "snippet": "Article 97 (Modifié par la loi n° 85-85 du 11 août 1985).- Est \npuni, de cinq ans d'emprisonnement et d'une amende égale à la valeur \ndu gain obtenu, toute personne de celles visées à l'article précédent, \nqui prend ou reçoit pour elle-même ou pour un tiers un intérêt \nquelconque de quelque manière "
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "255",
+     "chunk_id": "PenalFr/s02/255",
+     "article_label": "255",
+     "snippet": "Article 255.- Est puni de trois mois d’emprisonnement et de \ncent vingt dinars d'amende, quiconque aura, par la force, \ndépossédé autrui d'une propriété immobilière, sans préjudice des \npeines plus sévères encourues pour attroupement armé, port \nd'armes, menaces, violences, voies de fait et autres i"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "218",
+     "chunk_id": "PenalFr/s02/218",
+     "article_label": "218",
+     "snippet": "Article 218 (Modifié par la loi n° 93-72 du 12 juillet 1993).- \nTout individu qui, volontairement, fait des blessures, porte des coups, \nou commet toute autre violence ou voie de fait ne rentrant pas dans les \nprévisions de l'article 319, est puni d'un emprisonnement d'un an et \nd'une amende de mill"
+    }
+   ],
+   "n_candidates": 30,
+   "score": {
+    "hit": true,
+    "hit_at_1": false,
+    "first_rank": 2,
+    "recall": 1.0,
+    "rr": 0.5
+   },
+   "t_llm": 0.0,
+   "t_retrieve": 0.3,
+   "t_rerank": 17.89
+  },
+  {
+   "id": "q012",
+   "concept_id": "penal_assault",
+   "split": "dev",
+   "question": "Quelle est la peine pour les coups et blessures volontaires ?",
+   "language": "fr",
+   "law_type": "penal",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "208",
+     "anchor": "Article 208",
+     "chunk_ids": [
+      "PenalFr/s02/208"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "218",
+     "anchor": "Article 218 (Modifié par la loi n° 93-72",
+     "chunk_ids": [
+      "PenalFr/s02/218"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "219",
+     "anchor": "Article 219",
+     "chunk_ids": [
+      "PenalFr/s02/219"
+     ]
+    }
+   ],
+   "rewrite": "Quelle est la peine pour les coups et blessures volontaires ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "208",
+     "chunk_id": "PenalFr/s02/208",
+     "article_label": "208",
+     "snippet": "Article 208 (Modifié par la loi n° 89-23 du 27 février 1989).- Le \ncoupable est puni de vingt ans d'emprisonnement, si les coups portés \nou les blessures faites volontairement, mais sans intention de donner \nla mort, l'ont pourtant occasionnée. En cas de préméditation, la peine \nest celle de l'empri"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "218",
+     "chunk_id": "PenalFr/s02/218",
+     "article_label": "218",
+     "snippet": "Article 218 (Modifié par la loi n° 93-72 du 12 juillet 1993).- \nTout individu qui, volontairement, fait des blessures, porte des coups, \nou commet toute autre violence ou voie de fait ne rentrant pas dans les \nprévisions de l'article 319, est puni d'un emprisonnement d'un an et \nd'une amende de mill"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "215",
+     "chunk_id": "PenalFr/s02/215",
+     "article_label": "215",
+     "snippet": "Article 215 (Le paragraphe 2 a été modifié par la loi n° 89-23 du \n27 février 1989).- Quiconque, sans intention de donner la mort, \nadministre volontairement à une personne des substances ou se livre sur \nelle à des pratiques ou manœuvres qui déterminent une maladie ou une \nincapacité de travail, en"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "220",
+     "chunk_id": "PenalFr/s02/220",
+     "article_label": "220",
+     "snippet": "Article 220 ( Modifié par la loi n° 64-34 du 2 juillet 1964).- Les \nindividus, ayant participé à une rixe au cours de laquelle ont été portés \ndes coups et blessures de la nature de ceux prévus aux articles 218 et \n219, encourent un emprisonnement de six mois pour ce seul fait et \nsans préjudice des"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "304",
+     "chunk_id": "PenalFr/s02/304",
+     "article_label": "304",
+     "snippet": "Article 304 (Modifié par la loi n° 69-44 du 26 juillet 1969).- \nQuiconque, volontairement et autrement que par une explosion ou un \nincendie, cause un dommage à la propriété immobilière ou mobilière \nd'autrui, est puni de l'emprisonnement pendant trois ans et d'une \namende de deux mille dinars. \nSi "
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "264",
+     "chunk_id": "PenalFr/s02/264",
+     "article_label": "264",
+     "snippet": "Article 264.- La peine est de cinq ans d’emprisonnement et de \ncent vingt dinars d’amende, pour tous autres vols et soustractions \ncommis hors les cas prévus aux articles 260 à 263 du présent code. \nLa tentative est punissable."
+    }
+   ],
+   "n_candidates": 33,
+   "score": {
+    "hit": true,
+    "hit_at_1": true,
+    "first_rank": 1,
+    "recall": 0.6666666666666666,
+    "rr": 1.0
+   },
+   "t_llm": 0.0,
+   "t_retrieve": 0.9,
+   "t_rerank": 18.68
+  },
+  {
+   "id": "q013",
+   "concept_id": "penal_theft",
+   "split": "dev",
+   "question": "Que dit l'article 258 du code pénal ?",
+   "language": "fr",
+   "law_type": "penal",
+   "category": "article_lookup",
+   "gold": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "258",
+     "anchor": "Article 258",
+     "chunk_ids": [
+      "PenalFr/s02/258"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "260",
+     "anchor": "Article 260 (Modifié par la loi n° 89-23",
+     "chunk_ids": [
+      "PenalFr/s02/260"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "261",
+     "anchor": "Article 261",
+     "chunk_ids": [
+      "PenalFr/s02/261"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "262",
+     "anchor": "Article 262",
+     "chunk_ids": [
+      "PenalFr/s02/262"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "263",
+     "anchor": "Article 263",
+     "chunk_ids": [
+      "PenalFr/s02/263"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "264",
+     "anchor": "Article 264",
+     "chunk_ids": [
+      "PenalFr/s02/264"
+     ]
+    }
+   ],
+   "rewrite": "Que dit l'article 258 du code pénal ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "258",
+     "chunk_id": "PenalFr/s02/258",
+     "article_label": "258",
+     "snippet": "Article 258.- Quiconque soustrait frauduleusement une chose qui \nne lui appartient pas est coupable de vol. \nEst assimilée au vol, l'utilisation frauduleuse d'eau, de gaz, \nd'électricité au détriment des concessionnaires."
+    }
+   ],
+   "n_candidates": 1,
+   "score": {
+    "hit": true,
+    "hit_at_1": true,
+    "first_rank": 1,
+    "recall": 0.16666666666666666,
+    "rr": 1.0
+   },
+   "t_llm": 0.0,
+   "t_retrieve": 0.73,
+   "t_rerank": 0.08
+  },
+  {
+   "id": "q016",
+   "concept_id": "const_fundamental_rights",
+   "split": "dev",
+   "question": "Quels sont les droits fondamentaux ?",
+   "language": "fr",
+   "law_type": "constitution",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "24"
+    },
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "25"
+    },
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "26"
+    }
+   ],
+   "rewrite": "Quels sont les droits fondamentaux ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "22",
+     "chunk_id": "tun_RecAcFreeLi/s00/22",
+     "article_label": "22",
+     "snippet": "Art. 22 – L’Etat garantit aux citoyens et aux citoyennes les libertés et les droits individuels et collectifs. Il \nleur assure les conditions d’une vie digne."
+    },
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "25",
+     "chunk_id": "tun_RecAcFreeLi/s00/25",
+     "article_label": "25",
+     "snippet": "Art. 25 – L’Etat protège la dignité de l’être humain et son intégrité physique et interdit la torture morale et \nphysique. L’infraction de torture est imprescriptible."
+    },
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "52",
+     "chunk_id": "tun_RecAcFreeLi/s00/52",
+     "article_label": "52",
+     "snippet": "Art. 52 – Les droits de l’enfant sont garantis. \nIl incombe à ses père et mère et à l’Etat de lui garantir la dignité, la santé, les soins, l’éducation et \nl’enseignement. L’Etat doit également fournir à tous les enfants toutes les formes de protection sans \ndiscrimination et conformément à l’intérê"
+    },
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "9",
+     "chunk_id": "tun_RecAcFreeLi/s00/9",
+     "article_label": "9",
+     "snippet": "Art. 9 – La devise de la République tunisienne est Liberté, Ordre, Justice."
+    },
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "39",
+     "chunk_id": "tun_RecAcFreeLi/s00/39",
+     "article_label": "39",
+     "snippet": "Art. 39 – Les droits d’élire, de voter et de se porter candidat sont garantis dans les conditions fixées par la \nloi."
+    },
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "124",
+     "chunk_id": "tun_RecAcFreeLi/s00/124",
+     "article_label": "124",
+     "snippet": "Art. 124 – Toute personne a droit à un procès équitable dans un délai raisonnable. Les justiciables sont \négaux devant la justice. \nLe droit d’ester en justice et le droit à la défense sont garantis. La loi facilite l’accès à la justice et assure \nl’aide juridictionnelle aux démunis. \nLes audiences "
+    }
+   ],
+   "n_candidates": 24,
+   "score": {
+    "hit": true,
+    "hit_at_1": false,
+    "first_rank": 2,
+    "recall": 0.3333333333333333,
+    "rr": 0.5
+   },
+   "t_llm": 0.0,
+   "t_retrieve": 0.33,
+   "t_rerank": 14.59
+  },
+  {
+   "id": "q017",
+   "concept_id": "cpp_custody_duration",
+   "split": "dev",
+   "question": "Que dit l'article 13 sur la garde à vue ?",
+   "language": "fr",
+   "law_type": "procedure_penale",
+   "category": "article_lookup",
+   "gold": [
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "13",
+     "anchor": "Article 13.- Les officiers de police judiciaire visés aux 3°",
+     "chunk_ids": [
+      "ProcedurepenaleFr/s01/13"
+     ]
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "13",
+     "anchor": "Article 13 bis",
+     "chunk_ids": [
+      "ProcedurepenaleFr/s01/13-bis"
+     ]
+    }
+   ],
+   "rewrite": "Que dit l'article 13 sur la garde à vue ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "13",
+     "chunk_id": "ProcedurepenaleFr/s04/13",
+     "article_label": "13",
+     "snippet": "Article 13.- Est puni de cinq à douze ans d’emprisonnement et \nd'une amende de cinq mille à cinquante mille dinars : \n- Quiconque adhère sur le territoire de la République, à quelque \ntitre que ce soit, à une organisation ou entente, quelque soit la forme \nou le nombre de ses membres, qui a fait, mê"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "13",
+     "chunk_id": "ProcedurepenaleFr/s03/13",
+     "article_label": "13",
+     "snippet": "Article 13.- Une indemnisation globale du préjudice causé au \ndemandeur lui sera allouée s'il prouve que le préjudice est réel, grave, \nactuel, et résultant directement de la détention provisoire ou de \nl'exécution de la peine de prison. \nPour l'évaluation du montant de la réparation, doivent être p"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "13",
+     "chunk_id": "ProcedurepenaleFr/s01/13",
+     "article_label": "13",
+     "snippet": "Article 13.- Les officiers de police judiciaire visés aux 3° et 4° de \nl'article 10 doivent : \n1) donner avis au Procureur de la République de toute infraction \ndont ils acquièrent la connaissance dans l'exercice de leurs fonctions et \nlui transmettre tous renseignements et procès-verbaux qui s'y \nr"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "13",
+     "chunk_id": "ProcedurepenaleFr/s01/13-bis",
+     "article_label": "13-bis",
+     "snippet": "Article 13 bis (Ajouté par la loi n° 87-70 du 26 novembre 1987 \net modifié par la loi n° 99-90 du 2 août 1999).- Dans les cas où les \nnécessités de l'enquête l'exigent, les officiers de police judiciaire visés \naux numéros 3° et 4° de l'article 10, même en cas de crimes ou délits \nflagrants, et les "
+    }
+   ],
+   "n_candidates": 4,
+   "score": {
+    "hit": true,
+    "hit_at_1": false,
+    "first_rank": 3,
+    "recall": 1.0,
+    "rr": 0.3333333333333333
+   },
+   "t_llm": 0.0,
+   "t_retrieve": 0.71,
+   "t_rerank": 2.21
+  },
+  {
+   "id": "q018",
+   "concept_id": "cpp_custody_duration",
+   "split": "dev",
+   "question": "Quelle est la durée maximale de la garde à vue ?",
+   "language": "fr",
+   "law_type": "procedure_penale",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "13",
+     "anchor": "Article 13.- Les officiers de police judiciaire visés aux 3°",
+     "chunk_ids": [
+      "ProcedurepenaleFr/s01/13"
+     ]
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "13",
+     "anchor": "Article 13 bis",
+     "chunk_ids": [
+      "ProcedurepenaleFr/s01/13-bis"
+     ]
+    }
+   ],
+   "rewrite": "Quelle est la durée maximale de la garde à vue ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "85",
+     "chunk_id": "ProcedurepenaleFr/s02/85",
+     "article_label": "85",
+     "snippet": "Article 85 (Modifié par la loi n° 93-114 du 22 novembre 1993).- \nL'inculpé peut être soumis à la détention préventive dans les cas de \ncrimes ou délits flagrants et toutes les fois que, en raison de l'existence \nde présomptions graves, la détention semble nécessaire comme une \nmesure de sécurité pou"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "7",
+     "chunk_id": "ProcedurepenaleFr/s04/7",
+     "article_label": "7",
+     "snippet": "Article 7.- Le minimum de la peine d'emprisonnement encourue \npour infraction terroriste est fixé comme suit : \n- Si la peine encourue est l'emprisonnement à vie, le minimum est \nfixé à trente ans d'emprisonnement ; \n- Si la peine encourue est l'emprisonnement pour une période \ndéterminée, le minimu"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "13",
+     "chunk_id": "ProcedurepenaleFr/s01/13-bis",
+     "article_label": "13-bis",
+     "snippet": "Article 13 bis (Ajouté par la loi n° 87-70 du 26 novembre 1987 \net modifié par la loi n° 99-90 du 2 août 1999).- Dans les cas où les \nnécessités de l'enquête l'exigent, les officiers de police judiciaire visés \naux numéros 3° et 4° de l'article 10, même en cas de crimes ou délits \nflagrants, et les "
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "321",
+     "chunk_id": "ProcedurepenaleFr/s02/321",
+     "article_label": "321",
+     "snippet": "Article 321.- L'examen des demandes d'extradition est de la \ncompétence de la chambre d'accusation de la cour d'appel de Tunis. \nL'étranger comparaît devant elle dans un délai maximum de 15 jours, \nà compter de la notification du titre d'arrestation. Il est alors procédé à un \ninterrogatoire dont il"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "311",
+     "chunk_id": "ProcedurepenaleFr/s02/311",
+     "article_label": "311",
+     "snippet": "Article 311.- L'extradition est accordée : \n1) lorsque l'infraction motivant la demande est punie par la loi \ntunisienne d'une peine criminelle ou correctionnelle. \n2) lorsque la peine encourue, aux termes de la loi de l'Etat \nrequérant, est une peine privative de liberté d'une durée égale ou \nsupér"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "344",
+     "chunk_id": "ProcedurepenaleFr/s02/344",
+     "article_label": "344",
+     "snippet": "Article 344.- La contrainte par corps est exécutée à raison de un \njour d'emprisonnement par trois dinars ou fraction de trois dinars sans \nque sa durée puisse excéder deux ans. \nLa peine du travail d'intérêt général sera exécutée à raison de deux \nheures de travail par chaque jour de prison à condi"
+    }
+   ],
+   "n_candidates": 24,
+   "score": {
+    "hit": true,
+    "hit_at_1": false,
+    "first_rank": 3,
+    "recall": 0.5,
+    "rr": 0.3333333333333333
+   },
+   "t_llm": 0.0,
+   "t_retrieve": 0.3,
+   "t_rerank": 13.52
+  },
+  {
+   "id": "q020",
+   "concept_id": "cpp_public_action_limitation",
+   "split": "dev",
+   "question": "Comment se prescrit l'action publique ?",
+   "language": "fr",
+   "law_type": "procedure_penale",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "5",
+     "anchor": "Article 5.- Sauf dispositions spéciales de la loi, l'action publique",
+     "chunk_ids": [
+      "ProcedurepenaleFr/s01/5"
+     ]
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "6",
+     "anchor": "Article 6.- S'il a été fait, au cours des délais",
+     "chunk_ids": [
+      "ProcedurepenaleFr/s01/6"
+     ]
+    }
+   ],
+   "rewrite": "Comment se prescrit l'action publique ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "5",
+     "chunk_id": "ProcedurepenaleFr/s01/5",
+     "article_label": "5",
+     "snippet": "Article 5.- Sauf dispositions spéciales de la loi, l'action publique \nqui résulte d'un crime se prescrit par dix années révolues, celle qui \nrésulte d'un délit par trois années révolues et celle qui résulte d'une \ncontravention par une année révolue, et ce, à compter du jour où \nl'infraction a été c"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "37",
+     "chunk_id": "ProcedurepenaleFr/s04/37",
+     "article_label": "37",
+     "snippet": "Article 37.- L'action publique relative à une infraction terroriste se \nprescrit par vingt ans révolus si elle résulte d’un crime, celle qui \nrésulte d'un délit se prescrit par dix ans révolus, et ce, à compter du \njour où l'infraction a été commise si dans cet intervalle il n'a été \nprocédé à aucun"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "6",
+     "chunk_id": "ProcedurepenaleFr/s01/6",
+     "article_label": "6",
+     "snippet": "Article 6.- S'il a été fait, au cours des délais de prescription énumérés \nà l'article précédent, des actes d'instruction ou de poursuite non suivis de \njugement, l'action publique interrompue ne se prescrit qu'à compter du \ndernier acte, même à l'égard des personnes qui ne seraient pas impliquées \n"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "4",
+     "chunk_id": "ProcedurepenaleFr/s01/4",
+     "article_label": "4",
+     "snippet": "Article 4.- L'action publique s'éteint par : \n1) la mort du prévenu, \n2) la prescription, \n3) l'amnistie, \n4) l'abrogation de la loi pénale, \n5) la chose jugée, \n6) la transaction, lorsque la loi en dispose expressément, \n7) le retrait de plainte, lorsque celle-ci est une condition nécessaire \nde la"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "8",
+     "chunk_id": "ProcedurepenaleFr/s01/8",
+     "article_label": "8",
+     "snippet": "Article 8.- L'action civile se prescrit dans les mêmes conditions et \ndélais que l'action publique résultant de l'infraction qui lui donne \nouverture. \nElle est soumise à tous autres égards aux règles du droit civil.\n\n \nLIVRE PREMIER \nDE L'EXERCICE DE L'ACTION PUBLIQUE \nET DE L'INSTRUCTION \n \nCHAPIT"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "3",
+     "chunk_id": "ProcedurepenaleFr/s01/3",
+     "article_label": "3",
+     "snippet": "Article 3.- Hors les cas prévus par la loi, l'action publique n'est pas \nsubordonnée à l'existence d'une plainte et ne peut être arrêtée ni \nsuspendue par le retrait de la plainte ou la renonciation à l'action \ncivile."
+    }
+   ],
+   "n_candidates": 29,
+   "score": {
+    "hit": true,
+    "hit_at_1": true,
+    "first_rank": 1,
+    "recall": 1.0,
+    "rr": 1.0
+   },
+   "t_llm": 0.0,
+   "t_retrieve": 0.69,
+   "t_rerank": 17.5
+  },
+  {
+   "id": "q023",
+   "concept_id": "travail_paid_leave",
+   "split": "dev",
+   "question": "Quelle est la durée du congé annuel payé ?",
+   "language": "fr",
+   "law_type": "travail",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "travailFr.pdf",
+     "article": "112",
+     "anchor": "Article 112",
+     "chunk_ids": [
+      "travailFr/s01/112"
+     ]
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "113",
+     "anchor": "Article 113",
+     "chunk_ids": [
+      "travailFr/s01/113"
+     ]
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "115",
+     "anchor": "Article 115",
+     "chunk_ids": [
+      "travailFr/s01/115"
+     ]
+    }
+   ],
+   "rewrite": "Quelle est la durée du congé annuel payé ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "travailFr.pdf",
+     "article": "125",
+     "chunk_id": "travailFr/s01/125",
+     "article_label": "125",
+     "snippet": "Article 125.- Le congé annuel payé peut être fractionné en \npériodes d’un ou plusieurs jours jusqu’à concurrence de la moitié de \nsa durée totale. \nSont réputés jours ouvrables pour la jouissance d’un congé annuel \npayé, les jours normalement consacrés au travail dans l’établissement, \nmême s’ils so"
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "114",
+     "chunk_id": "travailFr/s01/114",
+     "article_label": "114",
+     "snippet": "Article 114 (Modifié par la loi n° 96-62 du 15 juillet 1996).- \nSont considérées comme un mois de travail effectif, pour la \ndétermination de la durée du congé annuel, les périodes équivalentes à \nvingt-six jours ouvrables. Sont assimilées à une période de travail \neffectif les périodes de congés pa"
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "117",
+     "chunk_id": "travailFr/s01/117",
+     "article_label": "117",
+     "snippet": "Article 117 (Modifié par la loi n° 96-62 du 15 juillet 1996).- Le \ncongé annuel est octroyé au cours de la période du 1er juin au 31 \noctobre de chaque année. Il peut être octroyé au cours d'une autre \npériode de l'année en vertu d'accords collectifs ou individuels ou par \nl'employeur lorsque la néc"
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "118",
+     "chunk_id": "travailFr/s01/118",
+     "article_label": "118",
+     "snippet": "Article 118.- Le congé payé ne dépassant pas six jours ouvrables \ndoit être continu. \nLe congé d'une durée supérieure à six jours ouvrables peut être \nfractionné par l'employeur, avec l'agrément du salarié. Dans le cas où\n\nle congé s'accompagne de la fermeture de l'établissement, le \nfractionnement "
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "113",
+     "chunk_id": "travailFr/s01/113",
+     "article_label": "113",
+     "snippet": "Article 113 (Modifié par la loi n° 96-62 du 15 juillet 1996).- \nTout travailleur qui, au cours de l'année de référence, justifie avoir été\n\noccupé chez le même employeur pendant une période de temps \néquivalente à un minimum d'un mois de travail effectif a droit à un \ncongé dont la durée est détermi"
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "128",
+     "chunk_id": "travailFr/s01/128",
+     "article_label": "128",
+     "snippet": "Article 128.- Lorsque le contrat de travail d’un salarié, ayant au \nmoins six mois de services continus dans la même entreprise, est \nrésilié par le fait de l'employeur, avant que ledit salarié ait pu \nbénéficier de son congé annuel payé, et sans que cette résiliation soit \nprovoquée par une faute l"
+    }
+   ],
+   "n_candidates": 24,
+   "score": {
+    "hit": true,
+    "hit_at_1": false,
+    "first_rank": 5,
+    "recall": 0.3333333333333333,
+    "rr": 0.2
+   },
+   "t_llm": 0.0,
+   "t_retrieve": 0.88,
+   "t_rerank": 12.53
+  },
+  {
+   "id": "q025",
+   "concept_id": "travail_maternity",
+   "split": "dev",
+   "question": "Quels sont les droits de la femme enceinte au travail ?",
+   "language": "fr",
+   "law_type": "travail",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "travailFr.pdf",
+     "article": "64",
+     "anchor": "Article 64.- Dans les entreprises",
+     "chunk_ids": [
+      "travailFr/s01/64"
+     ]
+    }
+   ],
+   "rewrite": "Quels sont les droits de la femme enceinte au travail ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "travailFr.pdf",
+     "article": "64",
+     "chunk_id": "travailFr/s01/64",
+     "article_label": "64",
+     "snippet": "Article 64.- Dans les entreprises de toute nature, à l’exception des \nétablissements où sont exclusivement employés les membres d’une \nmême famille, la femme : \na) aura droit à l’occasion de son accouchement, sur production \nd’un certificat médical, à un congé de repos de 30 jours. \nCe congé peut êt"
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "68",
+     "chunk_id": "travailFr/s01/68-3",
+     "article_label": "68-3",
+     "snippet": "Article 68-3 (Ajouté par la loi n° 96-62 du 15 juillet 1996).- Il \nest interdit d’appliquer les dispositions de l’article 68-2 à la femme \ntravailleuse pendant une période de seize semaines au minimum avant \net après l’accouchement, dont au moins huit avant la date probable de \nl’accouchement. \nCett"
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "18",
+     "chunk_id": "travailFr/s01/18",
+     "article_label": "18",
+     "snippet": "Article 18.- Dans tout contrat de travail, la durée de la période \nd’essai résulte des conventions collectives ou particulières, de l’usage \nou de la loi.\n\nLe temps de l’instruction prémilitaire obligatoire ou du service \nsous les drapeaux ne compte pas dans les délais impartis pour la \ndénonciation"
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "122",
+     "chunk_id": "travailFr/s01/122",
+     "article_label": "122",
+     "snippet": "Article 122.- L’époux salarié a droit à un congé supplémentaire \nd’un jour à l’occasion de chaque naissance. \nCe congé doit être pris après entente entre l’employeur et le \nbénéficiaire, soit le jour de la naissance, soit au cours des 7 jours qui \nsuivent. \nDans ce cas, le bénéficiaire perçoit une i"
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "20",
+     "chunk_id": "travailFr/s01/20",
+     "article_label": "20",
+     "snippet": "Article 20.- La maladie suspend le contrat de travail. Elle ne \nconstitue un motif de rupture que si elle est suffisamment grave ou \nprolongée et si les nécessités de l’entreprise obligent l’employeur à \nremplacer le salarié malade. \nLa suspension du travail par la femme pendant la période qui \npréc"
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "68",
+     "chunk_id": "travailFr/s01/68-2",
+     "article_label": "68-2",
+     "snippet": "Article 68-2 (Ajouté par la loi n° 96-62 du 15 juillet 1996).- \nL’intervalle de nuit pendant lequel les femmes ne peuvent être \nemployées prévu par l’article 66 du présent code peut être modifié et \nl’interdiction du travail de nuit des femmes prévue par le même article \npeut être levée et ce, dans "
+    }
+   ],
+   "n_candidates": 32,
+   "score": {
+    "hit": true,
+    "hit_at_1": true,
+    "first_rank": 1,
+    "recall": 1.0,
+    "rr": 1.0
+   },
+   "t_llm": 0.0,
+   "t_retrieve": 0.37,
+   "t_rerank": 18.09
+  },
+  {
+   "id": "q026",
+   "concept_id": "csp_marriage_conditions",
+   "split": "dev",
+   "question": "Quelles sont les conditions du mariage ?",
+   "language": "fr",
+   "law_type": "statut_personnel",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "3",
+     "anchor": "Article 3 .- Le mariage n'est formé",
+     "chunk_ids": [
+      "Statutpersonnel/s01/3"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "5",
+     "anchor": "Article 5 (Modifié par le décret-loi n°64-1",
+     "chunk_ids": [
+      "Statutpersonnel/s01/5"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "6",
+     "anchor": "Article 6 (Modifié par la loi n°93-74 du 12 juillet 1993).- Le mariage du mineur",
+     "chunk_ids": [
+      "Statutpersonnel/s01/6"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "8",
+     "anchor": "Article 8 .- Consent au mariage du mineur",
+     "chunk_ids": [
+      "Statutpersonnel/s01/8"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "14",
+     "anchor": "Article 14 .- Les empêchements au mariage",
+     "chunk_ids": [
+      "Statutpersonnel/s01/14"
+     ]
+    }
+   ],
+   "rewrite": "Quelles sont les conditions du mariage ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "3",
+     "chunk_id": "Statutpersonnel/s01/3",
+     "article_label": "3",
+     "snippet": "Article 3 .- Le mariage n'est formé que par le consentement des \ndeux époux. \nLa présence de deux témoins honorables et la fixation d'une dot au \nprofit de la femme sont, en outre, requises pour la validité du mariage."
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "15",
+     "chunk_id": "Statutpersonnel/s01/15",
+     "article_label": "15",
+     "snippet": "Article 15 .- Est prohibé, le mariage de l'homme avec ses \nascendantes et descendantes, avec ses sœurs et les descendantes à \nl'infini de ses frères et sœurs, avec ses tantes, grands-tantes et arrières \ngrands-tantes."
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "9",
+     "chunk_id": "Statutpersonnel/s01/9",
+     "article_label": "9",
+     "snippet": "Article 9 .- L'homme et la femme peuvent conclure mariage par \neux-mêmes ou par mandataire. Celui qui consent au mariage d'un \nmineur peut également le faire par procuration."
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "4",
+     "chunk_id": "Statutpersonnel/s01/4",
+     "article_label": "4",
+     "snippet": "Article 4 .- La preuve du mariage ne peut être rapportée que par \nun acte authentique dans des conditions fixées par une loi ultérieure. \nEn ce qui concerne les mariages célébrés à l'étranger, la preuve en \nest rapportée conformément aux lois du pays où le mariage a été \nconclu."
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "6",
+     "chunk_id": "Statutpersonnel/s01/6",
+     "article_label": "6",
+     "snippet": "Article 6 (Modifié par la loi n°93-74 du 12 juillet 1993).- Le\nmariage du mineur est subordonné au consentement de son tuteur et \nde sa mère. \nEn cas de refus du tuteur ou de la mère et de persistance du \nmineur, le juge est saisi. \nL'ordonnance autorisant le mariage n'est susceptible d'aucun \nrecou"
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "16",
+     "chunk_id": "Statutpersonnel/s01/16",
+     "article_label": "16",
+     "snippet": "Article 16 .- Est prohibé, le mariage de l'homme avec les \nascendantes de sa femme dès la célébration du mariage, avec les \ndescendantes de sa femme à condition que le mariage ait été \nconsommé, avec les épouses de ses ascendants ou descendants à \nquelque degré qu'ils appartiennent, dès la célébrati"
+    }
+   ],
+   "n_candidates": 31,
+   "score": {
+    "hit": true,
+    "hit_at_1": true,
+    "first_rank": 1,
+    "recall": 0.4,
+    "rr": 1.0
+   },
+   "t_llm": 0.0,
+   "t_retrieve": 0.94,
+   "t_rerank": 17.99
+  },
+  {
+   "id": "q029",
+   "concept_id": "csp_child_custody",
+   "split": "dev",
+   "question": "Comment est attribuée la garde des enfants ?",
+   "language": "fr",
+   "law_type": "statut_personnel",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "54",
+     "anchor": "Article 54 .- La garde consiste",
+     "chunk_ids": [
+      "Statutpersonnel/s01/54"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "55",
+     "anchor": "Article 55 .- La femme qui refuse",
+     "chunk_ids": [
+      "Statutpersonnel/s01/55"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "56",
+     "anchor": "Article 56 (Paragraphes 2, 3, 4",
+     "chunk_ids": [
+      "Statutpersonnel/s01/56"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "57",
+     "anchor": "Article 57 (Modifié par la loi n°66-49",
+     "chunk_ids": [
+      "Statutpersonnel/s01/57"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "58",
+     "anchor": "Article 58 (Modifié par la loi n°81-7",
+     "chunk_ids": [
+      "Statutpersonnel/s01/58"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "67",
+     "anchor": "Article 67. (Modifié par la loi n°93-74",
+     "chunk_ids": [
+      "Statutpersonnel/s01/67"
+     ]
+    }
+   ],
+   "rewrite": "Comment est attribuée la garde des enfants ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "67",
+     "chunk_id": "Statutpersonnel/s01/67",
+     "article_label": "67",
+     "snippet": "Article 67. (Modifié par la loi n°93-74 du 12 juillet 1993).- En\ncas de dissolution du mariage par décès, la garde est confiée au \nsurvivant des père et mère. \nSi le mariage est dissous du vivant des époux, la garde est confiée \nsoit à l’un d’eux, soit à une tierce personne. \nLe juge en décide en pr"
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "54",
+     "chunk_id": "Statutpersonnel/s01/54",
+     "article_label": "54",
+     "snippet": "Article 54 .- La garde consiste à élever l'enfant et à assurer sa \nprotection dans sa demeure."
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "1",
+     "chunk_id": "Statutpersonnel/s13/1",
+     "article_label": "1",
+     "snippet": "Article premier (Modifié par la loi n°2003-51 du 7 juillet \n2003).- La mère qui a la garde de son enfant mineur et dont la filiation \nest inconnue doit lui attribuer un prénom et son nom patronymique ou \nd'en demander l'autorisation, conformément aux dispositions de la loi \nréglementant l'état civil"
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "3",
+     "chunk_id": "Statutpersonnel/s11/3",
+     "article_label": "3",
+     "snippet": "Article 3 .- La tutelle officieuse est l'acte par lequel une personne \nmajeure jouissant de la pleine capacité civile, ou un organisme \nd'assistance, prend à sa charge un enfant mineur dont il assure la garde \net subvient aux besoins."
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "58",
+     "chunk_id": "Statutpersonnel/s01/58",
+     "article_label": "58",
+     "snippet": "Article 58 (Modifié par la loi n°81-7 du 18 février 1981).- Le \ntitulaire du droit de garde doit être majeur, sain d'esprit, honnête, \ncapable de pourvoir aux besoins de l'enfant, indemne de toute maladie \ncontagieuse. Le titulaire du droit de garde de sexe masculin doit avoir, \nen outre, à sa dispo"
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "2",
+     "chunk_id": "Statutpersonnel/s15/2",
+     "article_label": "2",
+     "snippet": "Article 2(Modifié par le décret n°2006-826 du 23 mars 2006).- \nLes demandes d’obtention de la pension alimentaire ou de la rente de \ndivorce doivent être accompagnées des pièces suivantes :\n\n- une copie du jugement prononçant le divorce, \n- une attestation du non recours en appel ou en cassation à \n"
+    }
+   ],
+   "n_candidates": 27,
+   "score": {
+    "hit": true,
+    "hit_at_1": true,
+    "first_rank": 1,
+    "recall": 0.5,
+    "rr": 1.0
+   },
+   "t_llm": 0.0,
+   "t_retrieve": 0.82,
+   "t_rerank": 15.89
+  },
+  {
+   "id": "q031",
+   "concept_id": "coc_contract_validity",
+   "split": "dev",
+   "question": "Quelles sont les conditions de validité d'un contrat ?",
+   "language": "fr",
+   "law_type": "obligations_contrats",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "COC.pdf",
+     "article": "2",
+     "anchor": "Article 2.- Les éléments nécessaires pour la validité",
+     "chunk_ids": [
+      "COC/s02/2"
+     ]
+    },
+    {
+     "source": "COC.pdf",
+     "article": "3",
+     "anchor": "Article 3.- Toute personne est capable",
+     "chunk_ids": [
+      "COC/s02/3"
+     ]
+    }
+   ],
+   "rewrite": "Quelles sont les conditions de validité d'un contrat ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "COC.pdf",
+     "article": "1477",
+     "chunk_id": "COC/s02/1477",
+     "article_label": "1477",
+     "snippet": "Article 1477.- Lorsque, malgré les termes employés, la convention \ndénommée transaction constitue, en réalité, une donation, une vente \nou autre rapport de droit, la validité et les effets du contrat doivent être \nappréciés d'après les dispositions qui régissent l'acte fait sous le \ncouvert de la tr"
+    },
+    {
+     "source": "COC.pdf",
+     "article": "24",
+     "chunk_id": "COC/s02/24",
+     "article_label": "24",
+     "snippet": "Article 24.- Le contrat n'est point parfait lorsque les parties ont \nexpressément réservé certaines clauses comme devant former objet \nd'un accord ultérieur ; l'accord intervenu, dans ces conditions, sur une \nou plusieurs clauses, ne constitue pas engagement, alors même que les \npréliminaires de la "
+    },
+    {
+     "source": "COC.pdf",
+     "article": "242",
+     "chunk_id": "COC/s02/242",
+     "article_label": "242",
+     "snippet": "Article 242.- Les obligations contractuelles valablement formées \ntiennent lieu de loi à ceux qui les ont faites, et ne peuvent être \nrévoquées que de leur consentement mutuel ou dans les cas prévus par \nla loi."
+    },
+    {
+     "source": "COC.pdf",
+     "article": "274",
+     "chunk_id": "COC/s02/274",
+     "article_label": "274",
+     "snippet": "Article 274.- Si les parties sont convenues que le contrat sera \nrésolu dans les cas où l'une d'elles n'accomplirait pas ses engagements, \nla résolution du contrat s'opère de plein droit par le seul fait de \nl'inexécution."
+    },
+    {
+     "source": "COC.pdf",
+     "article": "1000",
+     "chunk_id": "COC/s02/1000",
+     "article_label": "1000",
+     "snippet": "Article 1000.- Il n’est pas nécessaire, pour la validité du dépôt \nentre les parties, que le déposant soit propriétaire de la chose déposée \nni qu’il la possède à titre légitime."
+    },
+    {
+     "source": "COC.pdf",
+     "article": "328",
+     "chunk_id": "COC/s02/328",
+     "article_label": "328",
+     "snippet": "Article 328.- L’obligation qui est nulle comme telle, mais qui a les \nconditions de validité d’une autre obligation légitime, doit être régie \npar les règles établies pour cette obligation."
+    }
+   ],
+   "n_candidates": 32,
+   "score": {
+    "hit": false,
+    "hit_at_1": false,
+    "first_rank": null,
+    "recall": 0.0,
+    "rr": 0.0
+   },
+   "t_llm": 0.0,
+   "t_retrieve": 0.81,
+   "t_rerank": 18.39
+  },
+  {
+   "id": "q035",
+   "concept_id": "coc_seller_duties",
+   "split": "dev",
+   "question": "Quelles sont les obligations du vendeur ?",
+   "language": "fr",
+   "law_type": "obligations_contrats",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "COC.pdf",
+     "article": "564"
+    },
+    {
+     "source": "COC.pdf",
+     "article": "611"
+    },
+    {
+     "source": "COC.pdf",
+     "article": "612"
+    }
+   ],
+   "rewrite": "Quelles sont les obligations du vendeur ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "COC.pdf",
+     "article": "591",
+     "chunk_id": "COC/s02/591",
+     "article_label": "591",
+     "snippet": "Article 591.- Le vendeur a deux obligations principales : \n1) celle de délivrer la chose vendue ; \n2) celle de la garantir. \nParag. I. - De la délivrance"
+    },
+    {
+     "source": "COC.pdf",
+     "article": "675",
+     "chunk_id": "COC/s02/675",
+     "article_label": "675",
+     "snippet": "Article 675.- L'acheteur a deux obligations principales : \n1) celle de payer le prix; \n2) et celle de prendre livraison de la chose."
+    },
+    {
+     "source": "COC.pdf",
+     "article": "590",
+     "chunk_id": "COC/s02/590",
+     "article_label": "590",
+     "snippet": "Article 590.- En cas de vente de fruits sur l’arbre, des produits \nd’un potager ou d’une récolte pendante, les fruits ou les légumes sont \naux risques du vendeur jusqu’au moment de leur complète maturation. \nSection II \nDes obligations du vendeur"
+    },
+    {
+     "source": "COC.pdf",
+     "article": "739",
+     "chunk_id": "COC/s02/739",
+     "article_label": "739",
+     "snippet": "Article 739.- Le bailleur est tenu de deux obligations principales : \n1) celle de délivrer au preneur la chose louée ; \n2) celle de la garantir. \n \n)\n\n(\n Le renvoi sur l’article 576 au présent article ne figure pas dans la version arabe.\n\nA - De la délivrance et de l’entretien de la chose louée."
+    },
+    {
+     "source": "COC.pdf",
+     "article": "607",
+     "chunk_id": "COC/s02/607",
+     "article_label": "607",
+     "snippet": "Article 607.- Si, avant la délivrance, la chose déterminée qui fait \nl’objet de la vente est détériorée ou détruite par le fait du vendeur ou\n\npar sa faute, l’acheteur a le droit de demander la valeur de la chose ou \nune indemnité correspondant à sa moins-value, dans les mêmes \nconditions où il aura"
+    },
+    {
+     "source": "COC.pdf",
+     "article": "564",
+     "chunk_id": "COC/s02/564",
+     "article_label": "564",
+     "snippet": "Article 564.- La vente est un contrat par lequel l’une des parties \ntransmet la propriété d’une chose ou d’un droit à l’autre contractant, \ncontre un prix que ce dernier s’oblige à lui payer."
+    }
+   ],
+   "n_candidates": 33,
+   "score": {
+    "hit": true,
+    "hit_at_1": false,
+    "first_rank": 6,
+    "recall": 0.3333333333333333,
+    "rr": 0.16666666666666666
+   },
+   "t_llm": 0.0,
+   "t_retrieve": 0.74,
+   "t_rerank": 17.46
+  },
+  {
+   "id": "q039",
+   "concept_id": "arb_agreement",
+   "split": "dev",
+   "question": "Qu'est-ce qu'une convention d'arbitrage ?",
+   "language": "fr",
+   "law_type": "arbitrage",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "ArbitrageFr.pdf",
+     "article": "2",
+     "anchor": "Article 2 La convention d'arbitrage est l'engagement",
+     "chunk_ids": [
+      "ArbitrageFr/s01/2"
+     ]
+    },
+    {
+     "source": "ArbitrageFr.pdf",
+     "article": "3",
+     "anchor": "Article 3 La clause compromissoire",
+     "chunk_ids": [
+      "ArbitrageFr/s01/3"
+     ]
+    },
+    {
+     "source": "ArbitrageFr.pdf",
+     "article": "6",
+     "anchor": "Article 6 La convention d'arbitrage ne peut",
+     "chunk_ids": [
+      "ArbitrageFr/s01/6"
+     ]
+    }
+   ],
+   "rewrite": "Qu'est-ce qu'une convention d'arbitrage ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "ArbitrageFr.pdf",
+     "article": "2",
+     "chunk_id": "ArbitrageFr/s01/2",
+     "article_label": "2",
+     "snippet": "Article 2 \n \nLa convention d'arbitrage est l'engagement des parties de \nrégler par l'arbitrage toutes ou certaines contestations nées ou \npouvant naître entre elles concernant un rapport de droit \ndéterminé, contractuel ou non contractuel. La convention \nd'arbitrage revêt la forme d'une clause compr"
+    },
+    {
+     "source": "ArbitrageFr.pdf",
+     "article": "6",
+     "chunk_id": "ArbitrageFr/s01/6",
+     "article_label": "6",
+     "snippet": "Article 6 \nLa convention d'arbitrage ne peut être établie que par écrit, \nsoit par acte authentique ou sous seing privé, soit par procès-\nverbal d'audience ou procès-verbal dressé auprès du tribunal \narbitral choisi. \nLa convention d'arbitrage est réputée établie par écrit, \nlorsqu'elle est consigné"
+    },
+    {
+     "source": "ArbitrageFr.pdf",
+     "article": "1",
+     "chunk_id": "ArbitrageFr/s01/1",
+     "article_label": "1",
+     "snippet": "Article premier \nL'arbitrage est un procédé privé de règlement de certaines \ncatégories de contestations par un tribunal arbitral auquel les \nparties confient la mission de les juger en vertu d'une \nconvention d'arbitrage."
+    },
+    {
+     "source": "ArbitrageFr.pdf",
+     "article": "17",
+     "chunk_id": "ArbitrageFr/s01/17",
+     "article_label": "17",
+     "snippet": "Article 17 \nLa convention d'arbitrage doit, à peine de nullité, indiquer \nl'objet du litige, les noms des arbitres, d'une manière expresse \nou suffisamment précise, pour qu'il ne reste aucun doute sur \nleur individualité."
+    },
+    {
+     "source": "ArbitrageFr.pdf",
+     "article": "1",
+     "chunk_id": "ArbitrageFr/s02/1",
+     "article_label": "1",
+     "snippet": "Article premier \nIl est ajouté à l'article 9 du code des droits d'enregistrement \net de timbre le numéro 18 suivant : \n18 - Les conventions d'arbitrage, les sentences arbitrales \nainsi que les jugements et arrêts prononçant leur exécution ou \nles recours contre ces sentences. \n \n \n(1) Travaux prépar"
+    },
+    {
+     "source": "ArbitrageFr.pdf",
+     "article": "8",
+     "chunk_id": "ArbitrageFr/s01/8",
+     "article_label": "8",
+     "snippet": "Article 8 \n \nLes parties à une convention d'arbitrage doivent avoir la \ncapacité de disposer de leurs droits."
+    }
+   ],
+   "n_candidates": 30,
+   "score": {
+    "hit": true,
+    "hit_at_1": true,
+    "first_rank": 1,
+    "recall": 0.6666666666666666,
+    "rr": 1.0
+   },
+   "t_llm": 0.0,
+   "t_retrieve": 0.74,
+   "t_rerank": 16.1
+  },
+  {
+   "id": "q041",
+   "concept_id": "penal_theft",
+   "split": "dev",
+   "question": "Quelle est la peine pour le vol ?",
+   "language": "fr",
+   "law_type": null,
+   "category": "cross_domain",
+   "gold": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "258",
+     "anchor": "Article 258",
+     "chunk_ids": [
+      "PenalFr/s02/258"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "260",
+     "anchor": "Article 260 (Modifié par la loi n° 89-23",
+     "chunk_ids": [
+      "PenalFr/s02/260"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "261",
+     "anchor": "Article 261",
+     "chunk_ids": [
+      "PenalFr/s02/261"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "262",
+     "anchor": "Article 262",
+     "chunk_ids": [
+      "PenalFr/s02/262"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "263",
+     "anchor": "Article 263",
+     "chunk_ids": [
+      "PenalFr/s02/263"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "264",
+     "anchor": "Article 264",
+     "chunk_ids": [
+      "PenalFr/s02/264"
+     ]
+    }
+   ],
+   "rewrite": "Quelle est la peine pour le vol ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "261",
+     "chunk_id": "PenalFr/s02/261",
+     "article_label": "261",
+     "snippet": "Article 261 (Modifié par la loi n° 89-23 du 27 février 1989).- Est \npuni de vingt ans de prison, le vol commis à l'aide de l'une des deux \npremières circonstances édictées par l'article précédent."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "262",
+     "chunk_id": "PenalFr/s02/262",
+     "article_label": "262",
+     "snippet": "Article 262 (Modifié par la loi n° 89-23 du 27 février 1989).- Est \npuni de douze ans de prison, le vol commis avec la réunion des trois \ndernières circonstances prévues à l'article 260."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "274",
+     "chunk_id": "PenalFr/s02/274",
+     "article_label": "274",
+     "snippet": "Article 274.- Est puni de deux ans d’emprisonnement et de trente six \ndinars d’amende quiconque, aura contrefait ou altéré des clefs ou aura \nconfectionné, sciemment, un instrument destiné à commettre un vol. \nLa peine est de cinq ans d’emprisonnement et de cent vingt dinars \nd'amende, si l’auteur d"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "264",
+     "chunk_id": "PenalFr/s02/264",
+     "article_label": "264",
+     "snippet": "Article 264.- La peine est de cinq ans d’emprisonnement et de \ncent vingt dinars d’amende, pour tous autres vols et soustractions \ncommis hors les cas prévus aux articles 260 à 263 du présent code. \nLa tentative est punissable."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "260",
+     "chunk_id": "PenalFr/s02/260",
+     "article_label": "260",
+     "snippet": "Article 260 (Modifié par la loi n° 89-23 du 27 février 1989).- Est \npuni de l'emprisonnement à vie, le vol commis avec la réunion des \ncinq circonstances suivantes : \n1) à l'aide de violences graves ou de menaces de violences graves \nenvers la victime ou ses proches, \n2) à l'aide d'escalade ou d'ouv"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "265",
+     "chunk_id": "PenalFr/s02/265",
+     "article_label": "265",
+     "snippet": "Article 265.- Tout individu coupable de vol peut être condamné \naux peines accessoires prévues par l'article 5 du présent code."
+    }
+   ],
+   "n_candidates": 33,
+   "score": {
+    "hit": true,
+    "hit_at_1": true,
+    "first_rank": 1,
+    "recall": 0.6666666666666666,
+    "rr": 1.0
+   },
+   "t_llm": 0.0,
+   "t_retrieve": 0.73,
+   "t_rerank": 17.12
+  },
+  {
+   "id": "q046",
+   "concept_id": "penal_assault",
+   "split": "dev",
+   "question": "Que risque-t-on si on frappe quelqu'un ?",
+   "language": "fr",
+   "law_type": "penal",
+   "category": "colloquial",
+   "gold": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "208",
+     "anchor": "Article 208",
+     "chunk_ids": [
+      "PenalFr/s02/208"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "218",
+     "anchor": "Article 218 (Modifié par la loi n° 93-72",
+     "chunk_ids": [
+      "PenalFr/s02/218"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "219",
+     "anchor": "Article 219",
+     "chunk_ids": [
+      "PenalFr/s02/219"
+     ]
+    }
+   ],
+   "rewrite": "Que risque-t-on si on frappe quelqu'un ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "223",
+     "chunk_id": "PenalFr/s02/223",
+     "article_label": "223",
+     "snippet": "Article 223.- Est puni d'un an d’emprisonnement et de deux cent \nvingt dinars d’amende, quiconque aura menacé autrui à l’aide d’une \narme, même sans intention d’en faire usage."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "101",
+     "chunk_id": "PenalFr/s02/101",
+     "article_label": "101",
+     "snippet": "Article 101.- Est puni de cinq ans d'emprisonnement et de cent \nvingt dinars d'amende, tout fonctionnaire public ou assimilé qui, dans \nl'exercice ou à l'occasion de l'exercice de ses fonctions aura, sans \nmotif légitime, usé ou fait user de violences envers les personnes."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "255",
+     "chunk_id": "PenalFr/s02/255",
+     "article_label": "255",
+     "snippet": "Article 255.- Est puni de trois mois d’emprisonnement et de \ncent vingt dinars d'amende, quiconque aura, par la force, \ndépossédé autrui d'une propriété immobilière, sans préjudice des \npeines plus sévères encourues pour attroupement armé, port \nd'armes, menaces, violences, voies de fait et autres i"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "125",
+     "chunk_id": "PenalFr/s02/125",
+     "article_label": "125",
+     "snippet": "Article 125.- Est puni d'un an d’emprisonnement et de cent vingt \ndinars d’amende, quiconque, par paroles, gestes ou menaces se rend\n\ncoupable d’outrage à un fonctionnaire public ou assimilé dans \nl'exercice ou à l'occasion de l'exercice de ses fonctions."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "225",
+     "chunk_id": "PenalFr/s02/225",
+     "article_label": "225",
+     "snippet": "Article 225 (Modifié par le décret du 17 février 1936).- Est puni \nd'un an d'emprisonnement et de quatre cent quatre vingt dinars \nd'amende, quiconque aura, par maladresse, impéritie, imprudence, \ninattention, négligence ou inobservation des règlements, causé des \nlésions corporelles à autrui ou les"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "175",
+     "chunk_id": "PenalFr/s02/175",
+     "article_label": "175",
+     "snippet": "Article 175 (Modifié par la loi n° 89-23 du 27 février 1989).- Est \npunie de quinze ans d'emprisonnement et d'une amende de trois cents \ndinars, toute autre personne qui a commis un faux par l'un des moyens \nprévus à l'article 172 du présent code."
+    }
+   ],
+   "n_candidates": 22,
+   "score": {
+    "hit": false,
+    "hit_at_1": false,
+    "first_rank": null,
+    "recall": 0.0,
+    "rr": 0.0
+   },
+   "t_llm": 0.0,
+   "t_retrieve": 0.75,
+   "t_rerank": 4.33
+  },
+  {
+   "id": "q047",
+   "concept_id": "penal_theft",
+   "split": "dev",
+   "question": "ما هي عقوبة السرقة؟",
+   "language": "ar",
+   "law_type": "penal",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "258",
+     "anchor": "Article 258",
+     "chunk_ids": [
+      "PenalFr/s02/258"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "260",
+     "anchor": "Article 260 (Modifié par la loi n° 89-23",
+     "chunk_ids": [
+      "PenalFr/s02/260"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "261",
+     "anchor": "Article 261",
+     "chunk_ids": [
+      "PenalFr/s02/261"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "262",
+     "anchor": "Article 262",
+     "chunk_ids": [
+      "PenalFr/s02/262"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "263",
+     "anchor": "Article 263",
+     "chunk_ids": [
+      "PenalFr/s02/263"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "264",
+     "anchor": "Article 264",
+     "chunk_ids": [
+      "PenalFr/s02/264"
+     ]
+    }
+   ],
+   "rewrite": "Quelle est la punition du vol ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "261",
+     "chunk_id": "PenalFr/s02/261",
+     "article_label": "261",
+     "snippet": "Article 261 (Modifié par la loi n° 89-23 du 27 février 1989).- Est \npuni de vingt ans de prison, le vol commis à l'aide de l'une des deux \npremières circonstances édictées par l'article précédent."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "263",
+     "chunk_id": "PenalFr/s02/263",
+     "article_label": "263",
+     "snippet": "Article 263.- Est puni de dix ans d’emprisonnement l’auteur du \nvol commis : \n1°- au cours d'un incendie ou après une explosion, inondation, \nnaufrage, accident de chemin de fer, révolte, émeute ou tout autre \ntrouble, \n2°- par des hôteliers et autres tenanciers d’établissements exerçant \nune telle "
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "262",
+     "chunk_id": "PenalFr/s02/262",
+     "article_label": "262",
+     "snippet": "Article 262 (Modifié par la loi n° 89-23 du 27 février 1989).- Est \npuni de douze ans de prison, le vol commis avec la réunion des trois \ndernières circonstances prévues à l'article 260."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "274",
+     "chunk_id": "PenalFr/s02/274",
+     "article_label": "274",
+     "snippet": "Article 274.- Est puni de deux ans d’emprisonnement et de trente six \ndinars d’amende quiconque, aura contrefait ou altéré des clefs ou aura \nconfectionné, sciemment, un instrument destiné à commettre un vol. \nLa peine est de cinq ans d’emprisonnement et de cent vingt dinars \nd'amende, si l’auteur d"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "260",
+     "chunk_id": "PenalFr/s02/260",
+     "article_label": "260",
+     "snippet": "Article 260 (Modifié par la loi n° 89-23 du 27 février 1989).- Est \npuni de l'emprisonnement à vie, le vol commis avec la réunion des \ncinq circonstances suivantes : \n1) à l'aide de violences graves ou de menaces de violences graves \nenvers la victime ou ses proches, \n2) à l'aide d'escalade ou d'ouv"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "264",
+     "chunk_id": "PenalFr/s02/264",
+     "article_label": "264",
+     "snippet": "Article 264.- La peine est de cinq ans d’emprisonnement et de \ncent vingt dinars d’amende, pour tous autres vols et soustractions \ncommis hors les cas prévus aux articles 260 à 263 du présent code. \nLa tentative est punissable."
+    }
+   ],
+   "n_candidates": 23,
+   "score": {
+    "hit": true,
+    "hit_at_1": true,
+    "first_rank": 1,
+    "recall": 0.8333333333333334,
+    "rr": 1.0
+   },
+   "t_llm": 1.96,
+   "t_retrieve": 0.42,
+   "t_rerank": 13.76
+  },
+  {
+   "id": "q055",
+   "concept_id": "cpp_custody_duration",
+   "split": "dev",
+   "question": "ما هي مدة الاحتفاظ؟",
+   "language": "ar",
+   "law_type": "procedure_penale",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "13",
+     "anchor": "Article 13.- Les officiers de police judiciaire visés aux 3°",
+     "chunk_ids": [
+      "ProcedurepenaleFr/s01/13"
+     ]
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "13",
+     "anchor": "Article 13 bis",
+     "chunk_ids": [
+      "ProcedurepenaleFr/s01/13-bis"
+     ]
+    }
+   ],
+   "rewrite": "Quelle est la durée de conservation ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "75",
+     "chunk_id": "ProcedurepenaleFr/s04/75",
+     "article_label": "75",
+     "snippet": "Article 75 (Modifié par la loi n°2009-65 du 12 août 2009).- Les \npersonnes visées à l’article 74 de la présente loi doivent conserver \npendant une période qui ne peut être inférieure à dix ans à compter de \nla date de la réalisation de l’opération ou de clôture du compte, les \nregistres, livres comp"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "85",
+     "chunk_id": "ProcedurepenaleFr/s02/85",
+     "article_label": "85",
+     "snippet": "Article 85 (Modifié par la loi n° 93-114 du 22 novembre 1993).- \nL'inculpé peut être soumis à la détention préventive dans les cas de \ncrimes ou délits flagrants et toutes les fois que, en raison de l'existence \nde présomptions graves, la détention semble nécessaire comme une \nmesure de sécurité pou"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "13",
+     "chunk_id": "ProcedurepenaleFr/s01/13-bis",
+     "article_label": "13-bis",
+     "snippet": "Article 13 bis (Ajouté par la loi n° 87-70 du 26 novembre 1987 \net modifié par la loi n° 99-90 du 2 août 1999).- Dans les cas où les \nnécessités de l'enquête l'exigent, les officiers de police judiciaire visés \naux numéros 3° et 4° de l'article 10, même en cas de crimes ou délits \nflagrants, et les "
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "202",
+     "chunk_id": "ProcedurepenaleFr/s02/202",
+     "article_label": "202",
+     "snippet": "Article 202.- Le juge peut retenir à sa disposition sous mandat de \ndépôt, le prévenu en état d'ivresse, ou ne pouvant justifier de son \nidentité, ou n'ayant pas de domicile fixe, ou lorsque des désordres sont \nà craindre. \nEn aucun cas le prévenu n'est retenu plus de huit jours."
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "311",
+     "chunk_id": "ProcedurepenaleFr/s02/311",
+     "article_label": "311",
+     "snippet": "Article 311.- L'extradition est accordée : \n1) lorsque l'infraction motivant la demande est punie par la loi \ntunisienne d'une peine criminelle ou correctionnelle. \n2) lorsque la peine encourue, aux termes de la loi de l'Etat \nrequérant, est une peine privative de liberté d'une durée égale ou \nsupér"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "83",
+     "chunk_id": "ProcedurepenaleFr/s04/83",
+     "article_label": "83",
+     "snippet": "Article 83 (Modifié par la loi n°2009-65 du 12 août 2009).- La \ncommission tunisienne des analyses financières est tenue de mettre en \nplace une base de données faisant état des personnes physiques et \nmorales suspectées d'être en lien avec des opérations de financement \ndu terrorisme ou de blanchim"
+    }
+   ],
+   "n_candidates": 31,
+   "score": {
+    "hit": true,
+    "hit_at_1": false,
+    "first_rank": 3,
+    "recall": 0.5,
+    "rr": 0.3333333333333333
+   },
+   "t_llm": 0.74,
+   "t_retrieve": 1.2,
+   "t_rerank": 17.9
+  },
+  {
+   "id": "q057",
+   "concept_id": "travail_paid_leave",
+   "split": "dev",
+   "question": "ما هي مدة الإجازة السنوية المدفوعة؟",
+   "language": "ar",
+   "law_type": "travail",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "travailFr.pdf",
+     "article": "112",
+     "anchor": "Article 112",
+     "chunk_ids": [
+      "travailFr/s01/112"
+     ]
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "113",
+     "anchor": "Article 113",
+     "chunk_ids": [
+      "travailFr/s01/113"
+     ]
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "115",
+     "anchor": "Article 115",
+     "chunk_ids": [
+      "travailFr/s01/115"
+     ]
+    }
+   ],
+   "rewrite": "Quelle est la durée du congé annuel payé ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "travailFr.pdf",
+     "article": "125",
+     "chunk_id": "travailFr/s01/125",
+     "article_label": "125",
+     "snippet": "Article 125.- Le congé annuel payé peut être fractionné en \npériodes d’un ou plusieurs jours jusqu’à concurrence de la moitié de \nsa durée totale. \nSont réputés jours ouvrables pour la jouissance d’un congé annuel \npayé, les jours normalement consacrés au travail dans l’établissement, \nmême s’ils so"
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "114",
+     "chunk_id": "travailFr/s01/114",
+     "article_label": "114",
+     "snippet": "Article 114 (Modifié par la loi n° 96-62 du 15 juillet 1996).- \nSont considérées comme un mois de travail effectif, pour la \ndétermination de la durée du congé annuel, les périodes équivalentes à \nvingt-six jours ouvrables. Sont assimilées à une période de travail \neffectif les périodes de congés pa"
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "117",
+     "chunk_id": "travailFr/s01/117",
+     "article_label": "117",
+     "snippet": "Article 117 (Modifié par la loi n° 96-62 du 15 juillet 1996).- Le \ncongé annuel est octroyé au cours de la période du 1er juin au 31 \noctobre de chaque année. Il peut être octroyé au cours d'une autre \npériode de l'année en vertu d'accords collectifs ou individuels ou par \nl'employeur lorsque la néc"
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "118",
+     "chunk_id": "travailFr/s01/118",
+     "article_label": "118",
+     "snippet": "Article 118.- Le congé payé ne dépassant pas six jours ouvrables \ndoit être continu. \nLe congé d'une durée supérieure à six jours ouvrables peut être \nfractionné par l'employeur, avec l'agrément du salarié. Dans le cas où\n\nle congé s'accompagne de la fermeture de l'établissement, le \nfractionnement "
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "113",
+     "chunk_id": "travailFr/s01/113",
+     "article_label": "113",
+     "snippet": "Article 113 (Modifié par la loi n° 96-62 du 15 juillet 1996).- \nTout travailleur qui, au cours de l'année de référence, justifie avoir été\n\noccupé chez le même employeur pendant une période de temps \néquivalente à un minimum d'un mois de travail effectif a droit à un \ncongé dont la durée est détermi"
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "128",
+     "chunk_id": "travailFr/s01/128",
+     "article_label": "128",
+     "snippet": "Article 128.- Lorsque le contrat de travail d’un salarié, ayant au \nmoins six mois de services continus dans la même entreprise, est \nrésilié par le fait de l'employeur, avant que ledit salarié ait pu \nbénéficier de son congé annuel payé, et sans que cette résiliation soit \nprovoquée par une faute l"
+    }
+   ],
+   "n_candidates": 24,
+   "score": {
+    "hit": true,
+    "hit_at_1": false,
+    "first_rank": 5,
+    "recall": 0.3333333333333333,
+    "rr": 0.2
+   },
+   "t_llm": 0.7,
+   "t_retrieve": 1.19,
+   "t_rerank": 13.19
+  },
+  {
+   "id": "q059",
+   "concept_id": "csp_marriage_conditions",
+   "split": "dev",
+   "question": "ما هي شروط الزواج؟",
+   "language": "ar",
+   "law_type": "statut_personnel",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "3",
+     "anchor": "Article 3 .- Le mariage n'est formé",
+     "chunk_ids": [
+      "Statutpersonnel/s01/3"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "5",
+     "anchor": "Article 5 (Modifié par le décret-loi n°64-1",
+     "chunk_ids": [
+      "Statutpersonnel/s01/5"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "6",
+     "anchor": "Article 6 (Modifié par la loi n°93-74 du 12 juillet 1993).- Le mariage du mineur",
+     "chunk_ids": [
+      "Statutpersonnel/s01/6"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "8",
+     "anchor": "Article 8 .- Consent au mariage du mineur",
+     "chunk_ids": [
+      "Statutpersonnel/s01/8"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "14",
+     "anchor": "Article 14 .- Les empêchements au mariage",
+     "chunk_ids": [
+      "Statutpersonnel/s01/14"
+     ]
+    }
+   ],
+   "rewrite": "Quelles sont les conditions du mariage ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "3",
+     "chunk_id": "Statutpersonnel/s01/3",
+     "article_label": "3",
+     "snippet": "Article 3 .- Le mariage n'est formé que par le consentement des \ndeux époux. \nLa présence de deux témoins honorables et la fixation d'une dot au \nprofit de la femme sont, en outre, requises pour la validité du mariage."
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "15",
+     "chunk_id": "Statutpersonnel/s01/15",
+     "article_label": "15",
+     "snippet": "Article 15 .- Est prohibé, le mariage de l'homme avec ses \nascendantes et descendantes, avec ses sœurs et les descendantes à \nl'infini de ses frères et sœurs, avec ses tantes, grands-tantes et arrières \ngrands-tantes."
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "9",
+     "chunk_id": "Statutpersonnel/s01/9",
+     "article_label": "9",
+     "snippet": "Article 9 .- L'homme et la femme peuvent conclure mariage par \neux-mêmes ou par mandataire. Celui qui consent au mariage d'un \nmineur peut également le faire par procuration."
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "4",
+     "chunk_id": "Statutpersonnel/s01/4",
+     "article_label": "4",
+     "snippet": "Article 4 .- La preuve du mariage ne peut être rapportée que par \nun acte authentique dans des conditions fixées par une loi ultérieure. \nEn ce qui concerne les mariages célébrés à l'étranger, la preuve en \nest rapportée conformément aux lois du pays où le mariage a été \nconclu."
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "6",
+     "chunk_id": "Statutpersonnel/s01/6",
+     "article_label": "6",
+     "snippet": "Article 6 (Modifié par la loi n°93-74 du 12 juillet 1993).- Le\nmariage du mineur est subordonné au consentement de son tuteur et \nde sa mère. \nEn cas de refus du tuteur ou de la mère et de persistance du \nmineur, le juge est saisi. \nL'ordonnance autorisant le mariage n'est susceptible d'aucun \nrecou"
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "16",
+     "chunk_id": "Statutpersonnel/s01/16",
+     "article_label": "16",
+     "snippet": "Article 16 .- Est prohibé, le mariage de l'homme avec les \nascendantes de sa femme dès la célébration du mariage, avec les \ndescendantes de sa femme à condition que le mariage ait été \nconsommé, avec les épouses de ses ascendants ou descendants à \nquelque degré qu'ils appartiennent, dès la célébrati"
+    }
+   ],
+   "n_candidates": 32,
+   "score": {
+    "hit": true,
+    "hit_at_1": true,
+    "first_rank": 1,
+    "recall": 0.4,
+    "rr": 1.0
+   },
+   "t_llm": 0.81,
+   "t_retrieve": 0.69,
+   "t_rerank": 18.91
+  },
+  {
+   "id": "q062",
+   "concept_id": "csp_child_custody",
+   "split": "dev",
+   "question": "من يحق له حضانة الأطفال؟",
+   "language": "ar",
+   "law_type": "statut_personnel",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "54",
+     "anchor": "Article 54 .- La garde consiste",
+     "chunk_ids": [
+      "Statutpersonnel/s01/54"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "55",
+     "anchor": "Article 55 .- La femme qui refuse",
+     "chunk_ids": [
+      "Statutpersonnel/s01/55"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "56",
+     "anchor": "Article 56 (Paragraphes 2, 3, 4",
+     "chunk_ids": [
+      "Statutpersonnel/s01/56"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "57",
+     "anchor": "Article 57 (Modifié par la loi n°66-49",
+     "chunk_ids": [
+      "Statutpersonnel/s01/57"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "58",
+     "anchor": "Article 58 (Modifié par la loi n°81-7",
+     "chunk_ids": [
+      "Statutpersonnel/s01/58"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "67",
+     "anchor": "Article 67. (Modifié par la loi n°93-74",
+     "chunk_ids": [
+      "Statutpersonnel/s01/67"
+     ]
+    }
+   ],
+   "rewrite": "Qui a droit à la garde des enfants ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "59",
+     "chunk_id": "Statutpersonnel/s01/59",
+     "article_label": "59",
+     "snippet": "Article 59 .- La titulaire du droit de garde d'une confession autre \nque celle du père de l'enfant ne pourra exercer ce droit qu'autant que\n\nl'enfant n'aura pas cinq ans révolus et qu'il n'y aura aucun sujet de \ncraindre qu'il ne soit élevé dans une autre religion que celle de son \npère. \nLes dispos"
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "60",
+     "chunk_id": "Statutpersonnel/s01/60",
+     "article_label": "60",
+     "snippet": "Article 60. (Modifié par la loi n°93-74 du 12 juillet 1993).- Le \npère, le tuteur et la mère de l'enfant peuvent avoir un droit de regard \nsur ses affaires, pourvoir à son éducation et l'envoyer aux \nétablissements scolaires, mais l'enfant ne peut passer la nuit que chez \ncelui qui en a la garde, le"
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "56",
+     "chunk_id": "Statutpersonnel/s01/56",
+     "article_label": "56",
+     "snippet": "Article 56 (Paragraphes 2, 3, 4, 5, 6 et 7 ajoutés par la loi \nn°2008-20 du 4 mars 2008).- Les frais nécessaires à l'entretien de \nl'enfant sont prélevés sur ses biens ou sur ceux du père si l'enfant n'a \npas de biens propres. Le père doit pourvoir au logement de l'enfant et \nde la titulaire de la g"
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "67",
+     "chunk_id": "Statutpersonnel/s01/67",
+     "article_label": "67",
+     "snippet": "Article 67. (Modifié par la loi n°93-74 du 12 juillet 1993).- En\ncas de dissolution du mariage par décès, la garde est confiée au \nsurvivant des père et mère. \nSi le mariage est dissous du vivant des époux, la garde est confiée \nsoit à l’un d’eux, soit à une tierce personne. \nLe juge en décide en pr"
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "58",
+     "chunk_id": "Statutpersonnel/s01/58",
+     "article_label": "58",
+     "snippet": "Article 58 (Modifié par la loi n°81-7 du 18 février 1981).- Le \ntitulaire du droit de garde doit être majeur, sain d'esprit, honnête, \ncapable de pourvoir aux besoins de l'enfant, indemne de toute maladie \ncontagieuse. Le titulaire du droit de garde de sexe masculin doit avoir, \nen outre, à sa dispo"
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "61",
+     "chunk_id": "Statutpersonnel/s01/61",
+     "article_label": "61",
+     "snippet": "Article 61 .- Si celui qui a la garde de l'enfant change de résidence \net s'installe à une distance qui empêche le tuteur d'accomplir ses \ndevoirs envers son pupille, il est déchu de son droit."
+    }
+   ],
+   "n_candidates": 30,
+   "score": {
+    "hit": true,
+    "hit_at_1": false,
+    "first_rank": 3,
+    "recall": 0.5,
+    "rr": 0.3333333333333333
+   },
+   "t_llm": 1.63,
+   "t_retrieve": 1.59,
+   "t_rerank": 17.5
+  },
+  {
+   "id": "q063",
+   "concept_id": "coc_contract_validity",
+   "split": "dev",
+   "question": "ما هي شروط صحة العقد؟",
+   "language": "ar",
+   "law_type": "obligations_contrats",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "COC.pdf",
+     "article": "2",
+     "anchor": "Article 2.- Les éléments nécessaires pour la validité",
+     "chunk_ids": [
+      "COC/s02/2"
+     ]
+    },
+    {
+     "source": "COC.pdf",
+     "article": "3",
+     "anchor": "Article 3.- Toute personne est capable",
+     "chunk_ids": [
+      "COC/s02/3"
+     ]
+    }
+   ],
+   "rewrite": "Quelles sont les conditions de validité du contrat ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "COC.pdf",
+     "article": "1477",
+     "chunk_id": "COC/s02/1477",
+     "article_label": "1477",
+     "snippet": "Article 1477.- Lorsque, malgré les termes employés, la convention \ndénommée transaction constitue, en réalité, une donation, une vente \nou autre rapport de droit, la validité et les effets du contrat doivent être \nappréciés d'après les dispositions qui régissent l'acte fait sous le \ncouvert de la tr"
+    },
+    {
+     "source": "COC.pdf",
+     "article": "24",
+     "chunk_id": "COC/s02/24",
+     "article_label": "24",
+     "snippet": "Article 24.- Le contrat n'est point parfait lorsque les parties ont \nexpressément réservé certaines clauses comme devant former objet \nd'un accord ultérieur ; l'accord intervenu, dans ces conditions, sur une \nou plusieurs clauses, ne constitue pas engagement, alors même que les \npréliminaires de la "
+    },
+    {
+     "source": "COC.pdf",
+     "article": "242",
+     "chunk_id": "COC/s02/242",
+     "article_label": "242",
+     "snippet": "Article 242.- Les obligations contractuelles valablement formées \ntiennent lieu de loi à ceux qui les ont faites, et ne peuvent être \nrévoquées que de leur consentement mutuel ou dans les cas prévus par \nla loi."
+    },
+    {
+     "source": "COC.pdf",
+     "article": "274",
+     "chunk_id": "COC/s02/274",
+     "article_label": "274",
+     "snippet": "Article 274.- Si les parties sont convenues que le contrat sera \nrésolu dans les cas où l'une d'elles n'accomplirait pas ses engagements, \nla résolution du contrat s'opère de plein droit par le seul fait de \nl'inexécution."
+    },
+    {
+     "source": "COC.pdf",
+     "article": "1000",
+     "chunk_id": "COC/s02/1000",
+     "article_label": "1000",
+     "snippet": "Article 1000.- Il n’est pas nécessaire, pour la validité du dépôt \nentre les parties, que le déposant soit propriétaire de la chose déposée \nni qu’il la possède à titre légitime."
+    },
+    {
+     "source": "COC.pdf",
+     "article": "23",
+     "chunk_id": "COC/s02/23",
+     "article_label": "23",
+     "snippet": "Article 23.- La convention n'est parfaite que par l'accord des \nparties sur les éléments essentiels de l'obligation, ainsi que sur toutes \nles autres clauses licites que les parties considèrent comme \nessentielles. \nLes modifications que les parties apportent d'un commun accord à \nla convention, aus"
+    }
+   ],
+   "n_candidates": 38,
+   "score": {
+    "hit": false,
+    "hit_at_1": false,
+    "first_rank": null,
+    "recall": 0.0,
+    "rr": 0.0
+   },
+   "t_llm": 7.42,
+   "t_retrieve": 1.07,
+   "t_rerank": 18.1
+  },
+  {
+   "id": "q066",
+   "concept_id": "penal_theft",
+   "split": "dev",
+   "question": "ما هي عقوبة السرقة؟",
+   "language": "ar",
+   "law_type": null,
+   "category": "cross_domain",
+   "gold": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "258",
+     "anchor": "Article 258",
+     "chunk_ids": [
+      "PenalFr/s02/258"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "260",
+     "anchor": "Article 260 (Modifié par la loi n° 89-23",
+     "chunk_ids": [
+      "PenalFr/s02/260"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "261",
+     "anchor": "Article 261",
+     "chunk_ids": [
+      "PenalFr/s02/261"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "262",
+     "anchor": "Article 262",
+     "chunk_ids": [
+      "PenalFr/s02/262"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "263",
+     "anchor": "Article 263",
+     "chunk_ids": [
+      "PenalFr/s02/263"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "264",
+     "anchor": "Article 264",
+     "chunk_ids": [
+      "PenalFr/s02/264"
+     ]
+    }
+   ],
+   "rewrite": "Quelle est la punition du vol ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "261",
+     "chunk_id": "PenalFr/s02/261",
+     "article_label": "261",
+     "snippet": "Article 261 (Modifié par la loi n° 89-23 du 27 février 1989).- Est \npuni de vingt ans de prison, le vol commis à l'aide de l'une des deux \npremières circonstances édictées par l'article précédent."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "263",
+     "chunk_id": "PenalFr/s02/263",
+     "article_label": "263",
+     "snippet": "Article 263.- Est puni de dix ans d’emprisonnement l’auteur du \nvol commis : \n1°- au cours d'un incendie ou après une explosion, inondation, \nnaufrage, accident de chemin de fer, révolte, émeute ou tout autre \ntrouble, \n2°- par des hôteliers et autres tenanciers d’établissements exerçant \nune telle "
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "262",
+     "chunk_id": "PenalFr/s02/262",
+     "article_label": "262",
+     "snippet": "Article 262 (Modifié par la loi n° 89-23 du 27 février 1989).- Est \npuni de douze ans de prison, le vol commis avec la réunion des trois \ndernières circonstances prévues à l'article 260."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "274",
+     "chunk_id": "PenalFr/s02/274",
+     "article_label": "274",
+     "snippet": "Article 274.- Est puni de deux ans d’emprisonnement et de trente six \ndinars d’amende quiconque, aura contrefait ou altéré des clefs ou aura \nconfectionné, sciemment, un instrument destiné à commettre un vol. \nLa peine est de cinq ans d’emprisonnement et de cent vingt dinars \nd'amende, si l’auteur d"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "260",
+     "chunk_id": "PenalFr/s02/260",
+     "article_label": "260",
+     "snippet": "Article 260 (Modifié par la loi n° 89-23 du 27 février 1989).- Est \npuni de l'emprisonnement à vie, le vol commis avec la réunion des \ncinq circonstances suivantes : \n1) à l'aide de violences graves ou de menaces de violences graves \nenvers la victime ou ses proches, \n2) à l'aide d'escalade ou d'ouv"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "264",
+     "chunk_id": "PenalFr/s02/264",
+     "article_label": "264",
+     "snippet": "Article 264.- La peine est de cinq ans d’emprisonnement et de \ncent vingt dinars d’amende, pour tous autres vols et soustractions \ncommis hors les cas prévus aux articles 260 à 263 du présent code. \nLa tentative est punissable."
+    }
+   ],
+   "n_candidates": 34,
+   "score": {
+    "hit": true,
+    "hit_at_1": true,
+    "first_rank": 1,
+    "recall": 0.8333333333333334,
+    "rr": 1.0
+   },
+   "t_llm": 0.0,
+   "t_retrieve": 1.07,
+   "t_rerank": 19.27
+  },
+  {
+   "id": "q067",
+   "concept_id": "csp_marriage_conditions",
+   "split": "dev",
+   "question": "ما هي شروط الزواج؟",
+   "language": "ar",
+   "law_type": null,
+   "category": "cross_domain",
+   "gold": [
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "3",
+     "anchor": "Article 3 .- Le mariage n'est formé",
+     "chunk_ids": [
+      "Statutpersonnel/s01/3"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "5",
+     "anchor": "Article 5 (Modifié par le décret-loi n°64-1",
+     "chunk_ids": [
+      "Statutpersonnel/s01/5"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "6",
+     "anchor": "Article 6 (Modifié par la loi n°93-74 du 12 juillet 1993).- Le mariage du mineur",
+     "chunk_ids": [
+      "Statutpersonnel/s01/6"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "8",
+     "anchor": "Article 8 .- Consent au mariage du mineur",
+     "chunk_ids": [
+      "Statutpersonnel/s01/8"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "14",
+     "anchor": "Article 14 .- Les empêchements au mariage",
+     "chunk_ids": [
+      "Statutpersonnel/s01/14"
+     ]
+    }
+   ],
+   "rewrite": "Quelles sont les conditions du mariage ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "DIPFR.pdf",
+     "article": "46",
+     "chunk_id": "DIPFR/s01/46",
+     "article_label": "46",
+     "snippet": "Article 46.- Les conditions de forme du mariage sont soumises, soit à \nla loi nationale commune, soit à la loi du lieu de célébration du mariage. \nLorsque l'un des époux est ressortissant d'un pays qui autorise la \npolygamie, l'officier d'état civil ou les notaires ne peuvent conclure le \nmariage qu"
+    },
+    {
+     "source": "DIPFR.pdf",
+     "article": "45",
+     "chunk_id": "DIPFR/s01/45",
+     "article_label": "45",
+     "snippet": "Article 45.- Les conditions de fond du mariage sont régies, \nséparément, par la loi nationale de chacun des deux époux."
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "3",
+     "chunk_id": "Statutpersonnel/s01/3",
+     "article_label": "3",
+     "snippet": "Article 3 .- Le mariage n'est formé que par le consentement des \ndeux époux. \nLa présence de deux témoins honorables et la fixation d'une dot au \nprofit de la femme sont, en outre, requises pour la validité du mariage."
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "15",
+     "chunk_id": "Statutpersonnel/s01/15",
+     "article_label": "15",
+     "snippet": "Article 15 .- Est prohibé, le mariage de l'homme avec ses \nascendantes et descendantes, avec ses sœurs et les descendantes à \nl'infini de ses frères et sœurs, avec ses tantes, grands-tantes et arrières \ngrands-tantes."
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "9",
+     "chunk_id": "Statutpersonnel/s01/9",
+     "article_label": "9",
+     "snippet": "Article 9 .- L'homme et la femme peuvent conclure mariage par \neux-mêmes ou par mandataire. Celui qui consent au mariage d'un \nmineur peut également le faire par procuration."
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "4",
+     "chunk_id": "Statutpersonnel/s01/4",
+     "article_label": "4",
+     "snippet": "Article 4 .- La preuve du mariage ne peut être rapportée que par \nun acte authentique dans des conditions fixées par une loi ultérieure. \nEn ce qui concerne les mariages célébrés à l'étranger, la preuve en \nest rapportée conformément aux lois du pays où le mariage a été \nconclu."
+    }
+   ],
+   "n_candidates": 36,
+   "score": {
+    "hit": true,
+    "hit_at_1": false,
+    "first_rank": 3,
+    "recall": 0.2,
+    "rr": 0.3333333333333333
+   },
+   "t_llm": 0.0,
+   "t_retrieve": 1.4,
+   "t_rerank": 6.69
+  },
+  {
+   "id": "q068",
+   "concept_id": "penal_theft",
+   "split": "dev",
+   "question": "What is the penalty for theft?",
+   "language": "en",
+   "law_type": "penal",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "258",
+     "anchor": "Article 258",
+     "chunk_ids": [
+      "PenalFr/s02/258"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "260",
+     "anchor": "Article 260 (Modifié par la loi n° 89-23",
+     "chunk_ids": [
+      "PenalFr/s02/260"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "261",
+     "anchor": "Article 261",
+     "chunk_ids": [
+      "PenalFr/s02/261"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "262",
+     "anchor": "Article 262",
+     "chunk_ids": [
+      "PenalFr/s02/262"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "263",
+     "anchor": "Article 263",
+     "chunk_ids": [
+      "PenalFr/s02/263"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "264",
+     "anchor": "Article 264",
+     "chunk_ids": [
+      "PenalFr/s02/264"
+     ]
+    }
+   ],
+   "rewrite": "Quelle est la peine pour le vol ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "261",
+     "chunk_id": "PenalFr/s02/261",
+     "article_label": "261",
+     "snippet": "Article 261 (Modifié par la loi n° 89-23 du 27 février 1989).- Est \npuni de vingt ans de prison, le vol commis à l'aide de l'une des deux \npremières circonstances édictées par l'article précédent."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "263",
+     "chunk_id": "PenalFr/s02/263",
+     "article_label": "263",
+     "snippet": "Article 263.- Est puni de dix ans d’emprisonnement l’auteur du \nvol commis : \n1°- au cours d'un incendie ou après une explosion, inondation, \nnaufrage, accident de chemin de fer, révolte, émeute ou tout autre \ntrouble, \n2°- par des hôteliers et autres tenanciers d’établissements exerçant \nune telle "
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "262",
+     "chunk_id": "PenalFr/s02/262",
+     "article_label": "262",
+     "snippet": "Article 262 (Modifié par la loi n° 89-23 du 27 février 1989).- Est \npuni de douze ans de prison, le vol commis avec la réunion des trois \ndernières circonstances prévues à l'article 260."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "274",
+     "chunk_id": "PenalFr/s02/274",
+     "article_label": "274",
+     "snippet": "Article 274.- Est puni de deux ans d’emprisonnement et de trente six \ndinars d’amende quiconque, aura contrefait ou altéré des clefs ou aura \nconfectionné, sciemment, un instrument destiné à commettre un vol. \nLa peine est de cinq ans d’emprisonnement et de cent vingt dinars \nd'amende, si l’auteur d"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "264",
+     "chunk_id": "PenalFr/s02/264",
+     "article_label": "264",
+     "snippet": "Article 264.- La peine est de cinq ans d’emprisonnement et de \ncent vingt dinars d’amende, pour tous autres vols et soustractions \ncommis hors les cas prévus aux articles 260 à 263 du présent code. \nLa tentative est punissable."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "260",
+     "chunk_id": "PenalFr/s02/260",
+     "article_label": "260",
+     "snippet": "Article 260 (Modifié par la loi n° 89-23 du 27 février 1989).- Est \npuni de l'emprisonnement à vie, le vol commis avec la réunion des \ncinq circonstances suivantes : \n1) à l'aide de violences graves ou de menaces de violences graves \nenvers la victime ou ses proches, \n2) à l'aide d'escalade ou d'ouv"
+    }
+   ],
+   "n_candidates": 36,
+   "score": {
+    "hit": true,
+    "hit_at_1": true,
+    "first_rank": 1,
+    "recall": 0.8333333333333334,
+    "rr": 1.0
+   },
+   "t_llm": 0.89,
+   "t_retrieve": 0.46,
+   "t_rerank": 18.78
+  },
+  {
+   "id": "q073",
+   "concept_id": "csp_marriage_conditions",
+   "split": "dev",
+   "question": "What are the conditions for marriage?",
+   "language": "en",
+   "law_type": "statut_personnel",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "3",
+     "anchor": "Article 3 .- Le mariage n'est formé",
+     "chunk_ids": [
+      "Statutpersonnel/s01/3"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "5",
+     "anchor": "Article 5 (Modifié par le décret-loi n°64-1",
+     "chunk_ids": [
+      "Statutpersonnel/s01/5"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "6",
+     "anchor": "Article 6 (Modifié par la loi n°93-74 du 12 juillet 1993).- Le mariage du mineur",
+     "chunk_ids": [
+      "Statutpersonnel/s01/6"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "8",
+     "anchor": "Article 8 .- Consent au mariage du mineur",
+     "chunk_ids": [
+      "Statutpersonnel/s01/8"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "14",
+     "anchor": "Article 14 .- Les empêchements au mariage",
+     "chunk_ids": [
+      "Statutpersonnel/s01/14"
+     ]
+    }
+   ],
+   "rewrite": "Quelles sont les conditions du mariage ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "3",
+     "chunk_id": "Statutpersonnel/s01/3",
+     "article_label": "3",
+     "snippet": "Article 3 .- Le mariage n'est formé que par le consentement des \ndeux époux. \nLa présence de deux témoins honorables et la fixation d'une dot au \nprofit de la femme sont, en outre, requises pour la validité du mariage."
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "15",
+     "chunk_id": "Statutpersonnel/s01/15",
+     "article_label": "15",
+     "snippet": "Article 15 .- Est prohibé, le mariage de l'homme avec ses \nascendantes et descendantes, avec ses sœurs et les descendantes à \nl'infini de ses frères et sœurs, avec ses tantes, grands-tantes et arrières \ngrands-tantes."
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "9",
+     "chunk_id": "Statutpersonnel/s01/9",
+     "article_label": "9",
+     "snippet": "Article 9 .- L'homme et la femme peuvent conclure mariage par \neux-mêmes ou par mandataire. Celui qui consent au mariage d'un \nmineur peut également le faire par procuration."
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "4",
+     "chunk_id": "Statutpersonnel/s01/4",
+     "article_label": "4",
+     "snippet": "Article 4 .- La preuve du mariage ne peut être rapportée que par \nun acte authentique dans des conditions fixées par une loi ultérieure. \nEn ce qui concerne les mariages célébrés à l'étranger, la preuve en \nest rapportée conformément aux lois du pays où le mariage a été \nconclu."
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "6",
+     "chunk_id": "Statutpersonnel/s01/6",
+     "article_label": "6",
+     "snippet": "Article 6 (Modifié par la loi n°93-74 du 12 juillet 1993).- Le\nmariage du mineur est subordonné au consentement de son tuteur et \nde sa mère. \nEn cas de refus du tuteur ou de la mère et de persistance du \nmineur, le juge est saisi. \nL'ordonnance autorisant le mariage n'est susceptible d'aucun \nrecou"
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "16",
+     "chunk_id": "Statutpersonnel/s01/16",
+     "article_label": "16",
+     "snippet": "Article 16 .- Est prohibé, le mariage de l'homme avec les \nascendantes de sa femme dès la célébration du mariage, avec les \ndescendantes de sa femme à condition que le mariage ait été \nconsommé, avec les épouses de ses ascendants ou descendants à \nquelque degré qu'ils appartiennent, dès la célébrati"
+    }
+   ],
+   "n_candidates": 31,
+   "score": {
+    "hit": true,
+    "hit_at_1": true,
+    "first_rank": 1,
+    "recall": 0.4,
+    "rr": 1.0
+   },
+   "t_llm": 3.45,
+   "t_retrieve": 1.42,
+   "t_rerank": 18.57
+  },
+  {
+   "id": "q075",
+   "concept_id": "csp_child_custody",
+   "split": "dev",
+   "question": "Who gets custody of the children after divorce?",
+   "language": "en",
+   "law_type": "statut_personnel",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "54",
+     "anchor": "Article 54 .- La garde consiste",
+     "chunk_ids": [
+      "Statutpersonnel/s01/54"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "55",
+     "anchor": "Article 55 .- La femme qui refuse",
+     "chunk_ids": [
+      "Statutpersonnel/s01/55"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "56",
+     "anchor": "Article 56 (Paragraphes 2, 3, 4",
+     "chunk_ids": [
+      "Statutpersonnel/s01/56"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "57",
+     "anchor": "Article 57 (Modifié par la loi n°66-49",
+     "chunk_ids": [
+      "Statutpersonnel/s01/57"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "58",
+     "anchor": "Article 58 (Modifié par la loi n°81-7",
+     "chunk_ids": [
+      "Statutpersonnel/s01/58"
+     ]
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "67",
+     "anchor": "Article 67. (Modifié par la loi n°93-74",
+     "chunk_ids": [
+      "Statutpersonnel/s01/67"
+     ]
+    }
+   ],
+   "rewrite": "Qui obtient la garde des enfants après le divorce ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "67",
+     "chunk_id": "Statutpersonnel/s01/67",
+     "article_label": "67",
+     "snippet": "Article 67. (Modifié par la loi n°93-74 du 12 juillet 1993).- En\ncas de dissolution du mariage par décès, la garde est confiée au \nsurvivant des père et mère. \nSi le mariage est dissous du vivant des époux, la garde est confiée \nsoit à l’un d’eux, soit à une tierce personne. \nLe juge en décide en pr"
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "69",
+     "chunk_id": "Statutpersonnel/s01/69",
+     "article_label": "69",
+     "snippet": "Article 69 .- La filiation n’est pas établie en cas de désaveu d’un \nenfant d’une femme mariée dont la non-cohabitation avec le mari a été \nprouvée, ou d’un enfant mis au monde par une femme mariée un an \naprès l’absence ou le décès du mari ou la date du divorce."
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "32",
+     "chunk_id": "Statutpersonnel/s01/32",
+     "article_label": "32",
+     "snippet": "Article 32 (Modifié par la loi n°2010-50 du 1er novembre \n2010).- Le président du tribunal choisit le juge de la famille parmi ses \nvice-présidents.\n\nLe divorce n'est prononcé qu'après que le juge de la famille ait \ndéployé un effort dans la tentative de conciliation demeurée \ninfructueuse. \nLe juge"
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "2",
+     "chunk_id": "Statutpersonnel/s15/2",
+     "article_label": "2",
+     "snippet": "Article 2(Modifié par le décret n°2006-826 du 23 mars 2006).- \nLes demandes d’obtention de la pension alimentaire ou de la rente de \ndivorce doivent être accompagnées des pièces suivantes :\n\n- une copie du jugement prononçant le divorce, \n- une attestation du non recours en appel ou en cassation à \n"
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "58",
+     "chunk_id": "Statutpersonnel/s01/58",
+     "article_label": "58",
+     "snippet": "Article 58 (Modifié par la loi n°81-7 du 18 février 1981).- Le \ntitulaire du droit de garde doit être majeur, sain d'esprit, honnête, \ncapable de pourvoir aux besoins de l'enfant, indemne de toute maladie \ncontagieuse. Le titulaire du droit de garde de sexe masculin doit avoir, \nen outre, à sa dispo"
+    },
+    {
+     "source": "Statutpersonnel.pdf",
+     "article": "7",
+     "chunk_id": "Statutpersonnel/s15/7",
+     "article_label": "7",
+     "snippet": "Article 7. (Modifié par le décret n° 98-671 du 16 mars 1998)..- \nLa caisse nationale de sécurité sociale cesse de payer les montants de \nla pension alimentaire ou de la rente de divorce lorsque le non lieu \ndans une action pour abandon de famille est prononcé par le jugement. \nLe paiement de la pens"
+    }
+   ],
+   "n_candidates": 32,
+   "score": {
+    "hit": true,
+    "hit_at_1": true,
+    "first_rank": 1,
+    "recall": 0.3333333333333333,
+    "rr": 1.0
+   },
+   "t_llm": 1.21,
+   "t_retrieve": 1.67,
+   "t_rerank": 18.95
+  },
+  {
+   "id": "q076",
+   "concept_id": "const_fundamental_rights",
+   "split": "dev",
+   "question": "What are the fundamental rights?",
+   "language": "en",
+   "law_type": "constitution",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "24"
+    },
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "25"
+    },
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "26"
+    }
+   ],
+   "rewrite": "Quels sont les droits fondamentaux ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "37",
+     "chunk_id": "tun_RecAcFreeLi/s00/37",
+     "article_label": "37",
+     "snippet": "Art. 37 – Les libertés d’opinion, de pensée, d’expression, d’information et de publication sont garanties. \nAucun contrôle préalable ne peut être exercé sur ces libertés."
+    },
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "30",
+     "chunk_id": "tun_RecAcFreeLi/s00/30",
+     "article_label": "30",
+     "snippet": "Art. 30 – L’Etat protège la vie privée, l’inviolabilité du domicile et le secret des correspondances, des \ncommunications et des données personnelles. \nTout citoyen dispose de la liberté de choisir son lieu de résidence et de la liberté de circulation à l’intérieur \ndu territoire ainsi que du droit "
+    },
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "43",
+     "chunk_id": "tun_RecAcFreeLi/s00/43",
+     "article_label": "43",
+     "snippet": "Art. 43 – out être humain a droit à la santé. \nL’Etat garantit la prévention et les soins de santé à tout citoyen et fournit les ressources nécessaires afin \nd’assurer la sécurité et la qualité des services de santé. \nL’Etat garantit la gratuité des soins pour les personnes sans soutien ou ne dispos"
+    },
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "26",
+     "chunk_id": "tun_RecAcFreeLi/s00/26",
+     "article_label": "26",
+     "snippet": "Art. 26 – La liberté de l’individu est garantie."
+    },
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "22",
+     "chunk_id": "tun_RecAcFreeLi/s00/22",
+     "article_label": "22",
+     "snippet": "Art. 22 – L’Etat garantit aux citoyens et aux citoyennes les libertés et les droits individuels et collectifs. Il \nleur assure les conditions d’une vie digne."
+    },
+    {
+     "source": "tun_RecAcFreeLi.pdf",
+     "article": "25",
+     "chunk_id": "tun_RecAcFreeLi/s00/25",
+     "article_label": "25",
+     "snippet": "Art. 25 – L’Etat protège la dignité de l’être humain et son intégrité physique et interdit la torture morale et \nphysique. L’infraction de torture est imprescriptible."
+    }
+   ],
+   "n_candidates": 31,
+   "score": {
+    "hit": true,
+    "hit_at_1": false,
+    "first_rank": 4,
+    "recall": 0.6666666666666666,
+    "rr": 0.25
+   },
+   "t_llm": 6.13,
+   "t_retrieve": 1.05,
+   "t_rerank": 18.56
+  },
+  {
+   "id": "q078",
+   "concept_id": "cpp_custody_duration",
+   "split": "dev",
+   "question": "How long can police custody last?",
+   "language": "en",
+   "law_type": "procedure_penale",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "13",
+     "anchor": "Article 13.- Les officiers de police judiciaire visés aux 3°",
+     "chunk_ids": [
+      "ProcedurepenaleFr/s01/13"
+     ]
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "13",
+     "anchor": "Article 13 bis",
+     "chunk_ids": [
+      "ProcedurepenaleFr/s01/13-bis"
+     ]
+    }
+   ],
+   "rewrite": "Combien de temps la garde à vue peut-elle durer ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "13",
+     "chunk_id": "ProcedurepenaleFr/s01/13-bis",
+     "article_label": "13-bis",
+     "snippet": "Article 13 bis (Ajouté par la loi n° 87-70 du 26 novembre 1987 \net modifié par la loi n° 99-90 du 2 août 1999).- Dans les cas où les \nnécessités de l'enquête l'exigent, les officiers de police judiciaire visés \naux numéros 3° et 4° de l'article 10, même en cas de crimes ou délits \nflagrants, et les "
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "85",
+     "chunk_id": "ProcedurepenaleFr/s02/85",
+     "article_label": "85",
+     "snippet": "Article 85 (Modifié par la loi n° 93-114 du 22 novembre 1993).- \nL'inculpé peut être soumis à la détention préventive dans les cas de \ncrimes ou délits flagrants et toutes les fois que, en raison de l'existence \nde présomptions graves, la détention semble nécessaire comme une \nmesure de sécurité pou"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "136",
+     "chunk_id": "ProcedurepenaleFr/s02/136",
+     "article_label": "136",
+     "snippet": "Article 136.- Le délai entre le jour où la citation est délivrée et le \njour fixé pour la comparution à l'audience est d'au moins trois jours. \nSi la partie citée demeure hors du territoire de la République, ce \ndélai est porté à trente jours."
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "202",
+     "chunk_id": "ProcedurepenaleFr/s02/202",
+     "article_label": "202",
+     "snippet": "Article 202.- Le juge peut retenir à sa disposition sous mandat de \ndépôt, le prévenu en état d'ivresse, ou ne pouvant justifier de son \nidentité, ou n'ayant pas de domicile fixe, ou lorsque des désordres sont \nà craindre. \nEn aucun cas le prévenu n'est retenu plus de huit jours."
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "311",
+     "chunk_id": "ProcedurepenaleFr/s02/311",
+     "article_label": "311",
+     "snippet": "Article 311.- L'extradition est accordée : \n1) lorsque l'infraction motivant la demande est punie par la loi \ntunisienne d'une peine criminelle ou correctionnelle. \n2) lorsque la peine encourue, aux termes de la loi de l'Etat \nrequérant, est une peine privative de liberté d'une durée égale ou \nsupér"
+    },
+    {
+     "source": "ProcedurepenaleFr.pdf",
+     "article": "142",
+     "chunk_id": "ProcedurepenaleFr/s02/142",
+     "article_label": "142",
+     "snippet": "Article 142 (Modifié par la loi n° 87-70 du 26 novembre 1987).- \nSi l'inculpé se soustrait par la fuite aux poursuites dont il est l'objet, le \ntribunal peut décerner contre lui mandat d'amener ou mandat de dépôt \net ordonner, en outre, sur conclusion du ministère public le séquestre \nde ses biens. "
+    }
+   ],
+   "n_candidates": 27,
+   "score": {
+    "hit": true,
+    "hit_at_1": true,
+    "first_rank": 1,
+    "recall": 0.5,
+    "rr": 1.0
+   },
+   "t_llm": 0.73,
+   "t_retrieve": 1.3,
+   "t_rerank": 15.52
+  },
+  {
+   "id": "q080",
+   "concept_id": "travail_paid_leave",
+   "split": "dev",
+   "question": "How many days of paid annual leave is a worker entitled to?",
+   "language": "en",
+   "law_type": "travail",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "travailFr.pdf",
+     "article": "112",
+     "anchor": "Article 112",
+     "chunk_ids": [
+      "travailFr/s01/112"
+     ]
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "113",
+     "anchor": "Article 113",
+     "chunk_ids": [
+      "travailFr/s01/113"
+     ]
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "115",
+     "anchor": "Article 115",
+     "chunk_ids": [
+      "travailFr/s01/115"
+     ]
+    }
+   ],
+   "rewrite": "Combien de jours de congé annuel payé un travailleur a-t-il droit ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "travailFr.pdf",
+     "article": "123",
+     "chunk_id": "travailFr/s01/123",
+     "article_label": "123",
+     "snippet": "Article 123 (Modifié par la loi n° 96-62 du 15 juillet 1996).- Les \ntravailleurs ont droit, à condition de compter au moins six mois de \nservices continus chez le même employeur, à un jour ouvrable de congé \npar mois écoulé depuis leur entrée en service, sans que la durée totale de \nce congé, puisse"
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "113",
+     "chunk_id": "travailFr/s01/113",
+     "article_label": "113",
+     "snippet": "Article 113 (Modifié par la loi n° 96-62 du 15 juillet 1996).- \nTout travailleur qui, au cours de l'année de référence, justifie avoir été\n\noccupé chez le même employeur pendant une période de temps \néquivalente à un minimum d'un mois de travail effectif a droit à un \ncongé dont la durée est détermi"
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "128",
+     "chunk_id": "travailFr/s01/128",
+     "article_label": "128",
+     "snippet": "Article 128.- Lorsque le contrat de travail d’un salarié, ayant au \nmoins six mois de services continus dans la même entreprise, est \nrésilié par le fait de l'employeur, avant que ledit salarié ait pu \nbénéficier de son congé annuel payé, et sans que cette résiliation soit \nprovoquée par une faute l"
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "118",
+     "chunk_id": "travailFr/s01/118",
+     "article_label": "118",
+     "snippet": "Article 118.- Le congé payé ne dépassant pas six jours ouvrables \ndoit être continu. \nLe congé d'une durée supérieure à six jours ouvrables peut être \nfractionné par l'employeur, avec l'agrément du salarié. Dans le cas où\n\nle congé s'accompagne de la fermeture de l'établissement, le \nfractionnement "
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "125",
+     "chunk_id": "travailFr/s01/125",
+     "article_label": "125",
+     "snippet": "Article 125.- Le congé annuel payé peut être fractionné en \npériodes d’un ou plusieurs jours jusqu’à concurrence de la moitié de \nsa durée totale. \nSont réputés jours ouvrables pour la jouissance d’un congé annuel \npayé, les jours normalement consacrés au travail dans l’établissement, \nmême s’ils so"
+    },
+    {
+     "source": "travailFr.pdf",
+     "article": "124",
+     "chunk_id": "travailFr/s01/124",
+     "article_label": "124",
+     "snippet": "Article 124.- Les bénéficiaires d’un congé doivent en jouir, s’il \ns’agit d’un congé de quinze jours, dans l’année qui suit la date \nd’ouverture du droit à congé ; s’il s’agit d’un congé de moins de \nquinze jours, dans les six mois qui suivent cette même date."
+    }
+   ],
+   "n_candidates": 27,
+   "score": {
+    "hit": true,
+    "hit_at_1": false,
+    "first_rank": 2,
+    "recall": 0.3333333333333333,
+    "rr": 0.5
+   },
+   "t_llm": 1.1,
+   "t_retrieve": 1.1,
+   "t_rerank": 15.26
+  },
+  {
+   "id": "q082",
+   "concept_id": "coc_contract_validity",
+   "split": "dev",
+   "question": "What makes a contract valid?",
+   "language": "en",
+   "law_type": "obligations_contrats",
+   "category": "concept",
+   "gold": [
+    {
+     "source": "COC.pdf",
+     "article": "2",
+     "anchor": "Article 2.- Les éléments nécessaires pour la validité",
+     "chunk_ids": [
+      "COC/s02/2"
+     ]
+    },
+    {
+     "source": "COC.pdf",
+     "article": "3",
+     "anchor": "Article 3.- Toute personne est capable",
+     "chunk_ids": [
+      "COC/s02/3"
+     ]
+    }
+   ],
+   "rewrite": "Qu'est‑ce qui rend un contrat valide ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "COC.pdf",
+     "article": "242",
+     "chunk_id": "COC/s02/242",
+     "article_label": "242",
+     "snippet": "Article 242.- Les obligations contractuelles valablement formées \ntiennent lieu de loi à ceux qui les ont faites, et ne peuvent être \nrévoquées que de leur consentement mutuel ou dans les cas prévus par \nla loi."
+    },
+    {
+     "source": "COC.pdf",
+     "article": "24",
+     "chunk_id": "COC/s02/24",
+     "article_label": "24",
+     "snippet": "Article 24.- Le contrat n'est point parfait lorsque les parties ont \nexpressément réservé certaines clauses comme devant former objet \nd'un accord ultérieur ; l'accord intervenu, dans ces conditions, sur une \nou plusieurs clauses, ne constitue pas engagement, alors même que les \npréliminaires de la "
+    },
+    {
+     "source": "COC.pdf",
+     "article": "1477",
+     "chunk_id": "COC/s02/1477",
+     "article_label": "1477",
+     "snippet": "Article 1477.- Lorsque, malgré les termes employés, la convention \ndénommée transaction constitue, en réalité, une donation, une vente \nou autre rapport de droit, la validité et les effets du contrat doivent être \nappréciés d'après les dispositions qui régissent l'acte fait sous le \ncouvert de la tr"
+    },
+    {
+     "source": "COC.pdf",
+     "article": "1198",
+     "chunk_id": "COC/s02/1198",
+     "article_label": "1198",
+     "snippet": "Article 1198.- Le contrat de commande est parfait par le \nconsentement exprès des parties sur les clauses essentielles du contrat \net par la remise du fonds ou capital au pouvoir de l’agent. Tant que \ncette remise n’a pas eu lieu, le contrat peut être dissous par la seule \nvolonté de l’une des parti"
+    },
+    {
+     "source": "COC.pdf",
+     "article": "28",
+     "chunk_id": "COC/s02/28",
+     "article_label": "28",
+     "snippet": "Article 28.- Le contrat par correspondance est parfait au moment \net dans le lieu où celui qui a reçu l'offre répond en l'acceptant. \nLe contrat par le moyen d'un messager ou intermédiaire est parfait \nau moment et dans le lieu où celui qui a reçu l'offre répond à \nl'intermédiaire qu'il accepte."
+    },
+    {
+     "source": "COC.pdf",
+     "article": "1301",
+     "chunk_id": "COC/s02/1301",
+     "article_label": "1301",
+     "snippet": "Article 1301.- Est nulle et rend nul le contrat de société, toute \nstipulation qui attribuerait à un associé une part dans les bénéfices, ou \ndans les pertes, supérieure à la part proportionnelle à sa mise. \nL'associé lésé, par une clause de ce genre, aura recours contre la \nsociété, jusqu'à concurr"
+    }
+   ],
+   "n_candidates": 37,
+   "score": {
+    "hit": false,
+    "hit_at_1": false,
+    "first_rank": null,
+    "recall": 0.0,
+    "rr": 0.0
+   },
+   "t_llm": 0.76,
+   "t_retrieve": 0.94,
+   "t_rerank": 19.56
+  },
+  {
+   "id": "q085",
+   "concept_id": "penal_theft",
+   "split": "dev",
+   "question": "What is the penalty for theft?",
+   "language": "en",
+   "law_type": null,
+   "category": "cross_domain",
+   "gold": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "258",
+     "anchor": "Article 258",
+     "chunk_ids": [
+      "PenalFr/s02/258"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "260",
+     "anchor": "Article 260 (Modifié par la loi n° 89-23",
+     "chunk_ids": [
+      "PenalFr/s02/260"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "261",
+     "anchor": "Article 261",
+     "chunk_ids": [
+      "PenalFr/s02/261"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "262",
+     "anchor": "Article 262",
+     "chunk_ids": [
+      "PenalFr/s02/262"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "263",
+     "anchor": "Article 263",
+     "chunk_ids": [
+      "PenalFr/s02/263"
+     ]
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "264",
+     "anchor": "Article 264",
+     "chunk_ids": [
+      "PenalFr/s02/264"
+     ]
+    }
+   ],
+   "rewrite": "Quelle est la peine pour le vol ?",
+   "sub_queries": [],
+   "retrieved": [
+    {
+     "source": "PenalFr.pdf",
+     "article": "261",
+     "chunk_id": "PenalFr/s02/261",
+     "article_label": "261",
+     "snippet": "Article 261 (Modifié par la loi n° 89-23 du 27 février 1989).- Est \npuni de vingt ans de prison, le vol commis à l'aide de l'une des deux \npremières circonstances édictées par l'article précédent."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "263",
+     "chunk_id": "PenalFr/s02/263",
+     "article_label": "263",
+     "snippet": "Article 263.- Est puni de dix ans d’emprisonnement l’auteur du \nvol commis : \n1°- au cours d'un incendie ou après une explosion, inondation, \nnaufrage, accident de chemin de fer, révolte, émeute ou tout autre \ntrouble, \n2°- par des hôteliers et autres tenanciers d’établissements exerçant \nune telle "
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "262",
+     "chunk_id": "PenalFr/s02/262",
+     "article_label": "262",
+     "snippet": "Article 262 (Modifié par la loi n° 89-23 du 27 février 1989).- Est \npuni de douze ans de prison, le vol commis avec la réunion des trois \ndernières circonstances prévues à l'article 260."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "274",
+     "chunk_id": "PenalFr/s02/274",
+     "article_label": "274",
+     "snippet": "Article 274.- Est puni de deux ans d’emprisonnement et de trente six \ndinars d’amende quiconque, aura contrefait ou altéré des clefs ou aura \nconfectionné, sciemment, un instrument destiné à commettre un vol. \nLa peine est de cinq ans d’emprisonnement et de cent vingt dinars \nd'amende, si l’auteur d"
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "264",
+     "chunk_id": "PenalFr/s02/264",
+     "article_label": "264",
+     "snippet": "Article 264.- La peine est de cinq ans d’emprisonnement et de \ncent vingt dinars d’amende, pour tous autres vols et soustractions \ncommis hors les cas prévus aux articles 260 à 263 du présent code. \nLa tentative est punissable."
+    },
+    {
+     "source": "PenalFr.pdf",
+     "article": "260",
+     "chunk_id": "PenalFr/s02/260",
+     "article_label": "260",
+     "snippet": "Article 260 (Modifié par la loi n° 89-23 du 27 février 1989).- Est \npuni de l'emprisonnement à vie, le vol commis avec la réunion des \ncinq circonstances suivantes : \n1) à l'aide de violences graves ou de menaces de violences graves \nenvers la victime ou ses proches, \n2) à l'aide d'escalade ou d'ouv"
+    }
+   ],
+   "n_candidates": 37,
+   "score": {
+    "hit": true,
+    "hit_at_1": true,
+    "first_rank": 1,
+    "recall": 0.8333333333333334,
+    "rr": 1.0
+   },
+   "t_llm": 0.0,
+   "t_retrieve": 1.23,
+   "t_rerank": 19.21
+  }
+ ]
+}

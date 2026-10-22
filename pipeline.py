@@ -9,11 +9,11 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_groq import ChatGroq
 from langchain_huggingface import HuggingFaceEmbeddings
-from config import DB_DIR, DATA_DIR, EMBEDDING_MODEL, LLM_MODEL, GROQ_API_KEY, SUBQUERY_N
+from config import DB_DIR, DATA_DIR, EMBEDDING_MODEL, LLM_MODEL, GROQ_API_KEY, SUBQUERY_N, RAW_FIRST, USE_SUBQUERIES
 from loaders import load_all_documents
 from splitter import split_by_article
 from retriever import hybrid_retrieve, detect_arabic, detect_english
-from translate import rewrite_query, generate_subqueries
+from translate import rewrite_query, generate_subqueries, translate_to_french
 from reranker import rerank
 
 logger = logging.getLogger(__name__)
@@ -101,6 +101,20 @@ def step_rewrite(question: str) -> str:
     return rewrite_query(question)
 
 
+def step_query(question: str) -> str:
+    """The French search query. Raw-first: French is used as written (no LLM call); Arabic and English are
+    translated faithfully. With RAW_FIRST off this is the v1 LLM rewrite."""
+    if not RAW_FIRST:
+        return step_rewrite(question)
+    if detect_arabic(question) or detect_english(question):
+        return translate_to_french(question)
+    return question
+
+
+def step_subqueries_if_enabled(question: str, french_query: str) -> list[str]:
+    return step_subqueries(french_query) if (USE_SUBQUERIES and _is_complex(question)) else []
+
+
 def step_subqueries(french_query: str, n: int = SUBQUERY_N) -> list[str]:
     return generate_subqueries(french_query, n=n)
 
@@ -150,12 +164,11 @@ def ask_question(
     is_arabic  = detect_arabic(question)
     is_english = detect_english(question)
 
-    french_query = step_rewrite(question)
-    logger.info("Rewritten query: %r", french_query)
+    french_query = step_query(question)
+    logger.info("Search query: %r", french_query)
 
-    sub_queries: list[str] = []
-    if _is_complex(question):
-        sub_queries = step_subqueries(french_query)
+    sub_queries = step_subqueries_if_enabled(question, french_query)
+    if sub_queries:
         logger.info("Sub-queries: %s", sub_queries)
 
     candidates = step_retrieve(vectorstore, question, french_query, sub_queries, law_type)
