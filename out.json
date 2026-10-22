@@ -1,0 +1,1856 @@
+{
+  "top_k": 6,
+  "overall": {
+    "n": 87,
+    "hit": 0.4827586206896552,
+    "hit@1": 0.19540229885057472,
+    "recall": 0.3371647509578543,
+    "mrr": 0.28793103448275864
+  },
+  "by_language": {
+    "fr": {
+      "n": 46,
+      "hit": 0.5,
+      "hit@1": 0.21739130434782608,
+      "recall": 0.36775362318840576,
+      "mrr": 0.3123188405797102
+    },
+    "ar": {
+      "n": 21,
+      "hit": 0.42857142857142855,
+      "hit@1": 0.19047619047619047,
+      "recall": 0.2936507936507936,
+      "mrr": 0.2674603174603175
+    },
+    "en": {
+      "n": 20,
+      "hit": 0.5,
+      "hit@1": 0.15,
+      "recall": 0.3125,
+      "mrr": 0.2533333333333333
+    }
+  },
+  "by_domain": {
+    "penal": {
+      "n": 26,
+      "hit": 0.4230769230769231,
+      "hit@1": 0.11538461538461539,
+      "recall": 0.24679487179487178,
+      "mrr": 0.19102564102564107
+    },
+    "constitution": {
+      "n": 4,
+      "hit": 0.75,
+      "hit@1": 0.5,
+      "recall": 0.5833333333333333,
+      "mrr": 0.5625
+    },
+    "procedure_penale": {
+      "n": 8,
+      "hit": 0.25,
+      "hit@1": 0.125,
+      "recall": 0.25,
+      "mrr": 0.1875
+    },
+    "travail": {
+      "n": 12,
+      "hit": 0.5833333333333334,
+      "hit@1": 0.25,
+      "recall": 0.34722222222222227,
+      "mrr": 0.3958333333333333
+    },
+    "statut_personnel": {
+      "n": 13,
+      "hit": 0.38461538461538464,
+      "hit@1": 0.15384615384615385,
+      "recall": 0.25,
+      "mrr": 0.21794871794871792
+    },
+    "obligations_contrats": {
+      "n": 10,
+      "hit": 0.6,
+      "hit@1": 0.3,
+      "recall": 0.6,
+      "mrr": 0.41666666666666663
+    },
+    "nationalite": {
+      "n": 3,
+      "hit": 0.0,
+      "hit@1": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0
+    },
+    "protection_enfant": {
+      "n": 1,
+      "hit": 0.0,
+      "hit@1": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0
+    },
+    "arbitrage": {
+      "n": 1,
+      "hit": 1.0,
+      "hit@1": 0.0,
+      "recall": 1.0,
+      "mrr": 0.3333333333333333
+    },
+    "all": {
+      "n": 9,
+      "hit": 0.7777777777777778,
+      "hit@1": 0.3333333333333333,
+      "recall": 0.4629629629629629,
+      "mrr": 0.4722222222222222
+    }
+  },
+  "by_category": {
+    "concept": {
+      "n": 69,
+      "hit": 0.42028985507246375,
+      "hit@1": 0.11594202898550725,
+      "recall": 0.28743961352657005,
+      "mrr": 0.2144927536231884
+    },
+    "article_lookup": {
+      "n": 5,
+      "hit": 1.0,
+      "hit@1": 1.0,
+      "recall": 1.0,
+      "mrr": 1.0
+    },
+    "cross_domain": {
+      "n": 9,
+      "hit": 0.7777777777777778,
+      "hit@1": 0.3333333333333333,
+      "recall": 0.4629629629629629,
+      "mrr": 0.4722222222222222
+    },
+    "colloquial": {
+      "n": 4,
+      "hit": 0.25,
+      "hit@1": 0.25,
+      "recall": 0.08333333333333333,
+      "mrr": 0.25
+    }
+  },
+  "cases": [
+    {
+      "question": "Quelle est la peine pour le vol ?",
+      "language": "fr",
+      "law_type": "penal",
+      "category": "concept",
+      "expected": [
+        "258",
+        "260",
+        "261",
+        "262"
+      ],
+      "retrieved": [
+        "264",
+        "62",
+        "274",
+        "262",
+        "261",
+        "263"
+      ],
+      "first_rank": 4,
+      "hit": true
+    },
+    {
+      "question": "Qu'est-ce que le meurtre ?",
+      "language": "fr",
+      "law_type": "penal",
+      "category": "concept",
+      "expected": [
+        "201",
+        "202",
+        "203"
+      ],
+      "retrieved": [
+        "60",
+        "72",
+        "188",
+        "185",
+        "201",
+        "129"
+      ],
+      "first_rank": 5,
+      "hit": true
+    },
+    {
+      "question": "Quelle est la peine pour la corruption ?",
+      "language": "fr",
+      "law_type": "penal",
+      "category": "concept",
+      "expected": [
+        "84",
+        "85",
+        "86"
+      ],
+      "retrieved": [
+        "264",
+        "92",
+        "234",
+        "4",
+        "129",
+        "186"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "Quelle est la peine pour l'escroquerie ?",
+      "language": "fr",
+      "law_type": "penal",
+      "category": "concept",
+      "expected": [
+        "291"
+      ],
+      "retrieved": [
+        "264",
+        "4",
+        "186",
+        "292",
+        "247",
+        "129"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "Qu'est-ce que l'abus de confiance ?",
+      "language": "fr",
+      "law_type": "penal",
+      "category": "concept",
+      "expected": [
+        "297"
+      ],
+      "retrieved": [
+        "185",
+        "60",
+        "188",
+        "247",
+        "226",
+        "129"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "Que dit la loi sur la diffamation ?",
+      "language": "fr",
+      "law_type": "penal",
+      "category": "concept",
+      "expected": [
+        "245",
+        "246"
+      ],
+      "retrieved": [
+        "247",
+        "129",
+        "4",
+        "185",
+        "62",
+        "188"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "Comment est puni le viol ?",
+      "language": "fr",
+      "law_type": "penal",
+      "category": "concept",
+      "expected": [
+        "227"
+      ],
+      "retrieved": [
+        "218",
+        "227",
+        "261",
+        "264",
+        "262",
+        "319"
+      ],
+      "first_rank": 2,
+      "hit": true
+    },
+    {
+      "question": "Quelle est la sanction du harcèlement sexuel ?",
+      "language": "fr",
+      "law_type": "penal",
+      "category": "concept",
+      "expected": [
+        "226"
+      ],
+      "retrieved": [
+        "226",
+        "231",
+        "234",
+        "223",
+        "129",
+        "228"
+      ],
+      "first_rank": 1,
+      "hit": true
+    },
+    {
+      "question": "Qu'est-ce que la légitime défense ?",
+      "language": "fr",
+      "law_type": "penal",
+      "category": "concept",
+      "expected": [
+        "39"
+      ],
+      "retrieved": [
+        "62",
+        "60",
+        "22",
+        "129",
+        "72",
+        "4"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "Comment est puni l'incendie volontaire ?",
+      "language": "fr",
+      "law_type": "penal",
+      "category": "concept",
+      "expected": [
+        "307",
+        "308",
+        "309"
+      ],
+      "retrieved": [
+        "264",
+        "129",
+        "304",
+        "155",
+        "274",
+        "307"
+      ],
+      "first_rank": 6,
+      "hit": true
+    },
+    {
+      "question": "Que dit la loi sur la tentative de crime ?",
+      "language": "fr",
+      "law_type": "penal",
+      "category": "concept",
+      "expected": [
+        "59"
+      ],
+      "retrieved": [
+        "129",
+        "291",
+        "185",
+        "72",
+        "188",
+        "264"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "Quelle est la peine pour les coups et blessures volontaires ?",
+      "language": "fr",
+      "law_type": "penal",
+      "category": "concept",
+      "expected": [
+        "217",
+        "218",
+        "219"
+      ],
+      "retrieved": [
+        "264",
+        "215",
+        "208",
+        "218",
+        "220",
+        "129"
+      ],
+      "first_rank": 4,
+      "hit": true
+    },
+    {
+      "question": "Que dit l'article 258 du code pénal ?",
+      "language": "fr",
+      "law_type": "penal",
+      "category": "article_lookup",
+      "expected": [
+        "258"
+      ],
+      "retrieved": [
+        "258"
+      ],
+      "first_rank": 1,
+      "hit": true
+    },
+    {
+      "question": "Que dit l'article 201 ?",
+      "language": "fr",
+      "law_type": "penal",
+      "category": "article_lookup",
+      "expected": [
+        "201"
+      ],
+      "retrieved": [
+        "201"
+      ],
+      "first_rank": 1,
+      "hit": true
+    },
+    {
+      "question": "Que dit l'article 24 sur le droit à la vie ?",
+      "language": "fr",
+      "law_type": "constitution",
+      "category": "article_lookup",
+      "expected": [
+        "24"
+      ],
+      "retrieved": [
+        "24"
+      ],
+      "first_rank": 1,
+      "hit": true
+    },
+    {
+      "question": "Quels sont les droits fondamentaux ?",
+      "language": "fr",
+      "law_type": "constitution",
+      "category": "concept",
+      "expected": [
+        "24",
+        "25",
+        "26"
+      ],
+      "retrieved": [
+        "37",
+        "39",
+        "9",
+        "26",
+        "30",
+        "90"
+      ],
+      "first_rank": 4,
+      "hit": true
+    },
+    {
+      "question": "Que dit l'article 13 sur la garde à vue ?",
+      "language": "fr",
+      "law_type": "procedure_penale",
+      "category": "article_lookup",
+      "expected": [
+        "13"
+      ],
+      "retrieved": [
+        "13"
+      ],
+      "first_rank": 1,
+      "hit": true
+    },
+    {
+      "question": "Quelle est la durée maximale de la garde à vue ?",
+      "language": "fr",
+      "law_type": "procedure_penale",
+      "category": "concept",
+      "expected": [
+        "13"
+      ],
+      "retrieved": [
+        "321",
+        "85",
+        "35",
+        "10",
+        "311",
+        "344"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "Quels sont les droits de la personne gardée à vue ?",
+      "language": "fr",
+      "law_type": "procedure_penale",
+      "category": "concept",
+      "expected": [
+        "13",
+        "70"
+      ],
+      "retrieved": [
+        "10",
+        "51",
+        "50",
+        "61",
+        "2",
+        "85"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "Comment se prescrit l'action publique ?",
+      "language": "fr",
+      "law_type": "procedure_penale",
+      "category": "concept",
+      "expected": [
+        "5"
+      ],
+      "retrieved": [
+        "6",
+        "5",
+        "350",
+        "335",
+        "37",
+        "326"
+      ],
+      "first_rank": 2,
+      "hit": true
+    },
+    {
+      "question": "Quelle est la durée légale du travail ?",
+      "language": "fr",
+      "law_type": "travail",
+      "category": "concept",
+      "expected": [
+        "79",
+        "85"
+      ],
+      "retrieved": [
+        "79",
+        "4",
+        "258",
+        "410",
+        "90",
+        "2"
+      ],
+      "first_rank": 1,
+      "hit": true
+    },
+    {
+      "question": "Quelles sont les conditions de licenciement ?",
+      "language": "fr",
+      "law_type": "travail",
+      "category": "concept",
+      "expected": [
+        "14",
+        "16",
+        "23"
+      ],
+      "retrieved": [
+        "4",
+        "258",
+        "166",
+        "371",
+        "263",
+        "7"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "Quelle est la durée du congé annuel payé ?",
+      "language": "fr",
+      "law_type": "travail",
+      "category": "concept",
+      "expected": [
+        "112"
+      ],
+      "retrieved": [
+        "125",
+        "118",
+        "113",
+        "117",
+        "123",
+        "114"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "Qu'est-ce que le contrat de travail à durée déterminée ?",
+      "language": "fr",
+      "law_type": "travail",
+      "category": "concept",
+      "expected": [
+        "6"
+      ],
+      "retrieved": [
+        "6",
+        "94",
+        "14",
+        "410",
+        "132",
+        "17"
+      ],
+      "first_rank": 1,
+      "hit": true
+    },
+    {
+      "question": "Quels sont les droits de la femme enceinte au travail ?",
+      "language": "fr",
+      "law_type": "travail",
+      "category": "concept",
+      "expected": [
+        "64"
+      ],
+      "retrieved": [
+        "68",
+        "64",
+        "18",
+        "20",
+        "166",
+        "89"
+      ],
+      "first_rank": 2,
+      "hit": true
+    },
+    {
+      "question": "Quelles sont les conditions du mariage ?",
+      "language": "fr",
+      "law_type": "statut_personnel",
+      "category": "concept",
+      "expected": [
+        "14",
+        "5",
+        "8"
+      ],
+      "retrieved": [
+        "31",
+        "37",
+        "38",
+        "10",
+        "9",
+        "4"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "Comment se déroule le divorce ?",
+      "language": "fr",
+      "law_type": "statut_personnel",
+      "category": "concept",
+      "expected": [
+        "29",
+        "30",
+        "31"
+      ],
+      "retrieved": [
+        "10",
+        "9",
+        "37",
+        "26",
+        "38",
+        "5"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "La polygamie est-elle autorisée ?",
+      "language": "fr",
+      "law_type": "statut_personnel",
+      "category": "concept",
+      "expected": [
+        "18"
+      ],
+      "retrieved": [
+        "98",
+        "9",
+        "93",
+        "15",
+        "19",
+        "68"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "Comment est attribuée la garde des enfants ?",
+      "language": "fr",
+      "law_type": "statut_personnel",
+      "category": "concept",
+      "expected": [
+        "54",
+        "55",
+        "56",
+        "57"
+      ],
+      "retrieved": [
+        "67",
+        "25",
+        "56",
+        "58",
+        "59",
+        "61"
+      ],
+      "first_rank": 3,
+      "hit": true
+    },
+    {
+      "question": "Quelles sont les règles de la pension alimentaire ?",
+      "language": "fr",
+      "law_type": "statut_personnel",
+      "category": "concept",
+      "expected": [
+        "37",
+        "38",
+        "46",
+        "47"
+      ],
+      "retrieved": [
+        "53",
+        "49",
+        "51",
+        "50",
+        "5",
+        "10"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "Quelles sont les conditions de validité d'un contrat ?",
+      "language": "fr",
+      "law_type": "obligations_contrats",
+      "category": "concept",
+      "expected": [
+        "2",
+        "3"
+      ],
+      "retrieved": [
+        "119",
+        "24",
+        "29",
+        "1477",
+        "1531",
+        "133"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "Qu'est-ce que la responsabilité civile ?",
+      "language": "fr",
+      "law_type": "obligations_contrats",
+      "category": "concept",
+      "expected": [
+        "82",
+        "83",
+        "84"
+      ],
+      "retrieved": [
+        "103",
+        "104",
+        "102",
+        "173",
+        "1531",
+        "108"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "Qu'est-ce que la force majeure ?",
+      "language": "fr",
+      "law_type": "obligations_contrats",
+      "category": "concept",
+      "expected": [
+        "283"
+      ],
+      "retrieved": [
+        "283",
+        "847",
+        "1050",
+        "1208",
+        "848",
+        "280"
+      ],
+      "first_rank": 1,
+      "hit": true
+    },
+    {
+      "question": "Quelle est la force obligatoire du contrat ?",
+      "language": "fr",
+      "law_type": "obligations_contrats",
+      "category": "concept",
+      "expected": [
+        "242"
+      ],
+      "retrieved": [
+        "22",
+        "177",
+        "242",
+        "998",
+        "830",
+        "414"
+      ],
+      "first_rank": 3,
+      "hit": true
+    },
+    {
+      "question": "Quelles sont les obligations du vendeur ?",
+      "language": "fr",
+      "law_type": "obligations_contrats",
+      "category": "concept",
+      "expected": [
+        "564",
+        "611",
+        "612"
+      ],
+      "retrieved": [
+        "631",
+        "591",
+        "675",
+        "3",
+        "242",
+        "630"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "Quelles sont les règles du contrat de louage ?",
+      "language": "fr",
+      "law_type": "obligations_contrats",
+      "category": "concept",
+      "expected": [
+        "728"
+      ],
+      "retrieved": [
+        "830",
+        "767",
+        "866",
+        "867",
+        "828",
+        "242"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "Comment acquérir la nationalité tunisienne ?",
+      "language": "fr",
+      "law_type": "nationalite",
+      "category": "concept",
+      "expected": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "retrieved": [
+        "2",
+        "18",
+        "24",
+        "39",
+        "13",
+        "23"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "Quels sont les droits de l'enfant en danger ?",
+      "language": "fr",
+      "law_type": "protection_enfant",
+      "category": "concept",
+      "expected": [
+        "20",
+        "21",
+        "22"
+      ],
+      "retrieved": [
+        "46",
+        "24",
+        "6",
+        "2",
+        "123",
+        "10"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "Qu'est-ce qu'une convention d'arbitrage ?",
+      "language": "fr",
+      "law_type": "arbitrage",
+      "category": "concept",
+      "expected": [
+        "2",
+        "3"
+      ],
+      "retrieved": [
+        "61",
+        "39",
+        "3",
+        "6",
+        "52",
+        "2"
+      ],
+      "first_rank": 3,
+      "hit": true
+    },
+    {
+      "question": "Que dit l'article 13 ?",
+      "language": "fr",
+      "law_type": null,
+      "category": "cross_domain",
+      "expected": [
+        "13"
+      ],
+      "retrieved": [
+        "13"
+      ],
+      "first_rank": 1,
+      "hit": true
+    },
+    {
+      "question": "Quelle est la peine pour le vol ?",
+      "language": "fr",
+      "law_type": null,
+      "category": "cross_domain",
+      "expected": [
+        "258",
+        "260",
+        "261",
+        "262"
+      ],
+      "retrieved": [
+        "264",
+        "62",
+        "274",
+        "262",
+        "261",
+        "263"
+      ],
+      "first_rank": 4,
+      "hit": true
+    },
+    {
+      "question": "Quelles sont les causes de divorce ?",
+      "language": "fr",
+      "law_type": null,
+      "category": "cross_domain",
+      "expected": [
+        "29",
+        "30",
+        "31"
+      ],
+      "retrieved": [
+        "5",
+        "29",
+        "11",
+        "22",
+        "14"
+      ],
+      "first_rank": 2,
+      "hit": true
+    },
+    {
+      "question": "Combien d'heures par semaine peut-on travailler ?",
+      "language": "fr",
+      "law_type": null,
+      "category": "cross_domain",
+      "expected": [
+        "79",
+        "85"
+      ],
+      "retrieved": [
+        "79",
+        "4",
+        "90",
+        "93",
+        "5",
+        "88"
+      ],
+      "first_rank": 1,
+      "hit": true
+    },
+    {
+      "question": "Mon patron peut-il me virer sans préavis ?",
+      "language": "fr",
+      "law_type": "travail",
+      "category": "colloquial",
+      "expected": [
+        "14",
+        "16",
+        "23"
+      ],
+      "retrieved": [
+        "166",
+        "378",
+        "370",
+        "376",
+        "21",
+        "398"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "Mon mari peut-il se remarier ?",
+      "language": "fr",
+      "law_type": "statut_personnel",
+      "category": "colloquial",
+      "expected": [
+        "18"
+      ],
+      "retrieved": [
+        "101",
+        "38",
+        "5",
+        "3",
+        "69",
+        "19"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "Que risque-t-on si on frappe quelqu'un ?",
+      "language": "fr",
+      "law_type": "penal",
+      "category": "colloquial",
+      "expected": [
+        "217",
+        "218",
+        "219"
+      ],
+      "retrieved": [
+        "129",
+        "264",
+        "188",
+        "223",
+        "255",
+        "286"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "ما هي عقوبة السرقة؟",
+      "language": "ar",
+      "law_type": "penal",
+      "category": "concept",
+      "expected": [
+        "258",
+        "260",
+        "261",
+        "262"
+      ],
+      "retrieved": [
+        "264",
+        "274",
+        "62",
+        "129",
+        "263",
+        "188"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "ما هي عقوبة الرشوة؟",
+      "language": "ar",
+      "law_type": "penal",
+      "category": "concept",
+      "expected": [
+        "84",
+        "85",
+        "86"
+      ],
+      "retrieved": [
+        "234",
+        "264",
+        "188",
+        "186",
+        "92",
+        "129"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "ما هي عقوبة القتل العمد؟",
+      "language": "ar",
+      "law_type": "penal",
+      "category": "concept",
+      "expected": [
+        "201",
+        "202",
+        "203"
+      ],
+      "retrieved": [
+        "264",
+        "208",
+        "129",
+        "170",
+        "201",
+        "217"
+      ],
+      "first_rank": 5,
+      "hit": true
+    },
+    {
+      "question": "ما هي عقوبة الاحتيال؟",
+      "language": "ar",
+      "law_type": "penal",
+      "category": "concept",
+      "expected": [
+        "291"
+      ],
+      "retrieved": [
+        "62",
+        "264",
+        "275",
+        "274",
+        "164",
+        "247"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "ما هي عقوبة الاغتصاب؟",
+      "language": "ar",
+      "law_type": "penal",
+      "category": "concept",
+      "expected": [
+        "227"
+      ],
+      "retrieved": [
+        "264",
+        "218",
+        "231",
+        "319",
+        "234",
+        "223"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "ما هو الدفاع الشرعي؟",
+      "language": "ar",
+      "law_type": "penal",
+      "category": "concept",
+      "expected": [
+        "39"
+      ],
+      "retrieved": [
+        "22",
+        "53",
+        "129",
+        "291",
+        "62",
+        "72"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "ماذا ينص الفصل 24 من الدستور؟",
+      "language": "ar",
+      "law_type": "constitution",
+      "category": "article_lookup",
+      "expected": [
+        "24"
+      ],
+      "retrieved": [
+        "24"
+      ],
+      "first_rank": 1,
+      "hit": true
+    },
+    {
+      "question": "ما هي حقوق الموقوف؟",
+      "language": "ar",
+      "law_type": "procedure_penale",
+      "category": "concept",
+      "expected": [
+        "13",
+        "70"
+      ],
+      "retrieved": [
+        "53",
+        "41",
+        "141",
+        "10",
+        "49",
+        "35"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "ما هي مدة الاحتفاظ؟",
+      "language": "ar",
+      "law_type": "procedure_penale",
+      "category": "concept",
+      "expected": [
+        "13"
+      ],
+      "retrieved": [
+        "74",
+        "70",
+        "83",
+        "346",
+        "202",
+        "10"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "ما هي مدة العمل القانونية؟",
+      "language": "ar",
+      "law_type": "travail",
+      "category": "concept",
+      "expected": [
+        "79",
+        "85"
+      ],
+      "retrieved": [
+        "4",
+        "79",
+        "258",
+        "2",
+        "95",
+        "99"
+      ],
+      "first_rank": 2,
+      "hit": true
+    },
+    {
+      "question": "ما هي مدة الإجازة السنوية المدفوعة؟",
+      "language": "ar",
+      "law_type": "travail",
+      "category": "concept",
+      "expected": [
+        "112"
+      ],
+      "retrieved": [
+        "125",
+        "118",
+        "113",
+        "114",
+        "123",
+        "117"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "متى يمكن للمؤجر طرد العامل؟",
+      "language": "ar",
+      "law_type": "travail",
+      "category": "colloquial",
+      "expected": [
+        "14",
+        "16",
+        "23"
+      ],
+      "retrieved": [
+        "14",
+        "166",
+        "371",
+        "132",
+        "128",
+        "370"
+      ],
+      "first_rank": 1,
+      "hit": true
+    },
+    {
+      "question": "ما هي شروط الزواج؟",
+      "language": "ar",
+      "law_type": "statut_personnel",
+      "category": "concept",
+      "expected": [
+        "14",
+        "5",
+        "8"
+      ],
+      "retrieved": [
+        "31",
+        "38",
+        "37",
+        "10",
+        "9",
+        "26"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "هل يجوز تعدد الزوجات؟",
+      "language": "ar",
+      "law_type": "statut_personnel",
+      "category": "concept",
+      "expected": [
+        "18"
+      ],
+      "retrieved": [
+        "18",
+        "102",
+        "32",
+        "6",
+        "15",
+        "19"
+      ],
+      "first_rank": 1,
+      "hit": true
+    },
+    {
+      "question": "كيف يتم الطلاق؟",
+      "language": "ar",
+      "law_type": "statut_personnel",
+      "category": "concept",
+      "expected": [
+        "29",
+        "30",
+        "31"
+      ],
+      "retrieved": [
+        "9",
+        "10",
+        "37",
+        "31",
+        "30",
+        "26"
+      ],
+      "first_rank": 4,
+      "hit": true
+    },
+    {
+      "question": "من يحق له حضانة الأطفال؟",
+      "language": "ar",
+      "law_type": "statut_personnel",
+      "category": "concept",
+      "expected": [
+        "54",
+        "55",
+        "56",
+        "57"
+      ],
+      "retrieved": [
+        "5",
+        "60",
+        "59",
+        "58",
+        "2",
+        "61"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "ما هي شروط صحة العقد؟",
+      "language": "ar",
+      "law_type": "obligations_contrats",
+      "category": "concept",
+      "expected": [
+        "2",
+        "3"
+      ],
+      "retrieved": [
+        "1531",
+        "2",
+        "119",
+        "3",
+        "24",
+        "126"
+      ],
+      "first_rank": 2,
+      "hit": true
+    },
+    {
+      "question": "ما هي القوة القاهرة؟",
+      "language": "ar",
+      "law_type": "obligations_contrats",
+      "category": "concept",
+      "expected": [
+        "283"
+      ],
+      "retrieved": [
+        "283",
+        "1208",
+        "1050",
+        "6",
+        "7",
+        "280"
+      ],
+      "first_rank": 1,
+      "hit": true
+    },
+    {
+      "question": "كيف تكتسب الجنسية التونسية؟",
+      "language": "ar",
+      "law_type": "nationalite",
+      "category": "concept",
+      "expected": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "retrieved": [
+        "2",
+        "11",
+        "18",
+        "24",
+        "39",
+        "23"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "ما هي عقوبة السرقة؟",
+      "language": "ar",
+      "law_type": null,
+      "category": "cross_domain",
+      "expected": [
+        "258",
+        "260",
+        "261",
+        "262"
+      ],
+      "retrieved": [
+        "264",
+        "274",
+        "62",
+        "129",
+        "263",
+        "188"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "ما هي شروط الزواج؟",
+      "language": "ar",
+      "law_type": null,
+      "category": "cross_domain",
+      "expected": [
+        "14",
+        "5",
+        "8"
+      ],
+      "retrieved": [
+        "31",
+        "4",
+        "38",
+        "37",
+        "2",
+        "14"
+      ],
+      "first_rank": 6,
+      "hit": true
+    },
+    {
+      "question": "What is the penalty for theft?",
+      "language": "en",
+      "law_type": "penal",
+      "category": "concept",
+      "expected": [
+        "258",
+        "260",
+        "261",
+        "262"
+      ],
+      "retrieved": [
+        "264",
+        "62",
+        "274",
+        "247",
+        "262",
+        "129"
+      ],
+      "first_rank": 5,
+      "hit": true
+    },
+    {
+      "question": "What is the penalty for murder?",
+      "language": "en",
+      "law_type": "penal",
+      "category": "concept",
+      "expected": [
+        "201",
+        "202",
+        "203"
+      ],
+      "retrieved": [
+        "62",
+        "264",
+        "208",
+        "129",
+        "201",
+        "170"
+      ],
+      "first_rank": 5,
+      "hit": true
+    },
+    {
+      "question": "How is fraud punished?",
+      "language": "en",
+      "law_type": "penal",
+      "category": "concept",
+      "expected": [
+        "291"
+      ],
+      "retrieved": [
+        "62",
+        "264",
+        "247",
+        "129",
+        "186",
+        "299"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "What is the penalty for bribery?",
+      "language": "en",
+      "law_type": "penal",
+      "category": "concept",
+      "expected": [
+        "84",
+        "85",
+        "86"
+      ],
+      "retrieved": [
+        "264",
+        "234",
+        "188",
+        "186",
+        "247",
+        "92"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "What counts as self-defence?",
+      "language": "en",
+      "law_type": "penal",
+      "category": "concept",
+      "expected": [
+        "39"
+      ],
+      "retrieved": [
+        "60",
+        "129",
+        "72",
+        "4",
+        "22",
+        "291"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "What are the conditions for marriage?",
+      "language": "en",
+      "law_type": "statut_personnel",
+      "category": "concept",
+      "expected": [
+        "14",
+        "5",
+        "8"
+      ],
+      "retrieved": [
+        "37",
+        "32",
+        "31",
+        "8",
+        "9",
+        "3"
+      ],
+      "first_rank": 4,
+      "hit": true
+    },
+    {
+      "question": "Is polygamy allowed?",
+      "language": "en",
+      "law_type": "statut_personnel",
+      "category": "concept",
+      "expected": [
+        "18"
+      ],
+      "retrieved": [
+        "18",
+        "153",
+        "5",
+        "10",
+        "15",
+        "16"
+      ],
+      "first_rank": 1,
+      "hit": true
+    },
+    {
+      "question": "Who gets custody of the children after divorce?",
+      "language": "en",
+      "law_type": "statut_personnel",
+      "category": "concept",
+      "expected": [
+        "54",
+        "55",
+        "56",
+        "57"
+      ],
+      "retrieved": [
+        "69",
+        "60",
+        "63",
+        "5",
+        "59",
+        "61"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "What are the fundamental rights?",
+      "language": "en",
+      "law_type": "constitution",
+      "category": "concept",
+      "expected": [
+        "24",
+        "25",
+        "26"
+      ],
+      "retrieved": [
+        "9",
+        "90",
+        "31",
+        "37",
+        "5",
+        "30"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "What are the rights of a detainee?",
+      "language": "en",
+      "law_type": "procedure_penale",
+      "category": "concept",
+      "expected": [
+        "13",
+        "70"
+      ],
+      "retrieved": [
+        "2",
+        "3",
+        "321",
+        "308",
+        "320",
+        "315"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "How long can police custody last?",
+      "language": "en",
+      "law_type": "procedure_penale",
+      "category": "concept",
+      "expected": [
+        "13"
+      ],
+      "retrieved": [
+        "321",
+        "10",
+        "85",
+        "69",
+        "35",
+        "202"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "What is the legal working hours limit?",
+      "language": "en",
+      "law_type": "travail",
+      "category": "concept",
+      "expected": [
+        "79",
+        "85"
+      ],
+      "retrieved": [
+        "4",
+        "79",
+        "93",
+        "81",
+        "95",
+        "410"
+      ],
+      "first_rank": 2,
+      "hit": true
+    },
+    {
+      "question": "How many days of paid annual leave is a worker entitled to?",
+      "language": "en",
+      "law_type": "travail",
+      "category": "concept",
+      "expected": [
+        "112"
+      ],
+      "retrieved": [
+        "113",
+        "123",
+        "118",
+        "125",
+        "114",
+        "128"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "When can an employer lawfully dismiss an employee?",
+      "language": "en",
+      "law_type": "travail",
+      "category": "concept",
+      "expected": [
+        "14",
+        "16",
+        "23"
+      ],
+      "retrieved": [
+        "166",
+        "370",
+        "371",
+        "14",
+        "21",
+        "22"
+      ],
+      "first_rank": 4,
+      "hit": true
+    },
+    {
+      "question": "What makes a contract valid?",
+      "language": "en",
+      "law_type": "obligations_contrats",
+      "category": "concept",
+      "expected": [
+        "2",
+        "3"
+      ],
+      "retrieved": [
+        "1531",
+        "119",
+        "2",
+        "3",
+        "24",
+        "133"
+      ],
+      "first_rank": 3,
+      "hit": true
+    },
+    {
+      "question": "What is force majeure?",
+      "language": "en",
+      "law_type": "obligations_contrats",
+      "category": "concept",
+      "expected": [
+        "283"
+      ],
+      "retrieved": [
+        "283",
+        "280",
+        "1208",
+        "1024",
+        "847",
+        "1050"
+      ],
+      "first_rank": 1,
+      "hit": true
+    },
+    {
+      "question": "How can someone acquire Tunisian nationality?",
+      "language": "en",
+      "law_type": "nationalite",
+      "category": "concept",
+      "expected": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "retrieved": [
+        "18",
+        "13",
+        "2",
+        "65",
+        "24",
+        "11"
+      ],
+      "first_rank": null,
+      "hit": false
+    },
+    {
+      "question": "What is the penalty for theft?",
+      "language": "en",
+      "law_type": null,
+      "category": "cross_domain",
+      "expected": [
+        "258",
+        "260",
+        "261",
+        "262"
+      ],
+      "retrieved": [
+        "264",
+        "274",
+        "262",
+        "129",
+        "164",
+        "261"
+      ],
+      "first_rank": 3,
+      "hit": true
+    },
+    {
+      "question": "What does article 13 say?",
+      "language": "en",
+      "law_type": null,
+      "category": "cross_domain",
+      "expected": [
+        "13"
+      ],
+      "retrieved": [
+        "13"
+      ],
+      "first_rank": 1,
+      "hit": true
+    },
+    {
+      "question": "What are the grounds for divorce?",
+      "language": "en",
+      "law_type": null,
+      "category": "cross_domain",
+      "expected": [
+        "29",
+        "30",
+        "31"
+      ],
+      "retrieved": [
+        "9",
+        "49",
+        "5",
+        "38",
+        "16"
+      ],
+      "first_rank": null,
+      "hit": false
+    }
+  ]
+}
