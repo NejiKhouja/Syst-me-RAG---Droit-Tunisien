@@ -1,0 +1,42 @@
+[
+    {
+        "question": "What is the penalty for theft?",
+        "expected_intent": "clear"
+    },
+    {
+        "question": "Tell me the penalty for theft",
+        "expected_intent": "clear"
+    },
+    {
+        "question": "Quelle est la peine pour le vol ?",
+        "expected_intent": "clear"
+    },
+    {
+        "question": "ما هي عقوبة السرقة؟",
+        "expected_intent": "clear"
+    },
+    {
+        "question": "Can I be fired without notice?",
+        "expected_intent": "clear"
+    },
+    {
+        "question": "Can I break my contract?",
+        "expected_intent": "ambiguous"
+    },
+    {
+        "question": "Quel est le délai de préavis ?",
+        "expected_intent": "ambiguous"
+    },
+    {
+        "question": "What's the weather in Tunis?",
+        "expected_intent": "out_of_scope"
+    },
+    {
+        "question": "What is the capital of France?",
+        "expected_intent": "out_of_scope"
+    },
+    {
+        "question": "How do I file a tax return in France?",
+        "expected_intent": "out_of_scope"
+    }
+]

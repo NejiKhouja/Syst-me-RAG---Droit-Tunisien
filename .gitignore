@@ -1,10 +1,12 @@
 __pycache__
 
 .claude
-
+toy_graph/
 .vscode
 db
 .env
 eval/cache/
 
 db_v1_1/
+results/*.err
+results/item5_done

@@ -1,0 +1,214 @@
+[
+    {
+        "question": "What is the penalty for theft?",
+        "language": "en",
+        "target_codes": [
+            "penal"
+        ],
+        "min_q": 1,
+        "max_q": 2,
+        "allow_digits": false
+    },
+    {
+        "question": "Quelles sont les conditions de validité d'un contrat ?",
+        "language": "fr",
+        "target_codes": [
+            "obligations_contrats"
+        ],
+        "min_q": 1,
+        "max_q": 2,
+        "allow_digits": false
+    },
+    {
+        "question": "ما هي مدة الإجازة السنوية للعامل؟",
+        "language": "ar",
+        "target_codes": [
+            "travail"
+        ],
+        "min_q": 1,
+        "max_q": 2,
+        "allow_digits": false
+    },
+    {
+        "question": "Un salarié licencié abusivement peut-il aussi porter plainte au pénal pour harcèlement ?",
+        "language": "fr",
+        "target_codes": [
+            "travail",
+            "penal"
+        ],
+        "min_q": 2,
+        "max_q": 4,
+        "allow_digits": false
+    },
+    {
+        "question": "What does article 258 of the penal code say?",
+        "language": "en",
+        "target_codes": [
+            "penal"
+        ],
+        "min_q": 1,
+        "max_q": 2,
+        "allow_digits": true
+    },
+    {
+        "question": "How do I register a company and what are the commercial obligations of a merchant?",
+        "language": "en",
+        "target_codes": [
+            "societes",
+            "commerce"
+        ],
+        "min_q": 2,
+        "max_q": 4,
+        "allow_digits": false
+    },
+    {
+        "question": "Quel tribunal est compétent pour un divorce et comment se partagent les biens ?",
+        "language": "fr",
+        "target_codes": [
+            "procedure_civile",
+            "statut_personnel"
+        ],
+        "min_q": 2,
+        "max_q": 4,
+        "allow_digits": false
+    },
+    {
+        "question": "Quelle est la durée de la prescription en matière contractuelle ?",
+        "language": "fr",
+        "target_codes": [
+            "obligations_contrats"
+        ],
+        "min_q": 1,
+        "max_q": 2,
+        "allow_digits": false
+    },
+    {
+        "question": "wat is the penalti for hiting som1 with a car by acident",
+        "language": "en",
+        "target_codes": [
+            "penal"
+        ],
+        "min_q": 1,
+        "max_q": 2,
+        "allow_digits": false
+    },
+    {
+        "question": "نخلص في كرائي متأخر، ينجم صاحب الدار يطردني؟",
+        "language": "ar",
+        "target_codes": [
+            "obligations_contrats",
+            "procedure_civile"
+        ],
+        "min_q": 1,
+        "max_q": 3,
+        "allow_digits": false
+    },
+    {
+        "question": "préavis ?",
+        "language": "fr",
+        "target_codes": [
+            "travail",
+            "obligations_contrats"
+        ],
+        "min_q": 1,
+        "max_q": 2,
+        "allow_digits": false
+    },
+    {
+        "question": "Bonjour, j'ai acheté un appartement sur plan il y a deux ans, le promoteur n'a toujours pas livré, j'ai déjà payé 80% et il parle maintenant de faire faillite, qu'est-ce que je peux faire ?",
+        "language": "fr",
+        "target_codes": [
+            "obligations_contrats",
+            "commerce",
+            "droits_reels"
+        ],
+        "min_q": 2,
+        "max_q": 4,
+        "allow_digits": false
+    },
+    {
+        "question": "Can a gérant de SARL être responsable personnellement des dettes de la société ?",
+        "language": "en",
+        "target_codes": [
+            "societes"
+        ],
+        "min_q": 1,
+        "max_q": 2,
+        "allow_digits": false
+    },
+    {
+        "question": "Quels sont mes droits si on me convoque à la police ?",
+        "language": "fr",
+        "target_codes": [],
+        "min_q": 1,
+        "max_q": 3,
+        "allow_digits": false
+    },
+    {
+        "question": "ماذا يقول الفصل 82 من مجلة الشغل؟",
+        "language": "ar",
+        "target_codes": [
+            "travail"
+        ],
+        "min_q": 1,
+        "max_q": 2,
+        "allow_digits": true
+    },
+    {
+        "question": "My mother is Tunisian and my father is foreign, is my child Tunisian?",
+        "language": "en",
+        "target_codes": [
+            "nationalite",
+            "statut_personnel"
+        ],
+        "min_q": 1,
+        "max_q": 3,
+        "allow_digits": false
+    },
+    {
+        "question": "Je veux créer une société avec mon frère, embaucher un premier employé et vendre mes produits en ligne. Quelles lois s'appliquent ?",
+        "language": "fr",
+        "target_codes": [
+            "societes",
+            "travail",
+            "commerce"
+        ],
+        "min_q": 3,
+        "max_q": 4,
+        "allow_digits": false
+    },
+    {
+        "question": "Can a Tunisian court enforce a foreign arbitration award?",
+        "language": "en",
+        "target_codes": [
+            "arbitrage",
+            "droit_international_prive",
+            "procedure_civile"
+        ],
+        "min_q": 1,
+        "max_q": 3,
+        "allow_digits": false
+    },
+    {
+        "question": "À quel âge un enfant peut-il être jugé pénalement ?",
+        "language": "fr",
+        "target_codes": [
+            "protection_enfant",
+            "penal",
+            "procedure_penale"
+        ],
+        "min_q": 1,
+        "max_q": 3,
+        "allow_digits": false
+    },
+    {
+        "question": "هل يضمن الدستور حرية التعبير؟",
+        "language": "ar",
+        "target_codes": [
+            "constitution"
+        ],
+        "min_q": 1,
+        "max_q": 2,
+        "allow_digits": false
+    }
+]
