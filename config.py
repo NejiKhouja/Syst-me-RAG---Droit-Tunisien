@@ -14,6 +14,12 @@ EMBEDDING_MODEL = "OrdalieTech/Solon-embeddings-large-0.1"
 LLM_MODEL       = "openai/gpt-oss-120b"
 RERANKER_MODEL  = "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1"
 
+# Embedding input. CONTEXTUAL_CHUNKS: prepend the code/text name and article heading to the text that is
+# EMBEDDED (the stored text, BM25 and the reranker still see the original chunk). Build-time only.
+CONTEXTUAL_CHUNKS  = False
+EMBED_DOC_PREFIX   = ""    # e.g. "passage: " for the e5 family
+EMBED_QUERY_PREFIX = ""    # e.g. "query: "
+
 # Retrieval knobs
 MMR_K        = 20   # semantic candidates per query
 BM25_K       = 15   # BM25 candidates (primary query only)

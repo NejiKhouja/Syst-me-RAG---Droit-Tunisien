@@ -168,3 +168,19 @@ it is the standard, tuning-free choice.
 | round-robin merge (previous step) | 85.7 | 57.1 | 52.7 | 0.651 |
 | **RRF merge** | 88.6 | 57.1 | 54.1 | 0.659 |
 | RRF + final fusion with rerank order (rejected) | 80.0 | 60.0 | 50.3 | 0.667 |
+
+## Phase 3.6 — Contextual chunk text for embedding (tried, rejected)
+
+**What I tried.** Prepend "<code or text name> - Article <label>" (e.g. "Code Pénal - Article 226 ter") to the text that is
+*embedded* only; the stored text, BM25 and the reranker still see the original chunk. Needs a full re-embed
+(`db_v1_1_ctx/`, 98 min CPU, no LLM tokens). `CONTEXTUAL_CHUNKS` in `config.py`, build-time, default off.
+**Why it might help.** The embedding would know which code a short article belongs to.
+**Numbers (dev, 35 questions).** Hit@6 88.6% → 82.9% (two questions), Hit@1 57.1% → 62.9%, MRR 0.659 → 0.689,
+recall 54.1% → 52.3%. Better first place, worse coverage of the top-6.
+**Decision.** Rejected: a 5.7-point drop in Hit@6 is a regression and the MRR gain comes from two questions moving
+to rank 1. Code kept (off) so it can be re-tested on more data.
+
+| Dev | Hit@6 | Hit@1 | Recall | MRR |
+|---|---|---|---|---|
+| RRF, plain embeddings (kept) | 88.6 | 57.1 | 54.1 | 0.659 |
+| + contextual embedding text (rejected) | 82.9 | 62.9 | 52.3 | 0.689 |

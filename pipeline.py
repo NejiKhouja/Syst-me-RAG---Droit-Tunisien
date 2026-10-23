@@ -9,14 +9,27 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_groq import ChatGroq
 from langchain_huggingface import HuggingFaceEmbeddings
+from config import CONTEXTUAL_CHUNKS, EMBED_DOC_PREFIX, EMBED_QUERY_PREFIX
 from config import DB_DIR, DATA_DIR, EMBEDDING_MODEL, LLM_MODEL, GROQ_API_KEY, SUBQUERY_N, RAW_FIRST, USE_SUBQUERIES, RERANK_ENABLED, RERANK_TOP_K
 from loaders import load_all_documents
-from splitter import split_by_article
+from splitter import split_by_article, context_prefix
 from retriever import hybrid_retrieve, detect_arabic, detect_english
 from translate import rewrite_query, generate_subqueries, translate_to_french
 from reranker import rerank
 
 logger = logging.getLogger(__name__)
+
+class _PrefixedEmbeddings(HuggingFaceEmbeddings):
+    """HuggingFaceEmbeddings plus the document/query prefixes some models require (e5: "passage: " / "query: ")."""
+    doc_prefix: str = ""
+    query_prefix: str = ""
+
+    def embed_documents(self, texts):
+        return super().embed_documents([self.doc_prefix + t for t in texts])
+
+    def embed_query(self, text):
+        return super().embed_query(self.query_prefix + text)
+
 
 _embeddings: HuggingFaceEmbeddings | None = None
 
@@ -25,7 +38,9 @@ def get_embeddings() -> HuggingFaceEmbeddings:
     global _embeddings
     if _embeddings is None:
         logger.info("Loading embedding model: %s", EMBEDDING_MODEL)
-        _embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
+        _embeddings = _PrefixedEmbeddings(
+            model_name=EMBEDDING_MODEL, doc_prefix=EMBED_DOC_PREFIX, query_prefix=EMBED_QUERY_PREFIX
+        )
     return _embeddings
 
 
@@ -78,16 +93,31 @@ def _is_complex(question: str) -> bool:
 
 
 # ── Vectorstore management ───────────────────────────────────────────────────
-def build_vectorstore(folder: Path = DATA_DIR) -> Chroma:
-    docs   = load_all_documents(folder)
-    chunks = split_by_article(docs)
-    logger.info("Embedding %d chunks → ChromaDB at '%s'", len(chunks), DB_DIR)
-    return Chroma.from_documents(
-        documents=chunks,
-        embedding=get_embeddings(),
-        persist_directory=str(DB_DIR),
-        ids=[c.metadata["chunk_id"] for c in chunks],
-    )
+def build_vectorstore(folder: Path = DATA_DIR, db_dir: Path | str | None = None,
+                      contextual: bool | None = None, batch: int = 250) -> Chroma:
+    """Chunk the PDFs and embed them into Chroma at db_dir (default config.DB_DIR).
+    Resumable: chunks whose id is already stored are skipped, so an interrupted build can simply be re-run.
+    contextual: prepend context_prefix() to the text that is embedded (the stored text is unchanged)."""
+    contextual = CONTEXTUAL_CHUNKS if contextual is None else contextual
+    db_dir = str(db_dir or DB_DIR)
+    chunks = split_by_article(load_all_documents(folder))
+    store = Chroma(persist_directory=db_dir, embedding_function=get_embeddings())
+    done = set(store._collection.get(include=[])["ids"])
+    todo = [c for c in chunks if c.metadata["chunk_id"] not in done]
+    logger.info("Embedding %d new chunks (%d already stored) -> '%s' (contextual=%s)", len(todo), len(done), db_dir, contextual)
+    emb = get_embeddings()
+    for i in range(0, len(todo), batch):
+        part = todo[i:i + batch]
+        texts = [c.page_content for c in part]
+        to_embed = [context_prefix(c.metadata) + "\n" + t for c, t in zip(part, texts)] if contextual else texts
+        store._collection.upsert(
+            ids=[c.metadata["chunk_id"] for c in part],
+            documents=texts,
+            embeddings=emb.embed_documents(to_embed),
+            metadatas=[c.metadata for c in part],
+        )
+        logger.info("  %d / %d", min(i + batch, len(todo)), len(todo))
+    return store
 
 
 def load_vectorstore() -> Chroma:

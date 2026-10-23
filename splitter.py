@@ -164,3 +164,14 @@ def split_by_article(docs: list[Document]) -> list[Document]:
 
     logger.info("Article splitter: %d chunks from %d documents", len(chunks), len(docs))
     return chunks
+
+
+def context_prefix(meta: dict) -> str:
+    """Short context line for embedding: which text the chunk belongs to and which article it is.
+    e.g. "Code Pénal - Article 226 ter" or "Loi n° 93-65 ... fonds de garantie ... - Article 2"."""
+    from config import LAW_DISPLAY_NAMES
+    where = LAW_DISPLAY_NAMES.get(meta.get("law_type"), meta.get("law_type", ""))
+    if meta.get("section") and meta.get("section_title"):
+        where = meta["section_title"]
+    label = str(meta.get("article_label", meta.get("article", ""))).replace("-", " ")
+    return f"{where} - Article {label}"
