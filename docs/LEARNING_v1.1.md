@@ -201,3 +201,9 @@ New index `db_v1_1_bge/` (105 min CPU, no LLM tokens).
 
 **Stopping.** Items 6 and 7 were both rejected, so the tuning pass ends here. The final configuration is the one after
 Phase 3.5 (chunk fix, raw-first, no synonym table, pool 20 + int8 + length 256, RRF, Solon).
+
+## Phase 4 — Final test run (once) and report
+
+Run once after the tuning pass ended, with no change made afterwards: Hit@6 80.8%, Hit@1 59.6%, recall 50.4%,
+MRR 0.687 on the 52 test questions (v1 on the same questions: 57.7 / 32.7 / 34.4 / 0.405). Full write-up, latency per
+query, remaining failure categories and suspected label problems: `docs/baseline_v1.1_report.md`.

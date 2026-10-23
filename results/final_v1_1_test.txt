@@ -1,0 +1,67 @@
+
+================================================================================
+              Tunisian Legal RAG — End-to-End Retrieval Evaluation              
+                           split=test  n=52  top_k=6                            
+================================================================================
+  LLM        : openai/gpt-oss-120b  temps=[0.0]
+  Reranker   : cross-encoder/mmarco-mMiniLMv2-L12-H384-v1  ran on 52/52 cases
+  Code       : v1-baseline-runnable-17-gfdb6c51-dirty
+  Degraded   : 0 events
+
+  Overall (test)               52    80.8%    59.6%    50.4%   0.687
+
+  By filtered vs unfiltered
+                             n    Hit@6    Hit@1   Recall     MRR
+  filtered (law given)      47    78.7%    55.3%    47.8%   0.653
+  unfiltered (no law)        5   100.0%   100.0%    75.0%   1.000
+
+  By language
+                             n    Hit@6    Hit@1   Recall     MRR
+  ar                        13    76.9%    53.8%    46.3%   0.635
+  en                        12    83.3%    66.7%    50.8%   0.729
+  fr                        27    81.5%    59.3%    52.3%   0.693
+
+  By category
+                             n    Hit@6    Hit@1   Recall     MRR
+  article_lookup             3   100.0%   100.0%    73.3%   1.000
+  colloquial                 3    66.7%    33.3%    22.2%   0.500
+  concept                   41    78.0%    53.7%    47.8%   0.639
+  cross_domain               5   100.0%   100.0%    75.0%   1.000
+
+  By domain
+                             n    Hit@6    Hit@1   Recall     MRR
+  all                        5   100.0%   100.0%    75.0%   1.000
+  constitution               2   100.0%   100.0%   100.0%   1.000
+  nationalite                3     0.0%     0.0%     0.0%   0.000
+  obligations_contrats       6    83.3%    66.7%    58.3%   0.700
+  penal                     17    70.6%    35.3%    34.1%   0.515
+  procedure_penale           3   100.0%    33.3%    33.3%   0.583
+  protection_enfant          1   100.0%   100.0%    60.0%   1.000
+  statut_personnel           7    85.7%    85.7%    67.9%   0.857
+  travail                    8   100.0%    75.0%    60.4%   0.875
+
+  Misses (10):
+    - [fr] Qu'est-ce que l'abus de confiance ?
+        gold: 297   got: 296@PenalF, 87@PenalF, 101@PenalF, 226@PenalF, 240@PenalF, 157@PenalF
+    - [fr] Qu'est-ce que la légitime défense ?
+        gold: 39   got: 22@PenalF, 60@PenalF, 202@PenalF, 107@PenalF, 131@PenalF, 74@PenalF
+    - [fr] Qu'est-ce que la responsabilité civile ?
+        gold: 82, 83, 84   got: 103@COC.pd, 104@COC.pd, 173@COC.pd, 102@COC.pd, 1478@COC.pd, 86@COC.pd
+    - [fr] Comment acquérir la nationalité tunisienne ?
+        gold: 6, 7, 8, 9   got: 13@Nation, 24@Nation, 2@Nation, 62@Nation, 14@Nation, 30@Nation
+    - [fr] Mon mari peut-il se remarier ?
+        gold: 18   got: 16@Statut, 9@Statut, 39@Statut, 40@Statut, 38@Statut, 19@Statut
+    - [ar] ما هي عقوبة الاحتيال؟
+        gold: 291, 292   got: 294@PenalF, 175@PenalF, 237@PenalF, 301@PenalF, 89@PenalF, 91@PenalF
+    - [ar] ما هو الدفاع الشرعي؟
+        gold: 39   got: 22@PenalF, 202@PenalF, 60@PenalF, 71@PenalF, 61@PenalF, 276@PenalF
+    - [ar] كيف تكتسب الجنسية التونسية؟
+        gold: 6, 7, 8, 9   got: 13@Nation, 24@Nation, 2@Nation, 62@Nation, 14@Nation, 30@Nation
+    - [en] What counts as self-defence?
+        gold: 39   got: 60@PenalF, 270@PenalF, 22@PenalF, 61@PenalF, 215@PenalF, 131@PenalF
+    - [en] How can someone acquire Tunisian nationality?
+        gold: 6, 7, 8, 9   got: 33@Nation, 14@Nation, 13@Nation, 24@Nation, 18@Nation, 25@Nation
+================================================================================
+
+  Saved results/final_v1_1_test.json
+
