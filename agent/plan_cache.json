@@ -1,0 +1,379 @@
+{
+ "Quelle est la peine pour le vol ?": {
+  "intent": "clear",
+  "codes": [
+   "penal"
+  ],
+  "queries": [
+   {
+    "text": "peine du vol",
+    "code": "penal"
+   }
+  ]
+ },
+ "Que dit la loi sur la diffamation ?": {
+  "intent": "clear",
+  "codes": [
+   "penal"
+  ],
+  "queries": [
+   {
+    "text": "diffamation",
+    "code": "penal"
+   }
+  ]
+ },
+ "Comment est puni l'incendie volontaire ?": {
+  "intent": "clear",
+  "codes": [
+   "penal"
+  ],
+  "queries": [
+   {
+    "text": "incendie volontaire",
+    "code": "penal"
+   }
+  ]
+ },
+ "Que dit la loi sur la tentative de crime ?": {
+  "intent": "clear",
+  "codes": [
+   "penal"
+  ],
+  "queries": [
+   {
+    "text": "tentative de crime",
+    "code": "penal"
+   }
+  ]
+ },
+ "Quelle est la peine pour les coups et blessures volontaires ?": {
+  "intent": "clear",
+  "codes": [
+   "penal"
+  ],
+  "queries": [
+   {
+    "text": "peine pour coups et blessures volontaires",
+    "code": "penal"
+   }
+  ]
+ },
+ "Que dit l'article 258 du code pénal ?": {
+  "intent": "clear",
+  "codes": [
+   "penal"
+  ],
+  "queries": [
+   {
+    "text": "article 258 code pénal",
+    "code": "penal"
+   }
+  ]
+ },
+ "Quels sont les droits fondamentaux ?": {
+  "intent": "clear",
+  "codes": [
+   "constitution"
+  ],
+  "queries": [
+   {
+    "text": "droits fondamentaux",
+    "code": "constitution"
+   }
+  ]
+ },
+ "Que dit l'article 13 sur la garde à vue ?": {
+  "intent": "clear",
+  "codes": [
+   "procedure_penale"
+  ],
+  "queries": [
+   {
+    "text": "garde à vue",
+    "code": "procedure_penale"
+   }
+  ]
+ },
+ "Quelle est la durée maximale de la garde à vue ?": {
+  "intent": "clear",
+  "codes": [
+   "procedure_penale"
+  ],
+  "queries": [
+   {
+    "text": "durée maximale de la garde à vue",
+    "code": "procedure_penale"
+   }
+  ]
+ },
+ "Comment se prescrit l'action publique ?": {
+  "intent": "clear",
+  "codes": [
+   "penal",
+   "procedure_penale"
+  ],
+  "queries": [
+   {
+    "text": "prescription de l'action publique",
+    "code": "penal"
+   }
+  ]
+ },
+ "Quelle est la durée du congé annuel payé ?": {
+  "intent": "clear",
+  "codes": [
+   "travail"
+  ],
+  "queries": [
+   {
+    "text": "durée du congé annuel payé",
+    "code": "travail"
+   }
+  ]
+ },
+ "Quels sont les droits de la femme enceinte au travail ?": {
+  "intent": "clear",
+  "codes": [
+   "travail"
+  ],
+  "queries": [
+   {
+    "text": "protection de la femme enceinte",
+    "code": "travail"
+   }
+  ]
+ },
+ "Quelles sont les conditions du mariage ?": {
+  "intent": "clear",
+  "codes": [
+   "statut_personnel"
+  ],
+  "queries": [
+   {
+    "text": "conditions du mariage",
+    "code": "statut_personnel"
+   }
+  ]
+ },
+ "Comment est attribuée la garde des enfants ?": {
+  "intent": "clear",
+  "codes": [
+   "protection_enfant"
+  ],
+  "queries": [
+   {
+    "text": "attribution de la garde des enfants",
+    "code": "protection_enfant"
+   }
+  ]
+ },
+ "Quelles sont les conditions de validité d'un contrat ?": {
+  "intent": "clear",
+  "codes": [
+   "obligations_contrats"
+  ],
+  "queries": [
+   {
+    "text": "conditions de validité du contrat",
+    "code": "obligations_contrats"
+   }
+  ]
+ },
+ "Quelles sont les obligations du vendeur ?": {
+  "intent": "clear",
+  "codes": [
+   "obligations_contrats"
+  ],
+  "queries": [
+   {
+    "text": "obligations du vendeur",
+    "code": "obligations_contrats"
+   }
+  ]
+ },
+ "Qu'est-ce qu'une convention d'arbitrage ?": {
+  "intent": "clear",
+  "codes": [
+   "arbitrage"
+  ],
+  "queries": [
+   {
+    "text": "convention d'arbitrage",
+    "code": "arbitrage"
+   }
+  ]
+ },
+ "Que risque-t-on si on frappe quelqu'un ?": {
+  "intent": "clear",
+  "codes": [
+   "penal"
+  ],
+  "queries": [
+   {
+    "text": "violence volontaire",
+    "code": "penal"
+   }
+  ]
+ },
+ "ما هي عقوبة السرقة؟": {
+  "intent": "clear",
+  "codes": [
+   "penal"
+  ],
+  "queries": [
+   {
+    "text": "peine du vol",
+    "code": "penal"
+   }
+  ]
+ },
+ "ما هي مدة الاحتفاظ؟": {
+  "intent": "ambiguous",
+  "codes": [
+   "obligations_contrats",
+   "travail",
+   "societes",
+   "commerce"
+  ],
+  "queries": [
+   {
+    "text": "durée de conservation des documents",
+    "code": null
+   }
+  ]
+ },
+ "ما هي مدة الإجازة السنوية المدفوعة؟": {
+  "intent": "clear",
+  "codes": [
+   "travail"
+  ],
+  "queries": [
+   {
+    "text": "durée du congé annuel payé",
+    "code": "travail"
+   }
+  ]
+ },
+ "ما هي شروط الزواج؟": {
+  "intent": "clear",
+  "codes": [
+   "statut_personnel"
+  ],
+  "queries": [
+   {
+    "text": "conditions du mariage",
+    "code": "statut_personnel"
+   }
+  ]
+ },
+ "من يحق له حضانة الأطفال؟": {
+  "intent": "clear",
+  "codes": [
+   "protection_enfant"
+  ],
+  "queries": [
+   {
+    "text": "garde des enfants",
+    "code": "protection_enfant"
+   }
+  ]
+ },
+ "ما هي شروط صحة العقد؟": {
+  "intent": "clear",
+  "codes": [
+   "obligations_contrats"
+  ],
+  "queries": [
+   {
+    "text": "conditions de validité du contrat",
+    "code": "obligations_contrats"
+   }
+  ]
+ },
+ "What is the penalty for theft?": {
+  "intent": "clear",
+  "codes": [
+   "penal"
+  ],
+  "queries": [
+   {
+    "text": "peine du vol",
+    "code": "penal"
+   }
+  ]
+ },
+ "What are the conditions for marriage?": {
+  "intent": "clear",
+  "codes": [
+   "statut_personnel"
+  ],
+  "queries": [
+   {
+    "text": "conditions de validité du mariage",
+    "code": "statut_personnel"
+   }
+  ]
+ },
+ "Who gets custody of the children after divorce?": {
+  "intent": "clear",
+  "codes": [
+   "protection_enfant",
+   "statut_personnel"
+  ],
+  "queries": [
+   {
+    "text": "garde des enfants après divorce",
+    "code": "protection_enfant"
+   }
+  ]
+ },
+ "What are the fundamental rights?": {
+  "intent": "clear",
+  "codes": [
+   "constitution"
+  ],
+  "queries": [
+   {
+    "text": "droits fondamentaux",
+    "code": "constitution"
+   }
+  ]
+ },
+ "How long can police custody last?": {
+  "intent": "clear",
+  "codes": [
+   "procedure_penale"
+  ],
+  "queries": [
+   {
+    "text": "durée de la garde à vue",
+    "code": "procedure_penale"
+   }
+  ]
+ },
+ "How many days of paid annual leave is a worker entitled to?": {
+  "intent": "clear",
+  "codes": [
+   "travail"
+  ],
+  "queries": [
+   {
+    "text": "nombre de jours de congés payés",
+    "code": "travail"
+   }
+  ]
+ },
+ "What makes a contract valid?": {
+  "intent": "clear",
+  "codes": [
+   "obligations_contrats"
+  ],
+  "queries": [
+   {
+    "text": "conditions de validité du contrat",
+    "code": "obligations_contrats"
+   }
+  ]
+ }
+}
