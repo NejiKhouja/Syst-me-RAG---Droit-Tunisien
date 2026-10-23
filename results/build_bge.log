@@ -1,0 +1,53 @@
+C:\Users\deadx\anaconda3\envs\rag-app\Lib\site-packages\requests\__init__.py:86: RequestsDependencyWarning: Unable to find acceptable character detection dependency (chardet or charset_normalizer).
+  warnings.warn(
+2026-10-23 01:51:50,464 Loading embedding model: BAAI/bge-m3
+2026-10-23 01:51:50,468 No device provided, using cpu
+2026-10-23 01:51:51,340 Loading SentenceTransformer model from BAAI/bge-m3.
+C:\Users\deadx\anaconda3\envs\rag-app\Lib\site-packages\huggingface_hub\file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+C:\Users\deadx\anaconda3\envs\rag-app\Lib\site-packages\torch\_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+max_seq_length 512 model BAAI/bge-m3
+2026-10-23 02:16:38,389 Loaded arbitrage                 | ArbitrageFr.pdf
+2026-10-23 02:16:38,783 Loaded obligations_contrats      | COC.pdf
+2026-10-23 02:16:39,055 Loaded commerce                  | CommerceFr.pdf
+2026-10-23 02:16:39,107 Loaded droit_international_prive | DIPFR.pdf
+2026-10-23 02:16:39,362 Loaded droits_reels              | dtreelFr.pdf
+2026-10-23 02:16:39,584 Loaded protection_enfant         | EnfantFr.pdf
+2026-10-23 02:16:39,659 Loaded nationalite               | NationaliteFr.pdf
+2026-10-23 02:16:39,827 Loaded penal                     | PenalFr.pdf
+2026-10-23 02:16:40,054 Loaded procedure_civile          | Procedurecivilecom.pdf
+2026-10-23 02:16:40,269 Loaded procedure_penale          | ProcedurepenaleFr.pdf
+2026-10-23 02:16:40,644 Loaded societes                  | societeFr.pdf
+2026-10-23 02:16:40,831 Loaded statut_personnel          | Statutpersonnel.pdf
+2026-10-23 02:16:41,089 Loaded travail                   | travailFr.pdf
+2026-10-23 02:16:41,168 Loaded constitution              | tun_RecAcFreeLi.pdf
+2026-10-23 02:16:41,168 Total documents loaded: 14
+2026-10-23 02:16:41,888 Article splitter: 6031 chunks from 14 documents
+2026-10-23 02:16:42,195 Embedding 6031 new chunks (0 already stored) -> 'db_v1_1_bge' (contextual=False)
+2026-10-23 02:20:02,228   250 / 6031
+2026-10-23 02:22:13,386   500 / 6031
+2026-10-23 02:24:36,946   750 / 6031
+2026-10-23 02:26:56,200   1000 / 6031
+2026-10-23 02:29:21,800   1250 / 6031
+2026-10-23 02:31:31,596   1500 / 6031
+2026-10-23 02:35:20,123   1750 / 6031
+2026-10-23 02:38:54,929   2000 / 6031
+2026-10-23 02:41:53,788   2250 / 6031
+2026-10-23 02:45:11,847   2500 / 6031
+2026-10-23 02:49:11,254   2750 / 6031
+2026-10-23 02:53:02,398   3000 / 6031
+2026-10-23 02:56:17,603   3250 / 6031
+2026-10-23 02:59:46,862   3500 / 6031
+2026-10-23 03:02:59,241   3750 / 6031
+2026-10-23 03:06:39,548   4000 / 6031
+2026-10-23 03:10:10,083   4250 / 6031
+2026-10-23 03:13:37,043   4500 / 6031
+2026-10-23 03:17:35,544   4750 / 6031
+2026-10-23 03:21:39,356   5000 / 6031
+2026-10-23 03:24:52,878   5250 / 6031
+2026-10-23 03:28:42,736   5500 / 6031
+2026-10-23 03:32:08,752   5750 / 6031
+2026-10-23 03:35:28,878   6000 / 6031
+2026-10-23 03:36:31,327   6031 / 6031
+BUILT 6031 chunks in 6292 s

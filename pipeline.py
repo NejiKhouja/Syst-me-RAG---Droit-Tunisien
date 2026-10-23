@@ -9,7 +9,7 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_groq import ChatGroq
 from langchain_huggingface import HuggingFaceEmbeddings
-from config import CONTEXTUAL_CHUNKS, EMBED_DOC_PREFIX, EMBED_QUERY_PREFIX
+from config import CONTEXTUAL_CHUNKS, EMBED_DOC_PREFIX, EMBED_QUERY_PREFIX, EMBED_MAX_SEQ_LENGTH
 from config import DB_DIR, DATA_DIR, EMBEDDING_MODEL, LLM_MODEL, GROQ_API_KEY, SUBQUERY_N, RAW_FIRST, USE_SUBQUERIES, RERANK_ENABLED, RERANK_TOP_K
 from loaders import load_all_documents
 from splitter import split_by_article, context_prefix
@@ -41,6 +41,9 @@ def get_embeddings() -> HuggingFaceEmbeddings:
         _embeddings = _PrefixedEmbeddings(
             model_name=EMBEDDING_MODEL, doc_prefix=EMBED_DOC_PREFIX, query_prefix=EMBED_QUERY_PREFIX
         )
+        if EMBED_MAX_SEQ_LENGTH:
+            client = getattr(_embeddings, "_client", None) or getattr(_embeddings, "client")
+            client.max_seq_length = EMBED_MAX_SEQ_LENGTH
     return _embeddings
 
 

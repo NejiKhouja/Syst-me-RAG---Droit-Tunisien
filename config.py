@@ -19,6 +19,7 @@ RERANKER_MODEL  = "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1"
 CONTEXTUAL_CHUNKS  = False
 EMBED_DOC_PREFIX   = ""    # e.g. "passage: " for the e5 family
 EMBED_QUERY_PREFIX = ""    # e.g. "query: "
+EMBED_MAX_SEQ_LENGTH = None  # cap tokens per chunk (None = model default; Solon uses 512)
 
 # Retrieval knobs
 MMR_K        = 20   # semantic candidates per query

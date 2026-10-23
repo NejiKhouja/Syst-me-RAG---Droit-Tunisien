@@ -184,3 +184,20 @@ to rank 1. Code kept (off) so it can be re-tested on more data.
 |---|---|---|---|---|
 | RRF, plain embeddings (kept) | 88.6 | 57.1 | 54.1 | 0.659 |
 | + contextual embedding text (rejected) | 82.9 | 62.9 | 52.3 | 0.689 |
+
+## Phase 3.7 — A different multilingual embedding model (tried, rejected)
+
+**What I tried.** Same 6,031 chunks, same pipeline, only the embedding model changed: `BAAI/bge-m3` (multilingual,
+568M parameters, input capped at 512 tokens like Solon) instead of `OrdalieTech/Solon-embeddings-large-0.1`.
+New index `db_v1_1_bge/` (105 min CPU, no LLM tokens).
+**Numbers (dev, 35 questions).** Hit@6 88.6% → 82.9%, Hit@1 57.1% → 54.3%, MRR 0.659 → 0.643. By language: French
+89.5 → 84.2, Arabic 75.0 → 75.0, English 100 → 87.5 (Hit@6).
+**Decision.** Rejected; Solon stays. Retrieval time per query is the same (0.3 s).
+
+| Dev | Hit@6 | Hit@1 | Recall | MRR |
+|---|---|---|---|---|
+| Solon-embeddings-large (kept) | 88.6 | 57.1 | 54.1 | 0.659 |
+| BAAI/bge-m3 | 82.9 | 54.3 | 51.1 | 0.643 |
+
+**Stopping.** Items 6 and 7 were both rejected, so the tuning pass ends here. The final configuration is the one after
+Phase 3.5 (chunk fix, raw-first, no synonym table, pool 20 + int8 + length 256, RRF, Solon).
