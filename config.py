@@ -5,8 +5,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-DATA_DIR = Path("data")
-DB_DIR   = Path("db_v1_1")   # v1 index stays untouched in ./db (rebuilt chunks go here)
+ROOT_DIR = Path(__file__).resolve().parent   # absolute, so scripts started from agent/ open the same index
+DATA_DIR = ROOT_DIR / "data"
+DB_DIR   = ROOT_DIR / "db_v1_1"   # v1 index stays untouched in ./db (rebuilt chunks go here)
 
 GROQ_API_KEY: str = os.getenv("GROQ_API_KEY", "")
 
