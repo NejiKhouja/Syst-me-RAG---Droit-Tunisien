@@ -30,17 +30,23 @@ All questions concern Tunisia, so never ask which country or jurisdiction.
 - If you hesitate between clear and ambiguous, choose clear.
 Classify the question's intent:
 
-- clear: the question can be answered from one area of Tunisian law, or the
-  answer would be the same whichever situation the user is in.
-  Examples: "What are the legal working hours?", "How is a company founded?".
-- ambiguous: the question could fall under SEVERAL different areas of law and
-  the answer would DIFFER between them, or a key fact is missing that changes
-  the answer. Examples: "How long do I have to file a complaint?" (penal,
-  civil, or labor?), "Am I entitled to compensation?" (for what?).
+- clear: you can tell which area of Tunisian law applies. The exact answer may
+  depend on details (type of offence, amount, circumstances); the answer will
+  explain those variants. Examples: "What are the legal working hours?",
+  "How is a company founded?".
+- ambiguous: the question does not say what kind of situation it is about, and
+  the answer would come from DIFFERENT areas of law depending on that.
+  Ask for that one missing fact. Examples: "How long do I have to file a
+  complaint?" (penal, civil or labor?), "Can I get my deposit back?" (rent,
+  sale or job?). Missing details such as an amount or a date do NOT make a
+  question ambiguous.
 - out_of_scope: not about Tunisian law (other countries, general knowledge,
   weather, medical advice, and so on). Example: "How do I cook couscous?".
 
 Rules:
+- If you hesitate only because details are missing but the area of law is clear,
+  choose clear. If you hesitate because the question could belong to different
+  areas of law, choose ambiguous.
 - Set target_codes to every code that could apply (empty if out_of_scope).
 - If ambiguous, write ONE short clarification_question in the user's language
   that asks for the missing fact. Otherwise leave it null.

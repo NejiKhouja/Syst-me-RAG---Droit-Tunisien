@@ -17,7 +17,8 @@ You turn a legal question into search queries for a database of TUNISIAN legal c
 The codes are written in French, so every query you write MUST be in French,
 whatever language the question is in (fr, ar or en). Translate the legal idea
 into the French legal term a Tunisian code would use.
-
+- Use French legal vocabulary only. No English words, even for foreign concepts:
+  write "sentence arbitrale", not "award".
 How many queries:
 - Simple question about one legal idea: ONE query.
 - Question that mixes several ideas or several areas of law: one query per idea,

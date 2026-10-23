@@ -3,6 +3,7 @@ from plan import make_plan
 
 
 BANNED = ["jurisprudence", "alinéa", "alinea"]
+ENGLISH = ["award", "the", "of", "and", "penalty", "law", "contract"]
 
 def check(plan, t):
     errors = []
@@ -10,6 +11,9 @@ def check(plan, t):
     if not (t["min_q"] <= n <= t["max_q"]):
         errors.append(f"{n} queries, expected {t['min_q']}-{t['max_q']}")
     for sq in plan.sub_queries:
+        words = re.findall(r"\w+", sq.text.lower())
+        if any(w in ENGLISH for w in words):
+            errors.append("english word: " + sq.text)
         if not t["allow_digits"] and re.search(r"\d", sq.text):
             errors.append("digit: " + sq.text)
         if re.search(r"[\u0600-\u06FF]", sq.text):
