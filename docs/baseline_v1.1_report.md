@@ -126,3 +126,16 @@ Files: `results/official_v1_temp0.json` (v1), `results/item*_dev.json` (every ab
 * The LLM is `openai/gpt-oss-120b` on a free Groq tier (200k tokens/day), which shaped how many LLM variants could be tried.
 * Not tried: a glossary for Arabic legal terms, chunk-level sub-splitting of the 40 articles longer than 2,500 characters
   (the embedder truncates them), a larger or fine-tuned reranker (CPU latency), hybrid weights tuned on more data.
+
+## 9. Reproduction check (branch `agent-v2`, 2026-10-23)
+
+`python evaluate.py --split dev --temperature 0` with no `--override`, at commit `19a58b6`, gives Hit@6 88.6, Hit@1 57.1,
+Recall 54.1, MRR 0.659, and the top 6 of all 35 dev questions are identical to `results/item5_rrf_dev.json`
+(0 LLM calls, all 13 translations from the cache). Run files: `results/repro_agent_v2_dev.{txt,json}`.
+The step-5 dev run and the final test run both recorded `overrides: {}`, so the committed `config.py` defaults are exactly
+the settings behind 88.6 and behind the test numbers (Solon, `db_v1_1/`, MMR_K 20, BM25_K 15, FUSION rrf, RRF_K 60,
+RERANK_POOL 20, RERANK_MAX_LENGTH 256, RERANK_QUANTIZE True, RAW_FIRST True, USE_SUBQUERIES False, CONTEXTUAL_CHUNKS False).
+No default was corrected, so the tag `v1.1-baseline` needs no follow-up tag.
+One caveat: `DB_DIR` and `DATA_DIR` were relative paths, so a script started outside the repo root opened an empty index
+(it created `agent/db_v1_1/` with 0 chunks). They are made absolute in the next commit, which does not change results
+for runs started from the repo root.
