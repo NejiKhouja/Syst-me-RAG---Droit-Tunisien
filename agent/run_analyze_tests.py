@@ -1,7 +1,8 @@
 import json
+from pathlib import Path
 from analyze import analyze
 
-with open("analyze_tests.json", encoding="utf-8") as f:
+with open(Path(__file__).resolve().parent / "analyze_tests.json", encoding="utf-8") as f:
     tests = json.load(f)
 
 correct = 0

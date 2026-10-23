@@ -1,4 +1,5 @@
 import json, re
+from pathlib import Path
 from plan import make_plan
 
 
@@ -27,7 +28,7 @@ def check(plan, t):
     return errors
 
 
-with open("plan_tests.json", encoding="utf-8") as f:
+with open(Path(__file__).resolve().parent / "plan_tests.json", encoding="utf-8") as f:
     tests = json.load(f)
 
 ok = 0
