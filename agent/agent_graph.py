@@ -61,7 +61,7 @@ def plan_node(state: AgentState)->dict:
         return {"sub_queries": [{"text": state["question"], "code": None}]}   # fallback from L3
 def retrieve_node(state: AgentState) -> dict:
     sqs = [(sq["text"], sq["code"]) for sq in state["sub_queries"]]
-    docs = retrieve_for_plan(sqs)
+    docs = retrieve_for_plan(sqs, soft=True)
     evidence = {
         d.metadata["chunk_id"]: {
             "source": d.metadata.get("source"),
