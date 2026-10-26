@@ -18,7 +18,7 @@
   ],
   "queries": [
    {
-    "text": "diffamation",
+    "text": "infraction de diffamation",
     "code": "penal"
    }
   ]
@@ -54,7 +54,7 @@
   ],
   "queries": [
    {
-    "text": "peine pour coups et blessures volontaires",
+    "text": "peine coups et blessures volontaires",
     "code": "penal"
    }
   ]
@@ -66,7 +66,7 @@
   ],
   "queries": [
    {
-    "text": "article 258 code pénal",
+    "text": "article 258 pénal",
     "code": "penal"
    }
   ]
@@ -110,12 +110,11 @@
  "Comment se prescrit l'action publique ?": {
   "intent": "clear",
   "codes": [
-   "penal",
-   "procedure_penale"
+   "penal"
   ],
   "queries": [
    {
-    "text": "prescription de l'action publique",
+    "text": "prescription action publique",
     "code": "penal"
    }
   ]
@@ -127,7 +126,7 @@
   ],
   "queries": [
    {
-    "text": "durée du congé annuel payé",
+    "text": "durée du congé annuel",
     "code": "travail"
    }
   ]
@@ -139,7 +138,7 @@
   ],
   "queries": [
    {
-    "text": "protection de la femme enceinte",
+    "text": "droits de la femme enceinte",
     "code": "travail"
    }
   ]
@@ -159,12 +158,12 @@
  "Comment est attribuée la garde des enfants ?": {
   "intent": "clear",
   "codes": [
-   "protection_enfant"
+   "statut_personnel"
   ],
   "queries": [
    {
-    "text": "attribution de la garde des enfants",
-    "code": "protection_enfant"
+    "text": "garde des enfants",
+    "code": "statut_personnel"
    }
   ]
  },
@@ -232,9 +231,11 @@
   "intent": "ambiguous",
   "codes": [
    "obligations_contrats",
+   "commerce",
+   "droits_reels",
+   "procedure_civile",
    "travail",
-   "societes",
-   "commerce"
+   "societes"
   ],
   "queries": [
    {
@@ -270,12 +271,12 @@
  "من يحق له حضانة الأطفال؟": {
   "intent": "clear",
   "codes": [
-   "protection_enfant"
+   "statut_personnel"
   ],
   "queries": [
    {
     "text": "garde des enfants",
-    "code": "protection_enfant"
+    "code": "statut_personnel"
    }
   ]
  },
@@ -310,7 +311,7 @@
   ],
   "queries": [
    {
-    "text": "conditions de validité du mariage",
+    "text": "conditions du mariage",
     "code": "statut_personnel"
    }
   ]
@@ -318,13 +319,12 @@
  "Who gets custody of the children after divorce?": {
   "intent": "clear",
   "codes": [
-   "protection_enfant",
    "statut_personnel"
   ],
   "queries": [
    {
     "text": "garde des enfants après divorce",
-    "code": "protection_enfant"
+    "code": "statut_personnel"
    }
   ]
  },
@@ -359,7 +359,7 @@
   ],
   "queries": [
    {
-    "text": "nombre de jours de congés payés",
+    "text": "durée du congé annuel payé",
     "code": "travail"
    }
   ]

@@ -2,6 +2,7 @@ from typing import Literal, Optional
 from pydantic import BaseModel, Field
 from dotenv import load_dotenv
 from langchain_groq import ChatGroq
+from codes import codes_block
 
 load_dotenv()
 
@@ -26,8 +27,7 @@ structured_llm = llm.with_structured_output(Analysis, method="json_schema")
 SYSTEM_PROMPT = """
 You analyze questions for a legal assistant that covers TUNISIAN law only.
 All questions concern Tunisia, so never ask which country or jurisdiction.
-- If only ONE area of law applies, the question is "clear", even when the exact answer depends on the facts (type of offence, amount, circumstances). The answer will explain the variants.
-- If you hesitate between clear and ambiguous, choose clear.
+
 Classify the question's intent:
 
 - clear: you can tell which area of Tunisian law applies. The exact answer may
@@ -43,6 +43,8 @@ Classify the question's intent:
 - out_of_scope: not about Tunisian law (other countries, general knowledge,
   weather, medical advice, and so on). Example: "How do I cook couscous?".
 
+__CODES__
+
 Rules:
 - If you hesitate only because details are missing but the area of law is clear,
   choose clear. If you hesitate because the question could belong to different
@@ -57,6 +59,7 @@ Allowed codes: arbitrage, obligations_contrats, commerce, droit_international_pr
 droits_reels, protection_enfant, nationalite, penal, procedure_civile,
 procedure_penale, societes, statut_personnel, travail, constitution.
 """
+SYSTEM_PROMPT = SYSTEM_PROMPT.replace("__CODES__", codes_block())
 def analyze(question: str, language_hint: str | None = None) -> Analysis:
     system = SYSTEM_PROMPT
     if language_hint:
