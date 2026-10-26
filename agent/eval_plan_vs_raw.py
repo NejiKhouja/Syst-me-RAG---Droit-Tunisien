@@ -18,8 +18,10 @@ Recall 54.1, MRR 0.659). If it does not, do not trust the other rows.
 """
 import sys
 import json
+import hashlib
 import inspect
 import argparse
+import subprocess
 from pathlib import Path
 from collections import Counter, defaultdict
 
@@ -32,8 +34,8 @@ import translate
 from eval_harness import install_llm_cache, DegradationCounter
 from pipeline import step_query, step_subqueries_if_enabled, step_retrieve, step_rerank
 from retriever import _fuse
-from analyze import analyze
-from plan import make_plan
+from analyze import analyze, SYSTEM_PROMPT
+from plan import make_plan, PLAN_PROMPT
 from retrieve import retrieve_for_plan, get_vs
 
 TOP_K = 6
@@ -62,17 +64,49 @@ def cache_key(question: str, split: str) -> str:
     return question if split == "dev" else f"{split}::{question}"
 
 
+def _sha(text: str) -> str:
+    return hashlib.sha1(text.encode("utf-8")).hexdigest()[:12]
+
+
+def _git(*args) -> str:
+    try:
+        return subprocess.run(["git", *args], cwd=ROOT, capture_output=True, text=True, check=True).stdout.strip()
+    except Exception as e:
+        return f"unknown ({e.__class__.__name__})"
+
+
+def provenance() -> dict:
+    """Which code and which prompts produced this run."""
+    p = {
+        "branch": _git("rev-parse", "--abbrev-ref", "HEAD"),
+        "describe": _git("describe", "--always", "--dirty"),
+        "analyze_prompt_sha1": _sha(SYSTEM_PROMPT),
+        "plan_prompt_sha1": _sha(PLAN_PROMPT),
+        "codes_py_sha1": _sha((ROOT / "agent" / "codes.py").read_text(encoding="utf-8")),
+    }
+    p["prompt_hash"] = _sha(p["analyze_prompt_sha1"] + p["plan_prompt_sha1"] + p["codes_py_sha1"])
+    return p
+
+
 def load_cache() -> dict:
     if PLAN_CACHE.exists():
         return json.loads(PLAN_CACHE.read_text(encoding="utf-8"))
     return {}
 
 
-def get_plan(question: str, cache: dict, split: str = "dev") -> dict:
-    """Run Analyze then Plan once per question; later runs read the cache."""
+def get_plan(question: str, cache: dict, split: str = "dev", prompt_hash: str = "", legacy: set | None = None) -> dict:
+    """Run Analyze then Plan once per question; later runs read the cache.
+    An entry is reused only if it was made with the current prompts (same prompt_hash). Entries without a hash
+    (made before hashes were stored) are reused on dev only and added to `legacy`; on test they are redone."""
     key = cache_key(question, split)
-    if key in cache:
-        return cache[key]
+    entry = cache.get(key)
+    if entry is not None:
+        if entry.get("prompt_hash") == prompt_hash:
+            return entry
+        if "prompt_hash" not in entry and split == "dev":
+            if legacy is not None:
+                legacy.add(question)
+            return entry
     try:
         a = analyze(question)
         p = make_plan(question, a.language, a.target_codes)
@@ -80,6 +114,7 @@ def get_plan(question: str, cache: dict, split: str = "dev") -> dict:
             "intent": a.intent,
             "codes": list(a.target_codes),
             "queries": [sq.model_dump() for sq in p.sub_queries],
+            "prompt_hash": prompt_hash,
         }
     except Exception as e:                       # not cached, so a rerun retries it
         print(f"\n  Analyze/Plan failed for {question!r}: {e}", file=sys.stderr)
@@ -112,6 +147,10 @@ def parse_args():
 def main():
     args = parse_args()
     split = args.split
+    prov = provenance()
+    print(f"  provenance: branch={prov['branch']}  describe={prov['describe']}")
+    print(f"              analyze prompt={prov['analyze_prompt_sha1']}  plan prompt={prov['plan_prompt_sha1']}"
+          f"  codes.py={prov['codes_py_sha1']}  -> prompt_hash={prov['prompt_hash']}")
     variants = VARIANTS + (SOFT_VARIANTS if HAS_SOFT else [])
     if not HAS_SOFT:
         print("  retrieve_for_plan has no `soft` parameter: variants D and E skipped.", file=sys.stderr)
@@ -125,6 +164,7 @@ def main():
     rows = {v: [] for v in variants}
     notes = []
     intents = Counter()
+    legacy = set()
 
     for i, q in enumerate(cases, 1):
         print(f"\r  running {i}/{len(cases)}...", end="", file=sys.stderr, flush=True)
@@ -138,7 +178,7 @@ def main():
             return (step_rerank(french_q, cands) if cands else [])[:TOP_K]
 
         # --- agent path ---
-        info = get_plan(q["question"], cache, split)
+        info = get_plan(q["question"], cache, split, prov["prompt_hash"], legacy)
         sqs = [(s["text"], s["code"]) for s in info["queries"]]
         intents[info["intent"]] += 1
 
@@ -163,6 +203,10 @@ def main():
         notes.append({"id": q["id"], "question": q["question"], "intent": info["intent"],
                       "codes": info["codes"], "queries": info["queries"], "law_type": q["law_type"]})
     print(file=sys.stderr)
+    prov["legacy_plans_reused"] = len(legacy)
+    if legacy:
+        print(f"  WARNING: {len(legacy)} cached plans have no prompt hash (made before hashes were stored); "
+              f"reused on dev, UNVERIFIED against the current prompts.")
 
     # ---------------- report ----------------
     W = 78
@@ -230,7 +274,8 @@ def main():
 
     out = out_path(split)
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(json.dumps({"split": split, "variants": rows, "notes": notes}, ensure_ascii=False, indent=1),
+    out.write_text(json.dumps({"provenance": prov, "split": split, "variants": rows, "notes": notes},
+                              ensure_ascii=False, indent=1),
                    encoding="utf-8")
     print(f"  Saved {out}")
 

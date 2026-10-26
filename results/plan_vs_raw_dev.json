@@ -1,4 +1,13 @@
 {
+ "provenance": {
+  "branch": "agent-v2",
+  "describe": "v1.1-baseline-10-g56a6612-dirty",
+  "analyze_prompt_sha1": "0bbb0226bdc9",
+  "plan_prompt_sha1": "04c1c55cf119",
+  "codes_py_sha1": "7f49e7a7c8c1",
+  "prompt_hash": "e4c6a65fda60",
+  "legacy_plans_reused": 31
+ },
  "split": "dev",
  "variants": {
   "A1 baseline + law hint": [
