@@ -52,6 +52,7 @@ SOFT_VARIANTS = [
     "D  plan, soft filter",
     "E  A2 + D merged",
 ]
+G_VARIANT = "G  raw + Analyze hint (soft)"   # always last: baseline on the raw question + Analyze's single code as a soft hint
 HAS_SOFT = "soft" in inspect.signature(retrieve_for_plan).parameters
 
 
@@ -151,7 +152,7 @@ def main():
     print(f"  provenance: branch={prov['branch']}  describe={prov['describe']}")
     print(f"              analyze prompt={prov['analyze_prompt_sha1']}  plan prompt={prov['plan_prompt_sha1']}"
           f"  codes.py={prov['codes_py_sha1']}  -> prompt_hash={prov['prompt_hash']}")
-    variants = VARIANTS + (SOFT_VARIANTS if HAS_SOFT else [])
+    variants = VARIANTS + (SOFT_VARIANTS if HAS_SOFT else []) + [G_VARIANT]
     if not HAS_SOFT:
         print("  retrieve_for_plan has no `soft` parameter: variants D and E skipped.", file=sys.stderr)
 
@@ -165,6 +166,7 @@ def main():
     notes = []
     intents = Counter()
     legacy = set()
+    hints = []                                    # (Analyze hint or None, dataset law_type) per question, for G
 
     for i, q in enumerate(cases, 1):
         print(f"\r  running {i}/{len(cases)}...", end="", file=sys.stderr, flush=True)
@@ -192,6 +194,12 @@ def main():
             d = retrieve_for_plan(sqs, TOP_K, use_code_filter=True, soft=True)
             e = _fuse([a2, d])[:TOP_K]
             outs += [d, e]
+        # G: the cached Analyze codes, no new LLM call; a single code is used as a soft hint
+        codes = info["codes"]
+        hint = codes[0] if len(codes) == 1 else None
+        g_docs = _fuse([baseline(hint), a2])[:TOP_K] if hint else a2
+        outs.append(g_docs)
+        hints.append((hint, q["law_type"]))
 
         for name, docs in zip(variants, outs):
             retrieved = to_row(docs)
@@ -253,6 +261,15 @@ def main():
     for n in wrong_gate:
         print(f"    gate: {n['intent']:<13} {n['question']}")
 
+    with_hint = [(h, lt) for h, lt in hints if h]
+    filtered = [(h, lt) for h, lt in hints if lt]
+    filtered_hint = [(h, lt) for h, lt in filtered if h]
+    g_hint = {"questions": len(hints), "with_hint": len(with_hint), "filtered": len(filtered),
+              "filtered_with_hint": len(filtered_hint), "hint_equals_law_type": sum(h == lt for h, lt in filtered_hint)}
+    print(f"\n  G hint (Analyze gave exactly one code): {g_hint['with_hint']}/{g_hint['questions']} questions;"
+          f" filtered questions: {g_hint['filtered']}, with a hint: {g_hint['filtered_with_hint']},"
+          f" hint == dataset law_type: {g_hint['hint_equals_law_type']}/{g_hint['filtered_with_hint']}")
+
     print("\n  Questions where B1 (Plan) loses or wins against A2 (baseline, no hint):")
     for k, n in enumerate(notes):
         a_hit = rows["A2 baseline, no hint"][k]["score"]["hit"]
@@ -274,7 +291,7 @@ def main():
 
     out = out_path(split)
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(json.dumps({"provenance": prov, "split": split, "variants": rows, "notes": notes},
+    out.write_text(json.dumps({"provenance": prov, "split": split, "variants": rows, "notes": notes, "g_hint": g_hint},
                               ensure_ascii=False, indent=1),
                    encoding="utf-8")
     print(f"  Saved {out}")
