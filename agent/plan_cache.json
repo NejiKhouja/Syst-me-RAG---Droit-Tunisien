@@ -375,5 +375,723 @@
     "code": "obligations_contrats"
    }
   ]
+ },
+ "test::Qu'est-ce que le meurtre ?": {
+  "intent": "clear",
+  "codes": [
+   "penal"
+  ],
+  "queries": [
+   {
+    "text": "infraction de meurtre",
+    "code": "penal"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::Quelle est la peine pour la corruption ?": {
+  "intent": "clear",
+  "codes": [
+   "penal"
+  ],
+  "queries": [
+   {
+    "text": "peine pour corruption",
+    "code": "penal"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::Quelle est la peine pour l'escroquerie ?": {
+  "intent": "clear",
+  "codes": [
+   "penal"
+  ],
+  "queries": [
+   {
+    "text": "peine d'escroquerie",
+    "code": "penal"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::Qu'est-ce que l'abus de confiance ?": {
+  "intent": "clear",
+  "codes": [
+   "penal"
+  ],
+  "queries": [
+   {
+    "text": "abus de confiance",
+    "code": "penal"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::Comment est puni le viol ?": {
+  "intent": "clear",
+  "codes": [
+   "penal"
+  ],
+  "queries": [
+   {
+    "text": "peine du viol",
+    "code": "penal"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::Quelle est la sanction du harcèlement sexuel ?": {
+  "intent": "clear",
+  "codes": [
+   "penal"
+  ],
+  "queries": [
+   {
+    "text": "sanction du harcèlement sexuel",
+    "code": "penal"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::Qu'est-ce que la légitime défense ?": {
+  "intent": "clear",
+  "codes": [
+   "penal"
+  ],
+  "queries": [
+   {
+    "text": "légitime défense",
+    "code": "penal"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::Que dit l'article 201 ?": {
+  "intent": "ambiguous",
+  "codes": [
+   "arbitrage",
+   "obligations_contrats",
+   "commerce",
+   "droit_international_prive",
+   "droits_reels",
+   "protection_enfant",
+   "nationalite",
+   "penal",
+   "procedure_civile",
+   "procedure_penale",
+   "societes",
+   "statut_personnel",
+   "travail",
+   "constitution"
+  ],
+  "queries": [
+   {
+    "text": "article 201",
+    "code": null
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::Que dit l'article 24 sur le droit à la vie ?": {
+  "intent": "clear",
+  "codes": [
+   "constitution"
+  ],
+  "queries": [
+   {
+    "text": "droit à la vie",
+    "code": "constitution"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::Quels sont les droits de la personne gardée à vue ?": {
+  "intent": "clear",
+  "codes": [
+   "procedure_penale"
+  ],
+  "queries": [
+   {
+    "text": "droits de la garde à vue",
+    "code": "procedure_penale"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::Quelle est la durée légale du travail ?": {
+  "intent": "clear",
+  "codes": [
+   "travail"
+  ],
+  "queries": [
+   {
+    "text": "durée légale du travail",
+    "code": "travail"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::Quelles sont les conditions de licenciement ?": {
+  "intent": "clear",
+  "codes": [
+   "travail"
+  ],
+  "queries": [
+   {
+    "text": "conditions de licenciement",
+    "code": "travail"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::Qu'est-ce que le contrat de travail à durée déterminée ?": {
+  "intent": "clear",
+  "codes": [
+   "travail"
+  ],
+  "queries": [
+   {
+    "text": "contrat de travail à durée déterminée",
+    "code": "travail"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::Comment se déroule le divorce ?": {
+  "intent": "clear",
+  "codes": [
+   "statut_personnel"
+  ],
+  "queries": [
+   {
+    "text": "procédure de divorce",
+    "code": "statut_personnel"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::La polygamie est-elle autorisée ?": {
+  "intent": "clear",
+  "codes": [
+   "statut_personnel"
+  ],
+  "queries": [
+   {
+    "text": "polygamie",
+    "code": "statut_personnel"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::Quelles sont les règles de la pension alimentaire ?": {
+  "intent": "clear",
+  "codes": [
+   "statut_personnel"
+  ],
+  "queries": [
+   {
+    "text": "régime de la pension alimentaire",
+    "code": "statut_personnel"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::Qu'est-ce que la responsabilité civile ?": {
+  "intent": "clear",
+  "codes": [
+   "obligations_contrats"
+  ],
+  "queries": [
+   {
+    "text": "responsabilité civile",
+    "code": "obligations_contrats"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::Qu'est-ce que la force majeure ?": {
+  "intent": "clear",
+  "codes": [
+   "obligations_contrats"
+  ],
+  "queries": [
+   {
+    "text": "force majeure",
+    "code": "obligations_contrats"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::Quelle est la force obligatoire du contrat ?": {
+  "intent": "clear",
+  "codes": [
+   "obligations_contrats"
+  ],
+  "queries": [
+   {
+    "text": "force obligatoire du contrat",
+    "code": "obligations_contrats"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::Quelles sont les règles du contrat de louage ?": {
+  "intent": "clear",
+  "codes": [
+   "obligations_contrats"
+  ],
+  "queries": [
+   {
+    "text": "régime du bail",
+    "code": "obligations_contrats"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::Comment acquérir la nationalité tunisienne ?": {
+  "intent": "clear",
+  "codes": [
+   "nationalite"
+  ],
+  "queries": [
+   {
+    "text": "acquisition de la nationalité tunisienne",
+    "code": "nationalite"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::Quels sont les droits de l'enfant en danger ?": {
+  "intent": "clear",
+  "codes": [
+   "protection_enfant"
+  ],
+  "queries": [
+   {
+    "text": "droits de l'enfant en danger",
+    "code": "protection_enfant"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::Que dit l'article 13 ?": {
+  "intent": "ambiguous",
+  "codes": [
+   "arbitrage",
+   "obligations_contrats",
+   "commerce",
+   "droit_international_prive",
+   "droits_reels",
+   "protection_enfant",
+   "nationalite",
+   "penal",
+   "procedure_civile",
+   "procedure_penale",
+   "societes",
+   "statut_personnel",
+   "travail",
+   "constitution"
+  ],
+  "queries": [
+   {
+    "text": "article 13",
+    "code": null
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::Quelles sont les causes de divorce ?": {
+  "intent": "clear",
+  "codes": [
+   "statut_personnel"
+  ],
+  "queries": [
+   {
+    "text": "causes de divorce",
+    "code": "statut_personnel"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::Combien d'heures par semaine peut-on travailler ?": {
+  "intent": "clear",
+  "codes": [
+   "travail"
+  ],
+  "queries": [
+   {
+    "text": "durée maximale du travail hebdomadaire",
+    "code": "travail"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::Mon patron peut-il me virer sans préavis ?": {
+  "intent": "clear",
+  "codes": [
+   "travail"
+  ],
+  "queries": [
+   {
+    "text": "licenciement sans préavis",
+    "code": "travail"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::Mon mari peut-il se remarier ?": {
+  "intent": "clear",
+  "codes": [
+   "statut_personnel"
+  ],
+  "queries": [
+   {
+    "text": "capacité de remariage",
+    "code": "statut_personnel"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::ما هي عقوبة الرشوة؟": {
+  "intent": "clear",
+  "codes": [
+   "penal"
+  ],
+  "queries": [
+   {
+    "text": "peine de corruption",
+    "code": "penal"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::ما هي عقوبة القتل العمد؟": {
+  "intent": "clear",
+  "codes": [
+   "penal"
+  ],
+  "queries": [
+   {
+    "text": "peine du meurtre volontaire",
+    "code": "penal"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::ما هي عقوبة الاحتيال؟": {
+  "intent": "clear",
+  "codes": [
+   "penal"
+  ],
+  "queries": [
+   {
+    "text": "peine d'escroquerie",
+    "code": "penal"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::ما هي عقوبة الاغتصاب؟": {
+  "intent": "clear",
+  "codes": [
+   "penal"
+  ],
+  "queries": [
+   {
+    "text": "peine du viol",
+    "code": "penal"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::ما هو الدفاع الشرعي؟": {
+  "intent": "clear",
+  "codes": [
+   "penal"
+  ],
+  "queries": [
+   {
+    "text": "défense légitime",
+    "code": "penal"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::ماذا ينص الفصل 24 من الدستور؟": {
+  "intent": "clear",
+  "codes": [
+   "constitution"
+  ],
+  "queries": [
+   {
+    "text": "chapitre 24 constitution",
+    "code": "constitution"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::ما هي حقوق الموقوف؟": {
+  "intent": "clear",
+  "codes": [
+   "procedure_penale"
+  ],
+  "queries": [
+   {
+    "text": "droits du prévenu en garde à vue",
+    "code": "procedure_penale"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::ما هي مدة العمل القانونية؟": {
+  "intent": "clear",
+  "codes": [
+   "travail"
+  ],
+  "queries": [
+   {
+    "text": "durée du travail",
+    "code": "travail"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::متى يمكن للمؤجر طرد العامل؟": {
+  "intent": "clear",
+  "codes": [
+   "travail"
+  ],
+  "queries": [
+   {
+    "text": "licenciement du salarié",
+    "code": "travail"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::هل يجوز تعدد الزوجات؟": {
+  "intent": "clear",
+  "codes": [
+   "statut_personnel"
+  ],
+  "queries": [
+   {
+    "text": "polygamie",
+    "code": "statut_personnel"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::كيف يتم الطلاق؟": {
+  "intent": "clear",
+  "codes": [
+   "statut_personnel"
+  ],
+  "queries": [
+   {
+    "text": "procédure de divorce",
+    "code": "statut_personnel"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::ما هي القوة القاهرة؟": {
+  "intent": "clear",
+  "codes": [
+   "obligations_contrats",
+   "commerce"
+  ],
+  "queries": [
+   {
+    "text": "force majeure",
+    "code": null
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::كيف تكتسب الجنسية التونسية؟": {
+  "intent": "clear",
+  "codes": [
+   "nationalite"
+  ],
+  "queries": [
+   {
+    "text": "acquisition de la nationalité tunisienne",
+    "code": "nationalite"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::What is the penalty for murder?": {
+  "intent": "clear",
+  "codes": [
+   "penal"
+  ],
+  "queries": [
+   {
+    "text": "peine du meurtre",
+    "code": "penal"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::How is fraud punished?": {
+  "intent": "clear",
+  "codes": [
+   "penal"
+  ],
+  "queries": [
+   {
+    "text": "peine de fraude",
+    "code": "penal"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::What is the penalty for bribery?": {
+  "intent": "clear",
+  "codes": [
+   "penal"
+  ],
+  "queries": [
+   {
+    "text": "peine de corruption",
+    "code": "penal"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::What counts as self-defence?": {
+  "intent": "clear",
+  "codes": [
+   "penal"
+  ],
+  "queries": [
+   {
+    "text": "légitime défense",
+    "code": "penal"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::Is polygamy allowed?": {
+  "intent": "clear",
+  "codes": [
+   "statut_personnel"
+  ],
+  "queries": [
+   {
+    "text": "mariage polygame",
+    "code": "statut_personnel"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::What are the rights of a detainee?": {
+  "intent": "clear",
+  "codes": [
+   "procedure_penale",
+   "constitution"
+  ],
+  "queries": [
+   {
+    "text": "droits du détenu",
+    "code": null
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::What is the legal working hours limit?": {
+  "intent": "clear",
+  "codes": [
+   "travail"
+  ],
+  "queries": [
+   {
+    "text": "durée légale du travail",
+    "code": "travail"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::When can an employer lawfully dismiss an employee?": {
+  "intent": "clear",
+  "codes": [
+   "travail"
+  ],
+  "queries": [
+   {
+    "text": "motifs de licenciement",
+    "code": "travail"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::What is force majeure?": {
+  "intent": "clear",
+  "codes": [
+   "obligations_contrats",
+   "commerce"
+  ],
+  "queries": [
+   {
+    "text": "force majeure",
+    "code": "obligations_contrats"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::How can someone acquire Tunisian nationality?": {
+  "intent": "clear",
+  "codes": [
+   "nationalite"
+  ],
+  "queries": [
+   {
+    "text": "acquisition de la nationalité tunisienne",
+    "code": "nationalite"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::What does article 13 say?": {
+  "intent": "ambiguous",
+  "codes": [
+   "arbitrage",
+   "obligations_contrats",
+   "commerce",
+   "droit_international_prive",
+   "droits_reels",
+   "protection_enfant",
+   "nationalite",
+   "penal",
+   "procedure_civile",
+   "procedure_penale",
+   "societes",
+   "statut_personnel",
+   "travail",
+   "constitution"
+  ],
+  "queries": [
+   {
+    "text": "article 13",
+    "code": null
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
+ },
+ "test::What are the grounds for divorce?": {
+  "intent": "clear",
+  "codes": [
+   "statut_personnel"
+  ],
+  "queries": [
+   {
+    "text": "causes de divorce",
+    "code": "statut_personnel"
+   }
+  ],
+  "prompt_hash": "e4c6a65fda60"
  }
 }

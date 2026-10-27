@@ -1,0 +1,804 @@
+{
+ "d73f23a5ca199f10187a23382c1a3dbe9149af28": {
+  "enough": true,
+  "relevant_ids": [
+   "PenalFr/s02/263",
+   "PenalFr/s02/261",
+   "PenalFr/s02/262",
+   "PenalFr/s02/260",
+   "PenalFr/s02/264"
+  ],
+  "missing": ""
+ },
+ "ef33cf258bc89dc9f8298929dc3dc1c99e22b6b6": {
+  "enough": true,
+  "relevant_ids": [
+   "PenalFr/s02/245",
+   "PenalFr/s02/247"
+  ],
+  "missing": ""
+ },
+ "ff54f603c366c1b822ab7b080aff4c107e537d6f": {
+  "enough": true,
+  "relevant_ids": [],
+  "missing": ""
+ },
+ "18e232e0cf71b9905fd1b43c24410d0ce5da3dc9": {
+  "enough": true,
+  "relevant_ids": [
+   "PenalFr/s02/59",
+   "PenalFr/s02/92",
+   "PenalFr/s02/228-bis",
+   "PenalFr/s02/264",
+   "EnfantFr/s01/78",
+   "EnfantFr/s04/228-bis"
+  ],
+  "missing": ""
+ },
+ "f94508808e4f45dd252df5724dcf6c35abccfb0f": {
+  "enough": true,
+  "relevant_ids": [],
+  "missing": ""
+ },
+ "674b3699955fb350049798bb24eb7e07ffa7adf7": {
+  "enough": true,
+  "relevant_ids": [
+   "PenalFr/s02/258"
+  ],
+  "missing": ""
+ },
+ "fb78315135bed99f844114e9836f784161aef8b1": {
+  "enough": false,
+  "relevant_ids": [],
+  "missing": "énumération des droits fondamentaux"
+ },
+ "ecca3fc4dfacc443c739e58ae878f9e31927e744": {
+  "sub_queries": [
+   {
+    "text": "vie privée inviolabilité du domicile",
+    "code": "constitution"
+   },
+   {
+    "text": "libertés d'opinion pensée expression information publication",
+    "code": "constitution"
+   },
+   {
+    "text": "droit à la culture liberté de création",
+    "code": "constitution"
+   }
+  ]
+ },
+ "3049226cbd62291f3243d25133f44c1056f4d656": {
+  "enough": false,
+  "relevant_ids": [],
+  "missing": "liste complète des droits fondamentaux"
+ },
+ "70bc92cfabcc3be111aff817e7915c21dfcc6358": {
+  "sub_queries": [
+   {
+    "text": "secret des correspondances données personnelles",
+    "code": "constitution"
+   },
+   {
+    "text": "liberté de circulation lieu de résidence",
+    "code": "constitution"
+   },
+   {
+    "text": "libre exercice des cultes sécurité publique",
+    "code": "constitution"
+   }
+  ]
+ },
+ "a4e5db777cc99cabd5fc43c0a3fa925bebc8abf1": {
+  "enough": true,
+  "relevant_ids": [],
+  "missing": ""
+ },
+ "4efcdc57c2a0ad376b6eee23291de968f4b74f31": {
+  "enough": true,
+  "relevant_ids": [
+   "ProcedurepenaleFr/s01/13-bis"
+  ],
+  "missing": ""
+ },
+ "a37845ba7115c73f16935601e27d58cbdd6c3281": {
+  "enough": true,
+  "relevant_ids": [],
+  "missing": ""
+ },
+ "8c9694b44bcbc672dbbf3da22198488a9a1da4f0": {
+  "enough": true,
+  "relevant_ids": [],
+  "missing": ""
+ },
+ "1515894d6210575368e8515a254e9ff766056610": {
+  "enough": true,
+  "relevant_ids": [
+   "travailFr/s01/64",
+   "travailFr/s01/68-3",
+   "travailFr/s01/94-10"
+  ],
+  "missing": ""
+ },
+ "ba170a1876476f5c04b43781011b497f30c51a5a": {
+  "enough": true,
+  "relevant_ids": [
+   "DIPFR/s01/46",
+   "DIPFR/s01/45",
+   "Statutpersonnel/s01/3"
+  ],
+  "missing": ""
+ },
+ "6e996a687d8d4acea323542c1c920cc3b547986f": {
+  "enough": true,
+  "relevant_ids": [
+   "Statutpersonnel/s01/67"
+  ],
+  "missing": ""
+ },
+ "635eb585ce00b768526b6b41c853a1684cb2ca07": {
+  "enough": false,
+  "relevant_ids": [],
+  "missing": "conditions de validité du contrat"
+ },
+ "71134e4aaa2cc7e08645a814fbc1dc2e954236fc": {
+  "sub_queries": [
+   {
+    "text": "conditions déterminées par la loi applicable",
+    "code": "obligations_contrats"
+   },
+   {
+    "text": "forme du contrat valable",
+    "code": "obligations_contrats"
+   },
+   {
+    "text": "validité du contrat selon le droit applicable",
+    "code": "obligations_contrats"
+   }
+  ]
+ },
+ "708d6090535ef9bc32b0639896f02662dcbe36e3": {
+  "enough": false,
+  "relevant_ids": [],
+  "missing": "conditions de validité du contrat"
+ },
+ "f6e90423e8be24bf4784fe7dd943c7f09d053352": {
+  "sub_queries": [
+   {
+    "text": "conditions de validité du contrat",
+    "code": "obligations_contrats"
+   },
+   {
+    "text": "conditions de nullité du contrat",
+    "code": "obligations_contrats"
+   }
+  ]
+ },
+ "5e8f018b755a601db62339ec7184df1b631497da": {
+  "enough": true,
+  "relevant_ids": [],
+  "missing": ""
+ },
+ "1cb04c52fad37ed540722c2496c6b24606138a46": {
+  "enough": true,
+  "relevant_ids": [
+   "ArbitrageFr/s01/2"
+  ],
+  "missing": ""
+ },
+ "7823f3f3836b167dbecdc3aab44365221327893f": {
+  "enough": false,
+  "relevant_ids": [],
+  "missing": "sanction des coups"
+ },
+ "8fefc90eedbc20cf4fcb3e6c2dfe0765174a1242": {
+  "sub_queries": [
+   {
+    "text": "coup et blessures peine d'emprisonnement",
+    "code": "penal"
+   },
+   {
+    "text": "violence envers personne sanction pénale",
+    "code": "penal"
+   }
+  ]
+ },
+ "2ce3377fdced58238ad0e28dbf486bf3c730b6ad": {
+  "enough": true,
+  "relevant_ids": [],
+  "missing": ""
+ },
+ "abfc1ef7bf3acf3d87393afaffc3e806cead4ed4": {
+  "enough": true,
+  "relevant_ids": [],
+  "missing": ""
+ },
+ "6c0460fa6e16c518a0d64be3b3748aa9b76d2aeb": {
+  "enough": true,
+  "relevant_ids": [],
+  "missing": ""
+ },
+ "f4d180ea7a93030b1f730c421cf26549f6522cc1": {
+  "enough": true,
+  "relevant_ids": [],
+  "missing": ""
+ },
+ "745fda2afb5d7b901f4d95006f8f3f9afeb2592c": {
+  "enough": true,
+  "relevant_ids": [],
+  "missing": ""
+ },
+ "775aec8af4d222158524dc206811f0e1750056fd": {
+  "enough": true,
+  "relevant_ids": [],
+  "missing": ""
+ },
+ "0f068af306b50d9dc4ea90f3c1598ff04261cb97": {
+  "enough": false,
+  "relevant_ids": [],
+  "missing": "conditions de validité du contrat"
+ },
+ "6ba7c12ffaf57106e64390f13f8cf4184703c138": {
+  "sub_queries": [
+   {
+    "text": "conditions de validité du contrat",
+    "code": "obligations_contrats"
+   },
+   {
+    "text": "exigences de forme contractuelle",
+    "code": "obligations_contrats"
+   },
+   {
+    "text": "conditions de forme du contrat",
+    "code": "obligations_contrats"
+   }
+  ]
+ },
+ "b2bbb0955b334081ca9a71cc2206255ceeec0759": {
+  "enough": false,
+  "relevant_ids": [],
+  "missing": "conditions de validité du contrat"
+ },
+ "e751fcaf833ab5548fd39144e0412c5f08dcc213": {
+  "sub_queries": [
+   {
+    "text": "critères de validité du contrat",
+    "code": "obligations_contrats"
+   },
+   {
+    "text": "éléments de validité contractuelle",
+    "code": "obligations_contrats"
+   },
+   {
+    "text": "exigences de validité contractuelle",
+    "code": "obligations_contrats"
+   }
+  ]
+ },
+ "17fce43e818da180f9b716c42aed795611d67b60": {
+  "enough": true,
+  "relevant_ids": [],
+  "missing": ""
+ },
+ "6ba2598f82f64d6906480535eee6df0ce2dbaced": {
+  "enough": true,
+  "relevant_ids": [
+   "Statutpersonnel/s01/3",
+   "Statutpersonnel/s01/6",
+   "DIPFR/s01/46"
+  ],
+  "missing": ""
+ },
+ "67ab9466813d8e664360502559d69e8bf920bdb4": {
+  "enough": true,
+  "relevant_ids": [
+   "Statutpersonnel/s01/67"
+  ],
+  "missing": ""
+ },
+ "77c84c0dee6ec2015ca1544765c87fcac0ef91c0": {
+  "enough": false,
+  "relevant_ids": [],
+  "missing": "liste des droits fondamentaux"
+ },
+ "bca268171d3dd269fc137188dfd18fc85276fce4": {
+  "sub_queries": [
+   {
+    "text": "vie privée liberté d'expression droit à la santé",
+    "code": "constitution"
+   },
+   {
+    "text": "inviolabilité du domicile liberté d'opinion",
+    "code": "constitution"
+   },
+   {
+    "text": "liberté de pensée liberté d'information droit à la culture",
+    "code": "constitution"
+   }
+  ]
+ },
+ "6356a82a5f70b1936cc71fb1fddc022b634e8cd5": {
+  "enough": false,
+  "relevant_ids": [],
+  "missing": "liste des droits fondamentaux"
+ },
+ "de03dc0096495927686caf2db22659e6ef431f27": {
+  "sub_queries": [
+   {
+    "text": "secret des correspondances droit à la santé",
+    "code": "constitution"
+   },
+   {
+    "text": "libertés d’opinion liberté d’information droit à la culture",
+    "code": "constitution"
+   },
+   {
+    "text": "inviolabilité du domicile droit à la culture",
+    "code": "constitution"
+   }
+  ]
+ },
+ "cb19d1c05311dda967b34cb7863fe902d087f7c7": {
+  "enough": true,
+  "relevant_ids": [
+   "ProcedurepenaleFr/s01/13-bis"
+  ],
+  "missing": ""
+ },
+ "99e43e32f027918568429662906a342976a90b7c": {
+  "enough": true,
+  "relevant_ids": [
+   "travailFr/s01/123",
+   "travailFr/s01/113"
+  ],
+  "missing": ""
+ },
+ "8d9b596576efc0e0cb71f0a574509576b468cdcb": {
+  "enough": false,
+  "relevant_ids": [],
+  "missing": "conditions de validité du contrat"
+ },
+ "5d990cc1b47477f20b0d2eb3899f51376479a94e": {
+  "sub_queries": [
+   {
+    "text": "conditions de validité du contrat",
+    "code": "obligations_contrats"
+   },
+   {
+    "text": "exigences de forme du contrat",
+    "code": "obligations_contrats"
+   },
+   {
+    "text": "conditions fixées par le droit applicable",
+    "code": "obligations_contrats"
+   }
+  ]
+ },
+ "a647764cf9d1eb4e9c88fb595b6c7b168a9bfc23": {
+  "enough": false,
+  "relevant_ids": [],
+  "missing": "éléments de validité du contrat"
+ },
+ "adc7e0fec11192e66c3c07649a2ec6147d342ed8": {
+  "sub_queries": [
+   {
+    "text": "éléments de validité contractuelle",
+    "code": "obligations_contrats"
+   },
+   {
+    "text": "conditions de formation du contrat",
+    "code": "obligations_contrats"
+   }
+  ]
+ },
+ "3e83bd36e32659cdd449c715cef4f829dfbf4111": {
+  "enough": false,
+  "relevant_ids": [],
+  "missing": "peine du vol simple"
+ },
+ "11d3d0ed29538a506dda5fbf86c313db7c3b0838": {
+  "sub_queries": [
+   {
+    "text": "vol simple peine",
+    "code": "penal"
+   },
+   {
+    "text": "vol simple sanction",
+    "code": "penal"
+   },
+   {
+    "text": "vol simple emprisonnement",
+    "code": "penal"
+   }
+  ]
+ },
+ "fe67c62d46d3aca369003be87a4d1e5e828d98d2": {
+  "enough": false,
+  "relevant_ids": [],
+  "missing": "peine du vol simple"
+ },
+ "5825b2dfab535ac5041ea1b68e56fb609358def2": {
+  "sub_queries": [
+   {
+    "text": "vol simple peine prévue",
+    "code": "penal"
+   },
+   {
+    "text": "vol simple durée d'emprisonnement",
+    "code": "penal"
+   },
+   {
+    "text": "vol simple peine maximale",
+    "code": "penal"
+   }
+  ]
+ },
+ "823e2091a14cfd363bd1ebdb533e912aa98b4d59": {
+  "enough": true,
+  "relevant_ids": [],
+  "missing": ""
+ },
+ "7e2d99da7e927e1d46c300e55eb6222bcafad5ab": {
+  "enough": true,
+  "relevant_ids": [],
+  "missing": ""
+ },
+ "56c02669c385553553860709904a4587000e2d4d": {
+  "enough": true,
+  "relevant_ids": [],
+  "missing": ""
+ },
+ "3a532bbd66b7abcefad12b9eaa2beea007eccd6c": {
+  "enough": true,
+  "relevant_ids": [],
+  "missing": ""
+ },
+ "0baa19767e2e3727a35018d3b6c151a4da179dd3": {
+  "enough": true,
+  "relevant_ids": [
+   "PenalFr/s02/258"
+  ],
+  "missing": ""
+ },
+ "da0c78879d31a330e823a3920eebf660295f6e5b": {
+  "enough": false,
+  "relevant_ids": [],
+  "missing": "énumération des droits fondamentaux"
+ },
+ "6a5a1f15b8a509a67588f45b71ce0af10002c2c3": {
+  "sub_queries": [
+   {
+    "text": "libertés d’opinion pensée expression information publication",
+    "code": "constitution"
+   },
+   {
+    "text": "vie privée inviolabilité du domicile secret des correspondances",
+    "code": "constitution"
+   },
+   {
+    "text": "droit à la culture liberté création patrimoine",
+    "code": "constitution"
+   }
+  ]
+ },
+ "c84681674e84d9260609b74b5f738cdadbfade93": {
+  "enough": false,
+  "relevant_ids": [],
+  "missing": "énumération des droits fondamentaux"
+ },
+ "91564d6a54d68de4509403f483a82fd7db3aa81a": {
+  "sub_queries": [
+   {
+    "text": "dignité humaine intégrité physique",
+    "code": "constitution"
+   },
+   {
+    "text": "liberté de création culturelle",
+    "code": "constitution"
+   },
+   {
+    "text": "liberté de circulation résidence",
+    "code": "constitution"
+   }
+  ]
+ },
+ "27b361392aff56c779455fe918db00cf8e2d7ede": {
+  "enough": false,
+  "relevant_ids": [],
+  "missing": "durée de la garde à vue"
+ },
+ "bdbc3b5f7ae78f0f54a1540341f89c3ee534c321": {
+  "sub_queries": [
+   {
+    "text": "garde à vue durée trois jours",
+    "code": "procedure_penale"
+   },
+   {
+    "text": "durée maximale garde à vue",
+    "code": "procedure_penale"
+   },
+   {
+    "text": "limite durée garde à vue",
+    "code": "procedure_penale"
+   }
+  ]
+ },
+ "ab88b0eceb891b1f02e421e15d431bb7b5a78293": {
+  "enough": false,
+  "relevant_ids": [],
+  "missing": "durée maximale de la garde à vue"
+ },
+ "dc047fed6ca255d2b6b86756bff710810340ec67": {
+  "sub_queries": [
+   {
+    "text": "officier police judiciaire garde trois jours",
+    "code": "procedure_penale"
+   },
+   {
+    "text": "temps de rétention suspect trois jours",
+    "code": "procedure_penale"
+   }
+  ]
+ },
+ "92535bc7a19f215a33595940ee0217ea2da48d02": {
+  "enough": true,
+  "relevant_ids": [
+   "ProcedurepenaleFr/s01/13-bis"
+  ],
+  "missing": ""
+ },
+ "07bd68d9c52cb674bddfb220411d892fb3e153ec": {
+  "enough": true,
+  "relevant_ids": [],
+  "missing": ""
+ },
+ "7f8988e81c9ec7ede82d8cb6b2fa59d54b418261": {
+  "enough": true,
+  "relevant_ids": [],
+  "missing": ""
+ },
+ "fe106a32871df9c1f7f23ce0d1c39ff4c95aa3f4": {
+  "enough": true,
+  "relevant_ids": [
+   "travailFr/s01/64",
+   "travailFr/s01/94-10",
+   "travailFr/s01/68-3"
+  ],
+  "missing": ""
+ },
+ "f41fef4ba29c1fbb054d2b054461b7a0b9ccec9a": {
+  "enough": true,
+  "relevant_ids": [],
+  "missing": ""
+ },
+ "a0c97e3755861aebaaa754f53cdf6680d1b671f0": {
+  "enough": true,
+  "relevant_ids": [
+   "Statutpersonnel/s01/67"
+  ],
+  "missing": ""
+ },
+ "e2271eadc4074e5ee57335cfe7850c3affb37085": {
+  "enough": false,
+  "relevant_ids": [],
+  "missing": "conditions de validité du contrat"
+ },
+ "71ae8ea767246b035ed804cd815b4b29e334203d": {
+  "sub_queries": [
+   {
+    "text": "conditions de validité contrat",
+    "code": "obligations_contrats"
+   },
+   {
+    "text": "exigences de forme contractuelle",
+    "code": "obligations_contrats"
+   },
+   {
+    "text": "conditions légales validité contrat",
+    "code": "obligations_contrats"
+   }
+  ]
+ },
+ "7fef46f5108ed0b429d74bd7a2b8febb9aaea6d0": {
+  "enough": true,
+  "relevant_ids": [],
+  "missing": ""
+ },
+ "17a707e4a5a7a5a3e877bb8b3653dbc729460b4d": {
+  "enough": true,
+  "relevant_ids": [],
+  "missing": ""
+ },
+ "bfcf422bf031478123b48a39c09a6c1070315993": {
+  "enough": true,
+  "relevant_ids": [
+   "ArbitrageFr/s01/2"
+  ],
+  "missing": ""
+ },
+ "892fa4c8884709f8b192d7602155275a4a423d57": {
+  "enough": false,
+  "relevant_ids": [],
+  "missing": "peine du coup simple"
+ },
+ "e08abf3d2596580eb0b6023bb3577db65a8d7350": {
+  "sub_queries": [
+   {
+    "text": "coup simple",
+    "code": "penal"
+   },
+   {
+    "text": "coup simple peine",
+    "code": "penal"
+   },
+   {
+    "text": "coup simple emprisonnement",
+    "code": "penal"
+   }
+  ]
+ },
+ "1668b8e356ad991224679949075859991fc87eb2": {
+  "enough": true,
+  "relevant_ids": [],
+  "missing": ""
+ },
+ "a42a54af175a87c6a6f095bb24e2e1844fe2f705": {
+  "enough": false,
+  "relevant_ids": [],
+  "missing": "peine du vol simple"
+ },
+ "81c80c2d4f65afa034a0559f67dab49c856e5755": {
+  "sub_queries": [
+   {
+    "text": "vol simple peine d'emprisonnement",
+    "code": "penal"
+   },
+   {
+    "text": "vol simple sanction pénale",
+    "code": "penal"
+   },
+   {
+    "text": "vol simple peine prévue",
+    "code": "penal"
+   }
+  ]
+ },
+ "79c49efd3d60ad09bddc0bcbb591c2de6569f46d": {
+  "enough": true,
+  "relevant_ids": [],
+  "missing": ""
+ },
+ "2de93e6a4161526cf40d885c3dc2e0f5f44abe11": {
+  "enough": true,
+  "relevant_ids": [],
+  "missing": ""
+ },
+ "770a58b66280192e0e1a4c656c10294e8b1b71ac": {
+  "enough": true,
+  "relevant_ids": [],
+  "missing": ""
+ },
+ "8d657dbfe0113686eff1e6a5997cbc5117c32b84": {
+  "enough": true,
+  "relevant_ids": [],
+  "missing": ""
+ },
+ "11108b98aff09c295ba3861fdc1a71c8310b700e": {
+  "enough": false,
+  "relevant_ids": [],
+  "missing": "conditions de validité du contrat"
+ },
+ "be3ff769eb19cf95a3479a6dd607be3c73189873": {
+  "sub_queries": [
+   {
+    "text": "conditions de validité du contrat",
+    "code": "obligations_contrats"
+   },
+   {
+    "text": "forme du contrat conditions légales",
+    "code": "obligations_contrats"
+   },
+   {
+    "text": "validité du contrat exigences légales",
+    "code": "obligations_contrats"
+   }
+  ]
+ },
+ "62ecb4fea9615a143638ee8086b2957a52e1a926": {
+  "enough": false,
+  "relevant_ids": [],
+  "missing": "conditions de validité du contrat"
+ },
+ "6b96b8dfc6ede66b30840b8034283df65bc5194f": {
+  "sub_queries": [
+   {
+    "text": "conditions de forme du contrat",
+    "code": "obligations_contrats"
+   },
+   {
+    "text": "exigences légales de validité",
+    "code": "obligations_contrats"
+   },
+   {
+    "text": "conditions de validité contractuelle",
+    "code": "obligations_contrats"
+   }
+  ]
+ },
+ "a2611134210cafa197fdaef59db885dbf7a7f27c": {
+  "enough": true,
+  "relevant_ids": [],
+  "missing": ""
+ },
+ "7b4ab7b31a387088bd0f0b8307692ee4833e8064": {
+  "enough": true,
+  "relevant_ids": [],
+  "missing": ""
+ },
+ "4f2641a0ff8186798edcc76cdc47e6d7629b2b9b": {
+  "enough": true,
+  "relevant_ids": [
+   "Statutpersonnel/s01/67"
+  ],
+  "missing": ""
+ },
+ "bc56543916d6697760ea2392037366aa0f04b67b": {
+  "enough": false,
+  "relevant_ids": [],
+  "missing": "liste des droits fondamentaux"
+ },
+ "01801437ce4c832597b55260644616aac0f2f54c": {
+  "sub_queries": [
+   {
+    "text": "libertés d’opinion et d’expression",
+    "code": "constitution"
+   },
+   {
+    "text": "vie privée inviolabilité du domicile",
+    "code": "constitution"
+   },
+   {
+    "text": "dignité de l’être humain intégrité physique",
+    "code": "constitution"
+   }
+  ]
+ },
+ "50d25d385f3983d78b15bd727b8e9147d999199a": {
+  "enough": false,
+  "relevant_ids": [],
+  "missing": "liste des droits fondamentaux"
+ },
+ "4bfae09f8a39516b4c4ea3c1ce1af4843cdfd5d1": {
+  "sub_queries": [
+   {
+    "text": "droits fondamentaux",
+    "code": "constitution"
+   },
+   {
+    "text": "liberté de circulation",
+    "code": "constitution"
+   },
+   {
+    "text": "droit à la santé",
+    "code": "constitution"
+   }
+  ]
+ },
+ "b3b83c960327a41da861e98adb0088766541c02b": {
+  "enough": true,
+  "relevant_ids": [
+   "ProcedurepenaleFr/s01/13-bis"
+  ],
+  "missing": ""
+ },
+ "db95ef0d0b86cf8250c5ce08bc883e3869e5bfff": {
+  "enough": true,
+  "relevant_ids": [],
+  "missing": ""
+ },
+ "2a44e57493eb107ac7ad8a8403010c5a00e0e374": {
+  "enough": true,
+  "relevant_ids": [],
+  "missing": ""
+ }
+}

@@ -319,3 +319,16 @@ Report Hit@6 for each. The old rewrite hurt, so Plan must prove it does not.
   Put every LLM call behind one function with the model name in config.
 - What to do when evidence is weak and retries are used up. Proposed: refuse.
 - Update the article ID format in `L3_data.md` to the new chunk IDs.
+## Experiment: code hint (G) and Grade -> Reformulate loop (dev only, 2026-10-27)
+
+Expectation (written before running): loop beats A2 by >= 3 points Hit@6, no concept worse.
+Result: met on dev.
+  A2 71.4 | G 80.0 | loop from A2 80.0 | loop from G 85.7 | A1 oracle 88.6  (Hit@6)
+  Loop made 0 questions worse (10 retried from G, 4 improved). 1.74 LLM calls/question.
+Caveats:
+  - Gains come from 2 concepts (frapper; validite du contrat in AR/EN). Evidence is thin.
+  - Plan variants also beat A2 on dev and then lost on test. Dev is not proof.
+  - Code descriptions were fixed after looking at dev failures, so hint accuracy (29/30) is optimistic.
+  - The AR/EN contract-validity wins may be a translation weakness, not agentic reasoning (untested).
+  - Analyze cache used by G had no prompt hash (UNVERIFIED, prompt is frozen).
+Status: UNCONFIRMED. Test split already seen twice. Confirmation = the fresh 100-question set.
